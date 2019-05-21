@@ -1,0 +1,96 @@
+@import '__normalize.less';
+
+:root {
+  // main colors
+  --accent: #4242ef;
+  --secondary: #505060;
+  --background: #ffffff;
+  --text: #010110;
+
+  // code styles
+  --code--background: rgba(0, 0, 0, 0.025);
+
+  // letter spacing
+  --low--letter-spacing: 0.025em;
+  --medium--letter-spacing: 0.05em;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+
+  // disable tap color in Chrome mobile
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  box-sizing: inherit;
+  font-size: 16px;
+  line-height: 1.65;
+
+  @media (min-width: 737px) {
+    font-size: 17px;    
+  }
+
+  @media (max-width: 320px) {
+    font-size: 15px;    
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .fonts-loaded & {
+    font-family: 'Fira Sans', sans-serif;
+  }
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline-color: var(--accent);
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 38rem;
+  padding: 1rem;
+
+  @media (min-width: 737px) {
+    padding: 2rem;
+  }
+}
+
+main {
+
+  /*
+   * eliminate the margin on the
+   * article's first and last elements
+   */
+  .container > *:first-child {
+    margin-top: 0;
+  }
+
+  .container > *:last-child {
+    margin-bottom: 0;
+  }
+}

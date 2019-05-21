@@ -1,0 +1,11 @@
+<header>
+  <div class="container">
+    <h1 class="page__title">{{ title }}</h1>
+
+    {% if type == 'post' %}
+    <p class="page__subtitle">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d %B, %Y'}}</time>
+    </p>
+    {% endif %}
+  </div>
+</header>

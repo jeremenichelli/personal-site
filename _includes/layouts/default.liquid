@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  {% include 'head' %}
+  <body class="{{ type }}">
+    {% include 'nav' %}
+    {% include 'header' %}
+    <main id="main" role="main">
+      <div class="container main__container">
+        {% if excerpt %}
+        <p class="page__excerpt">
+          {{ excerpt }}
+        </p>
+        {% endif %}
+        {{ content }}
+      </div>
+    </main>
+    {% include 'footer' %}
+  </body>
+</html>

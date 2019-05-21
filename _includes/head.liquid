@@ -1,0 +1,48 @@
+<head>
+  {% if title %}{% capture pageTitle %}{{ title }} | Jeremias Menichelli{% endcapture %}
+  {% else %}{% capture pageTitle %}{{ site.title }}{% endcapture %}
+  {% endif %}
+
+  {% if excerpt %}{% capture pageDescription %}{{ excerpt }}{% endcapture %}
+  {% else %}{% capture pageDescription %}{{ site.description }}{% endcapture %}
+  {% endif %}
+
+  {% capture url %}{{ page.url | prepend: site.url }}{% endcapture %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  <link rel="canonical" href="{{ url }}">
+
+  <!-- twitter card meta -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@jeremenichelli">
+  <meta name="twitter:creator" content="@jeremenichelli" />
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
+  <meta name="twitter:url" content="{{ url }}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/images/twitter-card-image.jpeg">
+
+  <!-- preconnect with google fonts cdns -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/">
+
+  <!-- favicon definitions -->
+  {% include 'favicons' %}
+
+  <!-- structured data -->
+  {% if type == 'home' %}{% include 'structured-data/home' %}
+  {% elsif type == 'post' %}{% include 'structured-data/post' %}
+  {% else %}{% include 'structured-data/page' %}
+  {% endif %}
+
+  <!-- include inline styles -->
+  {% capture stylesPath %}styles/{{type}}{% endcapture %}
+  <style>{% include stylesPath %}</style>
+
+  <!-- include inline scripts -->
+  <script>{% include 'scripts/critical' %}</script>
+</head>
