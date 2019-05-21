@@ -1,3 +1,12 @@
 node_modules
 _site
+
+# ignore includes generated at build time
+_includes/styles
+_includes/scripts
+
+# ignore assets generated at build time
 assets
+
+# ignore error logs
+*log
