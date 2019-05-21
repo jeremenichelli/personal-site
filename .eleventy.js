@@ -1,4 +1,5 @@
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const htmlmin = require('html-minifier')
 
 module.exports = function(eleventyConfig) {
   // liquid config
@@ -7,11 +8,11 @@ module.exports = function(eleventyConfig) {
   });
 
   // preprocess collections
-  eleventyConfig.addCollection("blogposts", (collection) => {
+  eleventyConfig.addCollection('blogposts', (collection) => {
     return collection.getFilteredByTag('post').reverse().slice(0,8)
   });
 
-  eleventyConfig.addCollection("archive", (collection) => {
+  eleventyConfig.addCollection('archive', (collection) => {
     return collection.getFilteredByTag('post').reverse()
   });
 
@@ -29,6 +30,21 @@ module.exports = function(eleventyConfig) {
 
   // copy assets folder
   eleventyConfig.addPassthroughCopy('assets');
+
+  // minify html
+  eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
+    if (outputPath.endsWith('.html')) {
+      const minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+
+      return minified;
+    }
+
+    return content;
+  });
 
   // return base config
   return {
