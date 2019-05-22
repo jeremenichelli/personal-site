@@ -10,9 +10,10 @@
     "less": "node .scripts/less.js",
     "serve": "eleventy --serve",
     "build": "DEBUG=* eleventy",
+    "assets": "yarn bundle && yarn less && yarn favicons && yarn images",
     "clean": "rimraf _site assets _includes/styles _includes/scripts",
     "prerelease": "yarn clean",
-    "release": "yarn bundle && yarn less && yarn favicons && yarn images && yarn build",
+    "release": "yarn assets && yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,10 +22,8 @@
   },
   "keywords": [
     "blog",
-    "personal",
-    "site",
-    "jeremias",
-    "menichelli"
+    "personal site",
+    "jeremias menichelli"
   ],
   "author": "Jeremias Menichelli",
   "license": "MIT",
