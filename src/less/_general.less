@@ -61,12 +61,15 @@ a {
   text-decoration: none;
   text-decoration-skip-ink: auto;
 
-  &:hover {
-    text-decoration: underline;
-  }
+  @media (any-hover: hover) {
 
-  &:focus {
-    outline-color: var(--accent);
+    &:hover {
+      text-decoration: underline;
+    }
+  
+    &:focus {
+      outline-color: var(--accent);
+    }
   }
 }
 
