@@ -1,6 +1,6 @@
 # personal-site
 
-Repository that runs [jeremenichelli.io](jeremenichelli.io).
+Repository that runs [jeremenichelli.io](jeremenichelli.io)
 
 ## About the site
 
@@ -20,23 +20,25 @@ Doing `yarn assets` in the terminal generates styles, scripts, favicons and imag
 
 ### Styles
 
-The project uses [LESS](//lesscss.org) to generate inlined styles templates that go to `_includes/styles`. You can process all styles by running `yarn less`.
+The project uses [LESS](//lesscss.org) to generate inlined styles templates that go to `_includes/styles`.
+
+You can process all styles by running `yarn less`.
 
 ### Scripts
 
-Running `yarn bundle` creates a critical amount of JavaScript tempalte in `_includes/scripts` and a `font.js` file inside `assets/js` which gets async loaded and handles web font loading.
+Running `yarn bundle` creates a short amount of JavaScript in `_includes/scripts` that gets inlined and a `font.js` file inside `assets/js` which gets async loaded and handles web font loading strategy.
 
 ### Favicons
 
-Running `yarn favicons` generates a tempalte partial inside `_includes` folder and exports all images in `assets/favicon`.
+Running `yarn favicons` generates a template partial in `_includes` folder and exporting all favicon images in `assets/favicon` at the same time.
 
-#### Images
+### Images
 
 The rest of images needed are processed by running `yarn images`.
 
 ### Release
 
-On each deployment, `yarn release` runs both `yarn assets` to generate all assets and `yarn build` to trigger an Eleventy build.
+On each deployment, `yarn release` runs `yarn assets` and `yarn build` to trigger an Eleventy build.
 
 ## Template languages and content
 
