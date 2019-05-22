@@ -8,11 +8,15 @@ This project is built using [Eleventy](//11ty.com) by [Zach Leatherman](//github
 
 ## Scripts
 
-To run the site locally you will need the latest LTS version of [Node.js](https://nodejs.org) and [yarn](//yarnpkg.com).
+In order to run the site locally you will need the latest LTS version of [Node.js](https://nodejs.org) and [yarn](//yarnpkg.com). To serve the site locally first generate all assets. All initial assets are in `src` and get exported to `assets` and `_includes` folders.
 
-To serve the site locally first generate all assets and includes by running `yarn release`, later you can run more specific scripts depending on the asset you changed.
+### Serve
 
-_All initial assets are in `src` and get exported to `assets` and `_includes` folders._
+Start the Eleventy local server by running `yarn serve`.
+
+### Assets
+
+Doing `yarn assets` in the terminal generates styles, scripts, favicons and images before the build.
 
 ### Styles
 
@@ -26,9 +30,13 @@ Running `yarn bundle` creates a critical amount of JavaScript tempalte in `_incl
 
 Running `yarn favicons` generates a tempalte partial inside `_includes` folder and exports all images in `assets/favicon`.
 
-### Images
+#### Images
 
 The rest of images needed are processed by running `yarn images`.
+
+### Release
+
+On each deployment, `yarn release` runs both `yarn assets` to generate all assets and `yarn build` to trigger an Eleventy build.
 
 ## Template languages and content
 
