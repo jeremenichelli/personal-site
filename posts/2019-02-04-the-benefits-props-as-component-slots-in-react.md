@@ -133,7 +133,11 @@ Modal.propTypes = {
 }
 ```
 
-Before you say it, no, `PropTypes.instanceOf(Button)` doesn't work.
+Before you say it, no, the following approach doesn't work.
+
+```js
+PropTypes.instanceOf(Button)
+```
 
 I still think this is a small price to pay, giving all the unnecessary prop manipulation it's saved me, specially inside the design system repository on my current job where internal components are reused as much as possible.
 
