@@ -4,7 +4,8 @@
   "description": "Personal site by Jeremias Menichelli",
   "main": "index.md",
   "scripts": {
-    "format": "prettier --write '{src/js,.scripts}/**/*.js'",
+    "format:js": "prettier --write '{src/js,.scripts}/**/*.js'",
+    "format:less": "prettier --write 'src/less/**/*.less'",
     "bundle": "node .scripts/bundle.js",
     "favicons": "node .scripts/favicons.js",
     "images": "node .scripts/images.js",
@@ -37,6 +38,7 @@
     "favicons": "^5.3.0",
     "glob": "^7.1.4",
     "html-minifier": "^4.0.0",
+    "husky": "^2.3.0",
     "jimp": "^0.6.4",
     "less": "^3.9.0",
     "lint-staged": "^8.1.7",
@@ -58,6 +60,15 @@
     "{src/js,.scripts}/**/*.js": [
       "prettier --write",
       "git add"
+    ],
+    "src/less/**/*.less": [
+      "prettier --write",
+      "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

@@ -31,7 +31,7 @@ if (!FONTS_CACHED) {
   }
 
   scripts.push('/assets/js/font.js')
-  
+
   // append all scripts when dom parsing is finished
   window.addEventListener('DOMContentLoaded', function() {
     scripts.map(function(src) {
