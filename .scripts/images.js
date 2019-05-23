@@ -1,11 +1,11 @@
-const mkdirp = require('mkdirp');
-const chalk = require('chalk');
-const jimp = require('jimp');
+const mkdirp = require('mkdirp')
+const chalk = require('chalk')
+const jimp = require('jimp')
 
 // import config file
-const config = require('./config.json');
+const config = require('./config.json')
 
-console.log(`processing ${chalk.blue('images')}\n`);
+console.log(`processing ${chalk.blue('images')}\n`)
 
 // create base output directory
 mkdirp('./assets/images', (error) => {
@@ -17,13 +17,13 @@ mkdirp('./assets/images', (error) => {
           image
             .quality(file.quality)
             .resize(file.resize[0], file.resize[1])
-            .write(file.output);
+            .write(file.output)
 
-          console.log(`${chalk.green(file.output)} image processed\n`);
+          console.log(`${chalk.green(file.output)} image processed\n`)
         })
         .catch((error) => {
-          console.log(chalk.red(error));
-        });
-    });
+          console.log(chalk.red(error))
+        })
+    })
   }
-});
+})

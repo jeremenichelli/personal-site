@@ -9,12 +9,12 @@ html {
 }
 
 .home__title {
-  text-transform: uppercase;
+  font-size: 2rem; /* desktop 34px */
   letter-spacing: 0.03rem;
   line-height: 1;
-  font-size: 2rem; /* desktop 34px */
   margin: 0;
-  
+  text-transform: uppercase;
+
   @media (min-width: 737px) {
     font-size: 2.235294rem; /* desktop 38px */
   }
@@ -52,17 +52,26 @@ main {
 
 // JS ONLY ANIMATION PROPERTIES FOR HOME PAGE
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-  0% { opacity: 0; transform: translate3d(0, 5px, 0); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 html:not(.no-js) {
-
   .home__title,
   .home__subtitle,
   .home__bio,
@@ -73,7 +82,6 @@ html:not(.no-js) {
 
   // animate on font load
   &.fonts-loaded {
-
     .home__title {
       animation-name: fadeIn;
       animation-duration: 0.3s;
@@ -116,7 +124,6 @@ html:not(.no-js) {
 
   // cancel animation on font fail
   &.fonts-failed {
-
     .home__title,
     .home__subtitle,
     .home__bio,

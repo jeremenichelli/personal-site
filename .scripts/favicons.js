@@ -1,13 +1,13 @@
-const fs = require('fs');
-const mkdirp = require('mkdirp');
-const rimraf = require('rimraf');
-const chalk = require('chalk');
-const favicons = require('favicons');
+const fs = require('fs')
+const mkdirp = require('mkdirp')
+const rimraf = require('rimraf')
+const chalk = require('chalk')
+const favicons = require('favicons')
 
 // import config file
-const config = require('./config.json');
+const config = require('./config.json')
 
-console.log(`running ${chalk.blue('favicon')} tasks\n`);
+console.log(`running ${chalk.blue('favicon')} tasks\n`)
 
 const setup = {
   appName: 'jeremenichelli.io',
@@ -26,7 +26,7 @@ const setup = {
     firefox: false,
     yandex: false
   }
-};
+}
 
 // rmeove old favicon files
 rimraf(config.favicon.output, (error) => {
@@ -37,7 +37,7 @@ rimraf(config.favicon.output, (error) => {
         // generate favicons
         favicons(config.favicon.entry, setup, (error, response) => {
           if (error) {
-            console.log(error);
+            console.log(error)
           } else {
             // output html tags
             fs.writeFile(
@@ -45,9 +45,9 @@ rimraf(config.favicon.output, (error) => {
               response.html.join('\n'),
               'UTF-8',
               () => {
-                console.log(`favicon ${chalk.magenta('html partial')} created`);
+                console.log(`favicon ${chalk.magenta('html partial')} created`)
               }
-            );
+            )
 
             // write favicon files
             response.files.map((file) => {
@@ -56,9 +56,12 @@ rimraf(config.favicon.output, (error) => {
                 file.contents,
                 'UTF-8',
                 () => {
-                  console.log(`favicon ${chalk.magenta(file.name)} file created`);
-                });
-            });
+                  console.log(
+                    `favicon ${chalk.magenta(file.name)} file created`
+                  )
+                }
+              )
+            })
 
             // write favicon images
             response.images.map((image) => {
@@ -67,13 +70,15 @@ rimraf(config.favicon.output, (error) => {
                 image.contents,
                 'UTF-8',
                 () => {
-                  console.log(`favicon ${chalk.green(image.name)} image created`);
+                  console.log(
+                    `favicon ${chalk.green(image.name)} image created`
+                  )
                 }
-              );
-            });
+              )
+            })
           }
-        });
+        })
       }
-    });
+    })
   }
-});
+})
