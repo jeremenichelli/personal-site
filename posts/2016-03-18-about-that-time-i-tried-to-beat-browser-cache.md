@@ -1,5 +1,5 @@
 ---
-title: About that time I tried to beat browser&nbsp;cache
+title: About that time I tried to beat browser cache
 excerpt: After a redesign on my site to improve loading and rendering times, I started thinking what else could done to provide a faster experience.
 ---
 

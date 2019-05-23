@@ -1,5 +1,5 @@
 ---
-title: Building a blog using Jekyll. Writing&nbsp;posts
+title: Building a blog using Jekyll. Writing posts
 excerpt: In this third and final post about Jekyll, we are going to exploit its blog-aware features.
 ---
 

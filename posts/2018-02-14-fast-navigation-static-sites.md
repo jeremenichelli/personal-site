@@ -1,5 +1,5 @@
 ---
-title: Fast inner navigation for static&nbsp;sites
+title: Fast inner navigation for static sites
 excerpt: When trying to improve a web product experience and performance we usually encounter limitations. Sometimes we are not be able to modify servers configuration, build scripts or even some parts of the code that don't belong to our scope.
 ---
 
@@ -11,7 +11,7 @@ In this context, I was trying to come up with something that would help navigati
 
 The first thing a browser receives when users open a website is an **html** file, so any type of information we can give to it about what resources are going to be needed without actually blocking document parsing will be a huge win.
 
-> Anything we can do as the document parses (without blocking it) will be a huge&nbsp;win
+> Anything we can do as the document parses (without blocking it) will be a huge win
 
 This is where **hints** become crucial, they allow us to start connecting or fetching a resource ahead of time, but how do we do that?
 

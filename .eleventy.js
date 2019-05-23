@@ -16,6 +16,10 @@ module.exports = function(eleventyConfig) {
     return collection.getFilteredByTag('post').reverse()
   });
 
+  eleventyConfig.addCollection('all', function (collection) {
+    return collection.getAll();
+  });
+
   // shortcodes
   eleventyConfig.addShortcode('actionLink', (link) => {
     return `<em>Check out this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer">in action</a>.</em>`

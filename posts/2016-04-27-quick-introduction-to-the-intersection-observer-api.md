@@ -1,5 +1,5 @@
 ---
-title: Quick introduction to the Intersection Observer&nbsp;API
+title: Quick introduction to the Intersection Observer API
 excerpt: These last years browsers vendors have paid more attention to the riddles developers were trying to solve to implement native and more performant solutions.
 ---
 

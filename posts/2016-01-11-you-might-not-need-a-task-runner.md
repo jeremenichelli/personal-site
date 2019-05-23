@@ -1,5 +1,5 @@
 ---
-title: You might not need a task&nbsp;runner
+title: You might not need a task runner
 resume: Most front end developers agree that tooling is something we, as a community, needed to figure out this year.
 ---
 
@@ -29,7 +29,7 @@ That's when a whole bunch of recipes appear to deal with this, and you need to d
 
 Instead of using a wrapped package we could just use the package itself, most of them provide a command line interface and documentation which is what you just need.
 
-You also need to know a little bit of bash and how commands in the terminal work. In case you don't, I've created a <a href="https://gist.github.com/jeremenichelli/489973c73a00437a188c" target="_blank">bash&nbsp;reference&nbsp;gist</a> you can check and then come back to this post.
+You also need to know a little bit of bash and how commands in the terminal work. In case you don't, I've created a <a href="https://gist.github.com/jeremenichelli/489973c73a00437a188c" target="_blank">bash reference gist</a> you can check and then come back to this post.
 
 So now that we don't want middle men, if you need browserify, just install browserify.
 

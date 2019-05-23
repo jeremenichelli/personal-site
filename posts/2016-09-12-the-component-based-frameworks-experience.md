@@ -5,7 +5,7 @@ excerpt: I'm not a framework or library person, but they exist for a reason. The
 
 Frameworks are exactly that, they are an inversion of control for your developing product, they will tell you how to do something and how to scale it.
 
-> Frameworks and libraries exist for a&nbsp;reason
+> Frameworks and libraries exist for a reason
 
 The problem is that [they come at a cost][cost] that's usually paid by the user. Big bundles to download, long waiting times to actually see content and not the best out-of-the-box performance in mobile devices.
 
@@ -19,7 +19,7 @@ Amazed by its increasing popularity I decided to go with [Vue][vuejs] first and 
 
 Performance is not a trade off at all, some case studies show it is [as good or even faster][vuereactperf] than other popular libraries.
 
-> VueJS strongest points are documentation and&nbsp;ecosystem
+> VueJS strongest points are documentation and ecosystem
 
 I think that its strongest drawback is its self-defined field of action. Initially **Vue** borrowed notation and approaches from Angular and React plus its own interface and features. Those blurry lines allow you to fall into anti-patterns easily, closing trails some times pushes the developer into the right ones.
 
@@ -38,7 +38,7 @@ Facebook team built **React** with architecture in mind, it pushes you to separa
 
 One of its biggest drawbacks is that abstraction layer, which relays entirely on JavaScript and can be a pain to get used to. When you do, the experience really pays off.
 
-> After understanding its concept, building stuff with React is&nbsp;great
+> After understanding its concept, building stuff with React is great
 
 It isn't slow, but it isn't fast either unless you apply certain patterns in specific parts of your project, _shouldComponentUpdate_ is an example.
 
@@ -57,7 +57,7 @@ Without that extra layer and taking advantage of the native platform under the h
 
 Well, while performance is something _almost_ everyone cares, scaling a big application through HTML imports and loosely declared components is a hard choice to make.
 
-> Polymer relays on native features, and native is hard to&nbsp;beat
+> Polymer relays on native features, and native is hard to beat
 
 As someone who prefers vanilla solutions over framework-based ones, I really hope **Polymer** takes some shape with time and helps you structure and scale your project in a similar way others do.
 
@@ -78,8 +78,8 @@ It won't be hard to adopt if you are coming from **Angular 1.x**, but if you are
 
 This second version introduces interesting concepts and improvements under the hood, but they will be hard to sell if documentation and initial configuration aren't friendly for begginers.
 
-- [Complete article about Angular&nbsp;2](/2016/08/building-component-based-app-angular-2/)
-- [Simple web app built with Angular&nbsp;2](https://github.com/jeremenichelli/movies/tree/master/results/angular)
+- [Complete article about Angular 2](/2016/08/building-component-based-app-angular-2/)
+- [Simple web app built with Angular 2](https://github.com/jeremenichelli/movies/tree/master/results/angular)
 
 ## Wrap-up
 

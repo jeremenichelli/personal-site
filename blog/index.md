@@ -14,7 +14,7 @@ If you want me to write for your publication feel free [to send here](mailto:jme
       {%- if post.data.external_url -%}
         Hosted by <span class="list__item--highlight">{{ post.data.host }}</span>
       {%- else -%}
-      <time datetime="{{ post.date | date_to_xmlschema }}">
+      <time datetime="{{ post.date | iso_date }}">
         {{ post.date | date: '%b %d, %Y'}}
       </time>
     {%- endif -%}

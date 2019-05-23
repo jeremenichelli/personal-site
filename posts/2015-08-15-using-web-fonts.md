@@ -1,5 +1,5 @@
 ---
-title: Using web fonts? Be&nbsp;careful
+title: Using web fonts? Be careful
 excerpt: Searching for better design and stronger identity, custom fonts have become something present in almost all modern sites.
 ---
 

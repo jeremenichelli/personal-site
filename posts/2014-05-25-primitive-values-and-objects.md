@@ -1,5 +1,5 @@
 ---
-title: Primitive values and&nbsp;objects
+title: Primitive values and objects
 excerpt: One of the main differences that Javascript has with other languages is that it's dynamically typed and based on prototypal inheritance while most of object-oriented languages have classical inheritance.
 ---
 

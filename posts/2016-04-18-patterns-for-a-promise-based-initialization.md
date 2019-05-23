@@ -1,5 +1,5 @@
 ---
-title: Patterns for a Promises based&nbsp;initialization
+title: Patterns for a Promises based initialization
 excerpt: When is your web site or app ready for usage? It could depend on scripts and styles being loaded, it might need an external API to be accessible, or all of them together.
 ---
 
