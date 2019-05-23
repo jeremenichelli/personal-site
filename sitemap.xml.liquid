@@ -8,7 +8,7 @@ excludeFromSitemap: true
   {% if page.data.excludeFromSitemap != true and page.data.external_url == null %}
   <url>
     <loc>{{ page.url | prepend: site.url }}</loc>
-    <lastmod>{{ page.date | date: '%Y-%m-%d' }}</lastmod>
+    <lastmod>{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}</lastmod>
   </url>
   {% endif %}
 {%- endfor %}

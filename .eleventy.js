@@ -20,12 +20,6 @@ module.exports = function(eleventyConfig) {
     return collection.getAll();
   });
 
-  // date ISO filter
-  eleventyConfig.addFilter('iso_date', (date) => {
-    const isoDate = date.toISOString()
-    return isoDate
-  });
-
   // shortcodes
   eleventyConfig.addShortcode('actionLink', (link) => {
     return `<em>Check out this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer">in action</a>.</em>`
