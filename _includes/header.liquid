@@ -4,7 +4,7 @@
 
     {% if type == 'post' %}
     <p class="page__subtitle">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d %B, %Y'}}</time>
+      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d %B, %Y'}}</time>
     </p>
     {% endif %}
   </div>

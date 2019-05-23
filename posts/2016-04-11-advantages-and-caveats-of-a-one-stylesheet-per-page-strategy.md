@@ -1,5 +1,5 @@
 ---
-title: Advantages and caveats of a one stylesheet per page&nbsp;strategy
+title: Advantages and caveats of a one stylesheet per page strategy
 excerpt: I recently changed the CSS structure of my personal site and blog aiming for better loading times and moved to single set of styles. Not every project will benefit from this.
 ---
 
@@ -25,7 +25,7 @@ In web development there are no winners nor losers when talking about concepts a
 
 Moving to a set of specific stylesheets per page will be convenient only in certain cases where small variations happen across each corner of the project.
 
-This site is using this approach because I've found out, after some authoring, it had small tweaks and variations from page to page and the only heavy styled ones were **posts**.
+This site is using this approach because I've found out, after some authoring, it had small tweaks and variations from page to page and the only heavy styled ones were blog posts.
 
 Also there is no *team impact* since I am the only one maintaining the site.
 

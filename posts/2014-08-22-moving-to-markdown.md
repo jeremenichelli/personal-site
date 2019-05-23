@@ -1,5 +1,5 @@
 ---
-title: Moving to&nbsp;Markdown
+title: Moving to Markdown
 excerpt: A few days ago I received an email from a developer asking for help with Markdown files on Jekyll.
 ---
 

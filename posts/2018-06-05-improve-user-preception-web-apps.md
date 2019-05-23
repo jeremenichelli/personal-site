@@ -30,13 +30,13 @@ First important tip, don't reinvent the wheel and **reuse the UI components or e
 ```js
 const placeholderString = () => (
   `<div class="placeholder">
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <h2>&nbsp;</h2>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
+      <p> </p>
+      <p> </p>
+      <p> </p>
+      <h2> </h2>
+      <p> </p>
+      <p> </p>
+      <p> </p>
   </div>`
 )
 ```
@@ -78,13 +78,13 @@ This way we give more real life aspect to our placeholders.
 ```js
 const placeholderString = () => (
   `<div class="placeholder">
-    <p class="placeholder__medium">&nbsp;</p>
-    <p class="placeholder__large">&nbsp;</p>
-    <p class="placeholder__small">&nbsp;</p>
-    <h2 class="placeholder__xsmall">&nbsp;</h2>
-    <p class="placeholder__large">&nbsp;</p>
-    <p class="placeholder__small">&nbsp;</p>
-    <p class="placeholder__medium">&nbsp;</p>
+    <p class="placeholder__medium"> </p>
+    <p class="placeholder__large"> </p>
+    <p class="placeholder__small"> </p>
+    <h2 class="placeholder__xsmall"> </h2>
+    <p class="placeholder__large"> </p>
+    <p class="placeholder__small"> </p>
+    <p class="placeholder__medium"> </p>
   </div>`
 )
 ```

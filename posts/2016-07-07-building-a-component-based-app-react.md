@@ -1,5 +1,5 @@
 ---
-title: Building a component based app with&nbsp;React
+title: Building a component based app with React
 excerpt: Developers have been trying to find a solution to architecture on complex web applications. The most recent answer to that are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability.
 ---
 
@@ -419,7 +419,7 @@ Try to learn a new framework always brings a learning curve that, in my opinion,
 
 The first one is the **documentation**. I have to admit is really complete but unorganized, which is a big deal for begginers, probably a consequence of a fast evolution pace the repository experimented recently.
 
-> The official docs grew organically and need&nbsp;gardening
+> The official docs grew organically and need gardening
 >
 > - Dan Abramov
 

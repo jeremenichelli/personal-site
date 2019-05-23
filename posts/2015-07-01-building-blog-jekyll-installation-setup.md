@@ -1,5 +1,5 @@
 ---
-title: Building a blog using Jekyll. Install and quick&nbsp;setup
+title: Building a blog using Jekyll. Install and quick setup
 excerpt: This static site generator has become popular between developers because of its simplicity and the fact that runs in GitHub pages, a place in the web we the developers feel confortable working in.
 ---
 

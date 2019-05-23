@@ -1,5 +1,5 @@
 ---
-title: Are we done mutating the&nbsp;DOM?
+title: Are we done mutating the DOM?
 excerpt: I've heard a lot of times about the DOM being slow or a bad interface model. I disagree with most of these kind of statements.
 ---
 

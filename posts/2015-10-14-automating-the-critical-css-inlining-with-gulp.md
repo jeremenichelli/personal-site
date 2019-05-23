@@ -1,5 +1,5 @@
 ---
-title: Automating the critical CSS inlining with&nbsp;Gulp
+title: Automating the critical CSS inlining with Gulp
 excerpt: Stylesheets can block the rendering process of your site not allowing the user to see the content while all the resources are being loaded.
 ---
 

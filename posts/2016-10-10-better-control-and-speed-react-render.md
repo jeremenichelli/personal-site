@@ -1,11 +1,11 @@
 ---
-title: Optimize performance in React&nbsp;components
+title: Optimize performance in React components
 excerpt: Under the hood, React creates something similar to a virtual DOM tree to track updates when a component state or prop changes.
 ---
 
 This also implies that its render function gets called to generate a new tree and compare it to the current one to know what to update.
 
-> The fastest function is the one that’s never&nbsp;called
+> The fastest function is the one that’s never called
 
 Even when nothing is changed, a lot of function gets called to determinate that and its usually a big performance gap in React applications.
 

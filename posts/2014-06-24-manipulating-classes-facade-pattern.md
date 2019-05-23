@@ -1,5 +1,5 @@
 ---
-title: Manipulating classes using the Facade&nbsp;pattern
+title: Manipulating classes using the Facade pattern
 excerpt: One of the things that we do very often in a web project is change the class attribute on HTML elements. There are millons of ways of doing this. Here is the one I developed using the Facade pattern as a start point.
 ---
 

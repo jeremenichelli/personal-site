@@ -1,5 +1,5 @@
 ---
-title: Writing your own CSS fluid&nbsp;grid
+title: Writing your own CSS fluid grid
 excerpt: The structure and layout of a website or web app is one of the main decisions made over its design.
 ---
 
