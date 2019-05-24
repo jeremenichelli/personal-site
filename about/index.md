@@ -30,3 +30,7 @@ He is currently working at Typeform leading the Design Systems team.
 You might also found me around giving talks about my experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
 
 Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, hiring or speaking inquires.
+
+## About this site
+
+Built with [Eleventy](//11ty.io) and hosted by [Netlify](//netlify.com), if you want to know more about the site architecture I wrote an [article](/2019/05/new-site-who-dis/) explaining the decisions and it is open source, so you can check [the repository](//github.com/jeremenichelli/personal-site) too.
