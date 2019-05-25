@@ -50,6 +50,9 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
+  // do not ignore generated assets
+  eleventyConfig.setUseGitIgnore(false);
+
   // return base config
   return {
     input: './',
