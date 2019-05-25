@@ -29,7 +29,7 @@ He is currently working at Typeform leading the Design Systems team.
 
 You might also found me around giving talks about my experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
 
-Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, hiring or speaking inquires.
+_Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, hiring or speaking inquires._
 
 ## About this site
 
