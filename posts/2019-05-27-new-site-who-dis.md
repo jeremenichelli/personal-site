@@ -21,7 +21,7 @@ I had the overall felling I was over-adjusting browsers default styles using bar
 
 The methodology I went for is to _only use class names_ and override browser defaults when really necessary. This made me apply the right and preferred tags for content improving accessibility. I'm also using CSS variables now for distributing values instead of LESS variables.
 
-I'm still using [LESS](//lesscss.org/), not much for its syntax and features, but as a bundling tool. Each page has a _type_ indicator in the front matter and for each, a corresponding `<type>.less` file where I only import and write the necessary styles necessary.
+I'm still using [LESS](//lesscss.org/), not much for its syntax and features, but as a bundling tool. Each page has a _type_ indicator in the front matter and for each, a corresponding `<type>.less` file where I only import and write the necessary styles.
 
 The result is so minimal I directly inlined these styles in the head. Before, I pass the results through [cssnano](//cssnano.com) and then export them as partials to get included in the `head` of each page.
 
