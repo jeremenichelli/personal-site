@@ -79,4 +79,4 @@ This is why is interesting to hear stories on how people dealt with optimization
 
 ### Credits
 
-_Huge thanks to [Zach Leatherman](//twitter.com/zachleat) for Eleventy, [Jun Yang](//github.com/harttle) for liquidjs, and [Alex Kocharin](github.com/rlidwka) and [Vitaly Puzrin](//github.com/puzrin) for markdown-it, technologies this site heavily relies on._
+_Huge thanks to [Zach Leatherman](//twitter.com/zachleat) for Eleventy, [Jun Yang](//github.com/harttle) for liquidjs, and [Alex Kocharin](//github.com/rlidwka) and [Vitaly Puzrin](//github.com/puzrin) for markdown-it, which this site heavily relies on._
