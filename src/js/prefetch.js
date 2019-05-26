@@ -1,4 +1,4 @@
-var LIMIT = 11
+var LIMIT = 10
 var anchors = document.getElementsByTagName('a')
 
 // turn node list into array
