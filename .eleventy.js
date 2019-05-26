@@ -1,40 +1,43 @@
-const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const htmlmin = require('html-minifier')
 
 module.exports = function(eleventyConfig) {
   // liquid config
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true
-  });
+  })
 
   // preprocess collections
   eleventyConfig.addCollection('blogposts', (collection) => {
-    return collection.getFilteredByTag('post').reverse().slice(0,8)
-  });
+    return collection
+      .getFilteredByTag('post')
+      .reverse()
+      .slice(0, 8)
+  })
 
   eleventyConfig.addCollection('archive', (collection) => {
     return collection.getFilteredByTag('post').reverse()
-  });
+  })
 
-  eleventyConfig.addCollection('all', function (collection) {
-    return collection.getAll();
-  });
+  eleventyConfig.addCollection('all', function(collection) {
+    return collection.getAll()
+  })
 
   // shortcodes
   eleventyConfig.addShortcode('actionLink', (link) => {
     return `<em>Check out this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer">in action</a>.</em>`
-  });
+  })
 
   // add highlighting
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight)
 
   // set layout alias
-  eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid');
-  eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid');
+  eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid')
+  eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid')
 
   // copy assets folder and public files
-  eleventyConfig.addPassthroughCopy('assets');
-  eleventyConfig.addPassthroughCopy('robots.txt');
+  eleventyConfig.addPassthroughCopy('assets')
+  eleventyConfig.addPassthroughCopy('robots.txt')
 
   // minify html
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
@@ -43,16 +46,16 @@ module.exports = function(eleventyConfig) {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true
-      });
+      })
 
-      return minified;
+      return minified
     }
 
-    return content;
-  });
+    return content
+  })
 
   // do not ignore generated assets
-  eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.setUseGitIgnore(false)
 
   // return base config
   return {
