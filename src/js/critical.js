@@ -17,15 +17,14 @@ store.css(
 // remove no js class
 document.documentElement.classList.remove('no-js')
 
-// check for fonts cached flag
+var scripts = []
+
+// enqueue scripts for font loading only if necessary
 var FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
 
 if (FONTS_CACHED) {
   document.documentElement.classList.add('fonts-loaded')
 } else {
-  // enqueue scripts for deferred loading
-  var scripts = []
-
   if (!('Promise' in window)) {
     scripts.push(
       '//cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js'
@@ -33,14 +32,17 @@ if (FONTS_CACHED) {
   }
 
   scripts.push('/assets/js/font.js')
-
-  // append all scripts when dom parsing is finished
-  window.addEventListener('DOMContentLoaded', function() {
-    scripts.map(function(src) {
-      var scriptElement = document.createElement('script')
-      scriptElement.src = src
-      scriptElement.async = false
-      document.body.appendChild(scriptElement)
-    })
-  })
 }
+
+// enqueue scripts for prefetching only if supported
+scripts.push('/assets/js/prefetch.js')
+
+// append all scripts when dom parsing is finished
+window.addEventListener('DOMContentLoaded', function() {
+  scripts.map(function(src) {
+    var scriptElement = document.createElement('script')
+    scriptElement.src = src
+    scriptElement.async = false
+    document.body.appendChild(scriptElement)
+  })
+})
