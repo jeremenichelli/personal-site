@@ -26,11 +26,11 @@
   "images": [
     {
       "entry": "./src/favicon/favicon.png",
-      "output": "./assets/images/twitter-card-image.jpeg",
-      "quality": 90,
+      "output": "./assets/images/twitter-card.jpeg",
+      "quality": 85,
       "resize": [
-        240,
-        240
+        300,
+        300
       ]
     }
   ]
