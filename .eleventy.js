@@ -32,8 +32,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid');
   eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid');
 
-  // copy assets folder
+  // copy assets folder and public files
   eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy('robots.txt');
 
   // minify html
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
