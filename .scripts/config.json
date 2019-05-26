@@ -11,6 +11,10 @@
     {
       "input": "./src/js/font.js",
       "output": "./assets/js/font.js"
+    },
+    {
+      "input": "./src/js/prefetch.js",
+      "output": "./assets/js/prefetch.js"
     }
   ],
   "favicon": {
