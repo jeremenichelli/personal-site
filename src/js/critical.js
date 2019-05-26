@@ -20,7 +20,9 @@ document.documentElement.classList.remove('no-js')
 // check for fonts cached flag
 var FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
 
-if (!FONTS_CACHED) {
+if (FONTS_CACHED) {
+  document.documentElement.classList.add('fonts-loaded')
+} else {
   // enqueue scripts for deferred loading
   var scripts = []
 
@@ -41,6 +43,4 @@ if (!FONTS_CACHED) {
       document.body.appendChild(scriptElement)
     })
   })
-} else {
-  document.documentElement.classList.add('fonts-loaded')
 }
