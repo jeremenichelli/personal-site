@@ -7,23 +7,23 @@ So, let's start with the design changes.
 
 ## Design
 
-In terms of design no much has changed. I did style all from the ground up again relying more on [normalize](//github.com/necolas/normalize.css) and browsers default styles to minimize the styling footprint, more details on this in the next section.
-
-I stuck with this minimalistic style. This is a small site so scaling isn't a threat and it helps to group tokens and decisions with the mind set on performance and minimal style foot print at the end of the line.
+In terms of design no much has changed, I stuck with a minimalistic style. As a small site, scaling isn't a threat and it helps to group tokens and decisions with the mind set on performance and minimal style foot print.
 
 I moved the site to a [new repository](//github.com/jeremenichelli/personal-site), which means you can still [check out the old one](//github.com/jeremenichelli/jeremenichelli.github.io) and compare it if you want to.
 
 ## Styles
 
-As said before, though styles haven't changed a lot I coded all from scratch, and there are good reasons for this. I had the overall felling I was over-adjusting browsers default styles in a lot of corners human eyes would never notice before.
+As said before, though styles haven't changed a lot I coded all from scratch and there are good reasons for this.
 
-Overly obsessed with minimizing styling too, I was using bare tags as selectors, which made me use some elements not for their semantic meaning but because of the _styling shortcut_ they provided. The site in terms of accessibility wasn't bad but could do better.
+I had the overall felling I was over-adjusting browsers default styles using bare tags as selectors and using some elements not for their semantic meaning but because of the _styling shortcut_ they provided.
 
-The methodology I went for is, design on the browser and **use only class names** for styling. This made me, first, use the right and preferred tags for content and only override the necessary styles. I'm also using CSS variables now for distributing variables instead of LESS variables.
+### Tags for content, class names for styles
 
-I'm still using [LESS](//lesscss.org/), not much for its syntax and features, but as a bundling tool. Each page has a _type_ indicator in the front matter and for each a corresponding `type.less` file where I only import and write the styles necessary for it.
+The methodology I went for is to _only use class names_ and override browser defaults when really necessary. This made me apply the right and preferred tags for content improving accessibility. I'm also using CSS variables now for distributing values instead of LESS variables.
 
-The result is so minimal I directly inline these styles in the head. Finally, I pass the processed styles through [cssnano](//cssnano.com) and export them as partials to get included in the `head` of pages.
+I'm still using [LESS](//lesscss.org/), not much for its syntax and features, but as a bundling tool. Each page has a _type_ indicator in the front matter and for each, a corresponding `<type>.less` file where I only import and write the styles necessary for it.
+
+The result is so minimal I directly inlined these styles in the head. Before, I pass the results through [cssnano](//cssnano.com) and then export them as partials to get included in the `head` of each page.
 
 ## Scripts
 
@@ -37,17 +37,17 @@ I wrote about this approach in [this article](/2016/05/font-loading-strategy-sta
 
 ## Animations
 
-The home page has some little orchestrated animations, the page waits for a maximum of three seconds for the web fonts to be loaded, if not it will kick off. Animations won't run at all if the user has disabled JavaScript.
+The home page has some orchestrated animations. The page waits for a maximum of three seconds for web fonts to be loaded, if they don't animations will kick off either way and won't run at all when JavaScript is disabled.
 
 In the previous version of this site I was using transitions and transition delays, this caused them to be _fast-forwarded_ on repeated views and strange side effects on resizes. This is why I'm now using animation keyframes.
 
 ## Static generator
 
-Originally this site was using [Jekyll](//jekyllrb.com) and [GitHub Pages](https://pages.github.com/), a really convenient setup to quickly launch something without much overhead I would still recommend to anyone.
+Originally this site was using [Jekyll](//jekyllrb.com) and [GitHub Pages](https://pages.github.com/), a really convenient setup to quickly launch something without much overhead and a solution I would still recommend to anyone.
 
-Sadly as the content grew, Jekyll couldn't handle updates fast even with incremental builds option turned on, making the experience really bad for writing or site small adjustments, so I decided to give [Eleventy](//11ty.io) a try.
+Sadly as the content grew, Jekyll builds became super slow, making my writing experience a bit frustrating, so I decided to give [Eleventy](//11ty.io) a try.
 
-Eleventy is basically a Jekyll implementation in Node.js, but with more extensibility, control and template language options. The most important thing, _builds are fast_ folks, really fast.
+Eleventy is basically a Jekyll implementation in Node.js, but easily extensible and more template language options. The most important thing is that _builds are really fast_ folks.
 
 ### New ecosystem, new gotchas
 
@@ -75,7 +75,7 @@ As I said on Twitter some time ago, a personal site is this place where you can 
 
 I always say that business is the main threat to a performant web, third-party scripts, complex and badly orchestrated feature implementations are coming from it.
 
-This is why is interesting to hear stories on how people dealt with optimizations while keeping business together, but here _there's no business_, this is me and my playground. My playground, my rules.
+This is why I found interesting to hear stories on how teams dealt with optimizations while responding to business priorities, but here _there's no business_, this is me and my playground. My playground, my rules.
 
 ### Credits
 
