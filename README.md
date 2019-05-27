@@ -1,6 +1,6 @@
 # personal-site
 
-Repository that runs [jeremenichelli.io](jeremenichelli.io), my personal site. This project is built using [Eleventy](//11ty.com) by [Zach Leatherman](//github.com/zachleat) and hosted by [Netlify](//netlify.com). Liquid is used for templates and Markdown for content.
+Repository that runs [jeremenichelli.io](https://jeremenichelli.io), my personal site. This project is built using [Eleventy](//11ty.com) by [Zach Leatherman](//github.com/zachleat) and hosted by [Netlify](//netlify.com). Liquid is used for templates and Markdown for content.
 
 ## Scripts
 
