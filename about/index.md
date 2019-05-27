@@ -5,11 +5,11 @@ type: about
 excerpt: Born and raised in Argentina and currently living in sunny Barcelona, working as a Design Systems Engineer at Typeform.
 ---
 
-His interest for web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
+His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
 
 > Cartoon Network website sucked back in the 90s
 
-He is experienced in a wide spectrum of projects and skills in the web, from animations to complex application development and performace.
+He is now experienced in a wide spectrum of projects and skills in the web, from animations to web applications, performance and design systems.
 
 ## Experience
 
@@ -29,7 +29,7 @@ He is currently working at Typeform leading the Design Systems team.
 
 You might also found me around giving talks about my experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
 
-_Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, hiring or speaking inquires._
+_Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, hiring or speaking inquiries._
 
 ## About this site
 
