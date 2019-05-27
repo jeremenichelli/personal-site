@@ -9,7 +9,7 @@ His interest in web development started back when he opened a website for the fi
 
 > Cartoon Network website sucked back in the 90s
 
-He is now experienced in a wide spectrum of projects and skills in the web, from animations to web application development, performance and design systems.
+He is now experienced in a wide spectrum of projects and skills in the web, from animations to web applications, performance and design systems.
 
 ## Experience
 
