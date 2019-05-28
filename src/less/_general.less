@@ -1,18 +1,31 @@
 @import '__normalize.less';
 
+@light--color: #ffffff;
+@dark--color: #010120;
+
 :root {
   // main colors
   --accent: #4242ef;
   --secondary: #505060;
-  --background: #ffffff;
-  --text: #010110;
+  --background: @light--color;
+  --text: @dark--color;
 
   // code styles
-  --code--background: rgba(0, 0, 10, 0.02);
+  --code--background: rgba(0, 0, 10, 0.025);
 
   // letter spacing
   --low--letter-spacing: 0.025em;
   --medium--letter-spacing: 0.05em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #7575ff;
+    --secondary: #d0d0e0;
+    --background: @dark--color;
+    --text: @light--color;
+    --code--background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 ::selection {
