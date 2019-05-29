@@ -26,7 +26,7 @@
   "images": [
     {
       "entry": "./src/favicon/favicon.png",
-      "output": "./assets/images/twitter-card.jpeg",
+      "output": "./assets/images/twitter-card-2019-05-30.jpeg",
       "quality": 85,
       "resize": [
         300,
