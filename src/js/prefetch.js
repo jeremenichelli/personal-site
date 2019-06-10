@@ -1,16 +1,14 @@
 import Hunt from 'huntjs'
 
-var anchorElements = document.getElementsByTagName('a')
-
 // turn node list into array
-var anchorsArray = [].slice.call(anchorElements)
+var anchorsArray = [].slice.call(document.getElementsByTagName('a'))
 
 // filter inner links, remove duplicates, slice first items
 var anchors = anchorsArray
   // filter internal links, skip navigation and feed links
   .filter(function(anchor) {
     var belongsToSite = anchor.host === document.location.host
-    var isSkipNavigation = anchor.classList.contains('skip--navigation')
+    var isSkipNavigation = anchor.href === '#main'
     var isRSSFeed = /feed.xml/.test(anchor.href)
 
     return belongsToSite && !isSkipNavigation & !isRSSFeed
