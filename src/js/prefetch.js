@@ -1,11 +1,13 @@
-var LIMIT = 10
-var anchors = document.getElementsByTagName('a')
+import Hunt from 'huntjs'
+
+var anchorElements = document.getElementsByTagName('a')
 
 // turn node list into array
-var anchorsArray = [].slice.call(anchors)
+var anchorsArray = [].slice.call(anchorElements)
 
 // filter inner links, remove duplicates, slice first items
-var links = anchorsArray
+var anchors = anchorsArray
+  // filter internal links, skip navigation and feed links
   .filter(function(anchor) {
     var belongsToSite = anchor.host === document.location.host
     var isSkipNavigation = anchor.classList.contains('skip--navigation')
@@ -13,21 +15,26 @@ var links = anchorsArray
 
     return belongsToSite && !isSkipNavigation & !isRSSFeed
   })
+  // eliminate duplicates
   .reduce(function(acc, anchor) {
-    if (acc.indexOf(anchor.href) === -1) acc.push(anchor.href)
+    var alreadyListed = acc.find(function(a) {
+      return a.href === anchor.href
+    })
+    if (!alreadyListed) acc.push(anchor)
     return acc
   }, [])
-  .slice(0, LIMIT)
 
-// append link elements
-links.map(function(url) {
-  var link = document.createElement('link')
-  link.href = url
-  link.rel = 'prefetch'
+// observe anchors as they eneter the viewport and prefetch
+new Hunt(anchors, {
+  enter: function(anchor) {
+    var link = document.createElement('link')
+    link.href = anchor.href
+    link.rel = 'prefetch'
 
-  if (__DEV__ === true) {
-    console.log('prefetching ' + url, link)
+    if (__DEV__ === true) {
+      console.log('prefetching ' + anchor.href, link)
+    }
+
+    document.head.appendChild(link)
   }
-
-  document.head.appendChild(link)
 })
