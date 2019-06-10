@@ -1,5 +1,5 @@
 <head>
-  {% if title %}{% capture pageTitle %}{{ title }} | Jeremias Menichelli{% endcapture %}
+  {% if title %}{% capture pageTitle %}{{ title }}{% endcapture %}
   {% else %}{% capture pageTitle %}{{ site.title }}{% endcapture %}
   {% endif %}
 
@@ -16,6 +16,9 @@
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
   <link rel="canonical" href="{{ url }}">
+  {% if type == 'post' %}
+  <meta name="author" content="Jeremias Menichelli">
+  {% endif %}
 
   <!-- preconnect with google fonts cdns -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">

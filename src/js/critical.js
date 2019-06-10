@@ -35,7 +35,13 @@ if (FONTS_CACHED) {
 }
 
 // enqueue scripts for prefetching only if supported
-scripts.push('/assets/js/prefetch.js')
+var link = document.createElement('link')
+var supportsPrefetch =
+  link.relList && link.relList.supports && link.relList.supports('prefetch')
+
+if (supportsPrefetch) {
+  scripts.push('/assets/js/prefetch.js')
+}
 
 // append all scripts when dom parsing is finished
 window.addEventListener('DOMContentLoaded', function() {
