@@ -6,7 +6,7 @@ type: home
 <p class="home__subtitle">Curious mind, writer and developer</p>
 <h1 class="home__title">Jeremias Menichelli</h1>
 <p class="home__bio">  
-  Front end engineer with experience in web architecture, performance and tooling. Currently working as a Design Systems Engineer at <a href="//typeform.com">Typeform</a>
+  Front end engineer with experience in design systems, performance and architecture. Currently looking for a new opportunity, <a href="mailto:jmenichelli@gmail.com">reach out here</a> and let's work together!
 </p>
 <nav class="home__nav">
   <p class="home__nav--line">
