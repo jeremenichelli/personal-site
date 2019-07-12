@@ -2160,6 +2160,13 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
+eleventy-xml-plugin@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eleventy-xml-plugin/-/eleventy-xml-plugin-0.1.0.tgz#f117d4bbf22b3eaf16e1dddbf4cc02e275af39fc"
+  integrity sha512-hb8XF8GT0PkuNX99+878s4WqfCvtzSMDm3RHXvWRtK6VEyRQGewRigU6+tRhId7EGE9V6f2CFXb356XPAeQQTg==
+  dependencies:
+    html-entities "^1.2.1"
+
 emitter-mixin@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/emitter-mixin/-/emitter-mixin-0.0.3.tgz#5948cb286f2e48edc3b251a7cfc1f7883396d65c"
@@ -3014,6 +3021,11 @@ html-comment-regex@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.2.tgz#97d4688aeb5c81886a364faa0cad1dda14d433a7"
   integrity sha512-P+M65QY2JQ5Y0G9KKdlDpo0zK+/OHptU5AaBwUfAIDJZk1MYf32Frm84EcOytfJE0t5JvkAnKlmjsXDnWzCJmQ==
+
+html-entities@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
+  integrity sha1-DfKTUfByEWNRXfueVUPl9u7VFi8=
 
 html-minifier@^4.0.0:
   version "4.0.0"

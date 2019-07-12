@@ -1,7 +1,11 @@
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const htmlmin = require('html-minifier')
+const xmlPlugin = require('eleventy-xml-plugin')
 
 module.exports = function(eleventyConfig) {
+  // add xml plugin
+  eleventyConfig.addPlugin(xmlPlugin)
+
   // liquid config
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true
