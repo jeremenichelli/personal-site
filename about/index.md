@@ -2,7 +2,7 @@
 title: About
 layout: default
 type: about
-excerpt: Born and raised in Argentina and currently living in sunny Barcelona, working as a Design Systems Engineer at Typeform.
+excerpt: Born and raised in Argentina and currently living in sunny Barcelona.
 ---
 
 His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
@@ -17,7 +17,7 @@ He worked in projects focusing on mobile first and accessibility for clients lik
 
 > I'm experienced in accessible and mobile first sites, JavaScript frameworks and&nbsp;design systems.
 
-He developed awesome animated web experiences for clients including **Facebook**, **Pixar**, **Marvel** and **Oreo**, and recently was the lead of the Design System team at **Typeform**.
+He was the technical lead and developed some cool animated web projects for clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**, and recently led the Design System team at **Typeform**.
 
 _For more details, download my resume <a download target="_blank" href="https://drive.google.com/file/d/1Dal1FrgqJ-unPpRUYLBeETAACrMtsPOj/view?usp=sharing">here</a>._
 
@@ -31,4 +31,4 @@ _Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, h
 
 ## About this site
 
-Built with [Eleventy](//11ty.io) and hosted by [Netlify](//netlify.com), if you want to know more about the site architecture I wrote an [article](/2019/05/new-site-who-dis/) explaining the decisions and it is open source, so you can check [the repository](//github.com/jeremenichelli/personal-site) too.
+Built with [Eleventy](//11ty.io) and hosted by [Netlify](//netlify.com), if you want to know more about the site architecture I wrote an [article](/2019/05/new-site-who-dis/) explaining the decisions. The code is open source, so you can check [the repository](//github.com/jeremenichelli/personal-site) too.
