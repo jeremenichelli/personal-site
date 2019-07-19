@@ -1,4 +1,3 @@
-const mkdirp = require('mkdirp')
 const chalk = require('chalk')
 const { asyncMakeDirectory } = require('./_utils.js')
 
