@@ -30,9 +30,9 @@ async function main() {
     // process files content to css
     filesContent.map(async (content, index) => {
       // define output paths and filenames
-      const options = { paths: [path.dirname(files[index])] }
+      const options = { paths: [path.dirname(filesList[index])] }
       const filename = `${path
-        .basename(files[index])
+        .basename(filesList[index])
         .replace('.less', '.liquid')}`
       const output = config.less.output + filename
 
