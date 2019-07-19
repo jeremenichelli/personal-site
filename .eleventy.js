@@ -6,6 +6,9 @@ module.exports = function(eleventyConfig) {
   // add xml plugin
   eleventyConfig.addPlugin(xmlPlugin)
 
+  // add highlighting
+  eleventyConfig.addPlugin(pluginSyntaxHighlight)
+
   // liquid config
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true
@@ -31,9 +34,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode('actionLink', (link) => {
     return `<em>Check out this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer">in action</a>.</em>`
   })
-
-  // add highlighting
-  eleventyConfig.addPlugin(pluginSyntaxHighlight)
 
   // set layout alias
   eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid')

@@ -4,8 +4,8 @@
   "description": "Personal site by Jeremias Menichelli",
   "main": "index.md",
   "scripts": {
-    "format:js": "prettier --write '{src/js,.scripts}/**/*.js'",
-    "format:less": "prettier --write 'src/less/**/*.less'",
+    "format:js": "prettier --write './**/*.js'",
+    "format:less": "prettier --write './**/*.less'",
     "bundle": "node .scripts/bundle.js",
     "favicons": "node .scripts/favicons.js",
     "images": "node .scripts/images.js",
@@ -59,11 +59,11 @@
     "store-css": "^0.3.0"
   },
   "lint-staged": {
-    "{src/js,.scripts}/**/*.js": [
+    "./**/*.js": [
       "prettier --write",
       "git add"
     ],
-    "src/less/**/*.less": [
+    "./**/*.less": [
       "prettier --write",
       "git add"
     ]
