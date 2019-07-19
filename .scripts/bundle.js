@@ -1,8 +1,9 @@
 const mkdirp = require('mkdirp')
 const chalk = require('chalk')
+const { asyncMakeDirectory } = require('./_utils.js')
 
 // rollup pacakges
-const rollup = require('rollup')
+const { rollup } = require('rollup')
 const commonjs = require('rollup-plugin-commonjs')
 const replace = require('rollup-plugin-replace')
 const resolve = require('rollup-plugin-node-resolve')
@@ -12,8 +13,6 @@ const { terser } = require('rollup-plugin-terser')
 const config = require('./config.json')
 
 const ENVIRONMENT = process.env.NODE_ENV || 'production'
-
-console.log(`generating bundles for ${chalk.blue(ENVIRONMENT)}\n`)
 
 // base input config for bundles
 const baseConfig = {
@@ -31,8 +30,8 @@ const baseConfig = {
   ]
 }
 
+// uglify bundle for production
 if (ENVIRONMENT === 'production') {
-  // uglify bundle for production
   baseConfig.plugins.push(
     terser({
       mangle: true,
@@ -44,27 +43,27 @@ if (ENVIRONMENT === 'production') {
   )
 }
 
-async function build() {
-  const bundles = config.bundles.map((b) => {
-    // rollup all bundles in config file
-    return rollup.rollup(Object.assign({}, { input: b.input }, baseConfig))
-  })
+async function main() {
+  console.log(`generating bundles for ${chalk.blue(ENVIRONMENT)}\n`)
+  try {
+    await asyncMakeDirectory('_includes/scripts')
+    const bundles = config.bundles.map(({ input }) =>
+      rollup({ input, ...baseConfig })
+    )
+    const results = await Promise.all(bundles)
 
-  // write output bundles
-  Promise.all(bundles).then((results) => {
-    results.map((b, index) => {
-      const output = config.bundles[index].output
+    // write files
+    results.map((bundle, index) => {
+      const file = config.bundles[index].output
+      const format = 'iife'
+      const sourcemap = ENVIRONMENT === 'development' ? 'inline' : false
 
-      b.write({
-        file: output,
-        format: 'iife',
-        sourcemap: ENVIRONMENT === 'development' ? 'inline' : false
-      })
-
-      console.log(`${chalk.green(output)} file written`)
+      bundle.write({ file, format, sourcemap })
+      console.log(`${chalk.green(file)} file written`)
     })
-  })
+  } catch (error) {
+    console.log(chalk.red(error))
+  }
 }
 
-// bundle files
-mkdirp('_includes/scripts', build)
+main()
