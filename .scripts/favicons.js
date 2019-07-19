@@ -3,11 +3,10 @@ const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 const chalk = require('chalk')
 const favicons = require('favicons')
+const { asyncMakeDirectory, asyncWriteFile } = require('./_utils')
 
 // import config file
 const config = require('./config.json')
-
-console.log(`running ${chalk.blue('favicon')} tasks\n`)
 
 const setup = {
   appName: 'jeremenichelli.io',
@@ -28,57 +27,47 @@ const setup = {
   }
 }
 
-// rmeove old favicon files
-rimraf(config.favicon.output, (error) => {
-  if (!error) {
-    // create output directory
-    mkdirp(config.favicon.output, (error) => {
-      if (!error) {
-        // generate favicons
-        favicons(config.favicon.entry, setup, (error, response) => {
-          if (error) {
-            console.log(error)
-          } else {
-            // output html tags
-            fs.writeFile(
-              config.favicon.html,
-              response.html.join('\n'),
-              'UTF-8',
-              () => {
-                console.log(`favicon ${chalk.magenta('html partial')} created`)
-              }
-            )
-
-            // write favicon files
-            response.files.map((file) => {
-              fs.writeFile(
-                config.favicon.output + file.name,
-                file.contents,
-                'UTF-8',
-                () => {
-                  console.log(
-                    `favicon ${chalk.magenta(file.name)} file created`
-                  )
-                }
-              )
-            })
-
-            // write favicon images
-            response.images.map((image) => {
-              fs.writeFile(
-                config.favicon.output + image.name,
-                image.contents,
-                'UTF-8',
-                () => {
-                  console.log(
-                    `favicon ${chalk.green(image.name)} image created`
-                  )
-                }
-              )
-            })
-          }
-        })
-      }
+const asyncRimraf = (path) =>
+  new Promise((res, rej) => {
+    rimraf(path, (err) => {
+      if (err) return rej(err)
+      res()
     })
-  }
-})
+  })
+
+const asyncFavicons = (entry, setup) =>
+  new Promise((res, rej) => {
+    favicons(entry, setup, (err, result) => {
+      if (err) return rej(err)
+      res(result)
+    })
+  })
+
+async function main() {
+  console.log(`generating ${chalk.blue('favicons')} assets\n`)
+
+  // clean favicons directory and generate favicons
+  await asyncRimraf(config.favicon.output)
+  await asyncMakeDirectory(config.favicon.output)
+  const result = await asyncFavicons(config.favicon.entry, setup)
+
+  // write favicons html content
+  await asyncWriteFile(config.favicon.html, result.html.join('\n'), 'utf-8')
+  console.log(`favicon ${chalk.magenta('html partial')} created`)
+
+  // write favicons files
+  result.files.map(async (file) => {
+    const filename = `${config.favicon.output}${file.name}`
+    await asyncWriteFile(filename, file.contents, 'utf-8')
+    console.log(`favicon ${chalk.magenta(file.name)} file created`)
+  })
+
+  // write favicon images files
+  result.images.map(async (image) => {
+    const imagename = `${config.favicon.output}${image.name}`
+    await asyncWriteFile(imagename, image.contents, 'utf-8')
+    console.log(`favicon ${chalk.green(image.name)} image created`)
+  })
+}
+
+main()
