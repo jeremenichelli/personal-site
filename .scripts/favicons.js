@@ -44,7 +44,7 @@ const asyncFavicons = (entry, setup) =>
   })
 
 async function main() {
-  console.log(`generating ${chalk.blue('favicons')} assets\n`)
+  console.log(`\nGenerating ${chalk.cyan('favicons')} assets`)
 
   // clean favicons directory and generate favicons
   await asyncRimraf(config.favicon.output)
@@ -53,13 +53,13 @@ async function main() {
 
   // write favicons html content
   await asyncWriteFile(config.favicon.html, result.html.join('\n'), 'utf-8')
-  console.log(`favicon ${chalk.magenta('html partial')} created`)
+  console.log(`favicon ${chalk.green('html partial')} created`)
 
   // write favicons files
   result.files.map(async (file) => {
     const filename = `${config.favicon.output}${file.name}`
     await asyncWriteFile(filename, file.contents, 'utf-8')
-    console.log(`favicon ${chalk.magenta(file.name)} file created`)
+    console.log(`favicon ${chalk.green(file.name)} file created`)
   })
 
   // write favicon images files

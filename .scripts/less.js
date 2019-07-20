@@ -17,8 +17,12 @@ const cssnano = require('cssnano')
 // import config file
 const config = require('./config.json')
 
+const ENVIRONMENT = process.env.NODE_ENV || 'production'
+
 async function main() {
-  console.log(`processing ${chalk.blue('styles')}\n`)
+  console.log(
+    `\nProcessing ${chalk.cyan('styles')} for ${chalk.magenta(ENVIRONMENT)}`
+  )
 
   try {
     await asyncMakeDirectory(config.less.output)
@@ -30,7 +34,11 @@ async function main() {
     // process files content to css
     filesContent.map(async (content, index) => {
       // define output paths and filenames
-      const options = { paths: [path.dirname(filesList[index])] }
+      const options = {
+        paths: [path.dirname(filesList[index])],
+        sourceMap:
+          ENVIRONMENT === 'production' ? null : { sourceMapFileInline: true }
+      }
       const filename = `${path
         .basename(filesList[index])
         .replace('.less', '.liquid')}`
@@ -39,11 +47,13 @@ async function main() {
       // process less content
       const processed = await less.render(content, options)
 
-      // autoprefix and minimized
-      const result = await postcss([autoprefixer, cssnano]).process(
-        processed.css,
-        { from: undefined }
-      )
+      // autoprefix and minimized on production
+      const postCSSPlugins = [autoprefixer]
+      if (ENVIRONMENT === 'production') postCSSPlugins.push(cssnano)
+
+      const result = await postcss(postCSSPlugins).process(processed.css, {
+        from: undefined
+      })
 
       // write files
       await asyncWriteFile(output, result.css, 'utf-8')

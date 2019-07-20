@@ -45,7 +45,9 @@ if (ENVIRONMENT === 'production') {
 }
 
 async function main() {
-  console.log(`generating bundles for ${chalk.blue(ENVIRONMENT)}\n`)
+  console.log(
+    `\nGenerating ${chalk.cyan('bundles')} for ${chalk.magenta(ENVIRONMENT)}`
+  )
   try {
     await asyncMakeDirectory('_includes/scripts')
     const bundles = config.bundles.map(({ input }) =>
