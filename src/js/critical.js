@@ -17,26 +17,26 @@ store.css(
 // remove no js class
 document.documentElement.classList.remove('no-js')
 
-var scripts = []
+const scripts = []
 
 // enqueue scripts for font loading only if necessary
-var FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
+const FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
 
+// queue promise polyfill only when needed
+if (!FONTS_CACHED && !('Promise' in window)) {
+  scripts.push('//cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js')
+}
+
+// resolve fonts cached or queue font bundle
 if (FONTS_CACHED) {
   document.documentElement.classList.add('fonts-loaded')
 } else {
-  if (!('Promise' in window)) {
-    scripts.push(
-      '//cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js'
-    )
-  }
-
   scripts.push('/assets/js/font.js')
 }
 
 // enqueue scripts for prefetching only if supported
-var link = document.createElement('link')
-var supportsPrefetch =
+const link = document.createElement('link')
+const supportsPrefetch =
   link.relList && link.relList.supports && link.relList.supports('prefetch')
 
 if (supportsPrefetch) {
@@ -44,9 +44,9 @@ if (supportsPrefetch) {
 }
 
 // append all scripts when dom parsing is finished
-window.addEventListener('DOMContentLoaded', function() {
-  scripts.map(function(src) {
-    var scriptElement = document.createElement('script')
+window.addEventListener('DOMContentLoaded', () => {
+  scripts.map((src) => {
+    const scriptElement = document.createElement('script')
     scriptElement.src = src
     scriptElement.async = false
     document.body.appendChild(scriptElement)

@@ -7,6 +7,7 @@ const commonjs = require('rollup-plugin-commonjs')
 const replace = require('rollup-plugin-replace')
 const resolve = require('rollup-plugin-node-resolve')
 const { terser } = require('rollup-plugin-terser')
+const buble = require('rollup-plugin-buble')
 
 // import config file
 const config = require('./config.json')
@@ -25,7 +26,8 @@ const baseConfig = {
     // support commonjs
     commonjs({
       include: 'node_modules/**'
-    })
+    }),
+    buble()
   ]
 }
 
