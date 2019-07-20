@@ -1,5 +1,11 @@
 import store from 'store-css'
 
+// check dark mode
+try {
+  var storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
+  document.documentElement.classList.toggle('dark', storedDarkMode)
+} catch (error) {}
+
 // add store.css logs on dev mode
 if (__DEV__ === true) {
   store.verbose()
@@ -43,12 +49,28 @@ if (supportsPrefetch) {
   scripts.push('/assets/js/prefetch.js')
 }
 
+<<<<<<< HEAD
 // append all scripts when dom parsing is finished
 window.addEventListener('DOMContentLoaded', () => {
   scripts.map((src) => {
     const scriptElement = document.createElement('script')
+=======
+window.addEventListener('DOMContentLoaded', function() {
+  // append all scripts when dom parsing is finished
+  scripts.map(function(src) {
+    var scriptElement = document.createElement('script')
+>>>>>>> feat: implement manual dark mode
     scriptElement.src = src
     scriptElement.async = false
     document.body.appendChild(scriptElement)
+  })
+
+  // attach listener to dark toggle button
+  var button = document.getElementsByClassName('dark--toggle')[0]
+  button.addEventListener('click', function toggleDarkMode() {
+    var storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
+    // toggle state
+    localStorage.setItem('dark-mode', !storedDarkMode)
+    document.documentElement.classList.toggle('dark', !storedDarkMode)
   })
 })
