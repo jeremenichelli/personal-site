@@ -1,5 +1,5 @@
 ---
-title: The benefits of props as component slots in React
+title: The benefits of props as component slots in&nbsp;React
 excerpt: Composing components with more granular and simpler ones already present in the codebase is a pretty standard situation inside both a web application and, as in my case, a design system repository.
 ---
 

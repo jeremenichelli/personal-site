@@ -1,5 +1,5 @@
 ---
-title: How hooks might shape design systems built in React
+title: How hooks might shape design systems built in&nbsp;React
 excerpt: If you use it regularly or play around with React to build stuff for the web, there's a slight chance you heard about a little thing called hooks.
 ---
 
