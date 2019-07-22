@@ -15,13 +15,26 @@ code {
   font-size: 14px;
 }
 
+// general highlighting
 .comment {
   opacity: 0.5;
   font-style: italic;
 }
 
-.keyword {
-  font-weight: 700;
+// js highlighting
+.language-js {
+  .keyword {
+    font-weight: 700;
+  }
+}
+
+// scss highlighting
+.language-scss,
+.language-css {
+  .selector,
+  .rule {
+    font-weight: 700;
+  }
 }
 
 pre {

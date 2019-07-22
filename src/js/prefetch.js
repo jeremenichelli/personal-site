@@ -1,21 +1,21 @@
 import Hunt from 'huntjs'
 
 // turn node list into array
-var anchorsArray = [].slice.call(document.getElementsByTagName('a'))
+const anchorsArray = [].slice.call(document.getElementsByTagName('a'))
 
 // filter inner links, remove duplicates, slice first items
-var anchors = anchorsArray
+const anchors = anchorsArray
   // filter internal links, skip navigation and feed links
-  .filter(function(anchor) {
-    var belongsToSite = anchor.host === document.location.host
-    var isSkipNavigation = anchor.href === '#main'
-    var isRSSFeed = /feed.xml/.test(anchor.href)
+  .filter((anchor) => {
+    const belongsToSite = anchor.host === document.location.host
+    const isSkipNavigation = anchor.href === '#main'
+    const isRSSFeed = /feed.xml/.test(anchor.href)
 
     return belongsToSite && !isSkipNavigation & !isRSSFeed
   })
   // eliminate duplicates
-  .reduce(function(acc, anchor) {
-    var alreadyListed = acc.find(function(a) {
+  .reduce((acc, anchor) => {
+    const alreadyListed = acc.find((a) => {
       return a.href === anchor.href
     })
     if (!alreadyListed) acc.push(anchor)
@@ -24,8 +24,8 @@ var anchors = anchorsArray
 
 // observe anchors as they eneter the viewport and prefetch
 new Hunt(anchors, {
-  enter: function(anchor) {
-    var link = document.createElement('link')
+  enter: (anchor) => {
+    const link = document.createElement('link')
     link.href = anchor.href
     link.rel = 'prefetch'
 

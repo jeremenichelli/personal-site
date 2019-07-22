@@ -108,7 +108,7 @@ We can use a pseudo element on each placeholder and translate it over the X axis
     position: relative;
 
     &:after {
-      background: linear-gradient(to right, #f2f2f2, #fcfcfc, #f2f2f2);
+      background: linear-gradient(to right, #f2f, #fcf, #f2f);
       content: '';
       height: 100%;
       left: 0;
@@ -124,7 +124,7 @@ We can use a pseudo element on each placeholder and translate it over the X axis
 
 Now, we declare a css animation for them.
 
-```scss
+```css
 @keyframes placeholderAnimation {
   from {
     transform: translate3d(-100%, 0, 0);

@@ -6,7 +6,7 @@ const { asyncMakeDirectory } = require('./_utils')
 const config = require('./config.json')
 
 async function main() {
-  console.log(`processing ${chalk.blue('images')}\n`)
+  console.log(`\nProcessing ${chalk.cyan('images')}`)
 
   try {
     await asyncMakeDirectory('./assets/images')
