@@ -21,9 +21,7 @@ Promise.all([w400r, w400i, w700r, w700i])
     sessionStorage.setItem('fonts-cached', true)
   })
   .catch((error) => {
-    if (__DEV__ === true) {
-      console.error(error)
-    }
+    if (__DEV__) console.error(error)
     // add fallback font class
     document.documentElement.classList.add('fonts-failed')
   })

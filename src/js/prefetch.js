@@ -15,9 +15,7 @@ const anchors = anchorsArray
   })
   // eliminate duplicates
   .reduce((acc, anchor) => {
-    const alreadyListed = acc.find((a) => {
-      return a.href === anchor.href
-    })
+    const alreadyListed = acc.find((a) => a.href === anchor.href)
     if (!alreadyListed) acc.push(anchor)
     return acc
   }, [])
@@ -29,10 +27,7 @@ new Hunt(anchors, {
     link.href = anchor.href
     link.rel = 'prefetch'
 
-    if (__DEV__ === true) {
-      console.log('prefetching ' + anchor.href, link)
-    }
-
+    if (__DEV__) console.log('prefetching ' + anchor.href, link)
     document.head.appendChild(link)
   }
 })
