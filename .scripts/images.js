@@ -18,7 +18,7 @@ async function main() {
       image.quality(file.quality)
       image.resize(file.resize[0], file.resize[1])
       image.write(file.output)
-      console.log(`${chalk.green(file.output)} image processed\n`)
+      console.log(`${chalk.green(file.output)} image processed`)
     })
   } catch (error) {
     console.log(chalk.red(error))
