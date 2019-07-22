@@ -1,10 +1,14 @@
 import store from 'store-css'
 
-// check dark mode
+// check dark mode initial state
 try {
   var storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
   document.documentElement.classList.toggle('dark', storedDarkMode)
-} catch (error) {}
+} catch (error) {
+  if (__DEV__ === true) {
+    console.error(error)
+  }
+}
 
 // add store.css logs on dev mode
 if (__DEV__ === true) {
@@ -68,9 +72,15 @@ window.addEventListener('DOMContentLoaded', function() {
   // attach listener to dark toggle button
   var button = document.getElementsByClassName('dark--toggle')[0]
   button.addEventListener('click', function toggleDarkMode() {
-    var storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
-    // toggle state
-    localStorage.setItem('dark-mode', !storedDarkMode)
-    document.documentElement.classList.toggle('dark', !storedDarkMode)
+    try {
+      var storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
+      // toggle state
+      localStorage.setItem('dark-mode', !storedDarkMode)
+      document.documentElement.classList.toggle('dark', !storedDarkMode)
+    } catch (error) {
+      if (__DEV__ === true) {
+        console.error(error)
+      }
+    }
   })
 })
