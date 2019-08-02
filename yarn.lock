@@ -2210,6 +2210,11 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
+eleventy-nbsp-filter@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eleventy-nbsp-filter/-/eleventy-nbsp-filter-0.1.0.tgz#a3fc1a6c633fc15c5c56388fd48b78d0e90d251d"
+  integrity sha512-7/ZBUqkgn8IdB0h3e52x9JeltOMvsg40UUdmNcXtPAOkiUGMXBH2b+eLXkJtyBbilZeLNl3Hwpu0+RBu3z3SiQ==
+
 eleventy-xml-plugin@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/eleventy-xml-plugin/-/eleventy-xml-plugin-0.1.0.tgz#f117d4bbf22b3eaf16e1dddbf4cc02e275af39fc"

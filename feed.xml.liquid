@@ -13,7 +13,7 @@ excludeFromSitemap: true
     <lastBuildDate>{{ collections.archive[0].date | 'date_to_rfc822' }}</lastBuildDate>
     {% for post in collections.archive %}
       <item>
-        <title>{{ post.data.title | 'xml_escape' }}</title>
+        <title>{{ post.data.title }}</title>
         <description>{{ post.data.excerpt }}</description>
         <pubDate>{{ post.date | 'date_to_rfc822' }}</pubDate>
         <link>{{ post.url | prepend: site.url }}</link>

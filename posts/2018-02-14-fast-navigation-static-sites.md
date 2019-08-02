@@ -1,5 +1,5 @@
 ---
-title: Fast inner navigation for static&nbsp;sites
+title: Fast inner navigation for static sites
 excerpt: When trying to improve a web product experience and performance we usually encounter limitations. Sometimes we are not be able to modify servers configuration, build scripts or even some parts of the code that don't belong to our scope.
 ---
 

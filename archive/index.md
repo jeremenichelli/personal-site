@@ -18,7 +18,7 @@ type: archive
   {%- else -%}
     href="{{ post.url }}"
   {%- endif -%}>
-    {{ post.data.title }}
+    {{ post.data.title | nbsp }}
   </a>
   </li>
 {% endfor %}

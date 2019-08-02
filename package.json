@@ -35,6 +35,7 @@
     "autoprefixer": "^9.6.1",
     "chalk": "^2.4.2",
     "cssnano": "^4.1.10",
+    "eleventy-nbsp-filter": "^0.1.0",
     "eleventy-xml-plugin": "^0.1.0",
     "favicons": "^5.4.1",
     "glob": "^7.1.4",
