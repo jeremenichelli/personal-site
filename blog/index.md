@@ -25,7 +25,7 @@ If you want me to write for your publication feel free [to send here](mailto:jme
     {%- else -%}
       href="{{ post.url }}"
     {%- endif -%}>
-      {{ post.data.title }}
+      {{ post.data.title | nbsp }}
     </a>
   {% if forloop.first %}
   <p class="list__item--excerpt">{{ post.data.excerpt }}</p>

@@ -1,8 +1,12 @@
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const htmlmin = require('html-minifier')
 const xmlPlugin = require('eleventy-xml-plugin')
+const nbspFilter = require('eleventy-nbsp-filter')
 
 module.exports = function(eleventyConfig) {
+  // add nbsp filter
+  eleventyConfig.addFilter('nbsp', nbspFilter(2, 12))
+
   // add xml plugin
   eleventyConfig.addPlugin(xmlPlugin)
 
