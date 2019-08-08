@@ -39,8 +39,7 @@ If you want me to write for your publication feel free [to send here](mailto:jme
   {% endif %}
   </li>
 {% endfor %}
-  <li class="list__item">
-    <a class="list--cta" href="/archive">See all articles</a>
-  </li>
 </ul>
+
+<a class="archive--link" href="/archive">See all articles</a>
 
