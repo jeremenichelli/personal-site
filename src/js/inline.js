@@ -1,15 +1,19 @@
-import store from 'store-css'
+import { css } from 'store-css'
 
-// load web font stylesheet
-if (__DEV__) store.verbose()
+const url =
+  'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i'
+const storage = 'session'
+const crossOrigin = 'anonymous'
+const config = { url, storage, crossOrigin }
 
-store.css(
-  'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i',
-  {
-    storage: 'session',
-    crossOrigin: 'anonymous'
+if (__DEV__) {
+  config.logger = (error, message) => {
+    if (error) console.error(message, error)
+    else console.log(message)
   }
-)
+}
+
+css(config)
 
 // check dark mode initial state
 try {

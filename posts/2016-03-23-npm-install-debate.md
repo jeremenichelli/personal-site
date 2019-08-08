@@ -14,8 +14,7 @@ Industry is making us solve stuff quick, build stuff quick, and that comes at a 
 I'm pretty sure that an event like this wouldn't have been possible in the front end community just a couple of years ago because the needs really differed from the ones we have today.
 
 > Change is constant.
->
-> - Benjamin Disraeli
+> <cite>Benjamin Disraeli</cite>
 
 We are in presence of one of those big moments when we found out that something is not as good as we thought and we need to evolve and find a solution.
 

@@ -8,9 +8,8 @@ const anchors = anchorsArray
   // filter internal links, skip navigation and feed links
   .filter((anchor) => {
     const belongsToSite = anchor.host === document.location.host
-    const isSkipNavigation = anchor.href === '#main'
+    const isSkipNavigation = anchor.classList.contains('skip--navigation')
     const isRSSFeed = /feed.xml/.test(anchor.href)
-
     return belongsToSite && !isSkipNavigation & !isRSSFeed
   })
   // eliminate duplicates
