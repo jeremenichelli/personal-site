@@ -7,7 +7,7 @@ The new **Intersection Observer** interface is here as a response of developers 
 
 _This article was udpated in August 2019 to reflect the last changes in the spec._
 
-## Creating a new observer
+## Create a new observer
 
 First thing you need to do is to create an observer passing a `callback` function that will be executed everytime an element or more changes its status and an `options` object to configure the observer's behavior.
 
@@ -27,7 +27,7 @@ function onChange(changes) {
 
 The callback will receive a collection of all changes detected. Important to say this doesn't mean that all of them correspond to elements that have become visible, but elements whose `intersectionRatio` has changed.
 
-### Add targets
+## Add targets
 
 We haven't told the observer what elements to look at yet.
 
@@ -45,7 +45,7 @@ const hiddenElements = document.querySelectorAll('.hidden')
 
 Going back to our `onChange` callback, we need to understand which of these _entries_ mean and how to use them to react to ratio changes.
 
-### Inspecting intersection entries
+## Inspecting intersection entries
 
 Each entry you receive the observer callback will contain a `target` property containing a reference of the element, an `intersectionRatio` which goes from `0` to `1.0` which is a coeficient indicating the visible portion of the target and an easier to read `isIntersecting` property which will be `true` only when the visible ratio is bigger than `0`.
 
@@ -121,11 +121,11 @@ function onChange(changes) {
 
 This gives developers more granular control over when the actions are executed during observation.
 
-### disconnect
+## Disconnect
 
 You can always suspend the whole observation by doing `observer.disconnect()`, useful if for example, after some change in the DOM you know elements are not longer gonna be present.
 
-### Observers behavior
+## Observers behavior
 
 As I mentioned before, the second argument the observer constructor receives allows you to configure its behavior. The options this object supports are:
 
