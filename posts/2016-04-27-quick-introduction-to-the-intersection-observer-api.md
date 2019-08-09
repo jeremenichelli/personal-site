@@ -133,10 +133,6 @@ As I mentioned before, the second argument the observer constructor receives all
  - `rootMargin` accepts a collection of values as string similar to CSS margins and allows you to shrink the area of the root element that's going to take in count when calculating intersection ratios.
  - `threshold` can be a number or an array of numbers to inform the observer to only fire when a certain portion of the element is visible, recommended for more complex ratio situations like when you want the whole element to be visible you can pass `1.0`, then the callback will act.
 
-- **threshold** represents the element's area that needs to become visible to trigger the callback, in this example the function will be called only when at least a quarter of the element appears in the viewport.
-- **root** is the element used as reference to determinate the target intersection, when this configuration `null` the reference is the browser top level viewport.
-- **rootMargin** will allow you to shrink or grow the *box* that is being observed, its notation is the same as the style margin property we already know so its default value is `0px 0px 0px 0px`.
-
 It's possible though not immediately probable you will need to alter these values. If you do, I recommend checking out [the MDN page](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) for intersection observers use.
 
 ## Wrap-up
