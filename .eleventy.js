@@ -36,7 +36,7 @@ module.exports = function(eleventyConfig) {
 
   // shortcodes
   eleventyConfig.addShortcode('actionLink', (link) => {
-    return `<em>Check out this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer">in action</a>.</em>`
+    return `<em class="action--link">See this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer" target="_blank">in action</a></em>`
   })
 
   // set layout alias

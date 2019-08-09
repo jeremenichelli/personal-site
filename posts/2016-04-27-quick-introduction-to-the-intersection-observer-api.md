@@ -3,124 +3,142 @@ title: Quick introduction to the Intersection Observer API
 excerpt: These last years browsers vendors have paid more attention to the riddles developers were trying to solve to implement native and more performant solutions.
 ---
 
-The new **Intersection Observer API** is here as a response of developers trying to figure out the best way to detect when an element enters the viewport. Doing this is useful in a lot of cases like infinite scrolling, lazy loading images or animating content for example.
+The new **Intersection Observer** interface is here as a response of developers trying to figure out the best way to detect when an element enters the viewport. Doing this is useful in a lot of cases like infinite scrolling, lazy loading images or animating content.
+
+_This article was udpated in August 2019 to reflect the last changes in the spec._
 
 ## Creating a new observer
 
-First thing you need to do is to instance a new observer passing a **callback** function that will be executed everytime an element becomes visible and an **options** object that can alter how the observer will behave.
+First thing you need to do is to create an observer passing a `callback` function that will be executed everytime an element or more changes its status and an `options` object to configure the observer's behavior.
 
 ```js
-let observer = new IntersectionObserver(onChange, {
+const observer = new IntersectionObserver(onChange, {
   threshold: [ .25 ]
 });
 
 function onChange(changes) {
   // for each element that has become visible
-  changes.forEach(change => {
-    // add class to element
-    change.target.classList.add('visible');
+  changes.forEach(entry => {
+    // change in one of the targets observed
+    console.log(entry);
   });
 }
 ```
 
-The callback function will receive a list of all the intersections detected. Each element on that list is an object with useful information like the DOM element itself, or *target* from now on.
+The callback will receive a collection of all changes detected. Important to say this doesn't mean that all of them correspond to elements that have become visible, but elements whose `intersectionRatio` has changed.
 
-The options object supports a variety of configurations:
+### Add targets
 
-- **threshold** represents the element's area that needs to become visible to trigger the callback, in this example the function will be called only when at least a quarter of the element appears in the viewport.
-- **root** is the element used as reference to determinate the target intersection, when this configuration `null` the reference is the browser top level viewport.
-- **rootMargin** will allow you to shrink or grow the *box* that is being observed, its notation is the same as the style margin property we already know so its default value is `0px 0px 0px 0px`.
+We haven't told the observer what elements to look at yet.
 
-We're still doing nothing, so let's actually observe something.
+For this we use the `observe` method.
 
 ```js
-let observer = new IntersectionObserver(onChange);
+// add one element
+const image = document.querySelector('.lazy--image')
+observer.observe(image)
 
-function onChange(changes) {
-  changes.forEach(change => {
-    change.target.classList.remove('hidden');
-  });
-}
-
-// start observing an element
-observer.observe(document.querySelector('.hidden'));
+// multiple elements
+const hiddenElements = document.querySelectorAll('.hidden')
+[ ...hiddenElements ].forEach(el => observer.observe(el))
 ```
 
-Passing a node to the **observe** method will add it to the Intersection Observer's list of interest.
+Going back to our `onChange` callback, we need to understand which of these _entries_ mean and how to use them to react to ratio changes.
 
-You can stop watching an element using the **unobserve** method.
+### Inspecting intersection entries
 
-```js
-let observer = new IntersectionObserver(onChange);
+Each entry you receive the observer callback will contain a `target` property containing a reference of the element, an `intersectionRatio` which goes from `0` to `1.0` which is a coeficient indicating the visible portion of the target and an easier to read `isIntersecting` property which will be `true` only when the visible ratio is bigger than `0`.
 
-function onChange(changes) {
-  changes.forEach(change => {
-    change.target.classList.remove('hidden');
-
-    // stop observing the current target
-    observer.unobserve(change.target);
-  });
-}
-
-observer.observe(document.querySelector('.hidden'));
-```
-
-When you don't need the observer anymore you can **disconnect** it.
-
-```js
-let observer = new IntersectionObserver(onChange);
-
-function onChange(changes) {
-  changes.forEach(change => {
-    change.target.classList.remove('hidden');
-    observer.unobserve(change.target);
-
-    // thank you, we don't need you anymore
-    observer.disconnect();
-  });
-}
-
-observer.observe(document.querySelector('.hidden'));
-```
-
-This API also comes with a `takeRecords` method to trigger the observe action at any time.
-
-### Lazy loading images in the future
-
-To show an actual use case let's do some lazy loading, a practice useful to improve the initial rendering time of a page.
+Better checking this in a code snippet.
 
 ```js
 // create observer
-let observer = new IntersectionObserver(onChange);
+const observer = new IntersectionObserver(onChange);
 
+// observer callback
 function onChange(changes) {
-  changes.forEach(change => {
-    // take image url from `data-src` attribute
-    change.target.src = change.target.dataset.src;
-
-    // stop observing the current target
-    observer.unobserve(change.target);
+  changes.forEach(entry => {
+    // check if image is visible
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src
+    }
   });
 }
 
-// convert node list to array
-const imgs = [ ...document.querySelectorAll('.lazy') ];
-
-// observe each image
-imgs.forEach(img => observer.observe(img));
+// observe images
+const lazyImages = document.querySelectorAll('.lazy--image')
+[...lazyImages].forEach(el => observer.observe(el));
 ```
 
-Taking advantage of this native API avoiding scroll handlers will improve performance during navigation, making intersection observers a great addition.
+That's how you can easily implement a lazy loading logic right now on browsers supporting `IntersectionObserver`, the issue with this code snippet is we will re-assign the `src` of the iamges every time the re-enter the viewport, even when it's not necessary, for this we need to remove the target from the observer.
+
+```js
+function onChange(changes) {
+  changes.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src
+      // STOP OBSERVING IMAGE
+     observer.unobserve(entry.target)
+    }
+  });
+}
+```
+
+{% actionLink '//codesandbox.io/s/intersection-observer-example-p4gcl' %}
+
+Now, we will stop tracking images we already checked.
+
+It's important to mention that `isIntersecting` was added later to the spec, so in some browser versions it will be `undefined`, to be safe you can rely on the `intersectionRatio` property.
+
+```js
+function onChange(changes) {
+  changes.forEach(entry => {
+    // rely on intersectionRatio
+    if (entry.intersectionRatio > 0) {
+      entry.target.src = entry.target.dataset.src
+      observer.unobserve(entry.target)
+    }
+  });
+}
+```
+
+_Check in caniuse.com [which browsers](https://caniuse.com/#feat=intersectionobserver) don't support this._
+
+You might wonder why intersection ratios are important, the fact is that the usual example for this new interface are around lazy loading images, like I just did so it doesn't count as shaming, but let's say you want to trigger an animation on a visible element.
+
+It doesn't make any sense to do this as soon as one pixel from the target enters the viewport, you might prefer to animate once a more decent portion of it is visible for the use, let's say half of it.
+
+```js
+function onChange(changes) {
+  changes.forEach(entry => {
+    if (entry.intersectionRatio > 0.5) {
+      entry.target.classList.add('animate')
+      observer.unobserve(entry.target)
+    }
+  });
+}
+```
+
+This gives developers more granular control over when the actions are executed during observation.
+
+### disconnect
+
+You can always suspend the whole observation by doing `observer.disconnect()`, useful if for example, after some change in the DOM you know elements are not longer gonna be present.
+
+### Observers behavior
+
+As I mentioned before, the second argument the observer constructor receives allows you to configure its behavior. The options this object supports are:
+
+ - `root`, the reference object used to check the targets visibility, when _null_ it defaults to the browser's viewport.
+ - `rootMargin` accepts a collection of values as string similar to CSS margins and allows you to shrink the area of the root element that's going to take in count when calculating intersection ratios.
+ - `threshold` can be a number or an array of numbers to inform the observer to only fire when a certain portion of the element is visible, recommended for more complex ratio situations like when you want the whole element to be visible you can pass `1.0`, then the callback will act.
+
+It's possible though not immediately probable you will need to alter these values. If you do, I recommend checking out [the MDN page](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) for intersection observers use.
 
 ## Wrap-up
 
-Since this is super new in the web world it's not available in any browser yet. At the moment it could possibily be shipped with Chrome 51.
+It's interesting to see vendors filling up the gaps between what we do on our projects against what the platform offers natively.
 
-In the mean time you can grab [this nice polyfill][1] written by Surma Das from Google or check it out in [Chrome Canary][2]. Want to see it in action? Check out this [living example][3] by Wilson Page.
+If you find yourself observing the DOM as you scroll to observe elements you should definitely consider intersection observers as a more performant solution as it immediately frees the main thread for its execution.
 
-To know more I suggest reading the [explainer][4] present in GitHub's API sketch.
-
-[1]: https://github.com/surma-dump/IntersectionObserver/blob/polyfill/polyfill/intersectionobserver-polyfill.js
-[2]: https://www.google.es/chrome/browser/canary.html
-[3]: http://wilsonpage.github.io/in-sixty/intersection-observer/
-[4]: https://github.com/WICG/IntersectionObserver/blob/gh-pages/explainer.md
+You can always add a [polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill) for legacy browsers that don't support or for partial implementations.
