@@ -26,15 +26,6 @@
   "images": [
     {
       "entry": "./src/favicon/favicon.png",
-      "output": "./assets/images/twitter-card-2019-05-30.jpeg",
-      "quality": 85,
-      "resize": [
-        300,
-        300
-      ]
-    },
-    {
-      "entry": "./src/favicon/favicon.png",
       "output": "./assets/images/twitter-card-image.jpeg",
       "quality": 85,
       "resize": [
