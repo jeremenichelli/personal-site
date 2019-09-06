@@ -1,14 +1,17 @@
-const fs = require('fs')
-const mkdirp = require('mkdirp')
+const rimraf = require('rimraf')
 const glob = require('glob')
-const { promisify } = require('util')
+const fs = require('fs')
+const { readFile, writeFile, mkdir } = fs.promises
 
-exports.asyncReadFile = promisify(fs.readFile)
-exports.asyncWriteFile = promisify(fs.writeFile)
+exports.asyncReadFile = readFile
 
-exports.asyncMakeDirectory = (path, options) =>
+exports.asyncWriteFile = writeFile
+
+exports.asyncMakeDirectory = mkdir
+
+exports.asyncRimraf = (path) =>
   new Promise((res, rej) => {
-    mkdirp(path, options, (err) => {
+    rimraf(path, (err) => {
       if (err) return rej(err)
       res()
     })
