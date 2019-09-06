@@ -19,6 +19,14 @@ const config = require('./config.json')
 
 const ENVIRONMENT = process.env.NODE_ENV || 'production'
 
+const asyncPostCSS = async (css) => {
+  // autoprefix and minimized on production
+  const postCSSPlugins = [autoprefixer]
+  if (ENVIRONMENT === 'production') postCSSPlugins.push(cssnano)
+
+  return await postcss(postCSSPlugins).process(css, { from: undefined })
+}
+
 async function main() {
   console.log(
     `\nProcessing ${chalk.cyan('styles')} for ${chalk.magenta(ENVIRONMENT)}`
@@ -36,8 +44,7 @@ async function main() {
       // define output paths and filenames
       const options = {
         paths: [path.dirname(filesList[index])],
-        sourceMap:
-          ENVIRONMENT === 'production' ? null : { sourceMapFileInline: true }
+        sourceMap: ENVIRONMENT !== 'production' && { sourceMapFileInline: true }
       }
       const filename = `${path
         .basename(filesList[index])
@@ -47,13 +54,8 @@ async function main() {
       // process less content
       const processed = await less.render(content, options)
 
-      // autoprefix and minimized on production
-      const postCSSPlugins = [autoprefixer]
-      if (ENVIRONMENT === 'production') postCSSPlugins.push(cssnano)
-
-      const result = await postcss(postCSSPlugins).process(processed.css, {
-        from: undefined
-      })
+      // process with Post CSS
+      const result = await asyncPostCSS(processed.css)
 
       // write files
       await asyncWriteFile(output, result.css, 'utf-8')

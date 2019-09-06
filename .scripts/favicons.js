@@ -1,9 +1,6 @@
-const fs = require('fs')
-const mkdirp = require('mkdirp')
-const rimraf = require('rimraf')
 const chalk = require('chalk')
 const favicons = require('favicons')
-const { asyncMakeDirectory, asyncWriteFile } = require('./_utils')
+const { asyncMakeDirectory, asyncWriteFile, asyncRimraf } = require('./_utils')
 
 // import config file
 const config = require('./config.json')
@@ -27,14 +24,6 @@ const setup = {
   }
 }
 
-const asyncRimraf = (path) =>
-  new Promise((res, rej) => {
-    rimraf(path, (err) => {
-      if (err) return rej(err)
-      res()
-    })
-  })
-
 const asyncFavicons = (entry, setup) =>
   new Promise((res, rej) => {
     favicons(entry, setup, (err, result) => {
@@ -46,28 +35,32 @@ const asyncFavicons = (entry, setup) =>
 async function main() {
   console.log(`\nGenerating ${chalk.cyan('favicons')} assets`)
 
-  // clean favicons directory and generate favicons
-  await asyncRimraf(config.favicon.output)
-  await asyncMakeDirectory(config.favicon.output)
-  const result = await asyncFavicons(config.favicon.entry, setup)
+  try {
+    // clean favicons directory and generate favicons
+    await asyncRimraf(config.favicon.output)
+    await asyncMakeDirectory(config.favicon.output, { recursive: true })
+    const result = await asyncFavicons(config.favicon.entry, setup)
 
-  // write favicons html content
-  await asyncWriteFile(config.favicon.html, result.html.join('\n'), 'utf-8')
-  console.log(`favicon ${chalk.green('html partial')} created`)
+    // write favicons html content
+    await asyncWriteFile(config.favicon.html, result.html.join('\n'), 'utf-8')
+    console.log(`favicon ${chalk.green('html partial')} created`)
 
-  // write favicons files
-  result.files.map(async (file) => {
-    const filename = `${config.favicon.output}${file.name}`
-    await asyncWriteFile(filename, file.contents, 'utf-8')
-    console.log(`favicon ${chalk.green(file.name)} file created`)
-  })
+    // write favicons files
+    result.files.map(async (file) => {
+      const filename = `${config.favicon.output}${file.name}`
+      await asyncWriteFile(filename, file.contents, 'utf-8')
+      console.log(`favicon ${chalk.green(file.name)} file created`)
+    })
 
-  // write favicon images files
-  result.images.map(async (image) => {
-    const imagename = `${config.favicon.output}${image.name}`
-    await asyncWriteFile(imagename, image.contents, 'utf-8')
-    console.log(`favicon ${chalk.green(image.name)} image created`)
-  })
+    // write favicon images files
+    result.images.map(async (image) => {
+      const imagename = `${config.favicon.output}${image.name}`
+      await asyncWriteFile(imagename, image.contents, 'utf-8')
+      console.log(`favicon ${chalk.green(image.name)} image created`)
+    })
+  } catch (error) {
+    console.log(chalk.red(error))
+  }
 }
 
 main()
