@@ -7,7 +7,7 @@ To answer this questions I moved an entire application from React to web compone
 
 ## Declaration
 
-The entry selling points of components is their declarative and reusable nature.
+The entry selling points of components is their declarative and reusable nature, this benefit is around architecture of a project that needs to scale and not tied to technologies.
 
 ```js
 import React from 'react';
@@ -303,7 +303,7 @@ But `<slot>` tags are not just content placeholders, they can be named to get a 
 
 If you want to know more about this I recommend checking [Eric Bidelman's explanation about named slots](https://developers.google.com/web/fundamentals/web-components/shadowdom#slots) in shadow DOM.
 
-## From props to attributes, from reactive data to setters
+## From props to attributes, from reactive data to getters and setters
 
 Another mind shifting concept of component based apps is data flow, pouring down properties to give shape and behavior to the interface.
 
