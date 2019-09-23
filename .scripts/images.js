@@ -1,4 +1,4 @@
-const chalk = require('chalk')
+const { cyan, green, red } = require('chalk')
 const jimp = require('jimp')
 const { asyncMakeDirectory } = require('./_utils')
 
@@ -6,7 +6,7 @@ const { asyncMakeDirectory } = require('./_utils')
 const config = require('./config.json')
 
 async function main() {
-  console.log(`\nProcessing ${chalk.cyan('images')}`)
+  console.log(`\nProcessing ${cyan('images')}`)
 
   try {
     await asyncMakeDirectory('./assets/images')
@@ -18,10 +18,10 @@ async function main() {
       image.quality(file.quality)
       image.resize(file.resize[0], file.resize[1])
       image.write(file.output)
-      console.log(`${chalk.green(file.output)} image processed`)
+      console.log(`${green(file.output)} image processed`)
     })
   } catch (error) {
-    console.log(chalk.red(error))
+    console.log(red(error))
   }
 }
 

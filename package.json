@@ -4,6 +4,7 @@
   "description": "Personal site by Jeremias Menichelli",
   "main": "index.md",
   "scripts": {
+    "clean": "rimraf _site assets _includes/styles _includes/scripts _includes/favicons.liquid",
     "format:js": "prettier --write './**/*.js'",
     "format:less": "prettier --write './**/*.less'",
     "bundle": "node .scripts/bundle.js",
@@ -13,7 +14,6 @@
     "serve": "eleventy --serve",
     "build": "DEBUG=* eleventy",
     "assets": "yarn bundle && yarn less && yarn favicons && yarn images",
-    "clean": "rimraf _site assets _includes/styles _includes/scripts _includes/favicons.liquid",
     "prerelease": "yarn clean",
     "release": "yarn assets && yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
