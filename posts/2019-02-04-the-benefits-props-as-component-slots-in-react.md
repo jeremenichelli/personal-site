@@ -9,9 +9,9 @@ You might already have seen lots of different approaches and techniques for comp
 
 _And if you have a better name for this please reach out._
 
-The best way to explain this pattern, and where it shines, is to present the issues and code smells it solved for me.
-
 ## Things to solve
+
+The best way to explain this pattern, and where it shines, is to present the issues and code smells it solved for me.
 
 ### Prop "drilling"
 
