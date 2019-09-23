@@ -37,6 +37,25 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setUseGitIgnore(false)
 
+  /* MARKDOWN */
+  const markdownIt = require('markdown-it')
+  const markdownItAnchor = require('markdown-it-anchor')
+  const markdownItOptions = {
+    html: true,
+    breaks: true,
+    linkify: true
+  }
+  const markdownItAnchorOptions = {
+    permalink: true,
+    permalinkSymbol: '#',
+    level: [2, 3, 4]
+  }
+  const markdownLib = markdownIt(markdownItOptions).use(
+    markdownItAnchor,
+    markdownItAnchorOptions
+  )
+  eleventyConfig.setLibrary('md', markdownLib)
+
   /* COPY */
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy('robots.txt')
