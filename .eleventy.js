@@ -48,6 +48,7 @@ module.exports = function(eleventyConfig) {
   const markdownItAnchorOptions = {
     permalink: true,
     permalinkSymbol: '#',
+    permalinkBefore: true,
     level: [2, 3, 4]
   }
   const markdownLib = markdownIt(markdownItOptions).use(
