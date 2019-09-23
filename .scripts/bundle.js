@@ -1,5 +1,5 @@
-const chalk = require('chalk')
-const { asyncMakeDirectory } = require('./_utils.js')
+const { cyan, green, magenta, red } = require('chalk')
+const { asyncMakeDirectory, ENVIRONMENT } = require('./_utils.js')
 
 // rollup pacakges
 const { rollup } = require('rollup')
@@ -11,8 +11,6 @@ const buble = require('rollup-plugin-buble')
 
 // import config file
 const config = require('./config.json')
-
-const ENVIRONMENT = process.env.NODE_ENV || 'production'
 
 // base input config for bundles
 const baseConfig = {
@@ -45,9 +43,7 @@ if (ENVIRONMENT === 'production') {
 }
 
 async function main() {
-  console.log(
-    `\nGenerating ${chalk.cyan('bundles')} for ${chalk.magenta(ENVIRONMENT)}`
-  )
+  console.log(`\nGenerating ${cyan('bundles')} for ${magenta(ENVIRONMENT)}`)
   try {
     await asyncMakeDirectory('_includes/scripts')
     const bundles = config.bundles.map(({ input }) =>
@@ -62,10 +58,10 @@ async function main() {
       const sourcemap = ENVIRONMENT === 'development' ? 'inline' : false
 
       bundle.write({ file, format, sourcemap })
-      console.log(`${chalk.green(file)} file written`)
+      console.log(`${green(file)} file written`)
     })
   } catch (error) {
-    console.log(chalk.red(error))
+    console.log(red(error))
   }
 }
 

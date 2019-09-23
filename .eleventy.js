@@ -4,21 +4,12 @@ const xmlPlugin = require('eleventy-xml-plugin')
 const nbspFilter = require('eleventy-nbsp-filter')
 
 module.exports = function(eleventyConfig) {
-  // add nbsp filter
+  /* FILTERS AND PLUGINS */
+  eleventyConfig.addPlugin(xmlPlugin)
+  eleventyConfig.addPlugin(pluginSyntaxHighlight)
   eleventyConfig.addFilter('nbsp', nbspFilter(2, 12))
 
-  // add xml plugin
-  eleventyConfig.addPlugin(xmlPlugin)
-
-  // add highlighting
-  eleventyConfig.addPlugin(pluginSyntaxHighlight)
-
-  // liquid config
-  eleventyConfig.setLiquidOptions({
-    dynamicPartials: true
-  })
-
-  // preprocess collections
+  /* COLLECTIONS */
   eleventyConfig.addCollection('blogposts', (collection) => {
     return collection
       .getFilteredByTag('post')
@@ -34,20 +25,23 @@ module.exports = function(eleventyConfig) {
     return collection.getAll()
   })
 
-  // shortcodes
+  /* SHORT CODES */
   eleventyConfig.addShortcode('actionLink', (link) => {
     return `<em class="action--link">See this example <a aria-label="launch this code snippet" href=${link} rel="noopener noreferrer" target="_blank">in action</a></em>`
   })
 
-  // set layout alias
+  /* LIQUID CONFIG */
+  eleventyConfig.setLiquidOptions({ dynamicPartials: true })
   eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid')
   eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid')
 
-  // copy assets folder and public files
+  eleventyConfig.setUseGitIgnore(false)
+
+  /* COPY */
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy('robots.txt')
 
-  // minify html
+  /* HTML */
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
     if (outputPath.endsWith('.html')) {
       const minified = htmlmin.minify(content, {
@@ -61,9 +55,6 @@ module.exports = function(eleventyConfig) {
 
     return content
   })
-
-  // do not ignore generated assets
-  eleventyConfig.setUseGitIgnore(false)
 
   // return base config
   return {
