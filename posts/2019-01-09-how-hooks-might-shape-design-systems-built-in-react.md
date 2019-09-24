@@ -128,7 +128,7 @@ It happens a lot that these small details get repeated over and over again in a 
 
 There's a huge chance you will need this for a lot of other elements like overlays, drawers or modals. You can't share lifecycle methods between class components, but we can isolate hooks into their own files and import them wherever necessary.
 
-This how the hook from the example above would look like isolated in its own file.
+Let's imagine the use case from above, isollated in a single file that can be consumed by any component from a project.
 
 ```js
 import { useEffect } from 'react'
