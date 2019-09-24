@@ -1,5 +1,6 @@
 const { cyan, green, magenta, red } = require('chalk')
 const { asyncMakeDirectory, ENVIRONMENT } = require('./_utils.js')
+const { statSync } = require('fs')
 
 // rollup pacakges
 const { rollup } = require('rollup')
@@ -58,7 +59,8 @@ async function main() {
       const sourcemap = ENVIRONMENT === 'development' ? 'inline' : false
 
       bundle.write({ file, format, sourcemap })
-      console.log(`${green(file)} file written`)
+      const fileSize = statSync(file).size + 'B'
+      console.log(`${green(file)} file written ${cyan(fileSize)}`)
     })
   } catch (error) {
     console.log(red(error))
