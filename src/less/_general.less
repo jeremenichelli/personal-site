@@ -54,6 +54,13 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+* {
+  // global focus ring color
+  &:focus {
+    outline-color: var(--accent);
+  }
+}
+
 body {
   background-color: var(--background);
   color: var(--text);
@@ -80,10 +87,6 @@ a {
 
   &:hover {
     text-decoration: underline;
-  }
-
-  &:focus {
-    outline-color: var(--accent);
   }
 }
 
@@ -140,11 +143,6 @@ main {
   @media (min-width: 737px) {
     left: 2rem;
     top: 2rem;
-  }
-
-  &:active {
-    // needs important to override animation-fill-mode
-    transform: scale(0.95) !important;
   }
 
   .home & {
