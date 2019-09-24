@@ -6,7 +6,7 @@ type: home
 <p class="home__subtitle">Curious mind, writer and developer</p>
 <h1 class="home__title">Jeremias Menichelli</h1>
 <p class="home__bio">  
-  Front end engineer with experience in both fast static sites and modern web applications and currently fixated on performance, tooling and design systems
+  Front end engineer with experience in both fast static sites and modern web applications, currently focusing on performance, tooling and design systems
   <!-- <a href="mailto:jmenichelli@gmail.com" style="background-color: var(--accent);color: var(--background);font-style: italic;text-transform: uppercase;padding: 0 0.25rem;">available&nbsp;for&nbsp;hire</a> -->
 </p>
 <nav class="home__nav">
