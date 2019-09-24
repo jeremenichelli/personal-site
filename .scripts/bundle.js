@@ -53,12 +53,12 @@ async function main() {
     const results = await Promise.all(bundles)
 
     // write files
-    results.map((bundle, index) => {
+    results.map(async (bundle, index) => {
       const file = config.bundles[index].output
       const format = 'iife'
       const sourcemap = ENVIRONMENT === 'development' ? 'inline' : false
 
-      bundle.write({ file, format, sourcemap })
+      await bundle.write({ file, format, sourcemap })
       const fileSize = statSync(file).size + 'B'
       console.log(`${green(file)} file written ${cyan(fileSize)}`)
     })
