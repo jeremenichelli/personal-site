@@ -3182,11 +3182,6 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-huntjs@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/huntjs/-/huntjs-5.0.0.tgz#8bfada32ebea47fc1251534adc698ae333999066"
-  integrity sha512-DbMVGtOcz4dENkMEBXMI6VX9AdhKc1ES4immqTSJoY2nMrHX2wYsKtxRB/40e1OTh5K9+ve6/cgfI9bpP1mBjQ==
-
 husky@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-3.0.0.tgz#de63821a7049dc412b1afd753c259e2f6e227562"
