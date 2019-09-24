@@ -15,8 +15,8 @@ if (__DEV__) {
 
 css(config)
 
-// check dark mode initial state
 try {
+  // check dark mode initial state
   const storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
   document.documentElement.classList.toggle('dark', storedDarkMode)
 } catch (error) {
@@ -26,13 +26,15 @@ try {
 // remove no js class
 document.documentElement.classList.remove('no-js')
 
-const scripts = []
+const scripts = ['/assets/js/main.js']
 
-// check if fonts have been already loaded
-const FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
+let FONTS_CACHED = false
 
-if (!FONTS_CACHED && !('Promise' in self)) {
-  scripts.push('//cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js')
+try {
+  // check if fonts have been already loaded
+  FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
+} catch (error) {
+  if (__DEV__) console.error(error)
 }
 
 if (FONTS_CACHED) {
@@ -41,33 +43,11 @@ if (FONTS_CACHED) {
   scripts.push('/assets/js/font.js')
 }
 
-// enqueue scripts for prefetching only if supported
-const link = document.createElement('link')
-const supportsPrefetch =
-  link.relList && link.relList.supports && link.relList.supports('prefetch')
-
-if (supportsPrefetch) {
-  scripts.push('/assets/js/prefetch.js')
-}
-
+// load scripts when DOM is ready
 self.addEventListener('DOMContentLoaded', () => {
-  // load sources from scripts array
   scripts.forEach((src) => {
     const scriptEl = document.createElement('script')
     scriptEl.src = src
-    scriptEl.async = false
     document.body.append(scriptEl)
-  })
-
-  // attach listener to dark toggle
-  const toggle = document.querySelector('.dark--toggle')
-  toggle.addEventListener('click', () => {
-    try {
-      const storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
-      localStorage.setItem('dark-mode', !storedDarkMode)
-      document.documentElement.classList.toggle('dark', !storedDarkMode)
-    } catch (error) {
-      if (__DEV__) console.error(error)
-    }
   })
 })
