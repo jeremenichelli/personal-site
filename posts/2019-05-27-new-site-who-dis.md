@@ -15,31 +15,51 @@ I moved the site to a [new repository](//github.com/jeremenichelli/personal-site
 
 As said before, though styles haven't changed a lot I coded all from scratch and there are good reasons for this.
 
-I had the overall felling I was over-adjusting browsers default styles using bare tags as selectors and using some elements not for their semantic meaning but because of the _styling shortcut_ they provided.
+In ym previous version of the site I was over-adjusting browsers default styles using bare tags as style selectors and using some elements not for their semantic meaning but because of the _styling shortcut_ they provided.
 
 ### Tags for content, class names for styles
 
-The methodology I went for is to _only use class names_ and override browser defaults when really necessary. This made me apply the right and preferred tags for content improving accessibility. I'm also using CSS variables now for distributing values instead of LESS variables.
+The methodology I went for is to _only use class names_ and override browser defaults when really necessary. By doing this I focused on choosing the right and preferred tags for content, improving accessibility and CSS specificity. I'm also using CSS variables now for value distribution instead of LESS variables.
 
 I'm still using [LESS](//lesscss.org/) but as a bundling tool. I generate one specific entry file for each page, and each page has a _type_ variable in the front matter to know which styles to pick.
 
 I pass the result through [cssnano](//cssnano.com) to optimize it, export it as partial and later inline the styles in the `head` of the page.
 
+#### Benefits
+
+Using CSS variables makes easier to share values without thinking of global LESS imports and enables a straight-forward dark mode implementation. 
+
+Inlining the styles reduces extra network calls and render blocking resources, but they also enlarge the size of the final HTML and doesn't take advantage of caching.
+
+This is why having one specific stylesheet per page with only the rules needed and an aggressive minification are necessary and makes the HTML size footprint plus the no-cache strategy convenient.
+
 ## Scripts
 
 There's no much JavaScript around the site, and most of it takes care of the web font loading strategy.
 
-The static output assumes the user has disabled JavaScript and unless an inline script runs at the beginning then no animations run on the homepage and no web font nor other dependencies are loaded, giving the user a complete opt-out of network resources needed, only content.
+The static output assumes the user has disabled JavaScript and unless an inline script runs at the beginning then no animations take place on the homepage, and no web font or other dependencies are loaded. The site is progressive and as you have a better network and better browser is applies further optimizations and features.
 
-If the user has JavaScript enabled then, a stylesheet containing font face rules and a script which will observe the fonts are both asynchronously loaded. If this procedure is successful then I use [store-css](//github.com/jeremenichelli/store-css) to save in local storage the font face rules in addition to a `fonts-cached` flag, browser cached does the rest for future inner navigations.
+### Font loading strategy
+
+If the user has JavaScript enabled then, a stylesheet containing font face rules and a script which will observe the fonts are both asynchronously loaded.
+
+After fonts are ready [store-css](//github.com/jeremenichelli/store-css) saves font face rules rules in web storage along with a `fonts-cached` flag for future inner navigations.
 
 I wrote about this approach in [this article](/2016/05/font-loading-strategy-static-generated-sites/) a while ago if you are interested.
 
+### Dark mode and prefetching
+
+The rest of the JavaScript in the site handles the dark mode toggle logic also using web storage and to prefetch links the user might visit.
+
+The later is achieved by combining `IntersectionObserver` and `link[rel=prefetch]` both present in most modern browsers.
+
+When any of those aren't available or the user is on a slow connection then the scripts do nothing about it to avoid loading unnecessary polyfills or consuming user's data.
+
 ## Animations
 
-The home page has some orchestrated animations. The page waits for a maximum of three seconds for web fonts to be loaded, if they don't animations will kick off either way and won't run at all when JavaScript is disabled.
+The home page has some orchestrated animations. The page waits for a maximum of three seconds for web fonts to be loaded, if they don't animations will kick off either way or won't run at all when JavaScript is disabled.
 
-In the previous version of this site I was using transitions and transition delays, this caused them to be _fast-forwarded_ on repeated views and strange side effects on resizes. This is why I'm now using animation keyframes.
+In the previous version of this site I was using transitions and transition delays, this caused them to be _fast-forwarded_ on repeated views and strange side effects on resizes. This is why I moved to animation keyframes.
 
 ## Static generator
 
@@ -63,19 +83,19 @@ Eleventy has really good up-to-date documentation and Paul Lloyd wrote [a great 
 
 ## Hosting
 
-One of the things that performance tools were _penalizing_ my site for was low server response which wasn't much in my control. Now, this site lives in [Netlify](//netlify.com) supporting secure connections, branch previews and continuous deployment in addition to CDN distribution.
+One of the things performance tools were _penalizing_ my site for was low server response which wasn't much in my control when I was using GitHub Pages. Now, this site lives in [Netlify](//netlify.com) supporting secure connections, branch previews and continuous deployment in addition to CDN distribution.
 
-> Netlify is the thing I wished was available when I was a kid throwing invalid HTML to an FTP server like twenty years&nbsp;ago.
+> Netlify is the thing I wished was available when I was a kid throwing invalid HTML to an FTP server like twenty years&nbsp;ago
 
-As much as I recommend the simplest setup to new developers and beginners to focus more on code and learning than in infrastructure and servers, Netlify is just so simple that was the easiest thing in the long migration list I had.
+I always recommend to go for the simplest setup to new developers and beginners to focus more on code and learning than in infrastructure and servers, and Netlify is just so simple I took my own advice, and it was the easiest thing to tackle from a the long migration list I had.
 
 ## Wrap-up
 
-As I said on Twitter some time ago, a personal site is this place where you can show _who you are_ and by roaming around mine and reading this piece you will notice that, first, I'm definitely not a designer and second, I'm quite obsessed with performance and content delivery.
+As I said on Twitter some time ago, a personal site is this place where you can show _who you are_ and by roaming around mine and reading this piece you will notice that, first, I'm definitely not a designer and second, I'm quite obsessed with performance and content first delivery.
 
-I always say that business is the main threat to a performant web, third-party scripts, complex and badly orchestrated feature implementations are coming from it.
+In my carrer I've seen how business was the main threat to a building a web product with good performance, third-party scripts, contradictory product decisions and badly orchestrated feature implementations makes it hard to think of a global and future proof strategy around best practices.
 
-This is why I found interesting to hear stories on how teams dealt with optimizations while responding to business priorities, but here _there's no business_, this is me and my playground. My playground, my rules.
+This is why I found interesting to hear stories on how teams dealt with optimizations while responding to business priorities but here _there's no business_, this is me and my playground. My playground, my rules.
 
 ### Credits
 
