@@ -1,4 +1,4 @@
-import FontFaceObserver from 'fontfaceobserver'
+import FontFaceObserver from 'fontfaceobserver/fontfaceobserver'
 
 const w400r = new FontFaceObserver('Fira Sans', { weight: 400 }).load()
 const w400i = new FontFaceObserver('Fira Sans', {

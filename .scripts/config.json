@@ -13,8 +13,8 @@
       "output": "./assets/js/font.js"
     },
     {
-      "input": "./src/js/prefetch.js",
-      "output": "./assets/js/prefetch.js"
+      "input": "./src/js/main.js",
+      "output": "./assets/js/main.js"
     }
   ],
   "favicon": {
