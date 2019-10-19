@@ -170,5 +170,3 @@ You can check it out in its <a href="https://github.com/jeremenichelli/octosearc
 Again, I'm not against using frameworks. If you think is the best option for your project, if loading times are not that critical and you're aware of performance and good practices around your choice then you'll be fine, but it's a nice habit to first go and check if you can use the amazing features the browsers bring today out of the box and give the user a better experience.
 
 There are tons of documentation around, examples and small libraries to fill some spots on your project. The template tag and a custom data binding library are just a small example of this, but they are also a concept proof of the options we have to develop today.
-
-Happy coding!

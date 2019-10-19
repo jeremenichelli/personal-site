@@ -74,5 +74,3 @@ That way, no matter the structure of the files this task will work. The only thi
 ## Wrap-up
 
 This is just an approach I took for this specific problem, I'm sure there's tons of ways to deal with this kind of crap. I hope you've found this useful.
-
-Happy coding!

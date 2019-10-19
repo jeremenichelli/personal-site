@@ -90,4 +90,4 @@ And that's how you create your own constructor. In fact, **constructor** is a ke
 
 ## Wrap up
 
-This was a quick and very brief reference on how JavaScript handles variables and objects. There's a lot of things I want to write about, but I'm sure that one of the next posts will be about the differences between the protoypal and the classic inheritance on objects, so stay tune! Happy coding.
+This was a quick and very brief reference on how JavaScript handles variables and objects. There's a lot of things I want to write about, but I'm sure that one of the next posts will be about the differences between the protoypal and the classic inheritance on objects, so stay tune!

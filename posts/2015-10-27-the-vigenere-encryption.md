@@ -159,5 +159,3 @@ You can also create two reference strings one for lowercase and other for upperc
 ## Wrap-up
 
 It's great to see how small parts of a language structure can change drastically the solution you build of the same problem. If you're more curious about this, I've put a Vigenère solution that works with both uppercase and lowercase and ignores special characters in a <a href="https://github.com/jeremenichelli/vigenere" target="_blank">GitHub repository</a> so you can check it out and play with it.
-
-Happy encrypting!

@@ -61,7 +61,7 @@ This is how I'm setting and distributing background and text colors right now.
 :root {
   --accent: #4242ef;
   --background: #ffffff;
-  --text: #010120;
+  --text: #020210;
 }
 
 body {
@@ -76,13 +76,13 @@ This allows me to easily override the color scheme with the new media query.
 :root {
   --accent: #4242ef;
   --background: #ffffff;
-  --text: #010120;
+  --text: #020210;
 }
 
 /* switch values over dark color scheme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #010120;
+    --background: #020210;
     --text: #ffffff;
   }
 }
@@ -99,7 +99,7 @@ Instead of repeating values twice, we can rely on LESS variables as constants bu
 
 ```less
 @light--color: #ffffff;
-@dark--color: #010120;
+@dark--color: #020210;
 
 :root {
   --background: @light--color;

@@ -106,5 +106,3 @@ Today there are a lot of awesome tools with nice documentation we can use to pro
 Maybe the painful part is to set the configuration file which contains a lot of options that can be set. I usually turn all possible warnings or errors to true, run the command and start modifying or turning off the ones that I don't consider harmful.
 
 In case you need a place to start I've created <a href="https://gist.github.com/jeremenichelli/a4dff3e4034d3c324380" target="_blank">a gist with an example for each of the tools</a> that were mentioned here.
-
-Happy coding!

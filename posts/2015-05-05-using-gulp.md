@@ -106,5 +106,3 @@ gulp.task('default', [ 'minify' ]);
 Gulp is simple and powerful, you can do great things with a short amount of time spent in learning. Maybe one of its drawbacks is that it doesn't have a big community as Grunt has. That means less packages, less maintenance and more bugs probably. It's all about choices.
 
 I've created <a href="https://github.com/jeremenichelli/recipe" target="_blank">a repository with an initial structure of a JavaScript project with a Gulp work flow</a> ready to use so you can take it as a start point or just take a look at it to investigate and learn more about this tool.
-
-Happy coding!

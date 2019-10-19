@@ -9,7 +9,7 @@ const setup = {
   appName: 'jeremenichelli.io',
   appDescription: 'Personal site',
   developerName: 'Jeremias Menichelli',
-  background: '#010120',
+  background: '#020210',
   path: config.favicon.path,
   online: false,
   icons: {
