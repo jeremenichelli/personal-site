@@ -116,5 +116,3 @@ nav.addClass('hidden');
 ## Wrap up
 
 The result of this exploration was [classing](https://github.com/jeremenichelli/classing). It checks only once if **classList** exists and it has fallback for adding, removing, toggling and a `hasClass` method to check if the class is contained. It has a lot of place for improvement so feel free to check it out and suggest changes.
-
-Happy coding!
