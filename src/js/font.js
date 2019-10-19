@@ -6,13 +6,9 @@ const w400i = new FontFaceObserver('Fira Sans', {
   style: 'italic'
 }).load()
 const w700r = new FontFaceObserver('Fira Sans', { weight: 700 }).load()
-const w700i = new FontFaceObserver('Fira Sans', {
-  weight: 700,
-  style: 'italic'
-}).load()
 
 // wait for all fonts to load
-Promise.all([w400r, w400i, w700r, w700i])
+Promise.all([w400r, w400i, w700r])
   .then(() => {
     // add fonts loaded class
     document.documentElement.classList.add('fonts-loaded')
