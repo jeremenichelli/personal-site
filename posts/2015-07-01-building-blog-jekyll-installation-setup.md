@@ -89,5 +89,3 @@ jekyll serve --w --drafts
 I hope this information was clear enough for you to have a quick and painless start using this great tool.
 
 I swear to you that the learning curve is not steep, and in case you find difficulties in the process there's <a href="https://talk.jekyllrb.com" target="_blank">a brand new forum</a> where you can ask for help and of course you can reach me via email or twitter if you have a quick question.
-
-Happy blogging!

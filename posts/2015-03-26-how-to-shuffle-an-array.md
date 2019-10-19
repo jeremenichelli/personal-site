@@ -128,5 +128,3 @@ This algorithm is the one applied by underscore library in their **_.shuffle** m
 I knew that there was probably a better solution for this before starting my own approach, but I think that giving it a try gives you a great opportunity to think, investigate and learn a lot not only about the problem itself, you also get to know new methods, new tools, new patterns.
 
 That's the good thing about trying to make your own way through challenges. I hope this post reflected some of that experience and in case you were looking for a nice solution to shuffle an array that it was also useful.
-
-Happy shuffling!

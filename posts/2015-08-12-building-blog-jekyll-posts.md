@@ -98,5 +98,3 @@ As you get into the Liquid language the opportunities will multiply.
 ## Wrap-up
 
 I hope you've enjoyed this last posts about Jekyll. Remember that is the engine behind this blog you're reading and I'm just scratching is surface, feel free to build your own stuff and share it with the community.
-
-If you have any questions, I'm available on <a href="https://www.twitter.com/jeremenichelli" target="_blank">twitter</a>. Happy blogging!

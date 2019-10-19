@@ -46,5 +46,3 @@ Of course for consistency I would like to have the same generated markup in my o
 If you have the chance try it. If your blogging engine is Jekyll you have some good parsers for your choice and it will speed up your writing, and it's nice to feel that **I'm actually writing** a post instead of working.
 
 There's a [nice article in Wikipedia](http://en.wikipedia.org/wiki/Markdown) about Markdown and its syntax, which is pretty straight forward and easy to learn. If you're using SublimeText as your IDE there are lots of packages that can improve the highlighting on this type of files.
-
-Happy writing!

@@ -175,5 +175,3 @@ And that's it!
 ## Wrap-up
 
 I may have forgotten something up there, if you found out I did don't hesitate on contact me by email or twitter so we can discuss it. If my explanation sucked all the way I've built an <a href="https://jeremenichelli.github.io/gridbuilder" target="_blank">automatic grid builder</a>, it's not perfect and still needs some work but it will give you the main styles right away.
-
-Happy coding!

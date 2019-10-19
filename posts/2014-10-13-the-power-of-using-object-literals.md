@@ -175,7 +175,3 @@ var _getData = function (baseUrl, callback) {
 ```
 
 These lines belong to a simple script I developed to make JSONP calls that, for some unknown reason I named <a href="https://www.github.com/jeremenichelli/jabiru" target="_blank">jabiru</a>. I wrote <a href="/2014/09/south-american-bird-cross-domain-calls/" target="_blank">a post about it</a> if you're interested on cross domain requests.
-
-## Wrap-up
-
-That's it, I hope you find these approachs useful. Happy coding!
