@@ -15,7 +15,7 @@ I moved the site to a [new repository](//github.com/jeremenichelli/personal-site
 
 As said before, though styles haven't changed a lot I coded all from scratch and there are good reasons for this.
 
-In ym previous version of the site I was over-adjusting browsers default styles using bare tags as style selectors and using some elements not for their semantic meaning but because of the _styling shortcut_ they provided.
+In my previous version of the site I was over-adjusting browsers default styles using bare tags as style selectors and using some elements not for their semantic meaning but because of the _styling shortcut_ they provided.
 
 ### Tags for content, class names for styles
 
