@@ -1,4 +1,5 @@
-// prefetch inner links
+/*
+ * Comment out prefetching routes to not alter Netlify Analytics
 const link = document.createElement('link')
 const supportsPrefetch =
   link.relList && link.relList.supports && link.relList.supports('prefetch')
@@ -55,6 +56,7 @@ if (supportsIntersectionObserver && supportsPrefetch && !saveData && !is2G) {
     })
   }
 }
+*/
 
 // attach listener to dark toggle
 const toggle = document.querySelector('.dark--toggle')
