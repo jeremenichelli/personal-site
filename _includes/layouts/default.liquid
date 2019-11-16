@@ -8,9 +8,15 @@
     <main id="main" role="main">
       <div class="container main__container">
         {% if excerpt %}
-        <p class="page__excerpt">
-          {{ excerpt }}
-        </p>
+          <p class="page__excerpt">
+            {{ excerpt }}
+          </p>
+        {% endif %}
+        
+        {% if external_url %}
+          <p class="page__note">
+            This article was <a href="{{ external_url }}">originally published</a> at <a href="{{ host_url }}">{{ host }}</a>
+          </p>
         {% endif %}
 
         {{ content }}
