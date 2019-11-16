@@ -140,7 +140,7 @@ To allow webpack to process our styles when required we are going to install css
 npm install --save-dev css-loader style-loader
 ```
 
-The **css-loader** will interpret styles as dependencies and the **style-loader** will automatically include a <style> tag with them on the page when the bundle loads.
+The **css-loader** will interpret styles as dependencies and the **style-loader** will automatically include a `<style>` tag with them on the page when the bundle loads.
 
 ```js
 var baseConfig = {
