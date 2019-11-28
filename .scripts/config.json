@@ -32,6 +32,15 @@
         300,
         300
       ]
+    },
+    {
+      "entry": "./src/favicon/favicon.png",
+      "output": "./assets/images/feed.jpeg",
+      "quality": 85,
+      "resize": [
+        200,
+        200
+      ]
     }
   ]
 }
