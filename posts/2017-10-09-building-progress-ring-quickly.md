@@ -49,8 +49,7 @@ These means that if we increase the stroke to **4**, then the radius should be *
 
 To complete the ring we need to set `fill` to `transparent` and choose a `stroke` color for the circle.
 
-<p data-height="300" data-theme-id="1" data-slug-hash="VMPWdb" data-default-tab="html,result" data-user="jeremenichelli" data-embed-version="2" data-pen-title="SVG ring" class="codepen">See the Pen <a href="https://codepen.io/jeremenichelli/pen/VMPWdb/">SVG ring</a> by Jeremias Menichelli (<a href="https://codepen.io/jeremenichelli">@jeremenichelli</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% codepen 'VMPWdb' %}
 
 ## Step 2: Adding the stroke
 
@@ -70,8 +69,7 @@ This property is like `border-style: dashed` but it lets you define the width of
 
 With those values, our ring will have `10px` dashes separated by `20px`.
 
-<p data-height="300" data-theme-id="1" data-slug-hash="mBRMXa" data-default-tab="html,result" data-user="jeremenichelli" data-embed-version="2" data-pen-title="Dashed SVG ring" class="codepen">See the Pen <a href="https://codepen.io/jeremenichelli/pen/mBRMXa/">Dashed SVG ring</a> by Jeremias Menichelli (<a href="https://codepen.io/jeremenichelli">@jeremenichelli</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% codepen 'mBRMXa' %}
 
 ### stroke-dashoffset
 
@@ -147,8 +145,7 @@ One particular thing about `stroke-dashoffset`, its starting point is vertically
 
 Putting all of this together will give us something like this.
 
-<p data-height="300" data-theme-id="1" data-slug-hash="vegymB" data-default-tab="css,result" data-user="jeremenichelli" data-embed-version="2" data-pen-title="vegymB" class="codepen">See the Pen <a href="https://codepen.io/jeremenichelli/pen/vegymB/">vegymB</a> by Jeremias Menichelli (<a href="https://codepen.io/jeremenichelli">@jeremenichelli</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% codepen 'vegymB' %}
 
 _A numeric input was added in this example to help you test the animation._
 
@@ -242,8 +239,7 @@ Here `setProgress` becomes a class method that will be called when the `progress
 
 The `observedAttributes` are defined by a static getter which will trigger `attributeChangeCallback` when, in this case, `progress` is modified.
 
-<p data-height="300" data-theme-id="1" data-slug-hash="VMpKrQ" data-default-tab="js,result" data-user="jeremenichelli" data-embed-version="2" data-pen-title="ProgressRing web component" class="codepen">See the Pen <a href="https://codepen.io/jeremenichelli/pen/VMpKrQ/">ProgressRing web component</a> by Jeremias Menichelli (<a href="https://codepen.io/jeremenichelli">@jeremenichelli</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% codepen 'VMpKrQ' %}
 
 _This Pen only works in Chrome at the time of this writing. An interval was added to simulate the progress change._
 
@@ -314,8 +310,7 @@ template: `
 
 When we update the `progress` prop of the element in our app, Vue takes care of computing the changes and update the element styles.
 
-<p data-height="300" data-theme-id="1" data-slug-hash="vexMgW" data-default-tab="js,result" data-user="jeremenichelli" data-embed-version="2" data-pen-title="Vue ProgressRing component" class="codepen">See the Pen <a href="https://codepen.io/jeremenichelli/pen/vexMgW/">Vue ProgressRing component</a> by Jeremias Menichelli (<a href="https://codepen.io/jeremenichelli">@jeremenichelli</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% codepen 'vexMgW' %}
 
 _An interval was added to simulate the progress change. We do that in the next example as well._
 
@@ -368,9 +363,7 @@ render() {
 
 A change in the `progress` prop will trigger a new render cycle recalculating the `strokeDashoffset` variable.
 
-
-<p data-height="300" data-theme-id="1" data-slug-hash="gGWPme" data-default-tab="js,result" data-user="jeremenichelli" data-embed-version="2" data-pen-title="React ProgressRing component" class="codepen">See the Pen <a href="https://codepen.io/jeremenichelli/pen/gGWPme/">React ProgressRing component</a> by Jeremias Menichelli (<a href="https://codepen.io/jeremenichelli">@jeremenichelli</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
+{% codepen 'gGWPme' %}
 
 ## Wrap up
 
