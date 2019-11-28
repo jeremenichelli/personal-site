@@ -20,10 +20,6 @@
   <meta name="author" content="Jeremias Menichelli">
   {% endif %}
 
-  <!-- preconnect with google fonts cdns -->
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/">
-
   <!-- favicon definitions -->
   {% include 'favicons' %}
 
@@ -40,7 +36,7 @@
     ga('create', 'UA-50290926-1', 'auto');
     ga('send', 'pageview');
     </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script defer src='https://www.google-analytics.com/analytics.js'></script>
 
   <!-- structured data -->
   {% if type == 'home' %}{% include 'structured-data/home' %}
