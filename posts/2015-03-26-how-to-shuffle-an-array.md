@@ -1,5 +1,5 @@
 ---
-title: How to shuffle an array
+title: How to shuffle an array in JavaScript
 excerpt: The other day I was asked to sort randomly an array of objects, and while it didn't seem a very complex task it turned into hours of investigation. There are a lot of things to consider while dealing with randomizers, so yes, worth a post.
 ---
 
