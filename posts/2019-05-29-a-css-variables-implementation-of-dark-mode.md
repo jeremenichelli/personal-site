@@ -45,7 +45,7 @@ This media query value will change depending on the user preference set at a sys
 
 The good thing is we can be cohesive to the user's choice.
 
-Let's say I've implemented a custom toggle and I've stored _light_ as the latest user preference, but later the user changes the system setting because they are currently working in a dark ambient and don't want to disturb others or. 
+Let's say I've implemented a custom toggle and I've stored _light_ as the latest user preference, but later the user changes the system setting because they are currently working in a dark ambient and don't want to disturb others or.
 
 How would I decide which one should prevail over the other?
 

@@ -1,5 +1,5 @@
 ---
-title: "Introduction to webpack: Entry, Output, Loaders, and Plugins"
+title: 'Introduction to webpack: Entry, Output, Loaders, and Plugins'
 excerpt: Front-end development has shifted to a modular approach, improving the encapsulation and structure of codebases. Tooling became a critical part of any project, and right now there are a lot of possible choices.
 host: css-tricks
 host_url: https://css-tricks.com
@@ -16,7 +16,7 @@ _This article assumes basic understanding of CommonJS notation and how modules w
 
 Unlike most bundlers out there, the motivation behind webpack is to gather all your dependencies (not just code, but other assets as well) and generate a dependency graph.
 
-At first, it might look strange to see a `.js` file require a stylesheet, or a stylesheet retrieving an image modified as it was a module, but these allow webpack to understand what is included in your bundle and helps you transform and optimize them. 
+At first, it might look strange to see a `.js` file require a stylesheet, or a stylesheet retrieving an image modified as it was a module, but these allow webpack to understand what is included in your bundle and helps you transform and optimize them.
 
 ## Install
 
@@ -44,7 +44,7 @@ The easiest one is to pass a string:
 ```js
 var baseConfig = {
   entry: './src/index.js'
-};
+}
 ```
 
 We could also pass an object in case we need more than one entry in the future.
@@ -54,7 +54,7 @@ var baseConfig = {
   entry: {
     main: './src/index.js'
   }
-};
+}
 ```
 
 I recommend the last one since it will scale better as your project grows.
@@ -66,7 +66,7 @@ webpack commands will pick up the config file we've just created unless we indic
 The output in webpack is an object holding the path where our bundles and assets will go, as well as the name the entries will adopt.
 
 ```js
-var path = require('path');
+var path = require('path')
 
 var baseConfig = {
   entry: {
@@ -76,10 +76,10 @@ var baseConfig = {
     filename: 'main.js',
     path: path.resolve('./build')
   }
-};
+}
 
 // export configuration
-module.exports = baseConfig;
+module.exports = baseConfig
 ```
 
 If you're defining the entry with an object, rather than hardcoding the output filename with a string, you can do:
@@ -101,10 +101,10 @@ The goal of webpack is to handle all our dependencies.
 
 ```js
 // index.js file
-import helpers from '/helpers/main.js';
+import helpers from '/helpers/main.js'
 
 // Hey webpack! I will need these styles:
-import 'main.css';
+import 'main.css'
 ```
 
 What's that? Requiring a stylesheet in JavaScript? Yes! But bundlers are only prepared to handle JavaScript dependencies out-of-the-box. This is where "loaders" make their entrance.
@@ -123,7 +123,7 @@ var baseConfig = {
             loader: /* loader name */,
             query: /* optional config object */
           }
-        ] 
+        ]
       }
     ]
   }
@@ -155,14 +155,11 @@ var baseConfig = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
       }
     ]
   }
-};
+}
 ```
 
 In this example, `main.css` will go first through **css-loader** and then **style-loader**.
@@ -192,9 +189,7 @@ JavaScript can be transformed by loaders too. One example would be using a Babel
 rules: [
   {
     test: /\.js$/,
-    use: [
-      { loader: 'babel-loader' }
-    ]
+    use: [{ loader: 'babel-loader' }]
   }
 ]
 ```
@@ -248,14 +243,11 @@ For example, webpack by default includes our styles inside our bundle, but we ca
 A common use for a plugin is to extract the generated stylesheet and load it as we normally do using a `<link>` tag.
 
 ```js
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var lessRules = {
-  use: [
-    { loader: 'css-loader' },
-    { loader: 'less-loader' }
-  ]
-};
+  use: [{ loader: 'css-loader' }, { loader: 'less-loader' }]
+}
 
 var baseConfig = {
   // ...
@@ -265,10 +257,8 @@ var baseConfig = {
       { test: /\.less$/, use: ExtractTextPlugin.extract(lessRules) }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('main.css')
-  ]
-};
+  plugins: [new ExtractTextPlugin('main.css')]
+}
 ```
 
 ### Generate an index file
@@ -278,14 +268,12 @@ When building single-page applications we usually need one .html file to serve i
 The `HtmlWebpackPlugin` automatically creates an `index.html` file and add script tags for each resulting bundle. It also supports templating syntax and is highly configurable.
 
 ```js
-var HTMLWebpackPlugin = require('html-webpack-plugin');
+var HTMLWebpackPlugin = require('html-webpack-plugin')
 
 var baseConfig = {
   // ...
-  plugins: [
-    new HTMLWebpackPlugin()
-  ]
-};
+  plugins: [new HTMLWebpackPlugin()]
+}
 ```
 
 ## Building for Production
@@ -297,7 +285,7 @@ A lot of libraries introduce warnings that are useful during development time bu
 webpack comes with a built-in plugin to set global constants inside your bundle.
 
 ```js
-var ENV = process.env.NODE_ENV;
+var ENV = process.env.NODE_ENV
 
 var baseConfig = {
   // ...
@@ -306,7 +294,7 @@ var baseConfig = {
       'process.env.NODE_ENV': JSON.stringify(ENV)
     })
   ]
-};
+}
 ```
 
 We now need to specify the environment on our commands:
@@ -324,7 +312,7 @@ This is really useful to introduce warnings in your codebase for your team and t
 
 ```js
 if (process.env.NODE_ENV === 'development') {
-  console.warn('This warning will dissapear on production build!');
+  console.warn('This warning will dissapear on production build!')
 }
 ```
 
@@ -336,15 +324,15 @@ One of the most popular tools to do this is `UglifyJS`, and webpack comes with a
 
 ```js
 // webpack.config.js file
-var ENV = process.env.NODE_ENV;
+var ENV = process.env.NODE_ENV
 
 var baseConfig = {
   // ...
   plugins: []
-};
+}
 
 if (ENV === 'production') {
-  baseConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+  baseConfig.plugins.push(new webpack.optimize.UglifyJsPlugin())
 }
 ```
 
@@ -355,4 +343,3 @@ webpack config files are incredibly useful, and the complexity of the file will 
 In this article, we started with a blank config file and ended up with a base setup that would allow you to develop locally and release production code. There's more to explore in webpack, but these key parts and concepts can help you become more familiar with it.
 
 If you want to go deeper, I recommend [webpack official documentation](//webpack.js.org) which has been updated and improved for its second big release.
-

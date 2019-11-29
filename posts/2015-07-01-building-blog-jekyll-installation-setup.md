@@ -39,24 +39,24 @@ Now we are ready to install this **gem** by simple running this in the terminal.
 gem install jekyll
 ```
 
-You might need admin permission to complete this, in that case run it again with ```sudo``` before. If you're having some other issue regarding installation check the <a href="http://jekyllrb.com/docs/installation/" target="_blank">official documentation</a> about this particular stage.
+You might need admin permission to complete this, in that case run it again with `sudo` before. If you're having some other issue regarding installation check the <a href="http://jekyllrb.com/docs/installation/" target="_blank">official documentation</a> about this particular stage.
 
 ## Folder structure
 
 With everything set, we can start building our site, these are the basic folders and files inside a standard Jekyll site.
 
-- **_config.yml** file is placed in the root folder and it contains the configuration variables and global site variables. Here you can place general data like your name or the main title of the site and change things like the port in which you will test locally the site, the highlighting enging or permalinks.
-- **_includes** folder will contain HTML files for sections of your site that will be present in more than one place, like the header or the footer, making the maintanance less painful because the modification you do here will replicate in every place you insert this files.
-- **_layouts** folder holds the base templates for your files, all files must contain a layout so **Jekyll** can generate a valid HTML file. You can have as many as you need.
-- **_posts** is there in case the site is blog-aware. Every page must start with the year, the month, the day and the title of the page separated by hyphens.
-- **_site** folder is the one that contains the generated site so you don't actually need to modify this. In fact, if you're using Jekyll to run inside **GitHub pages** you have to include this directory in your **.gitignore** file since the instance of Jekyll running in the server will create it.
+- **\_config.yml** file is placed in the root folder and it contains the configuration variables and global site variables. Here you can place general data like your name or the main title of the site and change things like the port in which you will test locally the site, the highlighting enging or permalinks.
+- **\_includes** folder will contain HTML files for sections of your site that will be present in more than one place, like the header or the footer, making the maintanance less painful because the modification you do here will replicate in every place you insert this files.
+- **\_layouts** folder holds the base templates for your files, all files must contain a layout so **Jekyll** can generate a valid HTML file. You can have as many as you need.
+- **\_posts** is there in case the site is blog-aware. Every page must start with the year, the month, the day and the title of the page separated by hyphens.
+- **\_site** folder is the one that contains the generated site so you don't actually need to modify this. In fact, if you're using Jekyll to run inside **GitHub pages** you have to include this directory in your **.gitignore** file since the instance of Jekyll running in the server will create it.
 - **index.html** file needs to be present as any web project.
 
-Other folders that are not necessary but very useful are **_data** where you can create ```.yml``` files and store general content and information to make your templates more dynamic and **_drafts** where you can upload writings in work that Jekyll will ignore when listing posts.
+Other folders that are not necessary but very useful are **\_data** where you can create `.yml` files and store general content and information to make your templates more dynamic and **\_drafts** where you can upload writings in work that Jekyll will ignore when listing posts.
 
 ## Useful commands
 
-Maybe this whole thing is still a little confusing and you don't feel so confident to start from zero ground and build the whole site, then your terminal run the ```new``` command.
+Maybe this whole thing is still a little confusing and you don't feel so confident to start from zero ground and build the whole site, then your terminal run the `new` command.
 
 ```bash
 jekyll new my-new-site
@@ -64,7 +64,7 @@ jekyll new my-new-site
 
 A new directory, **my-new-site** in this case, will be created with the basic folders and sample includes, layouts and posts will be there for you to explore or build your site above it.
 
-Remember that this is a static site so if some file was updated it won't be reflected inside the **_site** folder, for that you can use ```build``` and if you don't want to run it every five seconds just add the watch flag.
+Remember that this is a static site so if some file was updated it won't be reflected inside the **\_site** folder, for that you can use `build` and if you don't want to run it every five seconds just add the watch flag.
 
 ```bash
 jekyll build --w
@@ -78,7 +78,7 @@ To browse your site, use the **serve** command.
 jekyll serve
 ```
 
-You can now test your work locally by typing **localhost:4000** in your browser. If you use the ```--w``` flag here you won't need another tab running the build process. If you want to see your drafts listed in your site posts add ```--drafts```.
+You can now test your work locally by typing **localhost:4000** in your browser. If you use the `--w` flag here you won't need another tab running the build process. If you want to see your drafts listed in your site posts add `--drafts`.
 
 ```bash
 jekyll serve --w --drafts

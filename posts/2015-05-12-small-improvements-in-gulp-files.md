@@ -31,7 +31,7 @@ gulp.task('something', function() {
 
 What is good is that if you change the name of your project you just have to do it in your package.json file and the name of your source file.
 
-Another way to use the information available inside the package is to build a banner and put it on the top of your distribution file. To add it I use the ```gulp-concat-util``` package.
+Another way to use the information available inside the package is to build a banner and put it on the top of your distribution file. To add it I use the `gulp-concat-util` package.
 
 ```js
 var concat = require('gulp-concat-util');
@@ -56,20 +56,20 @@ gulp.task('build', function() {
 As I explained in <a href="/2015/05/using-gulp/">my previous post</a>, Gulp has a great and simple way to tell a task that some other ones need to finish before it starts.
 
 ```js
-gulp.task('karma', [ 'lint' ], function() {
+gulp.task('karma', ['lint'], function() {
   // do something
-});
+})
 ```
 
 Gulp waits for **lint** to execute before starting with **karma** task here. As you see we pass an array of task names as a second argument. The third one, the function that holds the functionality of the task, is actually optional. This means that you can use an alias to group similar tasks.
 
-Something I often do in my projects is to check the syntax in both test and source files of my projects and use the name of the process followed by a colon and the name of the folder where I'm applying the task, for example *hint:src* and *hint:spec*. Then you can create a general *hint* task.
+Something I often do in my projects is to check the syntax in both test and source files of my projects and use the name of the process followed by a colon and the name of the folder where I'm applying the task, for example _hint:src_ and _hint:spec_. Then you can create a general _hint_ task.
 
 ```js
-gulp.task('hint', [ 'hint:spec', 'hint:src' ]);
+gulp.task('hint', ['hint:spec', 'hint:src'])
 ```
 
-This gives you the option of just check the syntax in your spec files or in your source files only but also to call the *hint* task and run it on both directories.
+This gives you the option of just check the syntax in your spec files or in your source files only but also to call the _hint_ task and run it on both directories.
 
 ## Wrap-up
 

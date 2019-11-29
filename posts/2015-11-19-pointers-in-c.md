@@ -23,7 +23,7 @@ That type will define the amount of memory that's being saved.
 
 ## Pointers
 
-In C, we can also ask the program for a piece of memory to hold a certain type of data. Confusing? Let's put it in other words, instead of saying that I need to store an integer in a variable I can say, *give me the address of a chunk of memory where an integer can fit in*.
+In C, we can also ask the program for a piece of memory to hold a certain type of data. Confusing? Let's put it in other words, instead of saying that I need to store an integer in a variable I can say, _give me the address of a chunk of memory where an integer can fit in_.
 
 ```c
 // create a pointer to an integer
@@ -31,7 +31,6 @@ int* number;
 ```
 
 When you do this, the variable itself will actually hold an address in memory, not a variable. So, trying to assign a value to `number` won't work as expected.
-
 
 ```c
 number = 5;
@@ -53,9 +52,9 @@ printf("%i", *pointer);
 // prints 5
 ```
 
-So what's the point of using *pointers*? Well, there's not a real benefit in using pointers unless you really need them, but there is a set of functions in C that will allow you to manipulate memory and those methods will expect pointers and not normal variables.
+So what's the point of using _pointers_? Well, there's not a real benefit in using pointers unless you really need them, but there is a set of functions in C that will allow you to manipulate memory and those methods will expect pointers and not normal variables.
 
-*You must specify the type of each parameter a function will receive in C.*
+_You must specify the type of each parameter a function will receive in C._
 
 If you need to save an array of five numbers, you can use `malloc` to alocate memory for this data.
 
@@ -82,7 +81,7 @@ Similar to JavaScript, in C every time a function is called a new scope is creat
 #include <stdio.h>
 
 void increase(int n) {
-  n = n + 1;    
+  n = n + 1;
 };
 
 int main(void) {
@@ -103,7 +102,7 @@ The only difference is that for this particular case, we don't need to create a 
 #include <stdio.h>
 
 void increase(int* n) {
-  *n = *n + 1;    
+  *n = *n + 1;
 };
 
 int main(void) {

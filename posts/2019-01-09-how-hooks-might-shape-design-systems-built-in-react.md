@@ -23,13 +23,15 @@ Let's think of a dialog element as a functional component.
 import React from 'react'
 
 const Dialog = ({ isOpen, title, content }) => {
-  return isOpen && (
-    <div className='dialog---overlay'>
-      <div className='dialog'>
-        <h2 className='dialog--title'>{title}</h2>
-        <p className='dialog--content'>{content}</p>
+  return (
+    isOpen && (
+      <div className="dialog---overlay">
+        <div className="dialog">
+          <h2 className="dialog--title">{title}</h2>
+          <p className="dialog--content">{content}</p>
+        </div>
       </div>
-    </div>
+    )
   )
 }
 ```
@@ -46,13 +48,15 @@ import React from 'react'
 class Dialog extends React.Component {
   render() {
     const { isOpen, title, content } = this.props
-    return isOpen && (
-      <div className='dialog---overlay'>
-        <div className='dialog'>
-          <h2 className='dialog--title'>{title}</h2>
-          <p className='dialog--content'>{content}</p>
+    return (
+      isOpen && (
+        <div className="dialog---overlay">
+          <div className="dialog">
+            <h2 className="dialog--title">{title}</h2>
+            <p className="dialog--content">{content}</p>
+          </div>
         </div>
-      </div>
+      )
     )
   }
 }
@@ -76,13 +80,15 @@ class Dialog extends React.Component {
 
   render() {
     const { isOpen, title, content } = this.props
-    return isOpen && (
-      <div className='dialog---overlay'>
-        <div className='dialog'>
-          <h2 className='dialog--title'>{title}</h2>
-          <p className='dialog--content'>{content}</p>
+    return (
+      isOpen && (
+        <div className="dialog---overlay">
+          <div className="dialog">
+            <h2 className="dialog--title">{title}</h2>
+            <p className="dialog--content">{content}</p>
+          </div>
         </div>
-      </div>
+      )
     )
   }
 }
@@ -101,13 +107,15 @@ const Dialog = ({ isOpen, title, content }) => {
     return () => (document.body.style.overflow = 'visible')
   }, [isOpen])
 
-  return isOpen && (
-    <div className='dialog---overlay'>
-      <div className='dialog'>
-        <h2 className='dialog--title'>{title}</h2>
-        <p className='dialog--content'>{content}</p>
+  return (
+    isOpen && (
+      <div className="dialog---overlay">
+        <div className="dialog">
+          <h2 className="dialog--title">{title}</h2>
+          <p className="dialog--content">{content}</p>
+        </div>
       </div>
-    </div>
+    )
   )
 }
 ```
@@ -134,13 +142,10 @@ Let's imagine the use case from above, isollated in a single file that can be co
 import { useEffect } from 'react'
 
 function useLockBodyScroll(toggle) {
-  useEffect(
-    () => {
-      document.body.style.overflow = toggle ? 'hidden' : 'visible'
-      return () => (document.body.style.overflow = 'visible')
-    },
-    [toggle]
-  );
+  useEffect(() => {
+    document.body.style.overflow = toggle ? 'hidden' : 'visible'
+    return () => (document.body.style.overflow = 'visible')
+  }, [toggle])
 }
 
 export default useLockBodyScroll
@@ -155,13 +160,15 @@ import useLockBodyScreen from './hooks/useLockBodyScreen'
 const Dialog = ({ isOpen, title, content }) => {
   useLockBodyScreen(isOpen)
 
-  return isOpen && (
-    <div className='dialog---overlay'>
-      <div className='dialog'>
-        <h2 className='dialog--title'>{title}</h2>
-        <p className='dialog--content'>{content}</p>
+  return (
+    isOpen && (
+      <div className="dialog---overlay">
+        <div className="dialog">
+          <h2 className="dialog--title">{title}</h2>
+          <p className="dialog--content">{content}</p>
+        </div>
       </div>
-    </div>
+    )
   )
 }
 ```
@@ -195,13 +202,11 @@ class Menu extends React.Component {
     const { options } = this.props
 
     return (
-      <div className='menu'>
-        <button onClick={this.toggleMenu}>
-          Menu
-        </button>
+      <div className="menu">
+        <button onClick={this.toggleMenu}>Menu</button>
         {open && (
-          <div className='menu--options'>
-            {options.map(item => (
+          <div className="menu--options">
+            {options.map((item) => (
               <a href={item.href}>{item.text}</a>
             ))}
           </div>
@@ -221,7 +226,7 @@ import React, { useState } from 'react'
 
 const Menu = ({ options }) => {
   const [open, setOpen] = useState(false)
-    
+
   return (
     <div className='menu'>
       <button onClick={() => setOpen(!open))} >

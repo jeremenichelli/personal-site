@@ -32,7 +32,7 @@ const Modal = (props) => (
     <Button
       kind={props.buttonKind}
       icon={props.buttonIcon}
-      onClick={props.buttonOnClick}  
+      onClick={props.buttonOnClick}
     >
       {props.buttonText}
     </Button>
@@ -54,7 +54,7 @@ Whether you are using _prop types_ or any language superset to define types, you
 Modal.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  buttonKind: PropTypes.oneOf([ 'primary', 'secondary' ]),
+  buttonKind: PropTypes.oneOf(['primary', 'secondary']),
   buttonText: PropTypes.string,
   buttonIcon: PropTypes.string,
   buttonOnClick: PropTypes.func
@@ -90,9 +90,7 @@ const DeleteModal = (props) => (
   <Modal
     title="Delete post"
     body="Do you want to delete this from your page?"
-    action={
-      <Button kind="danger">Delete</Button>
-    }
+    action={<Button kind="danger">Delete</Button>}
   />
 )
 ```

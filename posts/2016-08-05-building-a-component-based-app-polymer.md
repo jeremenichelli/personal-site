@@ -20,7 +20,7 @@ As its name implies, this feature allows you to request HTML content from anothe
 This comes handy since web components will probably need both.
 
 ```html
-<link rel="import" href="/sample-component.html">
+<link rel="import" href="/sample-component.html" />
 ```
 
 To import an **.html** file you include a **link** tag referencing the source and setting the value _import_ in the **rel** attribute.
@@ -34,25 +34,24 @@ This is not hard to achieve extending the **HTMLElement** class, here shown with
 ```js
 class GitHubLink extends HTMLElement {
   constructor() {
-    super();
+    super()
   }
   createdCallback() {
-    this._createRoot();
+    this._createRoot()
   }
   attachedCallback() {
-    let a = document.createElement('a');
-    a.innerHTML = 'GitHub profile';
-    a.href= 'https://github.com/jeremenichelli';
+    let a = document.createElement('a')
+    a.innerHTML = 'GitHub profile'
+    a.href = 'https://github.com/jeremenichelli'
 
-    this.root.appendChild(a);
-
+    this.root.appendChild(a)
   }
   _createRoot() {
-    this.root = this.createShadowRoot();
+    this.root = this.createShadowRoot()
   }
 }
 
-document.registerElement('github-link', GitHubLink);
+document.registerElement('github-link', GitHubLink)
 ```
 
 {% actionLink 'https://jsfiddle.net/8Lrm8dzh/' %}
@@ -111,7 +110,7 @@ It's pretty obvious where the text should go in the previous example, but it won
 Another useful feature available is the `dom-repeat` extension that allows you to pass a collection and render multiple elements.
 
 ```html
-<link rel="import" href="path/to/polymer.html">
+<link rel="import" href="path/to/polymer.html" />
 
 <dom-module is="link-list">
   <template>
@@ -123,13 +122,10 @@ Another useful feature available is the `dom-repeat` extension that allows you t
   <script>
     Polymer({
       is: 'link-list',
-				ready: function() {
-					this.links = [
-					  'https://google.com',
-					  'https://facebook.com'
-					];
-				}
-    });
+      ready: function() {
+        this.links = ['https://google.com', 'https://facebook.com']
+      }
+    })
   </script>
 </dom-module>
 ```
@@ -282,7 +278,9 @@ This example only shows the scripting part, inside the template for the parent w
 
 ```html
 <parent-component>
-  <child-component is-loading="{% raw %}{{ isLoading }}{% endraw %}"></child-component>
+  <child-component
+    is-loading="{% raw %}{{ isLoading }}{% endraw %}"
+  ></child-component>
 </parent-component>
 ```
 
@@ -297,12 +295,12 @@ Notice that inside the scripts and binding expresions properties are in camel ca
 Any function present in the descriptor object can be bound to an event inside the component's view by adding an attributes.
 
 ```html
-<link rel="import" href="path/to/polymer.html">
+<link rel="import" href="path/to/polymer.html" />
 
 <dom-module id="search-box">
   <template>
     <form action="?" on-submit="_onSubmit">
-      <input type="text" on-input="_handleChange"/>
+      <input type="text" on-input="_handleChange" />
       <button type="submit">Search</button>
     </form>
   </template>
@@ -317,12 +315,12 @@ Any function present in the descriptor object can be bound to an event inside th
         }
       },
       _handleChange: function(e) {
-        this.title = e.target.value;
+        this.title = e.target.value
       },
       _onSubmit: function(e) {
         // do stuff...
       }
-    });
+    })
   </script>
 </dom-module>
 ```
@@ -359,18 +357,13 @@ You simply place special elements in you main component which will expose proper
   route="{{ route }}"
   pattern="/:view"
   data="{{ routeData }}"
-  tail="{{ subRoute }}"></app-route>
+  tail="{{ subRoute }}"
+></app-route>
 
-<app-route
-  route="{{ route }}"
-  pattern="/"
-  active="{{ mainActive }}">
+<app-route route="{{ route }}" pattern="/" active="{{ mainActive }}">
 </app-route>
 
-<app-route
-  route="{{ route }}"
-  pattern="/movie/:id"
-  active="{{ movieActive }}">
+<app-route route="{{ route }}" pattern="/movie/:id" active="{{ movieActive }}">
 </app-route>
 ```
 

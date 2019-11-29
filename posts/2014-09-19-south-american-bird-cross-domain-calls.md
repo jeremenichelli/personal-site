@@ -5,7 +5,7 @@ excerpt: Forget about the bird, for now. Accessing to data from an API that is l
 
 ## Same-origin policy
 
-Long time ago, when browsers were a new thing, there was a need to establish what was secure and what wasn't when loading resources inside a web page. Though this can change through different browsers and situations, the algorithm that calculates the origin of a resource looks at the protocol, the host of that resource and the port that's being used. For example, in a site whose url starts with *https* you won't be able to load resources whose urls start with *http*, this is the protocol not matching so the request fail.
+Long time ago, when browsers were a new thing, there was a need to establish what was secure and what wasn't when loading resources inside a web page. Though this can change through different browsers and situations, the algorithm that calculates the origin of a resource looks at the protocol, the host of that resource and the port that's being used. For example, in a site whose url starts with _https_ you won't be able to load resources whose urls start with _http_, this is the protocol not matching so the request fail.
 
 ### CORS
 
@@ -13,24 +13,25 @@ Just as resources loaded in the DOM, the same policy runs for ajax calls. This m
 
 ## JSONP to the rescue
 
-While the standard mentioned before covers any type of request, there's a work around for the method GET and that is JSONP. Servers that are capable of returning JSONP responses wrap them in a function call previously defined by you that can manage the data retrieved. Usually these APIs support a parameter like *callback* or just *jsonp* so you can define the name of the method that's going to be called.
+While the standard mentioned before covers any type of request, there's a work around for the method GET and that is JSONP. Servers that are capable of returning JSONP responses wrap them in a function call previously defined by you that can manage the data retrieved. Usually these APIs support a parameter like _callback_ or just _jsonp_ so you can define the name of the method that's going to be called.
 
 ```js
-function wrapper (responseData) {
+function wrapper(responseData) {
   // do something with responseData
-  console.log(responseData);
-};
+  console.log(responseData)
+}
 
-var script = document.createElement('script');
-script.src = 'http://api.some.com/find?id=ebf4g4&q=5&callback=wrapper';
-document.head.appendChild(script);
+var script = document.createElement('script')
+script.src = 'http://api.some.com/find?id=ebf4g4&q=5&callback=wrapper'
+document.head.appendChild(script)
 ```
 
-As you may notice we've appended a script inside the *&lt;head&gt;* tag of the web page, and if everything goes well its content will call the *wrapper* function with the response of the server as an argument.
+As you may notice we've appended a script inside the _&lt;head&gt;_ tag of the web page, and if everything goes well its content will call the _wrapper_ function with the response of the server as an argument.
 
 ```js
-wrapper({"id": "ebf4g4", "properties": [ "a", "b", "c", "d", "e"]});
+wrapper({ id: 'ebf4g4', properties: ['a', 'b', 'c', 'd', 'e'] })
 ```
+
 In this case, our function will just log the result in the console, but you can do whatever you want with it.
 
 ### A South American bird

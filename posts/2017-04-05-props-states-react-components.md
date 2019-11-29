@@ -37,18 +37,18 @@ If a piece of data doesn't pass these requirements then it should be treated as 
 Let's imagine a component which output changes depending on the device.
 
 ```js
-import { Component } from 'react';
-import MobileDetect from 'mobile-detect';
+import { Component } from 'react'
+import MobileDetect from 'mobile-detect'
 
-const ua = window.navigator.userAgent;
+const ua = window.navigator.userAgent
 
 class Header extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isMobile: new MobileDetect(ua).mobile()
-    };
+    }
   }
 
   render() {
@@ -56,7 +56,7 @@ class Header extends Component {
       <header className={this.state.isMobile ? 'mobile' : 'desktop'}>
         <h1>Your app</h1>
       </header>
-    );
+    )
   }
 }
 ```
@@ -66,23 +66,23 @@ class Header extends Component {
 It's better to treat it as a _prop_ in case a parent component holds this value or move it outside the component as a constant value.
 
 ```js
-import { Component } from 'react';
-import MobileDetect from 'mobile-detect';
+import { Component } from 'react'
+import MobileDetect from 'mobile-detect'
 
-const ua = window.navigator.userAgent;
-const isMobile = new MobileDetect(ua).mobile();
+const ua = window.navigator.userAgent
+const isMobile = new MobileDetect(ua).mobile()
 
 class Header extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     return (
-      <header className={ isMobile ? 'mobile' : 'desktop' }>
+      <header className={isMobile ? 'mobile' : 'desktop'}>
         <h1>Your app</h1>
       </header>
-    );
+    )
   }
 }
 ```

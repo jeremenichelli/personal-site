@@ -24,6 +24,7 @@ _For more details, download my resume <a download target="_blank" href="https://
 ## Today
 
 <!-- He is currently looking for a new opportunity, [reach out here](mailto:jmenichelli@gmail.com). -->
+
 He is about to start a new job, stay tuned to know about it!
 
 You might also found him around giving talks about his experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.

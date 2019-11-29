@@ -22,15 +22,15 @@ We are in presence of one of those big moments when we found out that something 
 
 As Azer, I wouldn't be **that** happy if someone else took posession of one of my packages deliberately. I invested my time on that and kindly open it to the community for free use.
 
-*What could Azer have done better?* Knowing that thousands of projects might be affected, inform developers that a package won't be available through **npm**  in a week or a month.
+_What could Azer have done better?_ Knowing that thousands of projects might be affected, inform developers that a package won't be available through **npm** in a week or a month.
 
 Some people had a horrible time trying to find out why their projects were breaking. When the reason was revealed some of them understood his reasons, but <a href="https://github.com/azer/left-pad/issues/4#issuecomment-200066563" target="_blank">didn't agree with him</a> and probably both are right.
 
-*What could we have done better?* We are relying **a lot** in **npm modules**, or at least we need a back up plan. I'm sure that having this discussion will take us somewhere better.
+_What could we have done better?_ We are relying **a lot** in **npm modules**, or at least we need a back up plan. I'm sure that having this discussion will take us somewhere better.
 
 Rich Harris published <a href="https://medium.com/@Rich_Harris/how-to-not-break-the-internet-with-this-one-weird-trick-e3e2d57fee28#.51bhkzdaj" target="_blank">his solution for this</a>.
 
-*What could npm have done better?* Probably ask lawyers for more time to explain the situation to the community, be more open about what was happening. I don't quite agree with what they did, but maybe this whole lawyer thing got them scared, I don't know.
+_What could npm have done better?_ Probably ask lawyers for more time to explain the situation to the community, be more open about what was happening. I don't quite agree with what they did, but maybe this whole lawyer thing got them scared, I don't know.
 
 By the time I was writing this there was no formal statement from **npm**, but we will have one soon for sure. I'm sure they are not happy with this whole thing either.
 

@@ -85,9 +85,9 @@ This values were obtained by doing this calculations with javaScript. I've chang
 
 ## The styles
 
-Writing the styles is the simplest part in my opinion. We're going to use a class called *column* for the properties that all the columns have in common and then *column-1*, *column-2* ... *column-12* for the each specific one. This is personal, you can choose another name convention as long as it makes sense to you and your team.
+Writing the styles is the simplest part in my opinion. We're going to use a class called _column_ for the properties that all the columns have in common and then _column-1_, _column-2_ ... _column-12_ for the each specific one. This is personal, you can choose another name convention as long as it makes sense to you and your team.
 
-For the common styles the first thing we need is to float them so they stick side by side, we can't use *inline-block* because it adds extra space between the elements, we don't want that at all. The next property is a left margin with the value of the gap we decided and last but not least, *min-height: 1px*, why? Because if the column doesn't have any content it will collapse and gain no width breaking our grid.
+For the common styles the first thing we need is to float them so they stick side by side, we can't use _inline-block_ because it adds extra space between the elements, we don't want that at all. The next property is a left margin with the value of the gap we decided and last but not least, _min-height: 1px_, why? Because if the column doesn't have any content it will collapse and gain no width breaking our grid.
 
 We still need one more tweak to do, the first column of each row doesn't need a left margin, or the sum of the widths will be 103%. Yeah, it doesn't sound good.
 
@@ -140,7 +140,7 @@ We still need one more tweak to do, the first column of each row doesn't need a 
 }
 ```
 
-For this to work we need to wrap every row within a *&lt;div&gt;* tag.
+For this to work we need to wrap every row within a _&lt;div&gt;_ tag.
 
 ## The markup
 
@@ -154,11 +154,11 @@ So, we need a row class element and then fill it up with the group of columns we
 </div>
 ```
 
-That's pretty simple and clean, isn't it? If we want vertical spacing my recommendation is to add a *margin-top* to the **row** class, but you can get the same effect by adding this property to the **column** class.
+That's pretty simple and clean, isn't it? If we want vertical spacing my recommendation is to add a _margin-top_ to the **row** class, but you can get the same effect by adding this property to the **column** class.
 
 ## What about mobile?
 
-In order to have a grid completely responsive we need to add a media query to our style sheet and make some changes to our columns. They need to cover the whole width, remove the float and the left margin and add a top margin or they will be have no vertical spacing between each other, I'll choose *20px* as an example.
+In order to have a grid completely responsive we need to add a media query to our style sheet and make some changes to our columns. They need to cover the whole width, remove the float and the left margin and add a top margin or they will be have no vertical spacing between each other, I'll choose _20px_ as an example.
 
 ```css
 @media (max-width: 768px) {

@@ -51,7 +51,7 @@ The solution is to take the element to its final position by default, add a nega
 
 Still the transition duration is **600ms** and that is too much. Users expect micro animations like this one to finish in **~350ms** or they will feel they are waiting for it.
 
-If you want to create a nice *but not immediate* animation is better to add a subtle delay to it.
+If you want to create a nice _but not immediate_ animation is better to add a subtle delay to it.
 
 ```css
 .sub-menu-layer {
@@ -60,7 +60,7 @@ If you want to create a nice *but not immediate* animation is better to add a su
   top: 8rem;
   transform: translateY(-1rem);
   transition: opacity 0.35s, transform 0.35s;
-  transition-delay: .05s;
+  transition-delay: 0.05s;
 }
 
 .menu-item:hover .sub-menu-layer {
@@ -69,9 +69,10 @@ If you want to create a nice *but not immediate* animation is better to add a su
 }
 ```
 
-The transition delay should not exceed the **100ms** neither or users will feel it *unresponsive*.
+The transition delay should not exceed the **100ms** neither or users will feel it _unresponsive_.
 
 ### Recommended links
+
 - Post by Paul Irish about the benefits of [moving objects using translate][1]
 - Google Developers article on [composition layers and animation][2]
 - UX question in StackOverflow about [optimal duration on transitions][3]

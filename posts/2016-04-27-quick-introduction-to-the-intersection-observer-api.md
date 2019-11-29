@@ -13,15 +13,15 @@ First thing you need to do is to create an observer passing a `callback` functio
 
 ```js
 const observer = new IntersectionObserver(onChange, {
-  threshold: [ .25 ]
-});
+  threshold: [0.25]
+})
 
 function onChange(changes) {
   // for each element that has become visible
-  changes.forEach(entry => {
+  changes.forEach((entry) => {
     // change in one of the targets observed
-    console.log(entry);
-  });
+    console.log(entry)
+  })
 }
 ```
 
@@ -74,13 +74,13 @@ That's how you can easily implement a lazy loading logic right now on browsers s
 
 ```js
 function onChange(changes) {
-  changes.forEach(entry => {
+  changes.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.src = entry.target.dataset.src
       // STOP OBSERVING IMAGE
-     observer.unobserve(entry.target)
+      observer.unobserve(entry.target)
     }
-  });
+  })
 }
 ```
 
@@ -92,13 +92,13 @@ It's important to mention that `isIntersecting` was added later to the spec, so 
 
 ```js
 function onChange(changes) {
-  changes.forEach(entry => {
+  changes.forEach((entry) => {
     // rely on intersectionRatio
     if (entry.intersectionRatio > 0) {
       entry.target.src = entry.target.dataset.src
       observer.unobserve(entry.target)
     }
-  });
+  })
 }
 ```
 
@@ -110,12 +110,12 @@ It doesn't make any sense to do this as soon as one pixel from the target enters
 
 ```js
 function onChange(changes) {
-  changes.forEach(entry => {
+  changes.forEach((entry) => {
     if (entry.intersectionRatio > 0.5) {
       entry.target.classList.add('animate')
       observer.unobserve(entry.target)
     }
-  });
+  })
 }
 ```
 
@@ -129,9 +129,9 @@ You can always suspend the whole observation by doing `observer.disconnect()`, u
 
 As I mentioned before, the second argument the observer constructor receives allows you to configure its behavior. The options this object supports are:
 
- - `root`, the reference object used to check the targets visibility, when _null_ it defaults to the browser's viewport.
- - `rootMargin` accepts a collection of values as string similar to CSS margins and allows you to shrink the area of the root element that's going to take in count when calculating intersection ratios.
- - `threshold` can be a number or an array of numbers to inform the observer to only fire when a certain portion of the element is visible, recommended for more complex ratio situations like when you want the whole element to be visible you can pass `1.0`, then the callback will act.
+- `root`, the reference object used to check the targets visibility, when _null_ it defaults to the browser's viewport.
+- `rootMargin` accepts a collection of values as string similar to CSS margins and allows you to shrink the area of the root element that's going to take in count when calculating intersection ratios.
+- `threshold` can be a number or an array of numbers to inform the observer to only fire when a certain portion of the element is visible, recommended for more complex ratio situations like when you want the whole element to be visible you can pass `1.0`, then the callback will act.
 
 It's possible though not immediately probable you will need to alter these values. If you do, I recommend checking out [the MDN page](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) for intersection observers use.
 

@@ -31,7 +31,7 @@ new Vue({
     name: 'John Oliver',
     description: 'Comedian, political commentator and tv host.'
   }
-});
+})
 ```
 
 Another axiom from **Vue** is to let JavaScript rule the whole thing, so you can use HTML tags just as placeholders and define everything, even the template, in your instance object.
@@ -40,7 +40,7 @@ You can also bind methods and compute properties.
 
 ```js
 // HTML
-<app></app>
+;<app></app>
 
 // JavaScript
 new Vue({
@@ -58,7 +58,7 @@ new Vue({
   },
   computed: {
     fullName() {
-      return `${ this.firstName } ${ this.lastName }`;
+      return `${this.firstName} ${this.lastName}`
     }
   },
   methods: {
@@ -66,7 +66,7 @@ new Vue({
       alert(this.description)
     }
   }
-});
+})
 ```
 
 {% actionLink 'https://jsfiddle.net/jeremenichelli/k9vatv0m/' %}
@@ -99,20 +99,20 @@ Vue.component('search-box', {
   },
   methods: {
     onSearch() {
-      const BASE_URL = 'https://www.omdbapi.com/?r=json';
+      const BASE_URL = 'https://www.omdbapi.com/?r=json'
 
-      this.searching = true;
+      this.searching = true
 
-      fetch(`${ BASE_URL }&s=${ this.title }`)
-        .then(response => response.json())
-        .then(data => {
-          this.searching = false;
+      fetch(`${BASE_URL}&s=${this.title}`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.searching = false
 
           // do something with the data
-        });
+        })
     }
   }
-});
+})
 ```
 
 Calling the `component` method requires first a string indicating a custom tag in kekab case and a constructor object.
@@ -133,7 +133,7 @@ new Vue({
     <h2>Movies</h2>
     <search-box></search-box>
   `
-});
+})
 ```
 
 {% actionLink 'https://jsfiddle.net/jeremenichelli/k4xqwto9/' %}
@@ -148,8 +148,8 @@ Vue.component('result', {
     <h3 v-text="title"></h3>
     <a :href="url">Find out more</a>
   `,
-  props: [ 'title', 'url' ]
-});
+  props: ['title', 'url']
+})
 ```
 
 Then specify a _prop value_ with Vue's binding syntax.
@@ -179,9 +179,9 @@ Vue.component('results-list', {
           url: 'https://www.imdb.com/title/tt1345836'
         }
       ]
-    };
+    }
   }
-});
+})
 ```
 
 {% actionLink 'https://jsfiddle.net/jeremenichelli/eoa5qhsf/' %}
@@ -201,10 +201,10 @@ In the meantime, devs are adding steps in their build processes to transform the
 Vue capabilities can be extended with plugins calling the `use` method.
 
 ```js
-var Vue = require('vue');
-var VueRouter = require('vue-router');
+var Vue = require('vue')
+var VueRouter = require('vue-router')
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 ```
 
 On our first examples calling `new Vue` meant kicking off the whole project, but when [vue-router][vue-router] comes to play you need to first create components, the views, main Vue instance and delegate that kick start to the router.
@@ -215,13 +215,13 @@ var mainView = Vue.component({
   template: `
     <p>Main view content.</p>
   `
-});
+})
 
 var aboutView = Vue.component({
   template: `
     <p>About view content.</p>
   `
-});
+})
 
 // main instance
 var app = Vue.component({
@@ -231,10 +231,10 @@ var app = Vue.component({
     <a v-link="{ path: '/about' }">About</a>
     <router-view></router-view>
   `
-});
+})
 
 // create router
-var router = new VueRouter({ root: '/' });
+var router = new VueRouter({ root: '/' })
 
 // map paths and views
 router.map({
@@ -246,10 +246,10 @@ router.map({
     component: aboutView,
     name: 'about'
   }
-});
+})
 
 // kick off!
-router.start(app, '#app');
+router.start(app, '#app')
 ```
 
 There's no need to learn nothing special for views creation, they are _components_, the difference is they are now passed to the router to be defined as _views_ with an associated path.
@@ -377,7 +377,6 @@ As any other framework, its ecosystem kind of forces you to do things you might 
 [polymer-cli]: https://github.com/Polymer/polymer-cli
 [angular-cli]: https://github.com/angular/angular-cli
 [vue-movies]: https://github.com/jeremenichelli/movies/tree/master/results/vue
-
 [vue-article]: /2016/06/building-component-based-app-vue/
 [react-article]: /2016/07/building-a-component-based-app-react/
 [polymer-article]: /2016/08/building-a-component-based-app-polymer/

@@ -21,17 +21,17 @@ The first one, while it's not perfect, prioritizes showing something to the user
 
 If there's a font that's taking a while to load is better to show content to the user until everything is ready. Google's <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">PageSpeed Insight</a> will penalize you if you don't follow this approach, for example.
 
-After hearing about this, I just loaded the stylesheet containing the **@font-face** declaration by JavaScript, wait for the `onload` event to fire and add a class to the *body* or *html* tag to change the font-family of the site by CSS.
+After hearing about this, I just loaded the stylesheet containing the **@font-face** declaration by JavaScript, wait for the `onload` event to fire and add a class to the _body_ or _html_ tag to change the font-family of the site by CSS.
 
 ```js
-var fontStyleSheet = document.createElement('link');
+var fontStyleSheet = document.createElement('link')
 
 fontStyleSheet.onload = function() {
-  document.body.classList.add('font-loaded');
-};
+  document.body.classList.add('font-loaded')
+}
 
-fontStyleSheet.href = 'http://fonts.googleapis.com/css?family=Roboto';
-document.head.appendChild(fontStyleSheet);
+fontStyleSheet.href = 'http://fonts.googleapis.com/css?family=Roboto'
+document.head.appendChild(fontStyleSheet)
 ```
 
 And guess what? It didn't work. There was still a gap where invisible text was shown, apparently this happens because I changed the font family of the site when the stylesheet was ready which is ok, but the browser still was rendering the new font.
@@ -43,12 +43,12 @@ A couple of developers noticed these issues and created libraries that provide e
 You still need to add your fonts via **@font-face** declaration or include the **link** tag in your page and later listen to an specific family of fonts to load.
 
 ```js
-FontFaceOnload("Oswald", {
+FontFaceOnload('Oswald', {
   success: function() {
     // when font is available, add class to body
-    document.body.classList.add('font-loaded');
+    document.body.classList.add('font-loaded')
   }
-});
+})
 ```
 
 The second one is <a href="https://github.com/bramstein/fontfaceobserver" target="_blank">fontfaceobserver</a> by <a href="https://github.com/bramstein">bramstein</a>. According to its creator, this one uses scroll events to detect when the font is available immediately.
@@ -56,11 +56,11 @@ The second one is <a href="https://github.com/bramstein/fontfaceobserver" target
 Again, include your custom font by CSS but this time an observer object is created.
 
 ```js
-var observer = new FontFaceObserver('Oswald');
+var observer = new FontFaceObserver('Oswald')
 
 observer.check().then(function() {
-  document.body.classList.add('font-loaded');
-});
+  document.body.classList.add('font-loaded')
+})
 ```
 
 You might have noticed that this library uses a `check` method and the reserved word `then` as the **Promise API** does to run code after the font is ready.
@@ -72,9 +72,9 @@ You won't need a **@font-face** declaration in your styles here, just JavaScript
 ```js
 WebFont.load({
   google: {
-    families: [ 'Oswald' ]
+    families: ['Oswald']
   }
-});
+})
 ```
 
 The script will automatically add classes to the body of the document, but if you feel more comfortable using your own class names you can disable this feature and do it yourself.
@@ -82,13 +82,13 @@ The script will automatically add classes to the body of the document, but if yo
 ```js
 WebFont.load({
   google: {
-    families: [ 'Oswald' ]
+    families: ['Oswald']
   },
   classes: false,
   active: function() {
-    document.body.classList.add('font-loaded');
+    document.body.classList.add('font-loaded')
   }
-});
+})
 ```
 
 ## In the wild
@@ -105,20 +105,20 @@ Then I've moved to <a href="http://www.webpagetest.org/" target="_blank">www.web
 
 Now that we have nice solutions, we are causing a **FOUT** on purpose to always show text content to the user, but now created a new problem.
 
-Once the user got to your homepage and starts navigating through your site is going to *experience the same effect in every page* because, though the font has been previously loaded and cached by the browser, we are not switching to it until we detect it by JavaScript and add a class to the *html* or *body* tag.
+Once the user got to your homepage and starts navigating through your site is going to _experience the same effect in every page_ because, though the font has been previously loaded and cached by the browser, we are not switching to it until we detect it by JavaScript and add a class to the _html_ or _body_ tag.
 
 This is not hard to solve, once you load the font you can place a cookie.
 
 ```js
-var observer = new FontFaceObserver('Oswald');
+var observer = new FontFaceObserver('Oswald')
 
 observer.check().then(function() {
-  document.body.classList.add('font-loaded');
-  document.cookie = 'fonts-loaded';
-});
+  document.body.classList.add('font-loaded')
+  document.cookie = 'fonts-loaded'
+})
 ```
 
-Then add the class dynamically, for example in *php* if your engine is Wordpress, to your site. What about the ones that uses static generators, *like this one*? Well you have no solution around this.
+Then add the class dynamically, for example in _php_ if your engine is Wordpress, to your site. What about the ones that uses static generators, _like this one_? Well you have no solution around this.
 
 Yes, **boooooh**.
 
