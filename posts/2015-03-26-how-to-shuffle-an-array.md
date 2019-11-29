@@ -15,27 +15,27 @@ The best thing of this approach is that every iteration is independent from the 
 
 ### Copy an array
 
-We need to do this so we don't actually modify the original one. There's an array method called *slice* that takes two parameters, a start position and a number of elements you want to take from that position. It returns a new array containing only those elements, if you need a better understanding of it check <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="blank">MDN reference</a>.
+We need to do this so we don't actually modify the original one. There's an array method called _slice_ that takes two parameters, a start position and a number of elements you want to take from that position. It returns a new array containing only those elements, if you need a better understanding of it check <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="blank">MDN reference</a>.
 
 What's funny is that if you don't pass any arguments to slice it returns a new array with the exact same elements, which is exactly what we need.
 
 ```js
 function shuffle(array) {
-  var origArray = array.slice();
+  var origArray = array.slice()
 }
 ```
 
 ### Get a random position
 
-There's a pretty famous guy in the neighbourhood called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random()</a> that picks a number between *0* and *0.99* and returns it. Let's say we have an array with three elements, if we call this method and then multiply the result with the length of the array we can get a value between *0 * 3 = 0* and *0.99 * 3 = 2.99*. Removing the floating part of any of the possible result we can get zero, one or two which are the three available indexes in an array of three elements.
+There's a pretty famous guy in the neighbourhood called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random()</a> that picks a number between _0_ and _0.99_ and returns it. Let's say we have an array with three elements, if we call this method and then multiply the result with the length of the array we can get a value between _0 _ 3 = 0* and *0.99 _ 3 = 2.99_. Removing the floating part of any of the possible result we can get zero, one or two which are the three available indexes in an array of three elements.
 
 ```js
 function shuffle(array) {
-  var origArray = array.slice();
-  var len = origArray.length;
-  var position;
+  var origArray = array.slice()
+  var len = origArray.length
+  var position
 
-  position = Math.floor(Math.random() * len);
+  position = Math.floor(Math.random() * len)
 }
 ```
 
@@ -43,12 +43,12 @@ Now we must put this logic inside a loop and decrease the length in every iterat
 
 ```js
 function shuffle(array) {
-  var origArray = array.slice();
-  var len = origArray.length;
-  var position;
+  var origArray = array.slice()
+  var len = origArray.length
+  var position
 
   while (len) {
-    position = Math.floor(Math.random() * len--);
+    position = Math.floor(Math.random() * len--)
   }
 }
 ```
@@ -57,21 +57,21 @@ Simple and beautiful... and useless, because it's still doing nothing.
 
 ### Return a new shuffled array
 
-We still need to extract the element in that position from *origArray* and store it in a new one. For that we can use *splice* which does the same thing as *slice* but it removes the result from the original array.
+We still need to extract the element in that position from _origArray_ and store it in a new one. For that we can use _splice_ which does the same thing as _slice_ but it removes the result from the original array.
 
 ```js
 function shuffle(array) {
-  var origArray = array.slice();
-  var len = origArray.length;
-  var newArray = [];
-  var position;
+  var origArray = array.slice()
+  var len = origArray.length
+  var newArray = []
+  var position
 
   while (len) {
-    position = Math.floor(Math.random() * len--);
-    newArray.push(origArray.splice(position, 1)[0]);
+    position = Math.floor(Math.random() * len--)
+    newArray.push(origArray.splice(position, 1)[0])
   }
 
-  return newArray;
+  return newArray
 }
 ```
 
@@ -80,20 +80,18 @@ If you want to shorten this code you can put all the logic in a single line. Als
 ```js
 function shuffle(array) {
   if (!!array && array.length > 1) {
-    var origArray = array.slice();
-    var len = origArray.length;
-    var newArray = [];
+    var origArray = array.slice()
+    var len = origArray.length
+    var newArray = []
 
     while (len) {
-      newArray.push(
-        origArray.splice(Math.floor(Math.random() * len--), 1)[0]
-      );
+      newArray.push(origArray.splice(Math.floor(Math.random() * len--), 1)[0])
     }
   } else {
-    return array ? array.slice() : [];
+    return array ? array.slice() : []
   }
 
-  return newArray;
+  return newArray
 }
 ```
 
@@ -108,10 +106,12 @@ After running those tests and making sure it worked well I started searching for
 Don't get me wrong, I think <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">sort</a> is great, but when it's used for its original purpose which is to establish a new known order in an array. For that you need a criteria and a compare function that responds to it. Random isn't a known order and has no criteria, but well, here's the little monster I found out there...
 
 ```js
-array.sort(function() { return 0.5 - Math.random() });
+array.sort(function() {
+  return 0.5 - Math.random()
+})
 ```
 
-Beautiful, isn't it? Just one line, something that will encourage you to put it inside your code right away because, you know, it's just one line man! The problem with this is that is not taking in consideration how *sort* really works. Every time the compare function is called, sort expects a negative number, a positive number or zero. In case the number is negative the second element in comparison will be moved before the first one, the opposite will happen if the number is positive and nothing will happen if the number returned is zero.
+Beautiful, isn't it? Just one line, something that will encourage you to put it inside your code right away because, you know, it's just one line man! The problem with this is that is not taking in consideration how _sort_ really works. Every time the compare function is called, sort expects a negative number, a positive number or zero. In case the number is negative the second element in comparison will be moved before the first one, the opposite will happen if the number is positive and nothing will happen if the number returned is zero.
 
 That's pretty useful when you are actually sorting elements but since we want to create a random scenario half of the times the compare function is called nothing will changes, leaving the elements in the position they are. We don't want that. If you send an array of two or three elements there's a high probability you will get the exact same array.
 
@@ -121,7 +121,7 @@ I supposed that this problem wasn't new and that probably smarter people than me
 
 Luckily that was true. The solution is very old and it's called <a href="http://en.wikipedia.org/wiki/Fisher–Yates_shuffle" target="_blank">Fisher-Yates shuffle</a> named after Ronald Fisher and Frank Yates and it assures that any possible permutation is equally likely.
 
-This algorithm is the one applied by underscore library in their **_.shuffle** method and you can see its implementation in <a href="https://github.com/jashkenas/underscore/blob/master/underscore.js#L342" target="_blank">github</a>.
+This algorithm is the one applied by underscore library in their **\_.shuffle** method and you can see its implementation in <a href="https://github.com/jashkenas/underscore/blob/master/underscore.js#L342" target="_blank">github</a>.
 
 ## Wrap-up
 

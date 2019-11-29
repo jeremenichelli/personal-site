@@ -1,6 +1,6 @@
 ---
 title: Animating Between Views in React
-excerpt: You know how some sites and web apps have that neat native feel when transitioning between two pages or views? These animations are the type of features that can turn a good user experience into a great one. 
+excerpt: You know how some sites and web apps have that neat native feel when transitioning between two pages or views? These animations are the type of features that can turn a good user experience into a great one.
 host: css-tricks
 host_url: https://css-tricks.com
 external_url: https://css-tricks.com/animating-between-views-in-react/
@@ -21,18 +21,18 @@ As a simple example of a use case, we can try to animate a modal or dialog — y
 A dialog component might look something like this:
 
 ```js
-import React from "react";
+import React from 'react'
 
 class Dialog extends React.Component {
   render() {
-    const { isOpen, onClose, message } = this.props;
+    const { isOpen, onClose, message } = this.props
     return (
       isOpen && (
         <div className="dialog--overlay" onClick={onClose}>
           <div className="dialog">{message}</div>
         </div>
       )
-    );
+    )
   }
 }
 ```
@@ -42,12 +42,12 @@ Notice we are using the `isOpen` prop to determine whether the component is rend
 First thing we need is to wrap the entire component in another `TransitionGroup` component. Inside, we keep the prop to mount or unmount the dialog, which we are wrapping in a `CSSTransition`.
 
 ```js
-import React from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import React from 'react'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 class Dialog extends React.Component {
   render() {
-    const { isOpen, onClose, message } = this.props;
+    const { isOpen, onClose, message } = this.props
     return (
       <TransitionGroup component={null}>
         {isOpen && (
@@ -58,7 +58,7 @@ class Dialog extends React.Component {
           </CSSTransition>
         )}
       </TransitionGroup>
-    );
+    )
   }
 }
 ```
@@ -103,8 +103,8 @@ This component doesn’t do anything for us like the `CSSTransition` did, but it
 <TransitionGroup component={null}>
   {isOpen && (
     <Transition
-      onEnter={node => animateOnEnter(node)}
-      onExit={node => animateOnExit(node)}
+      onEnter={(node) => animateOnEnter(node)}
+      onExit={(node) => animateOnExit(node)}
       timeout={300}
     >
       <div className="dialog--overlay" onClick={onClose}>
@@ -137,7 +137,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="app">
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
             <Route path="/author" component={Author} />
             <Route path="/about" component={About} />
           </Switch>
@@ -186,26 +186,28 @@ Also, react-router-dom provides a unique `key` in the `location` object every ti
 In case you are not familiar with them, React keys identify elements in the virtual DOM tree. Most times, we don’t need to indicate them since React will detect which part of the DOM should change and then patch it.
 
 ```js
-<Route render={({ location }) => {
-  const { pathname, key } = location
+<Route
+  render={({ location }) => {
+    const { pathname, key } = location
 
-  return (
-    <TransitionGroup component={null}>
-      <Transition
-        key={key}
-        appear={true}
-        onEnter={(node, appears) => play(pathname, node, appears)}
-        timeout={{enter: 750, exit: 0}}
-      >
-        <Switch location={location}>
-          <Route exact path="/" component={Home}/>
-          <Route path="/author" component={Author} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </Transition>
-    </TransitionGroup>
-  )
-}}/>
+    return (
+      <TransitionGroup component={null}>
+        <Transition
+          key={key}
+          appear={true}
+          onEnter={(node, appears) => play(pathname, node, appears)}
+          timeout={{ enter: 750, exit: 0 }}
+        >
+          <Switch location={location}>
+            <Route exact path="/" component={Home} />
+            <Route path="/author" component={Author} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </Transition>
+      </TransitionGroup>
+    )
+  }}
+/>
 ```
 
 Constantly changing the key of an element — even when its children or props haven't been modified — will force React to remove it from the DOM and remount it. This helps us emulate the boolean toggle approach we had before and it’s important for us here because we can place a single `Transition` element and reuse it for all of our view transitions, allowing us to mix routing and transition components.
@@ -219,10 +221,8 @@ export const play = (pathname, node, appears) => {
   const delay = appears ? 0 : 0.5
   let timeline
 
-  if (pathname === '/')
-    timeline = getHomeTimeline(node, delay)
-  else
-    timeline = getDefaultTimeline(node, delay)
+  if (pathname === '/') timeline = getHomeTimeline(node, delay)
+  else timeline = getDefaultTimeline(node, delay)
 
   timeline.play()
 }
@@ -234,12 +234,17 @@ Once the timeline is built for the current `pathname`, we play it.
 
 ```js
 const getHomeTimeline = (node, delay) => {
-  const timeline = new Timeline({ paused: true });
-  const texts = node.querySelectorAll('h1 > div');
+  const timeline = new Timeline({ paused: true })
+  const texts = node.querySelectorAll('h1 > div')
 
   timeline
     .from(node, 0, { display: 'none', autoAlpha: 0, delay })
-    .staggerFrom(texts, 0.375, { autoAlpha: 0, x: -25, ease: Power1.easeOut }, 0.125);
+    .staggerFrom(
+      texts,
+      0.375,
+      { autoAlpha: 0, x: -25, ease: Power1.easeOut },
+      0.125
+    )
 
   return timeline
 }
@@ -293,9 +298,9 @@ The difference is not only on the profiling report — it actually solves an iss
 
 In order to act as reminders, I created a list of tips for me that you might find useful as you dig into view transitions in a project:
 
- - When an animation is happening nothing else should be happening. Run animations after all resources, fetching and business logic have completed.
- - No animation is better than crappy animations If you can’t achieve a good animation, then removing it is a fair sacrifice. The content is more important and showing it is the priority until a good animation solution is in place.
- - Test on slower and older devices. They will make it easier for you to catch spots with weak performance.
- - Profile and base your improvements in metrics. Instead of guessing as you go, like I did, see if you can spot where frames are being dropped or if something looks off and attack that issue first.
+- When an animation is happening nothing else should be happening. Run animations after all resources, fetching and business logic have completed.
+- No animation is better than crappy animations If you can’t achieve a good animation, then removing it is a fair sacrifice. The content is more important and showing it is the priority until a good animation solution is in place.
+- Test on slower and older devices. They will make it easier for you to catch spots with weak performance.
+- Profile and base your improvements in metrics. Instead of guessing as you go, like I did, see if you can spot where frames are being dropped or if something looks off and attack that issue first.
 
 That’s it! Best of luck with animating view transitions. Please post a comment if this sparked any questions or if you have used transitions in your app that you’d like to share!

@@ -13,7 +13,7 @@ They weren't the funniest hours of my life but it reduced the file by more than 
 
 ### One .less file to rule them all
 
-A small decision sometimes becomes big. I decided to create a *main.less* file that will import first the *_oldStyles.less* file and everytime I refactored a particular section or functionality of the site I should erase them from that file and move it to a new one.
+A small decision sometimes becomes big. I decided to create a _main.less_ file that will import first the _\_oldStyles.less_ file and everytime I refactored a particular section or functionality of the site I should erase them from that file and move it to a new one.
 
 So, the main file looked like this at the beginning...
 
@@ -36,9 +36,9 @@ After working a lot in the site and modularizing some parts of the site the main
 @import '_ads.less';
 ```
 
-You can understand what most of the style sheets contain. In the general file I placed some variables like colors, spacing and mixins. In layout, the new grid system. I also deleted most of the browsers vendors and rely more on <a target="_blank" href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a> and the mixins in the *_general.less* file.
+You can understand what most of the style sheets contain. In the general file I placed some variables like colors, spacing and mixins. In layout, the new grid system. I also deleted most of the browsers vendors and rely more on <a target="_blank" href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a> and the mixins in the _\_general.less_ file.
 
-The final step would be to delete completely the *_oldStyles.less* file, thing I wasn't able to do because my time ended. The good thing was that by doing this and deleting a lot of useless styles I reduced page loading time in a fifty percent.
+The final step would be to delete completely the _\_oldStyles.less_ file, thing I wasn't able to do because my time ended. The good thing was that by doing this and deleting a lot of useless styles I reduced page loading time in a fifty percent.
 
 The thing is that, of course, no matter how much you like LESS the site needs a CSS one to load.
 
@@ -49,25 +49,28 @@ In case you've never heard of it, <a href="http://www.gulpjs.com" target="_blank
 One of the reasons why I prefer it from <a href="http://www.gruntjs.com" target="_blank">GruntJS</a> is that is faster to set and easier to read, if this is the first time you ever read a **gulpfile** you will notice that you will be able to guess what's happening in most of the lines.
 
 ```js
-var gulp = require('gulp');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
-var less = require('gulp-less');
-var minifyCss = require('gulp-minify-css');
+var gulp = require('gulp')
+var autoprefixer = require('gulp-autoprefixer')
+var rename = require('gulp-rename')
+var less = require('gulp-less')
+var minifyCss = require('gulp-minify-css')
 
 gulp.task('styles', function() {
-  return gulp.src('./src/less/main.less')
+  return gulp
+    .src('./src/less/main.less')
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(minifyCss())
-    .pipe(rename({
+    .pipe(
+      rename({
         suffix: '.min'
-      }))
-    .pipe(gulp.dest('./assets/styles/'));
-});
+      })
+    )
+    .pipe(gulp.dest('./assets/styles/'))
+})
 ```
 
-Basically what we do is to require the modules we'll use, then we take the *main.less* file as a source, compile it to a CSS file, add prefixes, minify, rename it and place it in the destination folder. I will cover GulpJS in more depth in a future post.
+Basically what we do is to require the modules we'll use, then we take the _main.less_ file as a source, compile it to a CSS file, add prefixes, minify, rename it and place it in the destination folder. I will cover GulpJS in more depth in a future post.
 
 That way, no matter the structure of the files this task will work. The only thing we need to do is to add a new import statement in the main file in case we added a new LESS file to our flow.
 

@@ -26,7 +26,7 @@ Examples are better, right?
 }
 ```
 
-Remember that new declarations inside curly braces in LESS indicates inner elements, but using an ampersand changes everything and we are now indicating that a *.box* element with an additional class that can be **small** or **medium** needs extra styles. This is the result...
+Remember that new declarations inside curly braces in LESS indicates inner elements, but using an ampersand changes everything and we are now indicating that a _.box_ element with an additional class that can be **small** or **medium** needs extra styles. This is the result...
 
 ```css
 .box.small {
@@ -50,7 +50,7 @@ It's a nice touch, maybe not a big thing. To me this little guy it's great when 
 .clearfix() {
   &:before,
   &:after {
-    content: " ";
+    content: ' ';
     display: table;
   }
 
@@ -80,7 +80,7 @@ Now let's see what happens when you need to style buttons or links.
   }
 
   &[disabled] {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 ```
@@ -106,7 +106,7 @@ The code is pretty straight forward and if you use variables inside the mixin yo
   }
 
   &[disabled] {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
@@ -130,9 +130,7 @@ I don't know you but to me that's beautiful.
 Well this has nothing to do with the ampersand selector, but this simple feature is a beast if you know where you can use it. What it basically does is to put variables content inside strings. Again, examples are better.
 
 ```less
-@base-img-url: '../img'
-
-#header {
+@base-img-url: '../img' #header {
   background-image: url('@{base-img-url}/banner.jpg');
   background-repeat: no-repeat;
 }
@@ -145,8 +143,8 @@ Here's another place where I usually need this...
 ```less
 .opacity(@value) {
   @percentValue: @value * 100;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{percentValue})";
-  filter: alpha(opacity=7@percentValue);
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=@{percentValue})';
+  filter: alpha(opacity=7 @percentValue);
   -moz-opacity: @value;
   -khtml-opacity: @value;
   opacity: @value;
@@ -155,7 +153,7 @@ Here's another place where I usually need this...
 .overlay {
   .opacity(0.75);
   background-color: #000000;
-  transition: opacity .25s ease;
+  transition: opacity 0.25s ease;
 
   &.closed {
     .opacity(0);

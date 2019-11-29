@@ -15,7 +15,6 @@ You learn it fast, it is familiar to you and when you're setting it up or making
 
 That was the main reason why developers dwell to <a href="https://gulpjs.com" target="_blank">Gulp</a>. The stream/pipe pattern was really semantic and easy to work with. It's currently the choice of big companies like Google in their projects which boosted its development and improved its visibility around developers.
 
-
 ### The packages deviation
 
 To actually do stuff with them the way they are intended you need specific modules, which are in most cases wrappers of already existing npm packages. That's a problem, because you get inside an update cycle which might never occur, for example when a fix is applied to a package, but you're using its Gulp or Grunt flavour you need to wait to the owner or contributors to apply the improvement in that wrapper.
@@ -23,7 +22,6 @@ To actually do stuff with them the way they are intended you need specific modul
 And you know, someday you might wake up and find out that actually <a href="https://www.npmjs.com/package/gulp-browserify" target="_blank">browserify wrapper for Gulp is no longer being maintained</a>. Beautiful. Yes, it was sarcasm.
 
 That's when a whole bunch of recipes appear to deal with this, and you need to download one or a couple more dependencies like <a href="https://www.npmjs.com/package/vinyl-source-stream" target="_blank">vinyl source stream</a> to do just what browserify does on its own.
-
 
 ## Using npm scripts
 
@@ -100,7 +98,6 @@ Then add the style script and a general `build` task to run both.
 ```
 
 Because neither browserify or less need each other to finish we can concat them using only one ampersand operator so they run asynchronously and speed up our build process.
-
 
 ### Pre scripts
 

@@ -7,6 +7,7 @@
     "clean": "rimraf _site assets _includes/styles _includes/scripts _includes/favicons.liquid",
     "format:js": "prettier --write './**/*.js'",
     "format:less": "prettier --write './**/*.less'",
+    "format:md": "prettier --write './**/*.md'",
     "bundle": "node .scripts/bundle.js",
     "favicons": "node .scripts/favicons.js",
     "images": "node .scripts/images.js",

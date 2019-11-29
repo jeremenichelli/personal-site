@@ -27,7 +27,7 @@ I pass the result through [cssnano](//cssnano.com) to optimize it, export it as 
 
 #### Benefits
 
-Using CSS variables makes easier to share values without thinking of global LESS imports and enables a straight-forward dark mode implementation. 
+Using CSS variables makes easier to share values without thinking of global LESS imports and enables a straight-forward dark mode implementation.
 
 Inlining the styles reduces extra network calls and render blocking resources, but they also enlarge the size of the final HTML and doesn't take advantage of caching.
 

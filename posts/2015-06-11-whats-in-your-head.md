@@ -44,7 +44,7 @@ This tag will indicate which group of characters will take the browser to parse 
 Yes, it's recommended to add a meta tag for Internet Explorer to indicate we want our page to be rendered with the hightest standard possible. Yes, you have to.
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 ```
 
 ### The world wide web is getting mobile
@@ -57,10 +57,10 @@ Now, let's update our head tag.
 
 ```html
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Some description of the page.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Some description of the page." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Page Title | Section | Website Title</title>
 </head>
@@ -72,15 +72,15 @@ This link tag is used to specify which url the page is refering in case you have
 
 ```html
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Some description of the page.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Some description of the page." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Page Title | Section | Website Title</title>
 
   <!-- if your mobile URL is different from the desktop URL, add a canonical link to the desktop page -->
-  <link rel="canonical" href="http://www.example.com/path/to/page">
+  <link rel="canonical" href="http://www.example.com/path/to/page" />
 </head>
 ```
 
@@ -92,34 +92,102 @@ The problem here is fragmentation. Each browser expects a different size and not
 
 ```html
 <!-- Cover all apple devices -->
-<link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon-180x180.png">
+<link
+  rel="apple-touch-icon"
+  sizes="57x57"
+  href="assets/favicon/apple-touch-icon-57x57.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="assets/favicon/apple-touch-icon-114x114.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="72x72"
+  href="assets/favicon/apple-touch-icon-72x72.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="144x144"
+  href="assets/favicon/apple-touch-icon-144x144.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="60x60"
+  href="assets/favicon/apple-touch-icon-60x60.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="assets/favicon/apple-touch-icon-120x120.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="76x76"
+  href="assets/favicon/apple-touch-icon-76x76.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="152x152"
+  href="assets/favicon/apple-touch-icon-152x152.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="assets/favicon/apple-touch-icon-180x180.png"
+/>
 
 <!-- Old school favicon -->
-<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="shortcut icon" href="assets/favicon/favicon.ico" />
 
 <!-- General favicon sizes for different sizes -->
-<link rel="icon" type="image/png" href="assets/favicon/favicon-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="assets/favicon/favicon-160x160.png" sizes="160x160">
-<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+<link
+  rel="icon"
+  type="image/png"
+  href="assets/favicon/favicon-192x192.png"
+  sizes="192x192"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="assets/favicon/favicon-160x160.png"
+  sizes="160x160"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="assets/favicon/favicon-96x96.png"
+  sizes="96x96"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="assets/favicon/favicon-16x16.png"
+  sizes="16x16"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="assets/favicon/favicon-32x32.png"
+  sizes="32x32"
+/>
 
 <!-- Add to homescreen for Chrome on Android -->
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Page title">
-<link rel="icon" sizes="192x192" href="assets/favicon/chrome-touch-icon-192x192.png">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="Page title" />
+<link
+  rel="icon"
+  sizes="192x192"
+  href="assets/favicon/chrome-touch-icon-192x192.png"
+/>
 
 <!-- Icon for Win8 -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png">
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta
+  name="msapplication-TileImage"
+  content="assets/favicon/mstile-144x144.png"
+/>
 ```
 
 Yes, you need all of those icons. You can create them by yourself or let the tool I provided before to generate most of them. If you really want your favicon to reach all browsers, this will do the job.
@@ -138,18 +206,15 @@ The thing is that if the request for the scripts takes some time and the DOM tre
 
 The correct form is to include the content of the script minified inside a script tag.
 
-
 ## Styles
 
 Last year there was a move impulsed mostly by Google devs and their web standars to provide to the user the web site with a **content** first approach. This means that while adding a link tag with a stylesheet in the past was not wrong, it's now seen as a bad practice because your blocking content renderization.
 
 To solve this, put the most critical CSS rules in a style tag, also called **above the fold** styles, and load the rest of the rules by adding the stylesheet using Javascript. The incredible guys from Filament Group have a small script to achieve this called <a href="https://github.com/filamentgroup/loadCSS" target="_blank">loadCSS</a> which I suggest you dig in.
 
-
 ### Other content
 
 Of course, the web keeps changing and moving on and there is new content that can go inside here. For example if your project is a web app is recommended to add a **manifest.json** file reference, or you can change the look of Chrome mobile top bar by specifing a **theme-color**.
-
 
 ## Wrap-up
 
@@ -157,51 +222,119 @@ Let's take a deep breath and see what a complete **head** tag looks like.
 
 ```html
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Some description of the page.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Some description of the page." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Page Title | Section | Website Title</title>
 
   <!-- if your mobile URL is different from the desktop URL, add a canonical link to the desktop page -->
-  <link rel="canonical" href="http://www.example.com/path/to/page">
+  <link rel="canonical" href="http://www.example.com/path/to/page" />
 
   <!-- Cover all apple devices -->
-  <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon-180x180.png">
+  <link
+    rel="apple-touch-icon"
+    sizes="57x57"
+    href="assets/favicon/apple-touch-icon-57x57.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="114x114"
+    href="assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="72x72"
+    href="assets/favicon/apple-touch-icon-72x72.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="144x144"
+    href="assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="60x60"
+    href="assets/favicon/apple-touch-icon-60x60.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="120x120"
+    href="assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="76x76"
+    href="assets/favicon/apple-touch-icon-76x76.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="152x152"
+    href="assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="assets/favicon/apple-touch-icon-180x180.png"
+  />
 
   <!-- Old school favicon -->
-  <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+  <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
 
   <!-- General favicon sizes for different sizes -->
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon/favicon-192x192.png"
+    sizes="192x192"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon/favicon-160x160.png"
+    sizes="160x160"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon/favicon-96x96.png"
+    sizes="96x96"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon/favicon-16x16.png"
+    sizes="16x16"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon/favicon-32x32.png"
+    sizes="32x32"
+  />
 
   <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Page title">
-  <link rel="icon" sizes="192x192" href="assets/favicon/chrome-touch-icon-192x192.png">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Page title" />
+  <link
+    rel="icon"
+    sizes="192x192"
+    href="assets/favicon/chrome-touch-icon-192x192.png"
+  />
 
   <!-- Web Application Manifest -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
 
   <!-- theme color for Chrome mobile -->
-  <meta name="theme-color" content="#3372DF">
+  <meta name="theme-color" content="#3372DF" />
 
   <!-- Icon for Win8 -->
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png">
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta
+    name="msapplication-TileImage"
+    content="assets/favicon/mstile-144x144.png"
+  />
 
   <!--[if lt IE 9]>
     <script>

@@ -15,11 +15,11 @@ As the language evolved, new artifacts appeared in the scene to allow asynchrono
 As mentioned in the introduction, JavaScript runs the code you write line by line, most of the time. Even in its first years, the language had exceptions to this rule, though they were a few and you might know them already: HTTP Requests, DOM events and time intervals.
 
 ```js
-const button = document.querySelector('button');
+const button = document.querySelector('button')
 
 // observe for user interaction
 button.addEventListener('click', function(e) {
-  console.log('user click just happened!');
+  console.log('user click just happened!')
 })
 ```
 
@@ -32,17 +32,17 @@ Though these were exceptions of common synchronous execution in JavaScript, it�
 For example, let’s check out a network request.
 
 ```js
-var request = new XMLHttpRequest();
-request.open('GET', '//some.api.at/server', true);
+var request = new XMLHttpRequest()
+request.open('GET', '//some.api.at/server', true)
 
 // observe for server response
 request.onreadystatechange = function() {
   if (request.readyState === 4 && xhr.status === 200) {
-    console.log(request.responseText);
+    console.log(request.responseText)
   }
 }
 
-request.send();
+request.send()
 ```
 
 When the server comes back, a task for the method assigned to `onreadystatechange` is queued (code execution continues in the main thread).
@@ -58,27 +58,27 @@ This is why code shaped this way is called the **Observer Pattern**, which is be
 A good example is Node.js which page describes itself as “an asynchronous event-driven JavaScript runtime”, so event emitters and callback were first-class citizens. It even had an `EventEmitter` constructor already implemented.
 
 ```js
-const EventEmitter = require('events');
-const emitter = new EventEmitter();
+const EventEmitter = require('events')
+const emitter = new EventEmitter()
 
 // respond to events
-emitter.on('greeting', (message) => console.log(message));
+emitter.on('greeting', (message) => console.log(message))
 
 // send events
-emitter.emit('greeting', 'Hi there!');
+emitter.emit('greeting', 'Hi there!')
 ```
 
 This was not only the to-go approach for asynchronous execution but a core pattern and convention of its ecosystem. Node.js opened a new era of writing JavaScript in a different environment — even outside the web. As a consequence, other asynchronous situations were possible, like creating new directories or writing files.
 
 ```js
-const { mkdir, writeFile } = require('fs');
+const { mkdir, writeFile } = require('fs')
 
-const styles = 'body { background: #ffdead; }';
+const styles = 'body { background: #ffdead; }'
 
 mkdir('./assets/', (error) => {
   if (!error) {
     writeFile('assets/main.css', styles, 'utf-8', (error) => {
-      if (!error) console.log('stylesheet created');
+      if (!error) console.log('stylesheet created')
     })
   }
 })
@@ -93,7 +93,7 @@ As web development faced more complex problems to solve, the need for better asy
 For example, let’s add only two more steps, file reading and styles preprocessing.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs');
+const { mkdir, writeFile, readFile } = require('fs')
 const less = require('less')
 
 readFile('./main.less', 'utf-8', (error, data) => {
@@ -104,7 +104,7 @@ readFile('./main.less', 'utf-8', (error, data) => {
       if (dirError) throw dirError
       writeFile('assets/main.css', output.css, 'utf-8', (writeError) => {
         if (writeError) throw writeError
-        console.log('stylesheet created');
+        console.log('stylesheet created')
       })
     })
   })
@@ -124,15 +124,15 @@ Migrating a method from a callback approach to a promise-based one became more a
 Let’s, for example, wrap Node’s `readFile` method:
 
 ```js
-const { readFile } = require('fs');
+const { readFile } = require('fs')
 
 const asyncReadFile = (path, options) => {
   return new Promise((resolve, reject) => {
     readFile(path, options, (error, data) => {
-      if (error) reject(error);
-      else resolve(data);
+      if (error) reject(error)
+      else resolve(data)
     })
-  });
+  })
 }
 ```
 
@@ -148,8 +148,8 @@ Now we can use these new methods and avoid callback chains.
 
 ```js
 asyncRead('./main.less', 'utf-8')
-  .then(data => console.log('file content', data))
-  .catch(error => console.error('something went wrong', error))
+  .then((data) => console.log('file content', data))
+  .catch((error) => console.error('something went wrong', error))
 ```
 
 Having a native way to create asynchronous tasks and a clear interface to follow up its possible results enabled the industry to move out of the Observer Pattern. Promise-based ones seemed to solve the unreadable and prone-to-error code.
@@ -165,16 +165,15 @@ It even provided a `promisify` util to wrap any function which followed the Erro
 Let’s re-imagine our style preprocessing task written with Promises.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises;
+const { mkdir, writeFile, readFile } = require('fs').promises
 const less = require('less')
 
 readFile('./main.less', 'utf-8')
   .then(less.render)
-  .then(result =>
-    mkdir('./assets')
-      .then(writeFile('assets/main.css', result.css, 'utf-8'))
+  .then((result) =>
+    mkdir('./assets').then(writeFile('assets/main.css', result.css, 'utf-8'))
   )
-  .catch(error => console.error(error))
+  .catch((error) => console.error(error))
 ```
 
 There is a clear reduction of redundancy in the code, especially around the error handling as we now rely on `catch`, but Promises somehow failed to deliver a clear code indentation that directly relates to the concatenation of actions.
@@ -192,16 +191,15 @@ Gladly, the JavaScript community learned again from other language syntaxes and 
 A `Promise` is defined as an unresolved value at execution time, and creating an instance of a `Promise` is an explicit call of this artifact.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises;
+const { mkdir, writeFile, readFile } = require('fs').promises
 const less = require('less')
 
 readFile('./main.less', 'utf-8')
   .then(less.render)
-  .then(result =>
-    mkdir('./assets')
-      .then(writeFile('assets/main.css', result.css, 'utf-8'))
+  .then((result) =>
+    mkdir('./assets').then(writeFile('assets/main.css', result.css, 'utf-8'))
   )
-  .catch(error => console.error(error))
+  .catch((error) => console.error(error))
 ```
 
 Inside an async method, we can use the `await` reserved word to determinate the resolution of a `Promise` before continuing its execution.
@@ -209,7 +207,7 @@ Inside an async method, we can use the `await` reserved word to determinate the 
 Let’s revisit or code snippet using this syntax.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises;
+const { mkdir, writeFile, readFile } = require('fs').promises
 const less = require('less')
 
 async function processLess() {
@@ -231,8 +229,8 @@ There’s a clear consequence of using async/await notation, despite its asynchr
 What about error handling? For it, we use statements that have been present for a long time in the language, `try` and `catch`.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises;
-const less = require('less');
+const { mkdir, writeFile, readFile } = require('fs').promises
+const less = require('less')
 
 async function processLess() {
   try {
@@ -240,7 +238,7 @@ async function processLess() {
     const result = await less.render(content)
     await mkdir('./assets')
     await writeFile('assets/main.css', result.css, 'utf-8')
-  } catch(e) {
+  } catch (e) {
     console.error(e)
   }
 }
@@ -274,6 +272,6 @@ It’s hard to say now what _exactly_ we will need from the language for some of
 
 ### Further Reading
 
- - [JavaScript Promises: An Introduction](https://developers.google.com/web/fundamentals/primers/promises) article by Jake Archibald
- - [Promise Anti-Patterns](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) at Bluebird library documentation
- - [We Have A Problem With Promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html) article by Nolan Lawson
+- [JavaScript Promises: An Introduction](https://developers.google.com/web/fundamentals/primers/promises) article by Jake Archibald
+- [Promise Anti-Patterns](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) at Bluebird library documentation
+- [We Have A Problem With Promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html) article by Nolan Lawson

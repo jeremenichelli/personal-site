@@ -42,4 +42,3 @@ If you want me to write for your publication feel free [to send here](mailto:jme
 </ul>
 
 <a class="archive--link" href="/archive">See all articles</a>
-

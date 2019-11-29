@@ -24,7 +24,7 @@ Browsers will take high or low priority actions when it detects these hints, in 
 For example, **dns-prefetch** will resolve the domain to get the resulting ip address, while **preconnect** does this plus the handshake and TLS negotiation.
 
 ```html
-<link rel="preconnect" href="https://some-cloud-cdn.net/" crossorigin>
+<link rel="preconnect" href="https://some-cloud-cdn.net/" crossorigin />
 ```
 
 Both will save you some time when accessing to external services and CDNs.
@@ -32,7 +32,7 @@ Both will save you some time when accessing to external services and CDNs.
 When instead of a domain we have a particular resource or route that could be needed in future navigations the **prefetch** value is used, as **preload** is for resources needed in the current page.
 
 ```html
-<link rel="prefetch" href="https://your-site.com/next-route.html">
+<link rel="prefetch" href="https://your-site.com/next-route.html" />
 ```
 
 _If you would like to read more about resource hints or see more examples this [oldie but goodie article](https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d) by Luis Vieira is highly recommended._
@@ -46,15 +46,15 @@ To move forward with this idea we would need to append a `link` element everytim
 The element to append should look like this:
 
 ```html
-<link rel="prefetch" href="https://your-project.com/the-future-route">
+<link rel="prefetch" href="https://your-project.com/the-future-route" />
 ```
 
 First thing, let's collect all the anchors from the current page and turn them into an array to loop over them easier.
 
 ```js
-const anchors = document.getElementsByTagName('a');
+const anchors = document.getElementsByTagName('a')
 
-const anchorsArray = [].slice.call(anchors);
+const anchorsArray = [].slice.call(anchors)
 // yay, we can use array methods now!
 ```
 
@@ -62,21 +62,22 @@ Next, let's create a method that adds a `link` element to the document with the 
 
 ```js
 const prefetchRoute = function() {
-  const link = document.createElement('link');
-  link.href = this.href;
-  link.rel = 'prefetch';
+  const link = document.createElement('link')
+  link.href = this.href
+  link.rel = 'prefetch'
 
-  document.head.appendChild(link);
+  document.head.appendChild(link)
 }
 ```
+
 _Keep in mind that once we use this method in an event listener the keyword this will point to the anchor element being hovered._
 
 Now we attach this function to all anchors' events.
 
 ```js
-anchorsArray.map(anchor => {
-  anchor.addEventListener('mouseover', prefetchRoute);
-});
+anchorsArray.map((anchor) => {
+  anchor.addEventListener('mouseover', prefetchRoute)
+})
 ```
 
 The interval of time between the user hovering and clicking a link might not be much, but it's enough to start ahead the connection to the resource and speed up the navigation at practically no cost.
@@ -86,26 +87,26 @@ The interval of time between the user hovering and clicking a link might not be 
 For the solution to work properly we should skip anchors with external links.
 
 ```js
-anchorsArray.map(anchor => {
+anchorsArray.map((anchor) => {
   // only listen to hover when hosts match
   if (anchor.host === document.location.host) {
-    anchor.addEventListener('mouseover', prefetchRoute);
+    anchor.addEventListener('mouseover', prefetchRoute)
   }
-});
+})
 ```
 
 We could also remove the listener after prefetching the route.
 
 ```js
 const prefetchRoute = function() {
-  const link = document.createElement('link');
-  link.href = this.href;
-  link.rel = 'prefetch';
+  const link = document.createElement('link')
+  link.href = this.href
+  link.rel = 'prefetch'
 
-  document.head.appendChild(link);
+  document.head.appendChild(link)
 
   // remove listener from anchor element
-  this.removeEventListener('mouseover', prefetchRoute);
+  this.removeEventListener('mouseover', prefetchRoute)
 }
 ```
 

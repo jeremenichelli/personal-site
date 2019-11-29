@@ -3,7 +3,7 @@ title: Automating the critical CSS inlining with npm scripts
 excerpt: A few months ago I published an article about inling critical CSS to improve content-first-pages performance and looking at the stats it became quite popular. Later I wrote another one about the benefits of using npm scripts when possible, so consider this a merge of both.
 ---
 
-*I will avoid an introduction about these topics, but you can go to my previous posts about [critical css inlining](/2015/10/automating-the-critical-css-inlining-with-gulp) and [npm scripts](/2016/01/you-might-not-need-a-task-runner) and then come back to this one.*
+_I will avoid an introduction about these topics, but you can go to my previous posts about [critical css inlining](/2015/10/automating-the-critical-css-inlining-with-gulp) and [npm scripts](/2016/01/you-might-not-need-a-task-runner) and then come back to this one._
 
 ## Divide and conquer
 
@@ -41,7 +41,7 @@ In the **scripts** property of the `package.json` file of your project, add a `s
 
 Just like in the solution I proposed with **Gulp**, the result goes to an **assets/styles/** folder, but npm scripts will not try to create it and throw an error in your terminal.
 
-You can create it manually or install `mkdirp` package and write a simple *prescript*.
+You can create it manually or install `mkdirp` package and write a simple _prescript_.
 
 ```
 npm install --save-dev mkdirp
@@ -77,7 +77,9 @@ We are exporting the result as an **.html** file because that's the type of file
 ```html
 <head>
   ...
-  <style>{% raw %}{% include criticalCSS.html %}{% endraw %}</style>
+  <style>
+    {% raw %}{% include criticalCSS.html %}{% endraw %}
+  </style>
 </head>
 ```
 

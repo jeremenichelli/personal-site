@@ -26,7 +26,7 @@ Since we need Gulp to apply different changes to them we are going to create two
 │          └── noncritical.css
 ```
 
-You can also create an `assets` folder where the *noncritical stylesheet* will be placed, but if you don't Gulp will do that for you so it's not completely necessary.
+You can also create an `assets` folder where the _noncritical stylesheet_ will be placed, but if you don't Gulp will do that for you so it's not completely necessary.
 
 ## Keeping it simple
 
@@ -42,10 +42,10 @@ Then create a file called `gulpfile.js` in the root of your project and require 
 
 ```js
 // require the dependencies
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var concat = require('gulp-concat-util');
-var minify = require('gulp-minify-css');
+var gulp = require('gulp')
+var rename = require('gulp-rename')
+var concat = require('gulp-concat-util')
+var minify = require('gulp-minify-css')
 ```
 
 Let's take the critical file first. What do we need to do? Grab the file, minify its content, wrap it with `style` tags and convert it to a file we can include in our site generator, let's take Jekyll as an example.
@@ -53,28 +53,32 @@ Let's take the critical file first. What do we need to do? Grab the file, minify
 ```js
 // critical styles task
 gulp.task('styles:critical', function() {
-  return gulp.src('src/styles/critical.css')
-    // minify content
-    .pipe(minify())
-    // wrap with style tags
-    .pipe(concat.header('<style>'))
-    .pipe(concat.footer('</style>'))
-    // convert it to an include file
-    .pipe(rename({
-        basename: 'criticalCSS',
-        extname: '.html'
-      }))
-    // insert file in the includes folder
-    .pipe(gulp.dest('_includes/'));
-    });
+  return (
+    gulp
+      .src('src/styles/critical.css')
+      // minify content
+      .pipe(minify())
+      // wrap with style tags
+      .pipe(concat.header('<style>'))
+      .pipe(concat.footer('</style>'))
+      // convert it to an include file
+      .pipe(
+        rename({
+          basename: 'criticalCSS',
+          extname: '.html'
+        })
+      )
+      // insert file in the includes folder
+      .pipe(gulp.dest('_includes/'))
+  )
+})
 ```
 
 Then you just need to include the **criticalCSS.html** file in the head of the site.
 
 ```html
 <head>
-  ...
-  {% raw %}{% include criticalCSS.html %}{% endraw %}
+  ... {% raw %}{% include criticalCSS.html %}{% endraw %}
 </head>
 ```
 
@@ -86,20 +90,25 @@ The only thing you need to change if your site is not built with Jekyll is the d
 
 ```js
 gulp.task('styles:critical', function() {
-  return gulp.src('wp-content/themes/your_theme/src/styles/critical.css')
-    // minify it
-    .pipe(minify())
-    // wrap with style tags
-    .pipe(concat.header('<style>'))
-    .pipe(concat.footer('</style>'))
-    // convert it to a php file
-    .pipe(rename({
-        basename: 'criticalCSS',
-        extname: '.php'
-      }))
-    // insert it Wordpress theme folder
-    .pipe(gulp.dest('wp-content/themes/your_theme/'));
-});
+  return (
+    gulp
+      .src('wp-content/themes/your_theme/src/styles/critical.css')
+      // minify it
+      .pipe(minify())
+      // wrap with style tags
+      .pipe(concat.header('<style>'))
+      .pipe(concat.footer('</style>'))
+      // convert it to a php file
+      .pipe(
+        rename({
+          basename: 'criticalCSS',
+          extname: '.php'
+        })
+      )
+      // insert it Wordpress theme folder
+      .pipe(gulp.dest('wp-content/themes/your_theme/'))
+  )
+})
 ```
 
 Then include the file in `head.php`.
@@ -127,26 +136,29 @@ Require them in your `gulpfile.js`.
 
 ```js
 // in addition to the packages required previously
-var less = require('gulp-less');
-var autoprefixer = require('gulp-autoprefixer');
+var less = require('gulp-less')
+var autoprefixer = require('gulp-autoprefixer')
 ```
 
 Add these new steps to the task.
 
 ```js
 gulp.task('styles:critical', function() {
-  return gulp.src('src/styles/critical.less')
+  return gulp
+    .src('src/styles/critical.less')
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(minify())
     .pipe(concat.header('<style>'))
     .pipe(concat.footer('</style>'))
-    .pipe(rename({
+    .pipe(
+      rename({
         basename: 'criticalCSS',
         extname: '.html'
-      }))
-    .pipe(gulp.dest('_includes/'));
-});
+      })
+    )
+    .pipe(gulp.dest('_includes/'))
+})
 ```
 
 ### Create the noncritical stylesheet
@@ -155,18 +167,21 @@ Let's now close the circle and generate a `.css` file for the rest of the styles
 
 ```js
 gulp.task('styles:noncritical', function() {
-  return gulp.src('src/styles/noncritical.css')
+  return gulp
+    .src('src/styles/noncritical.css')
     .pipe(minify())
-    .pipe(rename({
+    .pipe(
+      rename({
         basename: 'site'
-      }))
-    .pipe(gulp.dest('assets/styles/'));
-});
+      })
+    )
+    .pipe(gulp.dest('assets/styles/'))
+})
 ```
 
 Of course you need to include a **&lt;link&gt;** tag at the bottom of your page referencing the location of this file or lazy load it using JavaScript to make its styles visible.
 
-We can now run `gulp styles:critical` and `gulp styles:noncritical` in our terminal each time we make a change in our styles, but running the same command over and over again doesn't sound like *automating*...
+We can now run `gulp styles:critical` and `gulp styles:noncritical` in our terminal each time we make a change in our styles, but running the same command over and over again doesn't sound like _automating_...
 
 ### Watch em' all!
 
@@ -174,15 +189,15 @@ To actually automate this, we need to trigger those tasks every time we modify a
 
 ```js
 gulp.task('watch', function() {
-  gulp.watch([ 'src/styles/critical.css' ], [ 'styles:critical' ]);
-  gulp.watch([ 'src/styles/noncritical.css' ], [ 'styles:noncritical' ]);    
-});
+  gulp.watch(['src/styles/critical.css'], ['styles:critical'])
+  gulp.watch(['src/styles/noncritical.css'], ['styles:noncritical'])
+})
 ```
 
 After this small addition you can run `gulp watch` on your terminal and presto!
 
 ## Wrap-up
 
-If you decide to inline styles at the top of your site you need to find out which styles are *critical* and which aren't. Which ones are critical and which aren't will depend on the design of your site, but most of the articles about authoring those critical rules recommend to focus on the portion of the page that is first seen by the user and leave probably nitpicky design styles for a later load.
+If you decide to inline styles at the top of your site you need to find out which styles are _critical_ and which aren't. Which ones are critical and which aren't will depend on the design of your site, but most of the articles about authoring those critical rules recommend to focus on the portion of the page that is first seen by the user and leave probably nitpicky design styles for a later load.
 
 Hope you find this useful and, in case you give a try, that it really simplifies your work flow and improves your page loading times.

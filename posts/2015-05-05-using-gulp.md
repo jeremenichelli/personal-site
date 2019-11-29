@@ -27,13 +27,13 @@ For every package you want to use, run this command or just add the name of the 
 npm install --save-dev gulp-uglify
 ```
 
-Finally, create a file called *gulpfile.js*, require all your modules you'll use and you can start automating tasks for your projects.
+Finally, create a file called _gulpfile.js_, require all your modules you'll use and you can start automating tasks for your projects.
 
 ```js
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var jshint = require('gulp-jshint');
-var uglify = require('gulp-uglify');
+var gulp = require('gulp')
+var rename = require('gulp-rename')
+var jshint = require('gulp-jshint')
+var uglify = require('gulp-uglify')
 ```
 
 ## How it works
@@ -46,22 +46,25 @@ When you declare a **task** in Gulp, you first choose a source directory.
 
 ```js
 gulp.task('minify', function() {
-  return gulp.src('src/**/*.js')
+  return gulp
+    .src('src/**/*.js')
     .pipe(uglify())
-    .pipe(rename({
+    .pipe(
+      rename({
         suffix: '.min'
-    }))
-    .pipe(gulp.dest('dist/'));
-});
+      })
+    )
+    .pipe(gulp.dest('dist/'))
+})
 ```
 
-What I've noticed when seeing a code similar to this for the first time was that, while I still had a lot to understand about Gulp and streams, I could totally tell somebody else what was happening. All files inside the folder *src* with a *.js* extension are getting uglified, renamed and put inside the *dist* folder.
+What I've noticed when seeing a code similar to this for the first time was that, while I still had a lot to understand about Gulp and streams, I could totally tell somebody else what was happening. All files inside the folder _src_ with a _.js_ extension are getting uglified, renamed and put inside the _dist_ folder.
 
-Because we are working with streams you always need to *return* something that can be a file, a file system or another stream, if you don't do it **Gulp** won't work.
+Because we are working with streams you always need to _return_ something that can be a file, a file system or another stream, if you don't do it **Gulp** won't work.
 
 ### Conditional tasks
 
-If you want to check your scripts' syntax before minifying them (which you should) then you can create another task for it and tell *minify* to make sure *hint* task is finished before starting to minify the files.
+If you want to check your scripts' syntax before minifying them (which you should) then you can create another task for it and tell _minify_ to make sure _hint_ task is finished before starting to minify the files.
 
 ```js
 gulp.task('hint', function() {
@@ -84,7 +87,7 @@ You can put both tasks into one but I rather keep them doing just one thing, bec
 
 ### Running tasks
 
-Once you've finished writing your tasks, you write the command *gulp* followed by the name of the task, like *minify* and you're going to see something like this in your console.
+Once you've finished writing your tasks, you write the command _gulp_ followed by the name of the task, like _minify_ and you're going to see something like this in your console.
 
 ```bash
 your-pc: to/path/project/ jeremenichelli$ gulp minify
@@ -95,10 +98,10 @@ your-pc: to/path/project/ jeremenichelli$ gulp minify
 [gulp] Finished 'minify' after 42 ms
 ```
 
-You can also declare a default task and run it just writing *gulp*.
+You can also declare a default task and run it just writing _gulp_.
 
 ```js
-gulp.task('default', [ 'minify' ]);
+gulp.task('default', ['minify'])
 ```
 
 ## Wrap-up

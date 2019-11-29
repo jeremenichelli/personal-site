@@ -14,19 +14,19 @@ Modern browsers include an API that allows us to do all we need regarding classe
 If you don't know it yet, it provides us with `add`, `remove`, `contains` and `toggle` methods, and it has a great performance.
 
 ```js
-var nav = document.getElementById('navigation');
+var nav = document.getElementById('navigation')
 
 // adds a class
-nav.classList.add('hidden');
+nav.classList.add('hidden')
 
 // removes a class
-nav.classList.remove('hidden');
+nav.classList.remove('hidden')
 
 // returns a boolean indicating if the element contains the class name
-nav.classList.contains('hidden');
+nav.classList.contains('hidden')
 
 // toggles a class
-nav.classList.toggle('hidden');
+nav.classList.toggle('hidden')
 ```
 
 The only problem in the last paragraph I wrote is one word: modern.
@@ -42,9 +42,9 @@ In order to show how a facade pattern implementation works, let's use it to crea
 ```js
 var addClass = function(el, cl) {
   if (document.documentElement.classList) {
-    el.classList.add(cl);
+    el.classList.add(cl)
   } else {
-    el.className = el.className + ' ' + cl;
+    el.className = el.className + ' ' + cl
   }
 }
 ```
@@ -56,10 +56,10 @@ This fallback is way slower, but using this pattern allows us to take advantage 
 Now, you don't have to check if a feature is available for use every time, you just call a function and the result is a cleaner and more readable code.
 
 ```js
-var nav = document.getElementById('navigation');
+var nav = document.getElementById('navigation')
 
 // add 'hidden' class to the nav element
-addClass(nav, 'hidden');
+addClass(nav, 'hidden')
 ```
 
 Another thing that's great about this approach is that as modern browsers improve **classList** performance your code itself will get better but still work on old browsers.
@@ -73,17 +73,17 @@ This means that if you invoke our `addClass` function ten times, our code will c
 So why don't just check it just once?
 
 ```js
-var addClass;
+var addClass
 if (document.documentElement.classList) {
   // call classList inside addClass method
   addClass = function(el, cl) {
-    el.classList.add(cl);
-  };
+    el.classList.add(cl)
+  }
 } else {
   // fallback for classList.add
   addClass = function(el, cl) {
-    el.className = el.className + ' ' + cl;
-  };
+    el.className = el.className + ' ' + cl
+  }
 }
 ```
 
@@ -94,21 +94,21 @@ You still call `addClass(nav, 'hidden')` as you did before, the only difference 
 This code works on Internet Explorer 7, and even in older versions, but if your support starts from version 8 you could even `prototype` this method and improve more the performance. Remember that `prototype` method is not supported in Internet Explorer 7... **yeah, buuuh!**
 
 ```js
-var els = HTMLElement || Element;
+var els = HTMLElement || Element
 
 if (document.documentElement.classList) {
   els.prototype.addClass = function(cl) {
-    this.classList.add(cl);
-  };
+    this.classList.add(cl)
+  }
 } else {
   els.prototype.addClass = function(cl) {
-    this.className = this.className + ' ' + cl;
-  };
+    this.className = this.className + ' ' + cl
+  }
 }
 
 // add 'hidden' class to the nav element
-var nav = document.getElementById('navigation');
-nav.addClass('hidden');
+var nav = document.getElementById('navigation')
+nav.addClass('hidden')
 ```
 
 **Is it just me or that looks prettier?** Since some versions of Internet Explorer have the _Element_ word to make reference to the DOM element object we have to make that assignment in the first line to make sure we are prototyping the correct one. The variable _els_ will make reference to _HTMLElement_ unless is **undefined**, falling back to _Element_.

@@ -24,8 +24,8 @@ Every time an async method returns a promise — like when we use fetch — we c
 
 ```js
 fetch('//resource.to/some/data')
-  .then(result => console.log('we got it', result.json()))
-  .catch(error => console.error('something went wrong', error))
+  .then((result) => console.log('we got it', result.json()))
+  .catch((error) => console.error('something went wrong', error))
 ```
 
 The classic use case is calling data from an API and either loading the data when it returns or displaying an error message if the data couldn’t be located.
@@ -57,11 +57,13 @@ We also have `Promise.race`, which immediately resolves to the first promise it 
 
 ```js
 Promise.race([
-    fetch('//resource.to/some/data'),
-    fetch('//resource.to/other/data')
-  ])
-  .then(result => console.log('The first promise was resolved', result))
-  .catch(reason => console.error('One of the promises failed because', reason))
+  fetch('//resource.to/some/data'),
+  fetch('//resource.to/other/data')
+])
+  .then((result) => console.log('The first promise was resolved', result))
+  .catch((reason) =>
+    console.error('One of the promises failed because', reason)
+  )
 ```
 
 ## The new kids on the block
@@ -74,14 +76,13 @@ The next proposed introduction to the family is `Promise.allSettled` which, as t
 
 ```js
 Promise.allSettled([
-    fetch('//resource.to/some/data'),
-    fetch('//resource.to/more/data'),
-    fetch('//resource.to/even/more/data')
-  ])
-  .then(results => {
-    const fulfilled = results.filter(r => r.status === 'fulfilled')
-    const rejected = results.filter(r => r.status === 'rejected')
-  })
+  fetch('//resource.to/some/data'),
+  fetch('//resource.to/more/data'),
+  fetch('//resource.to/even/more/data')
+]).then((results) => {
+  const fulfilled = results.filter((r) => r.status === 'fulfilled')
+  const rejected = results.filter((r) => r.status === 'rejected')
+})
 ```
 
 Notice how this is different from `Promise.all` in that we will never enter in the `catch` statement. This is really good if we are waiting for sets of data that will go to different parts of a web application but want to provide more specific messages or execute different actions for each outcome.
@@ -92,11 +93,11 @@ The next new method is `Promise.any`, which lets us react to any fulfilled promi
 
 ```js
 Promise.any([
-    fetch('//resource.to/some/data'),
-    fetch('//resource.to/more/data'),
-    fetch('//resource.to/even/more/data')
-  ])
-  .then(result => console.log('a batch of data has arrived', result))
+  fetch('//resource.to/some/data'),
+  fetch('//resource.to/more/data'),
+  fetch('//resource.to/even/more/data')
+])
+  .then((result) => console.log('a batch of data has arrived', result))
   .catch(() => console.error('all promises failed'))
 ```
 

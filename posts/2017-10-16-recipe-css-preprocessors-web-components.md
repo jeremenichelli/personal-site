@@ -29,15 +29,15 @@ A basic CSS modules setup is composed first by a **style file** with local refer
 A **script** importing the styles and using the references.
 
 ```js
-import styles from './title.css';
+import styles from './title.css'
 
 // styles.locals -> { title: 'dsa567zh', initial: 'za78hf1o' }
 
 document.body.innerHTML = `
-  <h2 class="${ styles.locals.title }">
-    <span class="${ styles.locals.initial }">L</span>orem ipsum
+  <h2 class="${styles.locals.title}">
+    <span class="${styles.locals.initial}">L</span>orem ipsum
   </h2>
-`;
+`
 ```
 
 And the last piece of this setup is a tool to process these files, **webpack** has a really straight forward loaders config for CSS modules.
@@ -97,9 +97,9 @@ This approach was created to help mantain CSS at a big scale by avoiding collisi
 ```js
 class MovieTitle extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' })
     this.shadowRoot.innerHTML = `
       </style>
         .title {
@@ -115,7 +115,7 @@ class MovieTitle extends HTMLElement {
       <h2 class="title">
         <span class="initial">L</span>orem ipsum
       </h2>
-    `;
+    `
   }
 }
 ```
@@ -129,22 +129,22 @@ By inspecting the `styles` object imported in the script we will see it not only
 This method will return the resulting styles as a string.
 
 ```js
-import styles from './title.less';
+import styles from './title.less'
 
 // styles.toString -> f()
 
 class MovieTitle extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' })
     this.shadowRoot.innerHTML = `
-      </style>${ styles.toString() }<style>
+      </style>${styles.toString()}<style>
 
-      <h2 class="${ styles.locals.title }">
-        <span class="${ styles.locals.initial }">L</span>orem ipsum
+      <h2 class="${styles.locals.title}">
+        <span class="${styles.locals.initial}">L</span>orem ipsum
       </h2>
-    `;
+    `
   }
 }
 ```
@@ -165,12 +165,12 @@ In fact, if we keep the consistency between the class names the `modules` option
 
 ```js
 this.shadowRoot.innerHTML = `
-  </style>${ styles.toString() }<style>
+  </style>${styles.toString()}<style>
 
   <h2 class="title">
     <span class="initial">L</span>orem ipsum
   </h2>
-`;
+`
 ```
 
 The last piece of improvement is adding source maps on development, this is super helpful while debugging styles to know where they are coming from.

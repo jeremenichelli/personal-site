@@ -28,7 +28,7 @@ What I did was to take a look at the most visited articles and see what was the 
 First important tip, don't reinvent the wheel and **reuse the UI components or elements in your projects, they already contain the space metrics and sizes**.
 
 ```js
-const placeholderString = () => (
+const placeholderString = () =>
   `<div class="placeholder">
       <p> </p>
       <p> </p>
@@ -38,11 +38,9 @@ const placeholderString = () => (
       <p> </p>
       <p> </p>
   </div>`
-)
 ```
 
 Since we already have styles defined for headings and paragraphs I just listed these elements on a fashion similar to most articles' bodies.
-
 
 ## Create a size collection
 
@@ -50,8 +48,8 @@ To properly simulate content you might need different widths for your elements i
 
 ```scss
 .placeholder {
-
-  h2, p {
+  h2,
+  p {
     background-color: #f2f2f2;
   }
 
@@ -76,7 +74,7 @@ To properly simulate content you might need different widths for your elements i
 This way we give more real life aspect to our placeholders.
 
 ```js
-const placeholderString = () => (
+const placeholderString = () =>
   `<div class="placeholder">
     <p class="placeholder__medium"> </p>
     <p class="placeholder__large"> </p>
@@ -86,7 +84,6 @@ const placeholderString = () => (
     <p class="placeholder__small"> </p>
     <p class="placeholder__medium"> </p>
   </div>`
-)
 ```
 
 {% actionLink 'https://codepen.io/jeremenichelli/pen/LrGNZm/' %}
@@ -101,8 +98,8 @@ We can use a pseudo element on each placeholder and translate it over the X axis
 
 ```scss
 .placeholder {
-
-  h2, p {
+  h2,
+  p {
     background-color: #f2f2f2;
     overflow: hidden;
     position: relative;
@@ -138,8 +135,8 @@ Now, we declare a css animation for them.
 Finally, we add the `animation` property to the elements.
 
 ```scss
-h2, p {
-
+h2,
+p {
   &:after {
     animation: placeholderAnimation 1s infinite;
   }

@@ -23,10 +23,10 @@ var carousel = new Carousel(document.getElementById('photos'), {
   time: 500,
   prevButton: 'previous',
   nextButton: 'next'
-});
+})
 ```
 
-Here we are creating a new carousel instance and we're passing an HTML element and an object as parameters. Object literals are a good way to manage overriden default options inside the *Carousel* object.
+Here we are creating a new carousel instance and we're passing an HTML element and an object as parameters. Object literals are a good way to manage overriden default options inside the _Carousel_ object.
 
 First of all, we must create an object containing the default values.
 
@@ -38,24 +38,24 @@ var dflt = {
   navigation: true,
   nextButton: '&gt;',
   prevButton: '&lt;'
-};
+}
 ```
 
 Then we have to create a method that will compare the modified options object with the default one.
 
 ```js
-function setOptions (options) {
-  var newOptions = {};
+function setOptions(options) {
+  var newOptions = {}
 
   for (var opt in dflt) {
-    newOptions[opt] = options[opt] !== 'undefined' ? options[opt] : dflt[opt];
+    newOptions[opt] = options[opt] !== 'undefined' ? options[opt] : dflt[opt]
   }
 
-  return newOptions;
+  return newOptions
 }
 ```
 
-Using the *for in* iterator you loop on every key of an object and I've sent *dflt*, but in this case I'm searching for its keys inside the custom one. If the custom options object contains that key I save its value in a new object, in case it's not present I go for the default one. This approach is great because if you accidentally send an object with unnecessary option keys not contained on the default one they will be ignored.
+Using the _for in_ iterator you loop on every key of an object and I've sent _dflt_, but in this case I'm searching for its keys inside the custom one. If the custom options object contains that key I save its value in a new object, in case it's not present I go for the default one. This approach is great because if you accidentally send an object with unnecessary option keys not contained on the default one they will be ignored.
 
 This technic is used in <a href="https://github.com/jeremenichelli/vanish" target="_blank">vanish</a>, one of my repositories to handle carousels, in case you want to see how it works.
 
@@ -67,21 +67,21 @@ If this flag is not boolean, meaning it could have more than two possible values
 
 ```js
 var method = {
-  active: function () {
+  active: function() {
     // do something for active state
   },
-  inactive: function () {
+  inactive: function() {
     // do something for inactive state
   },
-  waiting: function () {
+  waiting: function() {
     // do something for the waiting state
   }
-};
+}
 
 // assuming getState returns a string
-var state = getState();
+var state = getState()
 
-method[state]();
+method[state]()
 ```
 
 Doing this is convenient because you avoid doing this not-so-good approach.
@@ -99,24 +99,24 @@ function isWaiting() {
   // do something for waiting state
 }
 
-var state = getState();
+var state = getState()
 
 if (state === 'active') {
-  isActive();
+  isActive()
 } else if (state === 'inactive') {
-  isInactive();
+  isInactive()
 } else {
-  isWaiting();
+  isWaiting()
 }
 ```
 
-Not only the code is ugly, but is not future proof. If at some point another state needs to be supported you will have to nest another *if* statement. Using object literals you would only need to add a new function to the **method** object making the code clearer and easier to maintain.
+Not only the code is ugly, but is not future proof. If at some point another state needs to be supported you will have to nest another _if_ statement. Using object literals you would only need to add a new function to the **method** object making the code clearer and easier to maintain.
 
 I use a similar structure in <a href="https://www.github.com/jeremenichelli/steer" target="_blank">steer</a>.
 
 ### Data binding
 
-Injecting large amount of data into an HTML Document can be hard to do in a clean a simple way. A nice choice is to solve this using *data* attributes in the elements and object literals.
+Injecting large amount of data into an HTML Document can be hard to do in a clean a simple way. A nice choice is to solve this using _data_ attributes in the elements and object literals.
 
 ```js
 var data = {
@@ -125,19 +125,19 @@ var data = {
   field: 'Computing Science',
   job: 'professor',
   place: 'Cambridge'
-};
+}
 
 for (var property in data) {
   var selector = '[data-' + property + ']',
-    element = document.querySelector(selector);
+    element = document.querySelector(selector)
 
   if (element) {
-    element.innerHTML = data[property];
+    element.innerHTML = data[property]
   }
-};
+}
 ```
 
-Using again the *for in* iterator, we look for HTML elements with a data attribute that makes reference to a certain property, for example *&lt;p data-name&gt;&lt;/p&gt;*. When the iterator falls on the **name** property it will get the paragraph element and inject the name value inside of it.
+Using again the _for in_ iterator, we look for HTML elements with a data attribute that makes reference to a certain property, for example _&lt;p data-name&gt;&lt;/p&gt;_. When the iterator falls on the **name** property it will get the paragraph element and inject the name value inside of it.
 
 It's a pretty simple case but a good way to show how powerful is to have access to the keys of an object as a string so they can be manipulated and extend funcitonality in your code.
 
@@ -147,31 +147,31 @@ This approach is used in this weather widget I did call <a href="https://github.
 
 If your dealing with a web app that needs to do JSONP calls, using object literals could help you store the callback to obtain the data.
 
-Just create a base name and an integer to increase everytime you make a call to the API that will compound the final callback name. With the brackets notation you can store the new callback as a string key in a global variable like *window*, though it would be safer to use a namespace. Depending on the API documentation you will also need to specify the callback name in the url of the request.
+Just create a base name and an integer to increase everytime you make a call to the API that will compound the final callback name. With the brackets notation you can store the new callback as a string key in a global variable like _window_, though it would be safer to use a namespace. Depending on the API documentation you will also need to specify the callback name in the url of the request.
 
 ```js
 var cName = 'apicall',
-  cNumber = 0;
+  cNumber = 0
 
-var _getData = function (baseUrl, callback) {
+var _getData = function(baseUrl, callback) {
   var script = document.createElement('script'),
-    callbackId = cName + cNumber;
+    callbackId = cName + cNumber
 
   // increase callback number
-  cNumber++;
+  cNumber++
 
   // make padding method global
-  window[callbackId] = function (data) {
+  window[callbackId] = function(data) {
     if (typeof callback === 'function') {
-      callback(data);
+      callback(data)
     } else {
-      console.error('You must specify a method as a callback');
+      console.error('You must specify a method as a callback')
     }
-  };
+  }
 
-  script.src = baseUrl + '&callback=' + callbackId;
-  document.head.appendChild(script);
-};
+  script.src = baseUrl + '&callback=' + callbackId
+  document.head.appendChild(script)
+}
 ```
 
 These lines belong to a simple script I developed to make JSONP calls that, for some unknown reason I named <a href="https://www.github.com/jeremenichelli/jabiru" target="_blank">jabiru</a>. I wrote <a href="/2014/09/south-american-bird-cross-domain-calls/" target="_blank">a post about it</a> if you're interested on cross domain requests.

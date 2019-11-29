@@ -21,7 +21,7 @@ Let's see it in action. What's the width of this element?
 <div class="box"></div>
 ```
 
-If you said **100px** you were wrong, the actual width of this element is **140px**. If you really want *.box* to occupy 100px and still have 20px of padding you'll need to do some maths and finally set the width of that element to **60px**.
+If you said **100px** you were wrong, the actual width of this element is **140px**. If you really want _.box_ to occupy 100px and still have 20px of padding you'll need to do some maths and finally set the width of that element to **60px**.
 
 But, wait I also need a border and keep the element **100px** wide. Now the width property will need a **56px** so the span of the element is not modified.
 
@@ -41,11 +41,11 @@ But, wait I also need a border and keep the element **100px** wide. Now the widt
 
 There you go, we did it! After some math we have an element that's 100px wide, with 20px of padding and a 2px border. Is this behavior correct? Do I have to do all this math to set the width I want for an element?
 
-Answer to the first question, you might not like it, I don't actually, but this is expected if you know about *box-sizing* and how it works. Answer to the second question, no you don't have to... if you know about *box-sizing* and how it works.
+Answer to the first question, you might not like it, I don't actually, but this is expected if you know about _box-sizing_ and how it works. Answer to the second question, no you don't have to... if you know about _box-sizing_ and how it works.
 
 ### content-box
 
-This is the default value of *box-sizing*. Every time you set the height and the width of an element it won't consider other layout properties of the box model as padding and border, like in the example above.
+This is the default value of _box-sizing_. Every time you set the height and the width of an element it won't consider other layout properties of the box model as padding and border, like in the example above.
 
 ### padding-box
 
@@ -66,11 +66,11 @@ So let's go back to our example and make a small change.
 <div class="box"></div>
 ```
 
-What's the width of the element now? The answer is **104px**. When you set *box-sizing* to **padding-box** the width and height take in count the padding of the element, excluding only the border.
+What's the width of the element now? The answer is **104px**. When you set _box-sizing_ to **padding-box** the width and height take in count the padding of the element, excluding only the border.
 
 ### border-box
 
-Ignoring **inherit**, this is the last optional value that *box-sizing* can adopt and if you didn't know about it before you're probably going to use it a lot from now on.
+Ignoring **inherit**, this is the last optional value that _box-sizing_ can adopt and if you didn't know about it before you're probably going to use it a lot from now on.
 
 ```html
 <style>
@@ -99,7 +99,9 @@ Almost all developers around the globe reset the default to follow the **border-
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 ```

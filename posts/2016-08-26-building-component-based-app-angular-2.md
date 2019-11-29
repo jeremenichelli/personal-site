@@ -5,7 +5,6 @@ excerpt: Developers have been trying to find a solution to architecture on compl
 
 In this case I will go through my thoughts and feelings on developing a web application using [Angular 2][angular], the upcoming version of this popular framework.
 
-
 _This writing belongs to a serie of articles about using components with [Vue][vue-article], [React][react-article], [Polymer][polymer-article] and Angular 2._
 
 ## Introduction to Angular 2
@@ -93,7 +92,6 @@ If you wanna go deeper into transclution I recommend [this article](https://todd
 
 Present in previous versions of Angular, directives are _hints_ that will modify an element's behavior when Angular compiles a view. Notation has also changed for this version.
 
-
 ```html
 <ul *ngIf="avengers.length > 0">
   <li *ngFor="let avenger of avengers">
@@ -131,7 +129,7 @@ THe difference in Angular 2 is that properties are encapsulated and can't be mod
 
 ```js
 // child component
-import { Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'github-link',
@@ -141,9 +139,8 @@ import { Component, Input } from '@angular/core';
       </a>
     `
 })
-
 export class GitHubLink {
-  @Input() user: string;
+  @Input() user: string
 }
 ```
 
@@ -151,15 +148,14 @@ If we don't place the `@Input` decorator before the property, not only the paren
 
 ```js
 // parent component
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app',
   template: '<github-link [user]="users[1]"><github-link>'
 })
-
 export class App {
-  users = [ 'jeremenichelli', 'iamdustan' ];
+  users = ['jeremenichelli', 'iamdustan']
 }
 ```
 
@@ -183,9 +179,8 @@ For form elements, Angular 2 provides an `ngModel` directive available.
     </form>
   `
 })
-
 export class SearchBox {
-  searchValue = '';
+  searchValue = ''
 }
 ```
 
@@ -224,7 +219,7 @@ After the custom event is created we can bind to a method present in the parent 
 
 ```js
 // parent component
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'search-view',
@@ -235,9 +230,7 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-
 export class SearchView {
-
   onSearchStarted(value: string) {
     // event triggered... do something!
   }
@@ -310,8 +303,8 @@ All these thoughts came from building a [simple web app][angular-app] available 
 [decorators]: https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841#.g7bu9fyyx
 [communication]: https://angular.io/docs/ts/latest/cookbook/component-communication.html
 [systemjs]: https://github.com/systemjs/systemjs
-[router]: [https://angular.io/docs/ts/latest/guide/router.html]
-[angular-cli]: https://github.com/angular/angular-cli
+
+[router]: [https://angular.io/docs/ts/latest/guide/router.html][angular-cli]: https://github.com/angular/angular-cli
 [angular-seed]: https://github.com/angular/angular2-seed
 [state-js-survey]: https://medium.com/@sachagreif/the-state-of-javascript-front-end-frameworks-1a2d8a61510
 [angular-app]: https://github.com/jeremenichelli/movies/tree/master/results/angular

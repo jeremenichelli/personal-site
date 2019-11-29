@@ -9,22 +9,22 @@ This article assumes you are familiar with this static site generator, in case y
 
 In spite of being one of the reasons why it is very popular, creating a blog section in your site with Jekyll is really simple and you're going to notice that here because this tutorial is not going to take long time to read.
 
-First of all we're going to create a new file inside the *_layouts* folder and call it *post.html*. You could still use your default layout file for each post you create but it's highly probable you're going to display some extra information or make some changes on the design to improve the reading experience.
+First of all we're going to create a new file inside the _\_layouts_ folder and call it _post.html_. You could still use your default layout file for each post you create but it's highly probable you're going to display some extra information or make some changes on the design to improve the reading experience.
 
 Let's go with something simple.
 
 ```html
-{% raw %}{% include head.html %}{% endraw %}
-
-{% raw %}{% include header.html %}{% endraw %}
+{% raw %}{% include head.html %}{% endraw %} {% raw %}{% include header.html
+%}{% endraw %}
 
 <section class="post--content">
-  {% raw %}<p class="post--date">{{ page.date | date_to_string }}</p>{% endraw %}
-
-  {% raw %}<h1>{{ page.title }}</h1>{% endraw %}
-  {% raw %}<p>{{ page.introduction }}</p>{% endraw %}
-
-  {% raw %}{{ content }}{% endraw %}
+  {% raw %}
+  <p class="post--date">{{ page.date | date_to_string }}</p>
+  {% endraw %} {% raw %}
+  <h1>{{ page.title }}</h1>
+  {% endraw %} {% raw %}
+  <p>{{ page.introduction }}</p>
+  {% endraw %} {% raw %}{{ content }}{% endraw %}
 </section>
 
 {% raw %}{% include footer.html %}{% endraw %}
@@ -34,9 +34,9 @@ The `page` word is used to make reference to the post information. As I said, we
 
 ## Creating your first post
 
-There's no much wizardry here. You just need to start throwing Markdown or HTML files inside the *_posts* folder. the only condition is that you need to name them in a particular way: **year-month-day-title-separate-by-hyphens.md**, and that's it.
+There's no much wizardry here. You just need to start throwing Markdown or HTML files inside the _\_posts_ folder. the only condition is that you need to name them in a particular way: **year-month-day-title-separate-by-hyphens.md**, and that's it.
 
-Of course you still need to maintain the YAML configuration as it was shown in my previous posts. Here, you're going to assign the value *post* to *layout* and then fill the title and introduction attributes.
+Of course you still need to maintain the YAML configuration as it was shown in my previous posts. Here, you're going to assign the value _post_ to _layout_ and then fill the title and introduction attributes.
 
 ```html
 ---
@@ -45,17 +45,17 @@ title: My First Post
 introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 ---
 
-Nam elit purus, tempus vel velit non, laoreet tempus ligula. Suspendisse eu condimentum urna.
-
-Aliquam magna magna, faucibus non orci a, ultrices pretium justo. Donec tincidunt tellus mauris,
-quis viverra orci elementum sit amet. Quisque vulputate diam tortor, quis accumsan velit volutpat mattis.
+Nam elit purus, tempus vel velit non, laoreet tempus ligula. Suspendisse eu
+condimentum urna. Aliquam magna magna, faucibus non orci a, ultrices pretium
+justo. Donec tincidunt tellus mauris, quis viverra orci elementum sit amet.
+Quisque vulputate diam tortor, quis accumsan velit volutpat mattis.
 ```
 
 There you go, that's a post in Jekyll. Simple, right?
 
 ### Permalinks
 
-The url that your post will have can be changed in the *_config.yml* file and Jekyll already has <a href="http://jekyllrb.com/docs/permalinks/" target="_blank">pre-built date filters</a> for you.
+The url that your post will have can be changed in the _\_config.yml_ file and Jekyll already has <a href="http://jekyllrb.com/docs/permalinks/" target="_blank">pre-built date filters</a> for you.
 
 ## Listing your posts
 
@@ -63,31 +63,32 @@ It's time to brag about your writing skills, **posts** is an array accessible in
 
 ```html{% raw %}
 <ul>
-{% for post in site.posts %}
+  {% for post in site.posts %}
   <li>
     <a href="{{ post.url }}">
       <h2>{{ post.title }}</h2>
     </a>
   </li>
-{% endfor %}
-</ul>{% endraw %}
+  {% endfor %}
+</ul>
+{% endraw %}
 ```
 
 Not so hard, but what if you're launching your site and didn't wrote anything yet?
 
 ```html{% raw %}
 {% if site.posts.size > 0 %}
-  <ul>
+<ul>
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">
-        <h2>{{ post.title }}</h2>
-      </a>
-    </li>
+  <li>
+    <a href="{{ post.url }}">
+      <h2>{{ post.title }}</h2>
+    </a>
+  </li>
   {% endfor %}
-  </ul>
-  {% else %}
-  <p>There are no posts available right. Come back soon!</p>
+</ul>
+{% else %}
+<p>There are no posts available right. Come back soon!</p>
 {% endif %}{% endraw %}
 ```
 
