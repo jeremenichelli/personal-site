@@ -1,6 +1,6 @@
 import { css } from 'store-css'
 
-const url = 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,800'
+const url = 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700'
 const storage = 'session'
 const crossOrigin = 'anonymous'
 const config = { url, storage, crossOrigin }
