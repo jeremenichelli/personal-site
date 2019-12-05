@@ -15,8 +15,9 @@
     "serve": "eleventy --serve",
     "build": "DEBUG=* eleventy",
     "assets": "yarn bundle && yarn less && yarn favicons && yarn images",
+    "validate:feed": "npx feed-validator _site/feed.xml --no-showfeed",
     "prerelease": "yarn clean",
-    "release": "yarn assets && yarn build",
+    "release": "yarn assets && yarn build && yarn validate:feed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -68,6 +69,10 @@
       "git add"
     ],
     "./**/*.less": [
+      "prettier --write",
+      "git add"
+    ],
+    "./**/*.md": [
       "prettier --write",
       "git add"
     ]
