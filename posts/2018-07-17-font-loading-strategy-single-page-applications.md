@@ -33,8 +33,8 @@ h6 {
 }
 
 /* web fonts */
-.merriweather-ready body {
-  font-family: 'Merriweather', sans-serif;
+.lato-ready body {
+  font-family: 'Lato', sans-serif;
 }
 
 .roboto-ready h1,
@@ -94,20 +94,21 @@ We are going to use Bram Stein's [fontfaceobserver][4] package to watch the diff
 
 ```js
 import Observer from 'fontfaceobserver'
-import store from 'store-css'
+import { css } from 'store-css'
 
 // import fonts stylesheet
-store.css('https://fonts.googleapis.com/css?family=Merriweather|Roboto:700', {
+css({
+  url: 'https://fonts.googleapis.com/css?family=Lato|Roboto:700',
   crossOrigin: 'anonymous'
 })
 
 // observe body font
-const bodyFont = new Observer('Merriweather', {
+const bodyFont = new Observer('Lato', {
   weight: 400
 })
 
 bodyFont.load().then(() => {
-  document.documentElement.classList.add('merriweather-ready')
+  document.documentElement.classList.add('lato-ready')
 })
 
 // observe heading font
@@ -120,7 +121,7 @@ headingFont.load().then(() => {
 })
 ```
 
-_If you are self-hosting your font files, instead of using [store-css][5] add an `import` with the root of the stylesheet containing the font face declarations and use webpack's [css loader][6] to automatically include it in your bundle._
+If you are self-hosting your font files and your application doesn't refresh on navigations, instead of using [store-css][5] add an `import` with the root of the stylesheet containing the font face declarations and use webpack's [css loader][6] to automatically include it in your bundle.
 
 ```js
 import Observer from 'fontfaceobserver'
@@ -140,9 +141,21 @@ You can check out this solution working [on this repository][8].
 
 ### Web storage and reloads
 
-As I described it in my article about [font strategies for static sites][7], it is possible to combine [store-css][5] and web storage to host and detect font declarations when a full reload is triggered in our project.
+As I described it in my article about [font strategies for static sites][7], it is possible to combine this approach with web storage to host and detect font declarations on future navigations in case refresh happens.
 
-The approach and code would be identical but if your application has routing incorporated then this won't be necessary.
+For [store-css][5] is as easy as adding a `storage` option.
+
+```js
+import { css } from 'store-css'
+
+css({
+  url: 'https://fonts.googleapis.com/css?family=Lato|Roboto:700',
+  storage: 'session',
+  crossOrigin: 'anonymous'
+})
+```
+
+The approach and code would be identical but if your application has routing incorporated, then keeping this persistency on the font loading state won't be necessary.
 
 ## Profiling and results
 
