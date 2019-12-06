@@ -9,32 +9,31 @@ html {
 }
 
 .home__title {
-  font-size: 2rem; /* desktop 34px */
-  letter-spacing: 0.03rem;
+  font-size: 2rem; /* mobile 34px */
+  letter-spacing: var(--low--letter-spacing);
   line-height: 1;
   margin: 0;
   text-transform: uppercase;
 
   @media (min-width: 737px) {
-    font-size: 2.235294rem; /* desktop 38px */
+    font-size: 2.222223rem; /* desktop 40px */
   }
 }
 
 .home__subtitle {
   color: var(--secondary);
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.01em;
   line-height: 1;
   font-style: italic;
 }
 
 .home__bio {
-  font-size: 1.117647rem; /* desktop 19px */
-  margin: 3rem 0 2rem;
+  font-size: 1.111112rem; /* desktop 20px */
+  margin: 2rem 0;
   max-width: 30rem;
 }
 
 main {
-  padding: 2rem 0 0;
   text-align: right;
   width: 100%;
 }
@@ -48,7 +47,12 @@ main {
 .home__nav--line {
   font-style: italic;
   letter-spacing: var(--medium--letter-spacing);
+  margin: 0 0 1rem;
   text-transform: uppercase;
+
+  &:last-child {
+    margin: 0;
+  }
 }
 
 // JS ONLY ANIMATION PROPERTIES FOR HOME PAGE
