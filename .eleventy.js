@@ -1,13 +1,19 @@
-const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const syntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight')
 const htmlmin = require('html-minifier')
 const xmlPlugin = require('eleventy-xml-plugin')
 const nbspFilter = require('eleventy-nbsp-filter')
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const markdownItRenderer = new markdownIt()
 
 module.exports = function(eleventyConfig) {
   /* FILTERS AND PLUGINS */
   eleventyConfig.addPlugin(xmlPlugin)
-  eleventyConfig.addPlugin(pluginSyntaxHighlight)
+  eleventyConfig.addPlugin(syntaxHighlightPlugin)
   eleventyConfig.addFilter('nbsp', nbspFilter(2, 12))
+  eleventyConfig.addFilter('markdownify', (str) => {
+    return markdownItRenderer.renderInline(str)
+  })
 
   /* COLLECTIONS */
   eleventyConfig.addCollection('blogposts', (collection) => {
@@ -38,17 +44,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLiquidOptions({ dynamicPartials: true })
   eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid')
   eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid')
-
   eleventyConfig.setUseGitIgnore(false)
 
   /* MARKDOWN */
-  const markdownIt = require('markdown-it')
-  const markdownItAnchor = require('markdown-it-anchor')
   const markdownItOptions = {
     html: true,
     breaks: true,
     linkify: true
   }
+
   const markdownItAnchorOptions = {
     permalink: true,
     permalinkSymbol: '#',
@@ -56,6 +60,7 @@ module.exports = function(eleventyConfig) {
     permalinkClass: 'heading--anchor',
     level: [2, 3, 4]
   }
+
   const markdownLib = markdownIt(markdownItOptions).use(
     markdownItAnchor,
     markdownItAnchorOptions
