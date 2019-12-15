@@ -19,7 +19,9 @@ In **OrderGroove** he helped build and maintain their core JavaScript applicatio
 
 > I'm experienced in accessible and mobile first sites as in various JavaScript frameworks and&nbsp;tooling
 
-He later became a technical lead and developed cool animated web projects for clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**, and also led the Design System team at **Typeform**.
+He later was the technical lead and developer of cool animated projects for a large set of clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**.
+
+After that, he joined **Typeform** as a front end engineer and was the lead of its design system project.
 
 _For more details, download my resume <a download target="_blank" href="https://drive.google.com/file/d/1Dal1FrgqJ-unPpRUYLBeETAACrMtsPOj/view?usp=sharing">here</a>._
 
