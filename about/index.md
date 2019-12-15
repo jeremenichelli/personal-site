@@ -2,7 +2,7 @@
 title: About
 layout: default
 type: about
-excerpt: Born and raised in Argentina and currently living in sunny Barcelona, working in [New Relic](//newrelic.com) as a Software Engineer.
+excerpt: Born and raised in Argentina, currently working in [New Relic](//newrelic.com) as a Software Engineer and living in sunny Barcelona.
 ---
 
 His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
@@ -27,7 +27,7 @@ _For more details, download my resume <a download target="_blank" href="https://
 
 <!-- He is currently looking for a new opportunity, [reach out here](mailto:jmenichelli@gmail.com). -->
 
-Currently he is a Software Engineer at [New Relic](//newrelic.com).
+He works at [New&nbsp;Relic](//newrelic.com) as a Software&nbsp;Engineer.
 
 You might also found him around giving talks about his experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
 

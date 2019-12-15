@@ -6,7 +6,7 @@ type: home
 <p class="home__subtitle">Curious mind, writer and developer</p>
 <h1 class="home__title">Jeremias Menichelli</h1>
 <p class="home__bio">  
-  Currently working at <a href="//newrelic">New Relic</a> as a Software Engineer. Web developer with experience in accessible and mobile first sites, tooling and design systems.
+  Software Engineer at <a href="//newrelic">New Relic</a>, a web developer with experience in accessible and mobile first sites, tooling and design&nbsp;systems.
   <!-- <a href="mailto:jmenichelli@gmail.com" style="background-color: var(--accent);color: var(--background);font-style: italic;text-transform: uppercase;padding: 0 0.25rem;">available&nbsp;for&nbsp;hire</a> -->
 </p>
 <nav class="home__nav">

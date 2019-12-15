@@ -4,11 +4,12 @@ const { asyncMakeDirectory, asyncWriteFile, asyncRimraf } = require('./_utils')
 
 // import config file
 const config = require('./config.json')
+const site = require('../_data/site.json')
 
 const setup = {
   appName: 'jeremenichelli.io',
-  appDescription: 'Personal site',
-  developerName: 'Jeremias Menichelli',
+  appDescription: site.description,
+  developerName: site.author,
   background: '#020210',
   path: config.favicon.path,
   online: false,

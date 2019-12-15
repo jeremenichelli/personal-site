@@ -71,10 +71,6 @@
     "./**/*.less": [
       "prettier --write",
       "git add"
-    ],
-    "./**/*.md": [
-      "prettier --write",
-      "git add"
     ]
   },
   "husky": {
