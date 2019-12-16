@@ -2,7 +2,7 @@
 title: About
 layout: default
 type: about
-excerpt: Born and raised in Argentina and currently living in sunny Barcelona.
+excerpt: Born and raised in Argentina, currently working in [New Relic](//newrelic.com) as a Software Engineer and living in sunny Barcelona.
 ---
 
 His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
@@ -13,11 +13,15 @@ He has worked in a wide spectrum of web projects, from fast content sites to pro
 
 ## Experience
 
-In his early days he delivered mobile first and accessible sites for clients like **Microsoft** and **StateFarm** and worked in JavaScript core applications for **OrderGroove** applying Agile methodologies and test driven development.
+Early in his career he worked on mobile first and accessible sites for clients like **Microsoft** and **StateFarm**, focusing in accessibility, cross browsing compatibility and design consistency.
 
-> I'm experienced in accessible and mobile first sites as in various JavaScript frameworks and&nbsp;design systems.
+In **OrderGroove** he helped build and maintain their core JavaScript applications with a keen eye on performance and code quality, all applying Agile methodologies.
 
-He later became a technical lead and developed cool animated web projects for clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**, and recently led the Design System team at **Typeform**.
+> I'm experienced in accessible and mobile first sites as in various JavaScript frameworks and&nbsp;tooling
+
+He later was the technical lead and developer of cool animated projects for a large set of clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**.
+
+After that, he joined **Typeform** as a front end engineer and was the lead of its design system project.
 
 _For more details, download my resume <a download target="_blank" href="https://drive.google.com/file/d/1Dal1FrgqJ-unPpRUYLBeETAACrMtsPOj/view?usp=sharing">here</a>._
 
@@ -25,7 +29,7 @@ _For more details, download my resume <a download target="_blank" href="https://
 
 <!-- He is currently looking for a new opportunity, [reach out here](mailto:jmenichelli@gmail.com). -->
 
-He is about to start a new job, stay tuned to know about it!
+He works at [New&nbsp;Relic](//newrelic.com) as a Software&nbsp;Engineer.
 
 You might also found him around giving talks about his experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
 

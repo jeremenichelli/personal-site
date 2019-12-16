@@ -9,7 +9,7 @@
       <div class="container main__container">
         {% if excerpt %}
           <p class="page__excerpt">
-            {{ excerpt }}
+            {{ excerpt | markdownify }}
           </p>
         {% endif %}
         

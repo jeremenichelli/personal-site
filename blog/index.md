@@ -2,7 +2,7 @@
 title: Blog
 type: blog
 layout: default
-excerpt: These are some of the experiences, stories and articles on what I've learned during my journey as a web engineer.
+excerpt: These are some of the experiences, stories and articles on what I've learned during my journey as a web developer.
 ---
 
 If you want me to write for your publication feel free [to send here](mailto:jmenichelli@gmail.com) the details.
