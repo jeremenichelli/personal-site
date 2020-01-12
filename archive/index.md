@@ -12,12 +12,7 @@ type: archive
   {% assign date = postCurrentDate %} 
   {% endif %}
   <li class="archive__item">
-  <a class="archive__item--title" alt="{{ post.data.title }}"
-  {%- if post.data.external_url -%}
-    href="{{ post.data.external_url }}" target="_blank" rel="noopener noreferrer"
-  {%- else -%}
-    href="{{ post.url }}"
-  {%- endif -%}>
+  <a class="archive__item--title" alt="{{ post.data.title }}" href="{{ post.url }}">
     {{ post.data.title | nbsp }}
   </a>
   </li>

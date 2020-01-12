@@ -1,7 +1,7 @@
 ---
 title: Animating Between Views in React
 excerpt: You know how some sites and web apps have that neat native feel when transitioning between two pages or views? These animations are the type of features that can turn a good user experience into a great one.
-host: css-tricks
+host: CSS-Tricks
 host_url: https://css-tricks.com
 external_url: https://css-tricks.com/animating-between-views-in-react/
 ---

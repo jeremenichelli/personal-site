@@ -10,8 +10,6 @@ Promises are one of the most celebrated features introduced to JavaScript. Havin
 
 Let's step back a moment to recap the features we gained when they were initially released and what new bells and whistles we’re getting next.
 
-_New to the concept of Promises? I highly recommend [Jake Archibald’s article](https://developers.google.com/web/fundamentals/primers/promises) as a primer._
-
 ## Features we have today
 
 Let’s take a quick look at some of the things we can currently do with promises. When JavaScript introduced them, it gave us an API to execute asynchronous actions and react to their succesful return or failure, a way to create an association around some data or result which value we still don't know.

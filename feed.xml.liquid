@@ -21,11 +21,7 @@ excludeFromSitemap: true
         <title>{{ post.data.title }}</title>
         <description>{{ post.data.excerpt }}</description>
         <pubDate>{{ post.date | 'date_to_rfc822' }}</pubDate>
-        
-        {% if post.data.external_url %}{% capture pageUrl %}{{ post.data.external_url }}{% endcapture %}
-        {% else %}{% capture pageUrl %}{{ post.url | prepend: site.url }}{% endcapture %}
-        {% endif %}
-
+        {% capture pageUrl %}{{ post.url | prepend: site.url }}{% endcapture %}
         <link>{{ pageUrl }}</link>
         <guid isPermaLink="true">{{ pageUrl }}</guid>
       </item>
