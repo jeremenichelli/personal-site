@@ -15,7 +15,13 @@
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
+
+  {% if external_url %}
+  <link rel="canonical" href="{{ external_url }}">
+  {% else %}
   <link rel="canonical" href="{{ url }}">
+  {% endif %}
+  
   {% if type == 'post' %}
   <meta name="author" content="Jeremias Menichelli">
   {% endif %}
@@ -53,10 +59,3 @@
   <meta name="twitter:url" content="{{ url }}">
   <meta name="twitter:image" content="{{ site.url }}/assets/images/twitter-card-image.jpeg">
 </head>
-
-<!-- force all font families to be loaded -->
-<div aria-hidden="true" tab-index="-1" style="position:fixed;top: -9999em;">
-  <span>BESbwy</span>
-  <span style="font-style: italic;">BESbwy</span>
-  <span style="font-weight: 700;">BESbwy</span>
-</div>
