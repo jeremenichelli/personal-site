@@ -388,7 +388,7 @@ And it's a big deal, since developer experience is one of the reasons why React 
 
 Also, web components being included in a magical global store difficults declarative and deterministic views or any other concept which hangs on a visual map of dependencies like code splitting.
 
-> Unfortunately the developer experience of building an application with web components today is quite painful
+> "Unfortunately the developer experience of building an application with web components today is quite painful."
 > <cite>Sam Saccone</cite>
 
 DOM manipulation and non-declarative operations have their cost.
@@ -403,7 +403,7 @@ Web components do solve part of the current component situation in web developme
 
 As libraries get better at [working with custom elements](https://custom-elements-everywhere.com/), the interoperatibility will be a big win for the platform, a company could build one component that teams using Angular or Vue could make use of.
 
-> JavaScript frameworks as we know them are never going to deliver interop
+> "JavaScript frameworks as we know them are never going to deliver interop."
 > <cite>Alex Russell</cite>
 
 In the same way I've built a _patch_ to use refs in custom elements, other developers will find common and solid solutions for necessities not natively covered, and as that happens frameworks will have to do less.
@@ -417,4 +417,5 @@ _These thoughs came from building an entire React app in web components, which i
 - [Web components: the long game](https://infrequently.org/2017/10/web-components-the-long-game/) by Alex Russell
 - Some of the techniques I showed here are also covered in Rob Dodson video on [how to build a toggle button](https://www.youtube.com/watch?v=16gvkPfPIx4&t=416s)
 - Great advices from Monica Dinculescu, [practical lessons from a year of building web components](https://www.youtube.com/watch?v=zfQoleQEa4w&t=1519s)
-  _Thanks to [Tim van der Lippe‏](https://twitter.com/TimvdLippe) for useful feedback on reactive data section._
+
+_Thanks to [Tim van der Lippe‏](https://twitter.com/TimvdLippe) for useful feedback on reactive data section._
