@@ -137,22 +137,18 @@ main {
   animation-timing-function: ease-in-out;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
-  background-color: var(--accent);
+  border: none;
   border-radius: 50%;
-  border-width: 0;
-  cursor: pointer;
+  background-color: var(--accent);
+  width: 1.5rem;
   height: 1.5rem;
-  left: 1rem;
   opacity: 0;
   position: absolute;
-  top: 1rem;
-  transition: background-color 0.25s;
-  width: 1.5rem;
+  top: 2rem;
+  left: 2rem;
 
-  @media (min-width: 737px) {
-    left: 2rem;
-    top: 2rem;
-  }
+  // sorry a11y gods, but focus ring is awful on circles
+  outline: none;
 
   &__home {
     // increase delay in home page
@@ -160,7 +156,12 @@ main {
   }
 
   .fonts-loaded & {
-    // trigger animation on font ready
     animation-name: buttonFadeIn;
+  }
+
+  &:active {
+    transform: scale(0.95) !important;
+    animation-fill-mode: none;
+    opacity: 1;
   }
 }
