@@ -28,12 +28,9 @@ We’re going to cover anti-patterns later in this article. First, let’s start
 import React from 'react'
 
 class ActionButton extends React.Component {
-
   render() {
     const { label, action } = this.props
-    return (
-      <button onClick={action}>{label}</button>
-    )
+    return <button onClick={action}>{label}</button>
   }
 }
 ```
@@ -46,7 +43,6 @@ You can gain access to the actual HTML element by creating a React reference and
 import React, { createRef } from 'react'
 
 class ActionButton extends React.Component {
-
   constructor() {
     super()
     this.buttonRef = createRef()
@@ -55,7 +51,9 @@ class ActionButton extends React.Component {
   render() {
     const { label, action } = this.props
     return (
-      <button onClick={action} ref={this.buttonRef}>{label}</button>
+      <button onClick={action} ref={this.buttonRef}>
+        {label}
+      </button>
     )
   }
 }
@@ -103,49 +101,45 @@ You can achieve focus in an element programmatically by calling `focus()` on the
 Because the DOM exposes this as a function call, the best way to do this in React is to create a ref and manually do it when we think it’s suitable.
 
 ```js
-import React from 'react';
+import React from 'react'
 
 class InputModal extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { value: props.initialValue };
+    this.state = { value: props.initialValue }
   }
 
-  onChange = e => {
-    this.setState({ value: e.target.value });
-  };
+  onChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
 
-  onSubmit = e => {
-    e.preventDefault();
-    const { value } = this.state;
-    const { onSubmit, onClose } = this.props;
-    onSubmit(value);
-    onClose();
-  };
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { value } = this.state
+    const { onSubmit, onClose } = this.props
+    onSubmit(value)
+    onClose()
+  }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.state
 
     return (
       <div className="modal--overlay">
         <div className="modal">
           <h1>Insert a new value</h1>
           <form action="?" onSubmit={this.onSubmit}>
-            <input
-              type="text"
-              onChange={this.onChange}
-              value={value}
-            />
+            <input type="text" onChange={this.onChange} value={value} />
             <button>Save new value</button>
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default InputModal;
+export default InputModal
 ```
 
 In this modal, we allow the user to modify a value already set in the screen below. It would be a better user experience if the input was on focus when the modal opens.
@@ -155,30 +149,30 @@ This could enable a smooth keyboard transition between the two screens.
 The first thing we need to do is get a reference for the input:
 
 ```js
-import React, { createRef } from 'react';
+import React, { createRef } from 'react'
 
 class InputModal extends React.Component {
   constructor(props) {
-    super(props);
-    this.inputRef = createRef();
+    super(props)
+    this.inputRef = createRef()
 
-    this.state = { value: props.initialValue };
+    this.state = { value: props.initialValue }
   }
 
-  onChange = e => {
-    this.setState({ value: e.target.value });
-  };
+  onChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
 
-  onSubmit = e => {
-    e.preventDefault();
-    const { value } = this.state;
-    const { onSubmit, onClose } = this.props;
-    onSubmit(value);
-    onClose();
-  };
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { value } = this.state
+    const { onSubmit, onClose } = this.props
+    onSubmit(value)
+    onClose()
+  }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.state
 
     return (
       <div className="modal--overlay">
@@ -195,44 +189,44 @@ class InputModal extends React.Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default InputModal;
+export default InputModal
 ```
 
 Next, when our modal mounts, we imperatively call focus on our input ref:
 
 ```js
-import React, { createRef } from "react";
-    
+import React, { createRef } from 'react'
+
 class InputModal extends React.Component {
   constructor(props) {
-    super(props);
-    this.inputRef = createRef();
+    super(props)
+    this.inputRef = createRef()
 
-    this.state = { value: props.initialValue };
+    this.state = { value: props.initialValue }
   }
 
   componentDidMount() {
-    this.inputRef.current.focus();
+    this.inputRef.current.focus()
   }
 
-  onChange = e => {
-    this.setState({ value: e.target.value });
-  };
+  onChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
 
-  onSubmit = e => {
-    e.preventDefault();
-    const { value } = this.state;
-    const { onSubmit, onClose } = this.props;
-    onSubmit(value);
-    onClose();
-  };
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { value } = this.state
+    const { onSubmit, onClose } = this.props
+    onSubmit(value)
+    onClose()
+  }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.state
 
     return (
       <div className="modal--overlay">
@@ -249,12 +243,13 @@ class InputModal extends React.Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
-    
-export default InputModal;
+
+export default InputModal
 ```
+
 {% actionLink 'https://codesandbox.io/s/input-modal-example-gvrpo' %}
 
 Remember that you need to access the element through the `current` property.
@@ -264,53 +259,52 @@ Remember that you need to access the element through the `current` property.
 Similarly, sometimes you want to know if any element dispatching an event should trigger some action on your app. For example, our Modal component could get closed if you click outside of it:
 
 ```js
-import React, { createRef } from "react";
+import React, { createRef } from 'react'
 
 class InputModal extends React.Component {
   constructor(props) {
-    super(props);
-    this.inputRef = createRef();
-    this.modalRef = createRef();
+    super(props)
+    this.inputRef = createRef()
+    this.modalRef = createRef()
 
-    this.state = { value: props.initialValue };
+    this.state = { value: props.initialValue }
   }
 
   componentDidMount() {
-    this.inputRef.current.focus();
+    this.inputRef.current.focus()
 
-    document.body.addEventListener("click", this.onClickOutside);
+    document.body.addEventListener('click', this.onClickOutside)
   }
 
   componentWillUnmount() {
-    document.removeEventListener("click", this.onClickOutside);
+    document.removeEventListener('click', this.onClickOutside)
   }
 
-  onClickOutside = e => {
-    const { onClose } = this.props;
-    const element = e.target;
+  onClickOutside = (e) => {
+    const { onClose } = this.props
+    const element = e.target
 
-    if (this.modalRef.current
-      && !this.modalRef.current.contains(element)) {
-      e.preventDefault();
-      e.stopPropagation();
-      onClose();
+    if (this.modalRef.current && !this.modalRef.current.contains(element)) {
+      e.preventDefault()
+      e.stopPropagation()
+      onClose()
     }
-  };
+  }
 
-  onChange = e => {
-    this.setState({ value: e.target.value });
-  };
+  onChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
 
-  onSubmit = e => {
-    e.preventDefault();
-    const { value } = this.state;
-    const { onSubmit, onClose } = this.props;
-    onSubmit(value);
-    onClose();
-  };
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { value } = this.state
+    const { onSubmit, onClose } = this.props
+    onSubmit(value)
+    onClose()
+  }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.state
     return (
       <div className="modal--overlay">
         <div className="modal" ref={this.modalRef}>
@@ -326,12 +320,13 @@ class InputModal extends React.Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default InputModal;
+export default InputModal
 ```
+
 {% actionLink 'https://codesandbox.io/s/input-modal-example-1to08' %}
 
 Here, we are checking if the element click is out of the modal limits.
@@ -355,23 +350,23 @@ Using refs allows us to combine React with a great animation library.
 Let’s go back to our modal and add some animation to make its entrance fancier.
 
 ```js
-import React, { createRef } from "react";
-import gsap from "gsap";
+import React, { createRef } from 'react'
+import gsap from 'gsap'
 
 class InputModal extends React.Component {
   constructor(props) {
-    super(props);
-    this.inputRef = createRef();
-    this.modalRef = createRef();
-    this.overlayRef = createRef();
+    super(props)
+    this.inputRef = createRef()
+    this.modalRef = createRef()
+    this.overlayRef = createRef()
 
-    this.state = { value: props.initialValue };
+    this.state = { value: props.initialValue }
 
     const onComplete = () => {
-      this.inputRef.current.focus();
-    };
-    const timeline = gsap.timeline({ paused: true, onComplete });
-    this.timeline = timeline;
+      this.inputRef.current.focus()
+    }
+    const timeline = gsap.timeline({ paused: true, onComplete })
+    this.timeline = timeline
   }
   componentDidMount() {
     this.timeline
@@ -383,42 +378,41 @@ class InputModal extends React.Component {
         duration: 0.25,
         autoAlpha: 0,
         y: 25
-      });
-    this.timeline.play();
+      })
+    this.timeline.play()
 
-    document.body.addEventListener("click", this.onClickOutside);
+    document.body.addEventListener('click', this.onClickOutside)
   }
 
   componentWillUnmount() {
-    this.timeline.kill();
-    document.removeEventListener("click", this.onClickOutside);
+    this.timeline.kill()
+    document.removeEventListener('click', this.onClickOutside)
   }
 
-  onClickOutside = e => {
-    const { onClose } = this.props;
-    const element = e.target;
-    if (this.modalRef.current
-        && !this.modalRef.current.contains(element)) {
-      e.preventDefault();
-      e.stopPropagation();
-      onClose();
+  onClickOutside = (e) => {
+    const { onClose } = this.props
+    const element = e.target
+    if (this.modalRef.current && !this.modalRef.current.contains(element)) {
+      e.preventDefault()
+      e.stopPropagation()
+      onClose()
     }
-  };
+  }
 
-  onChange = e => {
-    this.setState({ value: e.target.value });
-  };
+  onChange = (e) => {
+    this.setState({ value: e.target.value })
+  }
 
-  onSubmit = e => {
-    e.preventDefault();
-    const { value } = this.state;
-    const { onSubmit, onClose } = this.props;
-    onSubmit(value);
-    onClose();
-  };
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { value } = this.state
+    const { onSubmit, onClose } = this.props
+    onSubmit(value)
+    onClose()
+  }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.state
     return (
       <div className="modal--overlay" ref={this.overlayRef}>
         <div className="modal" ref={this.modalRef}>
@@ -434,11 +428,11 @@ class InputModal extends React.Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default InputModal;
+export default InputModal
 ```
 
 {% actionLink 'https://codesandbox.io/s/input-modal-example-z63vr' %}
@@ -468,14 +462,14 @@ class Form extends React.Component {
   constructor(props) {
     super(props)
     this.inputRef = createRef()
-  
+
     this.state = { storedValue: '' }
   }
 
   onSubmit => (e) {
     e.preventDefault()
     this.setState({ storedValue: this.inputRef.current.value })
-  }  
+  }
 
   render() {
 
@@ -490,7 +484,7 @@ class Form extends React.Component {
         </form>
       </div>
     )
-  }  
+  }
 }
 ```
 
@@ -554,7 +548,7 @@ const LabelledInput = (props, ref) => {
   return (
     <div class="labelled--input">
       <label for={id}>{label}</label>
-      <input id={id} onChange={onChange} value={value} ref={ref}/>
+      <input id={id} onChange={onChange} value={value} ref={ref} />
     </div>
   )
 }
