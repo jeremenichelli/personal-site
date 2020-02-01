@@ -1,0 +1,5 @@
+# redirects /feed to feed.xml RSS file
+[[redirects]]
+  from = "/feed"
+  to = "/feed.xml"
+  force = true
