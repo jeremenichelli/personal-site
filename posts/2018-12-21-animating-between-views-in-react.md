@@ -303,4 +303,4 @@ In order to act as reminders, I created a list of tips for me that you might fin
 - Test on slower and older devices. They will make it easier for you to catch spots with weak performance.
 - Profile and base your improvements in metrics. Instead of guessing as you go, like I did, see if you can spot where frames are being dropped or if something looks off and attack that issue first.
 
-That’s it! Best of luck with animating view transitions. Please post a comment if this sparked any questions or if you have used transitions in your app that you’d like to share!
+That’s it! Best of luck with animating view transitions.
