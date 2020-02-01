@@ -29,12 +29,18 @@
       "author": {
         "@id": "{{site.url}}/#/schema/person/802b096bc7cef6843db036595503b559"
       },
-      "headline": {{pageTitle}}",
+      "headline": "{{pageTitle}}",
       "datePublished": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
       "dateModified": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
       "commentCount": 0,
       "mainEntityOfPage": {
         "@id": "{{site.url}}{{page.url}}#webpage"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{site.url}}/#publisherlogo",
+        "url": "{{site.url}}/assets/images/twitter-card-image.jpeg",
+        "caption": "Publisher logo"
       },
       "articleSection": ""
     },
