@@ -9,16 +9,14 @@
       "description": "{{pageDescription}}",
     },
     {
-      "@type": "WebPage",
+      "@type": "CollectionPage",
       "@id": "{{site.url}}{{page.url}}#webpage",
       "url": "{{site.url}}{{page.url}}",
       "inLanguage": "en-US",
       "name": "{{pageTitle}}",
       "isPartOf": {
-        "@id": "{{site.url}}{{page.url}}#website"
-      },
-      "datePublished": "{{ "now" | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
-      "dateModified": "{{ "now" | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}"
+        "@id": "{{site.url}}/#website"
+      }
     }
   ]
 }

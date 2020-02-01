@@ -45,10 +45,15 @@
   <script defer src='https://www.google-analytics.com/analytics.js'></script>
 
   <!-- structured data -->
-  {% if type == 'home' %}{% include 'structured-data/home' %}
-  {% elsif type == 'post' %}{% include 'structured-data/post' %}
-  {% else %}{% include 'structured-data/page' %}
+  <script type="application/ld+json">
+  {% if type == 'blog' or type == 'archive' or type == 'talks' %}
+    {% include 'structured-data/collection' %}
+  {% elsif type == 'post' %}
+    {% include 'structured-data/post' %}
+  {% else %}
+    {% include 'structured-data/page' %}
   {% endif %}
+  </script>
 
   <!-- twitter card meta -->
   <meta name="twitter:card" content="summary">
