@@ -1,6 +1,6 @@
 ---
 title: 'A guide to React refs: useRef and createRef'
-excerpt: In this article, we’re going to investigate why React, a framework meant to abstract your code away from DOM manipulation, leaves the door open for developers to access it.
+excerpt: In this article, we're going to investigate why React, a framework meant to abstract your code away from DOM manipulation, leaves the door open for developers to access it.
 host: LogRocket
 host_url: https://blog.logrocket.com
 external_url: https://blog.logrocket.com/a-guide-to-react-refs/
@@ -20,9 +20,9 @@ Still, the React team did something smart that all library authors should do: th
 
 As I said, refs are escape hatches for React developers, and we should try to avoid using them if possible.
 
-When we obtain a node by using a `ref` and later modify some attribute or the DOM structure of it, it can enter into conflict with React’s diff and update approaches.
+When we obtain a node by using a `ref` and later modify some attribute or the DOM structure of it, it can enter into conflict with React's diff and update approaches.
 
-We’re going to cover anti-patterns later in this article. First, let’s start with a simple component and grab a node element using refs.
+We're going to cover anti-patterns later in this article. First, let's start with a simple component and grab a node element using refs.
 
 ```js
 import React from 'react'
@@ -35,7 +35,7 @@ class ActionButton extends React.Component {
 }
 ```
 
-The `<button>` expression here is actually the JSX way of calling the `React.createElement('button')` statement, which is not actually a representation of an HTML Button element — it’s a React element.
+The `<button>` expression here is actually the JSX way of calling the `React.createElement('button')` statement, which is not actually a representation of an HTML Button element — it's a React element.
 
 You can gain access to the actual HTML element by creating a React reference and passing it to the element itself.
 
@@ -80,7 +80,7 @@ function ActionButton({ label, action }) {
 }
 ```
 
-We know how to access DOM nodes inside a React component. Let’s take a look at some of the situations where this may be useful.
+We know how to access DOM nodes inside a React component. Let's take a look at some of the situations where this may be useful.
 
 ## Usage of React refs
 
@@ -90,7 +90,7 @@ Before declarative views, most of us were modifying the DOM by calling functions
 
 As mentioned at the introduction of this article, we are now declaring views based on a state, and — though we are still calling functions to alter this `state` — we are not in control of when the DOM will change or even if it should change.
 
-Because of this inversion of control, we’d lose this imperative nature if it weren’t for refs.
+Because of this inversion of control, we'd have lost this imperative nature if it weren't for refs.
 
 Here are a few use cases where it may make sense to bring refs into your code.
 
@@ -98,7 +98,7 @@ Here are a few use cases where it may make sense to bring refs into your code.
 
 You can achieve focus in an element programmatically by calling `focus()` on the node instance.
 
-Because the DOM exposes this as a function call, the best way to do this in React is to create a ref and manually do it when we think it’s suitable.
+Because the DOM exposes this as a function call, the best way to do this in React is to create a ref and manually do it when we think it's suitable.
 
 ```js
 import React from 'react'
@@ -335,19 +335,19 @@ If it is, then we are preventing further actions and calling the `onClose` callb
 
 _Remember to check if the DOM element current reference still exists as state changes in React are asynchronous._
 
-To achieve this, we are adding a global click listener on the body element. It’s important to remember to clean the listener when the element gets unmounted.
+To achieve this, we are adding a global click listener on the body element. It's important to remember to clean the listener when the element gets unmounted.
 
 ### Integrating with DOM-based libraries
 
 As good as React is, there are a lot of utilities and libraries outside its ecosystem that have been in use on the web for years.
 
-It’s good to take advantage of their stability and resolution for some specific problems.
+It's good to take advantage of their stability and resolution for some specific problems.
 
 GreenSock library is a popular choice for animation examples. To use it, we need to send a DOM element to any of its methods.
 
 Using refs allows us to combine React with a great animation library.
 
-Let’s go back to our modal and add some animation to make its entrance fancier.
+Let's go back to our modal and add some animation to make its entrance fancier.
 
 ```js
 import React, { createRef } from 'react'
@@ -439,21 +439,21 @@ export default InputModal
 
 At the constructor level, we are setting up the initial animation values, which will modify the styles of our DOM references. The timeline only plays when the component mounts.
 
-When the element gets unmounted, we’ll clean the DOM state and actions by terminating any ongoing animation with the `kill()` method supplied by the `Timeline` instance.
+When the element gets unmounted, we'll clean the DOM state and actions by terminating any ongoing animation with the `kill()` method supplied by the `Timeline` instance.
 
-We’ll turn our focus to the input after the timeline has completed.
+We'll turn our focus to the input after the timeline has completed.
 
 ## Rule of thumb for refs usage
 
-After knowing how refs work, it’s easy to use them where they’re not needed.
+After knowing how refs work, it's easy to use them where they're not needed.
 
-There’s more than one way to achieve the same thing inside a React component, so it’s easy to fall into an anti-pattern.
+There's more than one way to achieve the same thing inside a React component, so it's easy to fall into an anti-pattern.
 
-My rule when it comes to ref usage is this: You need to imperatively call a function for a behavior React doesn’t allow you to control.
+My rule when it comes to ref usage is this: You need to imperatively call a function for a behavior React doesn't allow you to control.
 
 A simpler way to put it would be this: You need to call a function, and that function has no association with a React method or artifact.
 
-Let’s explore an anti-pattern that I’ve seen repeatedly in articles and even in interviews.
+Let's explore an anti-pattern that I've seen repeatedly in articles and even in interviews.
 
 ```js
 import React, { createRef } from 'react';
@@ -488,7 +488,7 @@ class Form extends React.Component {
 }
 ```
 
-It’s fair to say that if you want to send a value on submit, this approach will work.
+It's fair to say if you want to send a value on submit, this approach will work.
 
 The issue is that, knowing refs are actually an escape hatch of the view model React offers, we are sniffing into DOM element values or properties that we have access to through the React interface.
 
@@ -508,15 +508,15 @@ render() {
 }
 ```
 
-Let’s go back to our rule: “You need to imperatively call a function for a behavior React doesn’t allow you to control. ”
+Let's go back to our rule: “You need to imperatively call a function for a behavior React doesn't allow you to control. ”
 
-In our uncontrolled input we are creating a ref but not doing an imperative call. Then that function should exist, which is not satisfied as I can indeed control an input’s value.
+In our uncontrolled input we are creating a ref but not doing an imperative call. Then that function should exist, which is not satisfied as I can indeed control an input's value.
 
 ## Forwarding refs
 
-As we’ve discussed, refs are actually useful for really specific actions. The examples shown are a little simpler than what we usually find in a web application codebase nowadays.
+As we've discussed, refs are actually useful for really specific actions. The examples shown are a little simpler than what we usually find in a web application codebase nowadays.
 
-Components are more complex and we barely use plain HTML elements directly. It’s really common to include more than one node to encapsulate more logic around the view behavior.
+Components are more complex and we barely use plain HTML elements directly. It's really common to include more than one node to encapsulate more logic around the view behavior.
 
 ```js
 import React from 'react'
@@ -558,22 +558,22 @@ export default React.forwardRef(InputCombo)
 
 {% actionLink 'https://codesandbox.io/s/input-modal-example-l2wst' %}
 
-To achieve this, we’ll pass a second argument to our function and place it in the desired element.
+To achieve this, we'll pass a second argument to our function and place it in the desired element.
 
-Now, when a parent component passes a ref value, it’s going to obtain the input, which is helpful to avoid exposing internals and properties of a component and breaking its encapsulation.
+Now, when a parent component passes a ref value, it's going to obtain the input, which is helpful to avoid exposing internals and properties of a component and breaking its encapsulation.
 
 The example of our form that we saw failing at achieving focus will now work as expected.
 
 ## Conclusion
 
-We started with a recap on the basic concepts of React and its usage, why we generally shouldn’t break the framework’s model, and why we may sometimes need to.
+We started with a recap on the basic concepts of React and its usage, why we generally shouldn't break the framework's model, and why we may sometimes need to.
 
 Accessing the DOM through the interface the library exposes helps to maintain the internals of React in place (remember that `setState` contains more logic than just triggering a re-render cycle, like batching updates and in the near future, time slicing).
 
 Breaking this model with anti-patterns can make later performance improvements in the library useless or even create bugs in your applications.
 
-Remember to use refs only when there is an implicit function call React can’t handle through its methods.
+Remember to use refs only when there is an implicit function call React can't handle through its methods.
 
-Also, make sure it doesn’t alter the internal state of the components.
+Also, make sure it doesn't alter the internal state of the components.
 
 For more information, [read the official React documentation](https://reactjs.org/docs/react-api.html#reactcreateref) about refs.
