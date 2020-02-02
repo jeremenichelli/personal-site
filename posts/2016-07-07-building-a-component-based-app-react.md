@@ -400,7 +400,7 @@ Try to learn a new framework always brings a learning curve that, in my opinion,
 
 The first one is the **documentation**. I have to admit is really complete but unorganized, which is a big deal for begginers, probably a consequence of a fast evolution pace the repository experimented recently.
 
-> The official docs grew organically and need gardening
+> "The official docs grew organically and need gardening."
 > <cite>Dan Abramov</cite>
 
 The second one is **JSX** itself. Using it really improves the developing experience, but it brings its own tricks and limitations to the yard.

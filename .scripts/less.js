@@ -29,36 +29,38 @@ const asyncPostCSS = async (css) => {
 async function main() {
   console.log(`\nProcessing ${cyan('styles')} for ${magenta(ENVIRONMENT)}`)
 
-  try {
-    await asyncMakeDirectory(config.less.output)
-    const filesList = await asyncGlob(config.less.files)
+  await asyncMakeDirectory(config.less.output)
+  const filesList = await asyncGlob(config.less.files)
 
-    // hoist sourcemap option
-    const sourceMap = ENVIRONMENT !== 'production' && {
-      sourceMapFileInline: true
+  // hoist sourcemap option
+  const sourceMap = ENVIRONMENT !== 'production' && {
+    sourceMapFileInline: true
+  }
+
+  // process files content to css
+  filesList.map(async (source) => {
+    const input = await asyncReadFile(source, 'utf-8')
+    const paths = [path.dirname(source)]
+    const options = { paths, sourceMap }
+
+    // process less content
+    let processed
+
+    try {
+      processed = await less.render(input, options)
+    } catch (error) {
+      console.error(red(error))
     }
 
-    // process files content to css
-    filesList.map(async (source) => {
-      const input = await asyncReadFile(source, 'utf-8')
-      const paths = [path.dirname(source)]
-      const options = { paths, sourceMap }
+    // process with Post CSS
+    const { css } = await asyncPostCSS(processed.css)
 
-      // process less content
-      const processed = await less.render(input, options)
-
-      // process with Post CSS
-      const { css } = await asyncPostCSS(processed.css)
-
-      // write files
-      const filename = path.basename(source).replace('.less', '.liquid')
-      const output = config.less.output + filename
-      await asyncWriteFile(output, css, 'utf-8')
-      console.log(`${green(output)} file written`)
-    })
-  } catch (error) {
-    console.log(red(error))
-  }
+    // write files
+    const filename = path.basename(source).replace('.less', '.liquid')
+    const output = config.less.output + filename
+    await asyncWriteFile(output, css, 'utf-8')
+    console.log(`${green(output)} file written`)
+  })
 }
 
 main()

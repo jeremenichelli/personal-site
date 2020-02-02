@@ -2,39 +2,37 @@
 
 Repository that runs [jeremenichelli.io](https://jeremenichelli.io), my personal site. This project is built using [Eleventy](//11ty.com) by [Zach Leatherman](//github.com/zachleat) and hosted by [Netlify](//netlify.com). Liquid is used for templates and Markdown for content.
 
-## Scripts
+## Serve locally
 
-In order to run the site locally you will need the latest LTS version of [Node.js](https://nodejs.org) and [yarn](//yarnpkg.com). To serve the site locally first generate all assets. All initial assets are in `src` and get exported to `assets` and `_includes` folders.
+Running `yarn serve` kicks off Eleventy, which parses Markdown files and partials written in Liquid templating language.
 
-### Serve
+_Before running the static site generator is necessary to generate styles and script._
 
-Start the Eleventy local server by running `yarn serve`.
+## Bundling
 
-### Assets
+Running `yarn bundle` creates a small JavaScript file in `_includes/scripts` which gets inlined in the head to do decide on stored theme and cached font files. In addition a `main.js` file and a separate `font.js` bundle are created inside `assets/js`, they both get async loaded and the later one handles web font loading strategy.
 
-Doing `yarn assets` in the terminal generates styles, scripts, favicons and images before the build.
+## Styles
 
-### Styles
-
-The project uses [LESS](//lesscss.org) to generate inlined styles templates that go to `_includes/styles`.
+The project uses [LESS](//lesscss.org) to generate inlined styles templates that go to `_includes/styles`. All pages need an entry point containing only necessary rules, which get processed and minified and go into the `head` element of each.
 
 You can process all styles by running `yarn less`.
 
-### Scripts
-
-Running `yarn bundle` creates a short amount of JavaScript in `_includes/scripts` that gets inlined and a `font.js` file inside `assets/js` which gets async loaded and handles web font loading strategy.
-
-### Favicons
+## Favicons
 
 Running `yarn favicons` generates a template partial in `_includes` folder and exporting all favicon images in `assets/favicon` at the same time.
 
-### Images
+## Images
 
 The rest of images needed are processed by running `yarn images`.
 
-### Release
+## Assets
 
-On each deployment, `yarn release` runs `yarn assets` and `yarn build` to trigger an Eleventy build.
+Doing `yarn assets` in the terminal generates styles, scripts, favicons and images before the build.
+
+## Release
+
+On each deployment, `yarn release` executes `yarn assets` and `yarn build` to trigger a full build.
 
 ## License
 

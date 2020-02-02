@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="home no-js">
+<html lang="en" class="no-js">
   {% include 'head' %}
   <body>
-    <button class="dark--toggle" aria-label="Toggle dark mode"></button>
-    <main id="main" role="main">
+    <!-- force all font families to be loaded -->
+    <div aria-hidden="true" style="position:fixed;top: -9999em;">
+      <span>BESbwy</span>
+      <span style="font-style: italic;">BESbwy</span>
+      <span style="font-weight: 700;">BESbwy</span>
+    </div>
+
+    <button class="dark--toggle dark--toggle__home" aria-label="Toggle dark mode"></button>
+
+    <main id="main">
       <div class="container main__container">
         {{ content }}
       </div>

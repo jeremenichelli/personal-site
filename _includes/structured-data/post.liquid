@@ -1,28 +1,61 @@
-<script type="application/ld+json">
 {
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "item": {
-      "@id": "https://jeremenichelli.io",
-      "name": "Jeremias Menichelli"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{site.url}}{{page.url}}#website",
+      "url": "{{site.url}}{{page.url}}",
+      "name": "{{pageTitle}}",
+      "description": "{{pageDescription}}"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{site.url}}{{page.url}}#webpage",
+      "url": "{{site.url}}{{page.url}}",
+      "inLanguage": "en-US",
+      "name": "{{pageTitle}}",
+      "isPartOf": {
+        "@id": "{{site.url}}{{page.url}}#website"
+      },
+      "datePublished": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
+      "dateModified": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}"
+    },
+    {
+      "@type": "Article",
+      "@id": "{{site.url}}{{page.url}}#article",
+      "isPartOf": {
+        "@id": "{{site.url}}{{page.url}}#webpage"
+      },
+      "author": {
+        "@id": "{{site.url}}/#/schema/person/802b096bc7cef6843db036595503b559"
+      },
+      "headline": "{{pageTitle}}",
+      "datePublished": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
+      "dateModified": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
+      "commentCount": 0,
+      "mainEntityOfPage": {
+        "@id": "{{site.url}}{{page.url}}#webpage"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{site.url}}/#publisherlogo",
+        "url": "{{site.url}}/assets/images/twitter-card-image.jpeg",
+        "caption": "Publisher logo"
+      },
+      "articleSection": ""
+    },
+    {
+      "@type": [
+        "Person"
+      ],
+      "@id": "{{site.url}}/#/schema/person/802b096bc7cef6843db036595503b559",
+      "name": "Jeremias Menichelli",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{site.url}}/#authorlogo",
+        "url": "https://secure.gravatar.com/avatar/802b096bc7cef6843db036595503b559?s=192&d=mm&r=r",
+        "caption": "Jeremias Menichelli"
+      }
     }
-  },{
-    "@type": "ListItem",
-    "position": 2,
-    "item": {
-      "@id": "https://jeremenichelli.io/blog",
-      "name": "Blog"
-    }
-  },{
-    "@type": "ListItem",
-    "position": 3,
-    "item": {
-      "@id": "{{ url }}",
-      "name": "{{ title }}"
-    }
-  }]
+  ]
 }
-</script>

@@ -15,7 +15,13 @@
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
+
+  {% if external_url %}
+  <link rel="canonical" href="{{ external_url }}">
+  {% else %}
   <link rel="canonical" href="{{ url }}">
+  {% endif %}
+  
   {% if type == 'post' %}
   <meta name="author" content="Jeremias Menichelli">
   {% endif %}
@@ -30,19 +36,16 @@
   <!-- include inline scripts -->
   <script>{% include 'scripts/inline' %}</script>
 
-  <!-- analytics -->
-  <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-50290926-1', 'auto');
-    ga('send', 'pageview');
-    </script>
-  <script defer src='https://www.google-analytics.com/analytics.js'></script>
-
   <!-- structured data -->
-  {% if type == 'home' %}{% include 'structured-data/home' %}
-  {% elsif type == 'post' %}{% include 'structured-data/post' %}
-  {% else %}{% include 'structured-data/page' %}
+  <script type="application/ld+json">
+  {% if type == 'blog' or type == 'archive' or type == 'talks' %}
+    {% include 'structured-data/collection' %}
+  {% elsif type == 'post' %}
+    {% include 'structured-data/post' %}
+  {% else %}
+    {% include 'structured-data/page' %}
   {% endif %}
+  </script>
 
   <!-- twitter card meta -->
   <meta name="twitter:card" content="summary">
@@ -53,10 +56,3 @@
   <meta name="twitter:url" content="{{ url }}">
   <meta name="twitter:image" content="{{ site.url }}/assets/images/twitter-card-image.jpeg">
 </head>
-
-<!-- force all font families to be loaded -->
-<div aria-hidden="true" tab-index="-1" style="position:fixed;top: -9999em;">
-  <span>BESbwy</span>
-  <span style="font-style: italic;">BESbwy</span>
-  <span style="font-weight: 700;">BESbwy</span>
-</div>

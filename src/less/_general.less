@@ -3,15 +3,23 @@
 @light--color: #ffffff;
 @dark--color: #020210;
 
+@accent: #4242ef;
+@secondary: #505060;
+@code--background: rgba(0, 0, 10, 0.025);
+
+@accent__dark: #7575ff;
+@secondary__dark: #d0d0e0;
+@code--background__dark: rgba(255, 255, 255, 0.05);
+
 :root {
   // main colors
-  --accent: #4242ef;
-  --secondary: #505060;
+  --accent: @accent;
+  --secondary: @secondary;
   --background: @light--color;
   --text: @dark--color;
 
   // code styles
-  --code--background: rgba(0, 0, 10, 0.025);
+  --code--background: @code--background;
 
   // letter spacing
   --low--letter-spacing: 0.025em;
@@ -19,11 +27,11 @@
 }
 
 :root.dark {
-  --accent: #7575ff;
-  --secondary: #d0d0e0;
+  --accent: @accent__dark;
+  --secondary: @secondary__dark;
   --background: @dark--color;
   --text: @light--color;
-  --code--background: rgba(255, 255, 255, 0.05);
+  --code--background: @code--background__dark;
 }
 
 ::selection {
@@ -91,16 +99,6 @@ a {
   }
 }
 
-// strong,
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   font-weight: 800;
-// }
-
 .container {
   margin: 0 auto;
   max-width: 40rem;
@@ -139,30 +137,31 @@ main {
   animation-timing-function: ease-in-out;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
-  background-color: var(--accent);
+  border: none;
   border-radius: 50%;
-  border-width: 0;
-  cursor: pointer;
+  background-color: var(--accent);
+  width: 1.5rem;
   height: 1.5rem;
-  left: 1rem;
   opacity: 0;
   position: absolute;
-  top: 1rem;
-  transition: background-color 0.25s;
-  width: 1.5rem;
+  top: 2rem;
+  left: 2rem;
 
-  @media (min-width: 737px) {
-    left: 2rem;
-    top: 2rem;
-  }
+  // sorry a11y gods, but focus ring is awful on circles
+  outline: none;
 
-  .home & {
+  &__home {
     // increase delay in home page
     animation-delay: 2s;
   }
 
   .fonts-loaded & {
-    // trigger animation on font ready
     animation-name: buttonFadeIn;
+  }
+
+  &:active {
+    transform: scale(0.95) !important;
+    animation-fill-mode: none;
+    opacity: 1;
   }
 }
