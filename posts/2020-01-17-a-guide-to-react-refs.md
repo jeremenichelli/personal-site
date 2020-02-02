@@ -466,7 +466,7 @@ class Form extends React.Component {
     this.state = { storedValue: '' }
   }
 
-  onSubmit => (e) {
+  onSubmit = (e) => {
     e.preventDefault()
     this.setState({ storedValue: this.inputRef.current.value })
   }
