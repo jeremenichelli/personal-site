@@ -4,16 +4,27 @@ const { statSync } = require('fs')
 
 // rollup pacakges
 const { rollup } = require('rollup')
-const commonjs = require('rollup-plugin-commonjs')
-const replace = require('rollup-plugin-replace')
-const resolve = require('rollup-plugin-node-resolve')
+const commonjs = require('@rollup/plugin-commonjs')
+const replace = require('@rollup/plugin-replace')
+const resolve = require('@rollup/plugin-node-resolve')
+const buble = require('@rollup/plugin-buble')
 const { terser } = require('rollup-plugin-terser')
-const buble = require('rollup-plugin-buble')
 
-// import config file
-const config = require('./config.json')
+const bundles = [
+  {
+    input: './src/js/inline.js',
+    output: './_includes/scripts/inline.liquid'
+  },
+  {
+    input: './src/js/font.js',
+    output: './assets/js/font.js'
+  },
+  {
+    input: './src/js/main.js',
+    output: './assets/js/main.js'
+  }
+]
 
-// base input config for bundles
 const baseConfig = {
   plugins: [
     // replace environment
@@ -46,22 +57,21 @@ if (ENVIRONMENT === 'production') {
 async function main() {
   console.log(`\nGenerating ${cyan('bundles')} for ${magenta(ENVIRONMENT)}`)
   try {
-    await asyncMakeDirectory('_includes/scripts')
-    const bundles = config.bundles.map(({ input }) =>
-      rollup({ input, ...baseConfig })
-    )
-    const results = await Promise.all(bundles)
+    await asyncMakeDirectory('_includes/scripts', { recursive: true })
+    await asyncMakeDirectory('assets/js', { recursive: true })
 
-    // write files
-    results.map(async (bundle, index) => {
-      const file = config.bundles[index].output
-      const format = 'iife'
-      const sourcemap = ENVIRONMENT === 'development' ? 'inline' : false
+    const format = 'iife'
+    const sourcemap = ENVIRONMENT === 'development' ? 'inline' : false
 
-      await bundle.write({ file, format, sourcemap })
-      const fileSize = statSync(file).size + 'B'
-      console.log(`${green(file)} file written ${cyan(fileSize)}`)
-    })
+    for (const bundle of bundles) {
+      const { input, output } = bundle
+
+      const result = await rollup({ input, ...baseConfig })
+      await result.write({ file: output, format, sourcemap })
+
+      const fileSize = statSync(output).size + 'B'
+      console.log(`${green(output)} file written ${cyan(fileSize)}`)
+    }
   } catch (error) {
     console.log(red(error))
   }
