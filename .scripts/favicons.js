@@ -2,16 +2,17 @@ const { cyan, green, red } = require('chalk')
 const favicons = require('favicons')
 const { asyncMakeDirectory, asyncWriteFile, asyncRimraf } = require('./_utils')
 
-// import config file
-const config = require('./config.json')
 const site = require('../_data/site.json')
+const entry = './src/favicon/favicon.png'
+const outputPath = './assets/favicon/'
+const html = './_includes/favicons.liquid'
 
 const setup = {
   appName: 'jeremenichelli.io',
   appDescription: site.description,
   developerName: site.author,
   background: '#020210',
-  path: config.favicon.path,
+  path: '/assets/favicon/',
   online: false,
   icons: {
     android: true,
@@ -38,27 +39,27 @@ async function main() {
 
   try {
     // clean favicons directory and generate favicons
-    await asyncRimraf(config.favicon.output)
-    await asyncMakeDirectory(config.favicon.output, { recursive: true })
-    const result = await asyncFavicons(config.favicon.entry, setup)
+    await asyncRimraf(outputPath)
+    await asyncMakeDirectory(outputPath, { recursive: true })
+    const result = await asyncFavicons(entry, setup)
 
     // write favicons html content
-    await asyncWriteFile(config.favicon.html, result.html.join('\n'), 'utf-8')
+    await asyncWriteFile(html, result.html.join('\n'), 'utf-8')
     console.log(`favicon ${green('html partial')} created`)
 
     // write favicons files
-    result.files.map(async (file) => {
-      const filename = `${config.favicon.output}${file.name}`
+    for (const file of result.files) {
+      const filename = `${outputPath}${file.name}`
       await asyncWriteFile(filename, file.contents, 'utf-8')
       console.log(`favicon ${green(file.name)} file created`)
-    })
+    }
 
     // write favicon images files
-    result.images.map(async (image) => {
-      const imagename = `${config.favicon.output}${image.name}`
-      await asyncWriteFile(imagename, image.contents, 'utf-8')
+    for (const image of result.images) {
+      const imageName = `${outputPath}${image.name}`
+      await asyncWriteFile(imageName, image.contents, 'utf-8')
       console.log(`favicon ${green(image.name)} image created`)
-    })
+    }
   } catch (error) {
     console.log(red(error))
   }

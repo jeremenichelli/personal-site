@@ -15,11 +15,10 @@ const postcss = require('postcss')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 
-// import config file
-const config = require('./config.json')
+const filesGlob = './src/less/{home,blog,post,archive,about,talks,404}.less'
+const outputPath = './_includes/styles/'
 
 const asyncPostCSS = async (css) => {
-  // autoprefix and minimized on production
   const postCSSPlugins = [autoprefixer]
   if (ENVIRONMENT === 'production') postCSSPlugins.push(cssnano)
 
@@ -29,16 +28,15 @@ const asyncPostCSS = async (css) => {
 async function main() {
   console.log(`\nProcessing ${cyan('styles')} for ${magenta(ENVIRONMENT)}`)
 
-  await asyncMakeDirectory(config.less.output)
-  const filesList = await asyncGlob(config.less.files)
+  await asyncMakeDirectory(outputPath)
+  const filesList = await asyncGlob(filesGlob)
 
-  // hoist sourcemap option
   const sourceMap = ENVIRONMENT !== 'production' && {
     sourceMapFileInline: true
   }
 
   // process files content to css
-  filesList.map(async (source) => {
+  for (const source of filesList) {
     const input = await asyncReadFile(source, 'utf-8')
     const paths = [path.dirname(source)]
     const options = { paths, sourceMap }
@@ -57,10 +55,10 @@ async function main() {
 
     // write files
     const filename = path.basename(source).replace('.less', '.liquid')
-    const output = config.less.output + filename
+    const output = outputPath + filename
     await asyncWriteFile(output, css, 'utf-8')
     console.log(`${green(output)} file written`)
-  })
+  }
 }
 
 main()
