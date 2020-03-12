@@ -144,8 +144,13 @@ main {
   height: 1.5rem;
   opacity: 0;
   position: absolute;
-  top: 2rem;
-  left: 2rem;
+  top: 1rem;
+  left: 1rem;
+
+  @media (min-width: 737px) {
+    top: 2rem;
+    left: 2rem;
+  }
 
   // sorry a11y gods, but focus ring is awful on circles
   outline: none;
