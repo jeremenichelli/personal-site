@@ -6,7 +6,7 @@ host_url: https://www.smashingmagazine.com
 external_url: https://www.smashingmagazine.com/2019/10/asynchronous-tasks-modern-javascript/
 ---
 
-JavaScript has two main characteristics as a programming language, both important to understand how our code will work. First is its **synchronous** nature, which means the code will run line after line, almost as you read it, and secondly that it is **single-threaded**, only one command is being executed at any time.
+JavaScript has two main characteristics as a programming language, both important to understand how our code will work. First is its **synchronous** nature, which means the code will run line after line, _almost_ as you read it, and secondly that it is **single-threaded**, only one command is being executed at any time.
 
 As the language evolved, new artifacts appeared in the scene to allow asynchronous execution; developers tried different approaches while solving more complicated algorithms and data flows, which led to the emergence of new interfaces and patterns around them.
 
@@ -37,7 +37,7 @@ request.open('GET', '//some.api.at/server', true)
 
 // observe for server response
 request.onreadystatechange = function() {
-  if (request.readyState === 4 && xhr.status === 200) {
+  if (request.readyState === 4 && request.status === 200) {
     console.log(request.responseText)
   }
 }
@@ -49,7 +49,7 @@ When the server comes back, a task for the method assigned to `onreadystatechang
 
 _Explaining how JavaScript engines queue tasks and handle execution threads is a complex topic to cover and probably deserves an article of its own. Still, I recommend watching [What The Heck Is The Event Loop Anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) by Phillip Roberts to help you get a better understanding._
 
-In each case mentioned, we are responding to an external event. A certain interval of time reached, a user action or a server response. We weren’t able to create an asynchronous task per se, we always observed occurrences happening outside of our reach.
+In each case mentioned, we are responding to an external event. A certain interval of time reached, a user action or a server response. We weren’t able to create an asynchronous task per se, we always _observed_ occurrences happening outside of our reach.
 
 This is why code shaped this way is called the **Observer Pattern**, which is better represented by the `addEventListener` interface in this case. Soon event emitters libraries or frameworks exposing this pattern flourished.
 
@@ -117,7 +117,7 @@ We can see how as the program we are writing gets more complex the code becomes 
 
 `Promises` didn’t receive much attention when they were first announced as the new addition to the JavaScript language, they aren’t a new concept as other languages had similar implementations decades before. Truth is, they turned out to change a lot the semantics and structure of most of the projects I worked on since its appearance.
 
-`Promises` not only introduced a built-in solution for developers to write asynchronous code but also opened a new stage in web development serving as the construction base of later new features of the web spec like fetch.
+`Promises` not only introduced a built-in solution for developers to write asynchronous code but also opened a new stage in web development serving as the construction base of later new features of the web spec like `fetch`.
 
 Migrating a method from a callback approach to a promise-based one became more and more usual in projects (such as libraries and browsers), and even Node.js started slowly migrating to them.
 
@@ -138,7 +138,7 @@ const asyncReadFile = (path, options) => {
 
 Here we obscure the callback by executing inside a Promise constructor, calling `resolve` when the method result is successful, and `reject` when the error object is defined.
 
-When a method returns a `Promise` object we can follow its successful resolution by passing a function to `the`n, its argument is the value which the promise was resolved, in this case, `data`.
+When a method returns a `Promise` object we can follow its successful resolution by passing a function to `then`, its argument is the value which the promise was resolved, in this case, `data`.
 
 If an error was thrown during the method the `catch` function will be called, if present.
 
@@ -171,14 +171,16 @@ const less = require('less')
 readFile('./main.less', 'utf-8')
   .then(less.render)
   .then((result) =>
-    mkdir('./assets').then(writeFile('assets/main.css', result.css, 'utf-8'))
+    mkdir('./assets').then(() =>
+      writeFile('assets/main.css', result.css, 'utf-8')
+    )
   )
   .catch((error) => console.error(error))
 ```
 
 There is a clear reduction of redundancy in the code, especially around the error handling as we now rely on `catch`, but Promises somehow failed to deliver a clear code indentation that directly relates to the concatenation of actions.
 
-This is actually achieved on the first `then` statement after `readFile` is called. What happens after these lines is the need to create a new scope where we can first make the directory, to later write the result in a file. This causes a break into the indentation rhythm, not making it easy to determinate the instructions sequence at first glance.
+This is actually achieved on the first `then` statement after `readFile` is called. What happens after these lines is the need to create a new scope where we can first make the directory, to later write the result in a file. This causes a _break_ into the indentation rhythm, not making it easy to determinate the instructions sequence at first glance.
 
 A way to solve this is to pre-baked a custom method that handles this and allows the correct concatenation of the method, but we would be introducing one more depth of complexity to a code that already seems to have what it needs to achieve the task we want.
 
@@ -188,7 +190,7 @@ Gladly, the JavaScript community learned again from other language syntaxes and 
 
 ## Async And Await
 
-A `Promise` is defined as an unresolved value at execution time, and creating an instance of a `Promise` is an explicit call of this artifact.
+A `Promise` is defined as an unresolved value at execution time, and creating an instance of a `Promise` is an _explicit_ call of this artifact.
 
 ```js
 const { mkdir, writeFile, readFile } = require('fs').promises
@@ -197,7 +199,9 @@ const less = require('less')
 readFile('./main.less', 'utf-8')
   .then(less.render)
   .then((result) =>
-    mkdir('./assets').then(writeFile('assets/main.css', result.css, 'utf-8'))
+    mkdir('./assets').then(() => {
+      writeFile('assets/main.css', result.css, 'utf-8')
+    })
   )
   .catch((error) => console.error(error))
 ```
