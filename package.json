@@ -15,7 +15,7 @@
     "serve": "eleventy --serve",
     "build": "DEBUG=* eleventy",
     "assets": "yarn bundle && yarn less && yarn favicons && yarn images",
-    "validate:feed": "npx feed-validator _site/feed.xml --no-showfeed",
+    "validate:feed": "feed-validator _site/feed.xml --no-showfeed",
     "prerelease": "yarn clean",
     "release": "yarn assets && yarn build && yarn validate:feed",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,7 +32,7 @@
   "author": "Jeremias Menichelli",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
     "@rollup/plugin-buble": "^0.21.1",
     "@rollup/plugin-commonjs": "^11.0.2",
@@ -44,6 +44,7 @@
     "eleventy-nbsp-filter": "^0.1.0",
     "eleventy-xml-plugin": "^0.1.0",
     "favicons": "^6.0.0",
+    "feed-validator": "^1.1.1",
     "glob": "^7.1.4",
     "html-minifier": "^4.0.0",
     "husky": "^3.0.0",

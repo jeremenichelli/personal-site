@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-  {% include 'head' %}
-  <body>
-    <!-- force all font families to be loaded -->
-    <div aria-hidden="true" style="position:fixed;top: -9999em;">
-      <span>BESbwy</span>
-      <span style="font-style: italic;">BESbwy</span>
-      <span style="font-weight: 700;">BESbwy</span>
-    </div>
+---
+layout: base
+---
 
-    <button class="dark--toggle" aria-label="Toggle dark mode"></button>
+{% include 'nav' %}
+{% include 'header' %}
+<main id="main">
+  <div class="container main__container">
+    {% if excerpt %}
+      <p class="page__excerpt">
+        {{ excerpt | markdownify }}
+      </p>
+    {% endif %}
+    
+    {% if external_url %}
+      <p class="post__note">
+        <a href="{{ external_url }}">Article originally published at {{ host }}</a>
+      </p>
+    {% endif %}
 
-    {% include 'nav' %}
-    {% include 'header' %}
-    <main id="main">
-      <div class="container main__container">
-        {% if excerpt %}
-          <p class="page__excerpt">
-            {{ excerpt | markdownify }}
-          </p>
-        {% endif %}
-        
-        {% if external_url %}
-          <p class="post__note">
-            <a href="{{ external_url }}">Article originally published at {{ host }}</a>
-          </p>
-        {% endif %}
-
-        {{ content }}
-      </div>
-    </main>
-    {% include 'footer' %}
-  </body>
-</html>
+    {{ content }}
+  </div>
+</main>
+{% include 'footer' %}

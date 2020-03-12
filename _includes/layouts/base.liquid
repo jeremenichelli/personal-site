@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  {% include 'head' %}
+  <body>
+    <!-- force all font families to be loaded -->
+    <div aria-hidden="true" style="position:fixed;top: -9999em;">
+      <span>BESbwy</span>
+      <span style="font-style: italic;">BESbwy</span>
+      <span style="font-weight: 700;">BESbwy</span>
+    </div>
+
+    <button
+      class="dark--toggle {% if type == 'home' %}dark--toggle__home{% endif %}"
+      aria-label="Toggle dark mode"
+    >
+    </button>
+
+    {{ content }}
+
+  </body>
+</html>

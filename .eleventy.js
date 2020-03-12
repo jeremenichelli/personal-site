@@ -10,6 +10,7 @@ const { htmlmin } = require('./.eleventy/transforms')
 module.exports = function(eleventyConfig) {
   /* LIQUID AND GLOBAL CONFIG */
   eleventyConfig.setLiquidOptions({ dynamicPartials: true })
+  eleventyConfig.addLayoutAlias('base', 'layouts/base.liquid')
   eleventyConfig.addLayoutAlias('home', 'layouts/home.liquid')
   eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid')
   eleventyConfig.setUseGitIgnore(false)
