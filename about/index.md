@@ -2,7 +2,7 @@
 title: About
 layout: default
 type: about
-excerpt: Born and raised in Argentina, currently working in [New Relic](//newrelic.com) as a Software Engineer and living in sunny Barcelona.
+excerpt: Born and raised in Argentina, currently working in New Relic as a Software Engineer and living in sunny Barcelona.
 ---
 
 His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
