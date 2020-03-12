@@ -456,7 +456,7 @@ A simpler way to put it would be this: You need to call a function, and that fun
 Let's explore an anti-pattern that I've seen repeatedly in articles and even in interviews.
 
 ```js
-import React, { createRef } from 'react';
+import React, { createRef } from 'react'
 
 class Form extends React.Component {
   constructor(props) {
@@ -472,14 +472,10 @@ class Form extends React.Component {
   }
 
   render() {
-
     return (
       <div className="modal">
         <form action="?" onSubmit={this.onSubmit}>
-          <input
-            ref={this.inputRef}
-            type="text"
-          />
+          <input ref={this.inputRef} type="text" />
           <button>Submit</button>
         </form>
       </div>
