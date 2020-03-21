@@ -72,7 +72,7 @@ html {
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -83,10 +83,6 @@ body {
   // transition between light and dark mode
   transition-property: color, background-color;
   transition-duration: 0.25s;
-
-  .fonts-loaded & {
-    font-family: 'Fira Sans', sans-serif;
-  }
 }
 
 a {
@@ -109,7 +105,7 @@ a {
   }
 }
 
-//eliminate the margins in first and last elements
+// delete the margins in first and last elements
 main {
   .container > *:first-child {
     margin-top: 0;
@@ -155,12 +151,7 @@ main {
   // sorry a11y gods, but focus ring is awful on circles
   outline: none;
 
-  &__home {
-    // increase delay in home page
-    animation-delay: 2s;
-  }
-
-  .fonts-loaded & {
+  &__visible {
     animation-name: buttonFadeIn;
   }
 

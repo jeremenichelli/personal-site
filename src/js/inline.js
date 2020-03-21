@@ -1,6 +1,7 @@
 import { css } from 'store-css'
 
-const url = 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700'
+const url =
+  'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700&display=swap'
 const storage = 'session'
 const crossOrigin = 'anonymous'
 const config = { url, storage, crossOrigin }
@@ -24,29 +25,3 @@ try {
 
 // remove no js class
 document.documentElement.classList.remove('no-js')
-
-const scripts = ['/assets/js/main.js']
-
-let FONTS_CACHED = false
-
-try {
-  // check if fonts have been already loaded
-  FONTS_CACHED = JSON.parse(sessionStorage.getItem('fonts-cached'))
-} catch (error) {
-  if (__DEV__) console.error(error)
-}
-
-if (FONTS_CACHED) {
-  document.documentElement.classList.add('fonts-loaded')
-} else {
-  scripts.push('/assets/js/font.js')
-}
-
-// load scripts when DOM is ready
-self.addEventListener('DOMContentLoaded', () => {
-  scripts.forEach((src) => {
-    const scriptEl = document.createElement('script')
-    scriptEl.src = src
-    document.body.append(scriptEl)
-  })
-})
