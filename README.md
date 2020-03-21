@@ -10,7 +10,7 @@ _Before running the static site generator is necessary to generate styles and sc
 
 ## Bundling
 
-Running `yarn bundle` creates a small JavaScript file in `_includes/scripts` which gets inlined in the head to do decide on stored theme and cached font files. In addition a `main.js` file and a separate `font.js` bundle are created inside `assets/js`, they both get async loaded and the later one handles web font loading strategy.
+Running `yarn bundle` creates a small JavaScript file in `_includes/scripts` which gets inlined in the head to do decide on stored theme and cached font files. In addition a `main.js` file is created inside `assets/js`, which gets loaded with `defer` for later user interactions.
 
 ## Styles
 

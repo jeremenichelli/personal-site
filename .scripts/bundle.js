@@ -16,10 +16,6 @@ const bundles = [
     output: './_includes/scripts/inline.liquid'
   },
   {
-    input: './src/js/font.js',
-    output: './assets/js/font.js'
-  },
-  {
     input: './src/js/main.js',
     output: './assets/js/main.js'
   }
