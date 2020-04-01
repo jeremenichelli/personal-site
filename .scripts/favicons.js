@@ -15,11 +15,11 @@ const setup = {
   path: '/assets/favicon/',
   online: false,
   icons: {
-    android: true,
-    appleIcon: true,
+    android: false,
+    appleIcon: false,
     appleStartup: false,
     favicons: true,
-    windows: true,
+    windows: false,
     coast: false,
     firefox: false,
     yandex: false
