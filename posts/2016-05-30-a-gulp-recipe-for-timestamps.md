@@ -47,7 +47,7 @@ var less = require('gulp-less')
 var minify = require('gulp-clean-css')
 
 // styles task
-gulp.task('styles', function() {
+gulp.task('styles', function () {
   return (
     gulp
       .src('./styles/main.less')
@@ -105,7 +105,7 @@ function updateTimestamp(stamp) {
 }
 
 // styles task
-gulp.task('styles', function() {
+gulp.task('styles', function () {
   return (
     gulp
       .src('./styles/main.less')

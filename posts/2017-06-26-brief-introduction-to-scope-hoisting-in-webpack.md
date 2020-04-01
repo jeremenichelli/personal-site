@@ -25,7 +25,7 @@ export default value
 … which turns into this:
 
 ```js
-;(function(module, exports, WEBPACK_REQUIRE_METHOD) {
+;(function (module, exports, WEBPACK_REQUIRE_METHOD) {
   'use strict'
 
   var action = WEBPACK_REQUIRE_METHOD(1)
@@ -38,7 +38,7 @@ export default value
 Here is a simplified version of it.
 
 ```js
-;(function(modules) {
+;(function (modules) {
   var installedModules = {}
 
   function WEBPACK_REQUIRE_METHOD(id) {
@@ -61,11 +61,11 @@ Here is a simplified version of it.
   WEBPACK_REQUIRE_METHOD(0)
 })([
   /* 0 module */
-  function() {},
+  function () {},
   /* 1 module */
-  function() {},
+  function () {},
   /* n module */
-  function() {}
+  function () {}
 ])
 ```
 
@@ -94,12 +94,12 @@ This new feature was introduced to detect where these _import_ chaining can be f
 Let’s picture the previously described situation where a method needs to import another.
 
 ```js
-;(function() {
+;(function () {
   'use strict'
 
   var helper = WEBPACK_REQUIRE_METHOD(0)
 
-  var action = function() {
+  var action = function () {
     var value = helper()
     return value
   }
@@ -111,14 +111,14 @@ Let’s picture the previously described situation where a method needs to impor
 If scope hoisting is enabled, Webpack here will see the opportunity to save one require method call by inlining the helper method like this:
 
 ```js
-;(function() {
+;(function () {
   'use strict'
 
   function helper() {
     /* inlined function from module */
   }
 
-  var action = function() {
+  var action = function () {
     var value = helper()
     return value
   }

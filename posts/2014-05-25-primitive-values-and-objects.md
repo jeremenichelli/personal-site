@@ -55,7 +55,7 @@ Hey, what's that? Well as I told, everything that's not a primitive is an object
 I know it's a little bit confusing so let's build a quick example of this.
 
 ```js
-var Person = function(string, n) {
+var Person = function (string, n) {
   this.name = string
   this.age = n
 }
@@ -78,7 +78,7 @@ me instanceof Person // returns true
 How to add methods to objects? The best way to do this is using populating the `prototype` property, this will let all the instances share the same reference for the method, using less memory.
 
 ```js
-Person.prototype.salutation = function() {
+Person.prototype.salutation = function () {
   return 'Hi! My name is ' + this.name + ' and I am ' + this.age + ' years old.'
 }
 

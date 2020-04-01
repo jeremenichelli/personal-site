@@ -45,7 +45,7 @@ There is <a href="http://www.sitepoint.com/basics-node-js-streams/" target="_bla
 When you declare a **task** in Gulp, you first choose a source directory.
 
 ```js
-gulp.task('minify', function() {
+gulp.task('minify', function () {
   return gulp
     .src('src/**/*.js')
     .pipe(uglify())

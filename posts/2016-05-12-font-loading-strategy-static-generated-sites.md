@@ -26,7 +26,7 @@ Now, we need to add that class when the font's ready. In this example I'm going 
 ```js
 var robotoFamily = new FontFaceObserver('Roboto')
 
-robotoFamily.load().then(function() {
+robotoFamily.load().then(function () {
   document.documentElement.classList.add('fonts-loaded')
 })
 ```
@@ -50,7 +50,7 @@ if (sessionStorage.getItem('fonts-loaded')) {
 } else {
   var robotoFamily = new FontFaceObserver('Roboto')
 
-  robotoFamily.load().then(function() {
+  robotoFamily.load().then(function () {
     document.documentElement.classList.add('fonts-loaded')
     // set mark on storage for future page views
     sessionStorage.setItem('fonts-loaded', true)
@@ -89,7 +89,7 @@ The **font.js** file will look similar to this.
 
 var robotoFamily = new FontFaceObserver('Roboto')
 
-robotoFamily.load().then(function() {
+robotoFamily.load().then(function () {
   document.documentElement.classList.add('fonts-loaded')
   // set mark on storage for future page views
   sessionStorage.setItem('fonts-loaded', true)

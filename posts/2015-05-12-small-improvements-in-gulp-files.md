@@ -56,7 +56,7 @@ gulp.task('build', function() {
 As I explained in <a href="/2015/05/using-gulp/">my previous post</a>, Gulp has a great and simple way to tell a task that some other ones need to finish before it starts.
 
 ```js
-gulp.task('karma', ['lint'], function() {
+gulp.task('karma', ['lint'], function () {
   // do something
 })
 ```

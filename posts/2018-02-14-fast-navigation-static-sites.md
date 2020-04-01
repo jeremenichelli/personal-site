@@ -61,7 +61,7 @@ const anchorsArray = [].slice.call(anchors)
 Next, let's create a method that adds a `link` element to the document with the corresponding `href` to prefetch.
 
 ```js
-const prefetchRoute = function() {
+const prefetchRoute = function () {
   const link = document.createElement('link')
   link.href = this.href
   link.rel = 'prefetch'
@@ -98,7 +98,7 @@ anchorsArray.map((anchor) => {
 We could also remove the listener after prefetching the route.
 
 ```js
-const prefetchRoute = function() {
+const prefetchRoute = function () {
   const link = document.createElement('link')
   link.href = this.href
   link.rel = 'prefetch'

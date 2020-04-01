@@ -134,10 +134,10 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'github-link',
   template: `
-      <a href="https://github.com/{% raw %}{{ user }}{% endraw %}">
-        {% raw %}{{ user }}{% endraw %} on GitHub
-      </a>
-    `
+    <a href="https://github.com/{% raw %}{{ user }}{% endraw %}">
+      {% raw %}{{ user }}{% endraw %} on GitHub
+    </a>
+  `
 })
 export class GitHubLink {
   @Input() user: string
@@ -173,9 +173,9 @@ For form elements, Angular 2 provides an `ngModel` directive available.
 @Component({
   selector: 'search-box',
   template: `
-  <form action="/?">
-    <input type="text" [(ngModel)]="searchValue" name="searchValue"/>
-    <button type="submit">Search</button>
+    <form action="/?">
+      <input type="text" [(ngModel)]="searchValue" name="searchValue" />
+      <button type="submit">Search</button>
     </form>
   `
 })
@@ -225,8 +225,7 @@ import { Component } from '@angular/core'
   selector: 'search-view',
   template: `
     <div class="view">
-      <search-box (onSearchStarted)="onSearchStarted($event)">
-      </search-box>
+      <search-box (onSearchStarted)="onSearchStarted($event)"> </search-box>
     </div>
   `
 })

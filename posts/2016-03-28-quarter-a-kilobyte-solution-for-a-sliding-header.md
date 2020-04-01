@@ -18,7 +18,7 @@ First of all we need to know in which direction the user is scrolling, which it'
 var y = window.scrollY
 var direction = null
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   direction = window.scrollY > y ? 'down' : 'up'
 
   if (direction === 'down') {
@@ -45,7 +45,7 @@ var y = window.scrollY
 var previousDirection = null
 var direction = null
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   direction = window.scrollY > y ? 'down' : 'up'
 
   if (direction !== previousDirection) {
@@ -74,7 +74,7 @@ var y = window.scrollY
 var previousDirection = null
 var direction = null
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   if (window.scrollY > 150) {
     direction = window.scrollY > y ? 'down' : 'up'
 
@@ -111,15 +111,15 @@ var previousDirection = null
 var direction = null
 
 var actions = {
-  up: function() {
+  up: function () {
     header.classList.remove('header--hidden')
   },
-  down: function() {
+  down: function () {
     header.classList.add('header--hidden')
   }
 }
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   if (window.scrollY > 150) {
     direction = window.scrollY > y ? 'down' : 'up'
 
@@ -190,15 +190,15 @@ var header = document.getElementsByTagName('header')[0]
 
 steer.set({
   events: false,
-  up: function() {
+  up: function () {
     header.classList.remove('header--hidden')
   },
-  down: function() {
+  down: function () {
     header.classList.add('header--hidden')
   }
 })
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   if (window.scrollY > 150) {
     steer.trigger()
   } else {

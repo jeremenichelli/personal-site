@@ -67,13 +67,13 @@ If this flag is not boolean, meaning it could have more than two possible values
 
 ```js
 var method = {
-  active: function() {
+  active: function () {
     // do something for active state
   },
-  inactive: function() {
+  inactive: function () {
     // do something for inactive state
   },
-  waiting: function() {
+  waiting: function () {
     // do something for the waiting state
   }
 }
@@ -153,7 +153,7 @@ Just create a base name and an integer to increase everytime you make a call to 
 var cName = 'apicall',
   cNumber = 0
 
-var _getData = function(baseUrl, callback) {
+var _getData = function (baseUrl, callback) {
   var script = document.createElement('script'),
     callbackId = cName + cNumber
 
@@ -161,7 +161,7 @@ var _getData = function(baseUrl, callback) {
   cNumber++
 
   // make padding method global
-  window[callbackId] = function(data) {
+  window[callbackId] = function (data) {
     if (typeof callback === 'function') {
       callback(data)
     } else {

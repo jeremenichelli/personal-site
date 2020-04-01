@@ -52,7 +52,7 @@ Let's take the critical file first. What do we need to do? Grab the file, minify
 
 ```js
 // critical styles task
-gulp.task('styles:critical', function() {
+gulp.task('styles:critical', function () {
   return (
     gulp
       .src('src/styles/critical.css')
@@ -89,7 +89,7 @@ This works great for Jekyll projects, but what about other site generators?
 The only thing you need to change if your site is not built with Jekyll is the destination folder and the extension of the final file. Let's say you're using Wordpress, then this is how the task would look like.
 
 ```js
-gulp.task('styles:critical', function() {
+gulp.task('styles:critical', function () {
   return (
     gulp
       .src('wp-content/themes/your_theme/src/styles/critical.css')
@@ -143,7 +143,7 @@ var autoprefixer = require('gulp-autoprefixer')
 Add these new steps to the task.
 
 ```js
-gulp.task('styles:critical', function() {
+gulp.task('styles:critical', function () {
   return gulp
     .src('src/styles/critical.less')
     .pipe(less())
@@ -166,7 +166,7 @@ gulp.task('styles:critical', function() {
 Let's now close the circle and generate a `.css` file for the rest of the styles of our project.
 
 ```js
-gulp.task('styles:noncritical', function() {
+gulp.task('styles:noncritical', function () {
   return gulp
     .src('src/styles/noncritical.css')
     .pipe(minify())
@@ -188,7 +188,7 @@ We can now run `gulp styles:critical` and `gulp styles:noncritical` in our termi
 To actually automate this, we need to trigger those tasks every time we modify a file. Hopefully, we have a `watch` method that we can use inside Gulp to achieve this.
 
 ```js
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   gulp.watch(['src/styles/critical.css'], ['styles:critical'])
   gulp.watch(['src/styles/noncritical.css'], ['styles:noncritical'])
 })
