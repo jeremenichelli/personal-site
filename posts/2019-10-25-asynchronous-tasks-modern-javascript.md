@@ -18,7 +18,7 @@ As mentioned in the introduction, JavaScript runs the code you write line by lin
 const button = document.querySelector('button')
 
 // observe for user interaction
-button.addEventListener('click', function(e) {
+button.addEventListener('click', function (e) {
   console.log('user click just happened!')
 })
 ```
@@ -36,7 +36,7 @@ var request = new XMLHttpRequest()
 request.open('GET', '//some.api.at/server', true)
 
 // observe for server response
-request.onreadystatechange = function() {
+request.onreadystatechange = function () {
   if (request.readyState === 4 && request.status === 200) {
     console.log(request.responseText)
   }

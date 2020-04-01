@@ -16,13 +16,13 @@ function Circle(r) {
 }
 
 // prototyped method
-Circle.prototype.getCircumference = function() {
+Circle.prototype.getCircumference = function () {
   return this.diameter * Math.PI
 }
 
 // computed property
 Object.defineProperty(Circle.prototype, 'diameter', {
-  get: function() {
+  get: function () {
     this.radius * 2
   }
 })

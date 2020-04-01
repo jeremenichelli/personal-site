@@ -42,7 +42,7 @@ Recalling one of the most used pattern we can wrap this in a Promise constructor
 
 ```js
 function loadScript(url) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var script = document.createElement('script')
 
     script.async = true
@@ -83,7 +83,7 @@ We can load styles in a similar way, this time creating a **link** element.
 
 ```js
 function loadStyles(url) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var link = document.createElement('link')
 
     link.rel = 'stylesheet'
@@ -115,7 +115,7 @@ Promise.all([scriptPromise, stylesPromise]).then(initApp)
 Trying to detect when the DOM has been completely parsed and move it to a `Promise` based algorithm will require the use of a different pattern, because of the nature of event listeners.
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // document elements have been parsed!
 })
 ```
@@ -124,7 +124,7 @@ This is forcing us to act inside a different scope where we can't return a Promi
 
 ```js
 var domResolve
-var domReady = new Promise(function(resolve) {
+var domReady = new Promise(function (resolve) {
   // expose fulfilled state holder to outer scope
   domResolve = resolve
 })
@@ -140,7 +140,7 @@ The same can be done for the global load event.
 
 ```js
 var appResolve
-var appReady = new Promise(function(resolve) {
+var appReady = new Promise(function (resolve) {
   // expose fulfilled state holder to outer scope
   appResolve = resolve
 })
@@ -172,7 +172,7 @@ Turning this into an asynchronous event will be similar to the last pattern that
 
 ```js
 var mapsResolve
-var mapsReady = new Promise(function(resolve) {
+var mapsReady = new Promise(function (resolve) {
   // expose fulfilled state holder to outer scope
   mapsResolve = resolve
 })
@@ -194,13 +194,13 @@ var stylesPromise = loadStyles('/assets/styles/app.css')
 
 // maps
 var mapsResolve
-var mapsReady = new Promise(function(resolve) {
+var mapsReady = new Promise(function (resolve) {
   mapsResolve = resolve
 })
 
 // dom
 var domResolve
-var domReady = new Promise(function(resolve) {
+var domReady = new Promise(function (resolve) {
   domResolve = resolve
 })
 

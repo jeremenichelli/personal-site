@@ -12,7 +12,7 @@ var me = new Vue({
     lastName: 'Oliver'
   },
   computed: {
-    fullName: function() {
+    fullName: function () {
       return this.firstName + ' ' + this.lastName
     }
   }
@@ -70,7 +70,7 @@ var me = {
 Object.defineProperty(me, 'fullName', {
   enumerable: true,
   writeable: false,
-  get: function() {
+  get: function () {
     return this.firstName + ' ' + this.lastName
   }
 })
@@ -81,7 +81,7 @@ me.fullName // John Oliver
 This feature is really powerful when combined with prototyped constructors.
 
 ```js
-var Circle = function(r) {
+var Circle = function (r) {
   this.radius = r
   this.diameter = r * 2
 }
@@ -90,14 +90,14 @@ var Circle = function(r) {
 Doing this makes it possible to modify the **diameter** property on any `Circle` instance, breaking the arithmetical relation it has with the **radius** value.
 
 ```js
-var Circle = function(r) {
+var Circle = function (r) {
   this.radius = r
 }
 
 Object.defineProperty(Circle.prototype, 'diameter', {
   enumerable: true,
   writeble: false,
-  get: function() {
+  get: function () {
     return this.radius * 2
   }
 })
@@ -110,7 +110,7 @@ Defining the **diameter** this way fixes the possibility of inconsistence data.
 In some cases we need to define more than one property, hopefully there is another similar method available to prevent duplicated code for the same action.
 
 ```js
-var Circle = function(r) {
+var Circle = function (r) {
   this.radius = r
 }
 
@@ -118,19 +118,19 @@ var Circle = function(r) {
 Object.defineProperties(Circle.prototype, {
   diameter: {
     writeable: false,
-    get: function() {
+    get: function () {
       return this.radius * 2
     }
   },
   circumference: {
     writeable: false,
-    get: function() {
+    get: function () {
       return this.diameter * Math.PI
     }
   },
   area: {
     writeable: false,
-    get: function() {
+    get: function () {
       return Math.pow(this.radius, 2) * Math.PI
     }
   }

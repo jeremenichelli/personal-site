@@ -69,7 +69,7 @@ var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   jscs = require('gulp-jscs')
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
   return (
     gulp
       .src('/assets/scripts/**/*.js')
@@ -90,7 +90,7 @@ npm install --save-dev gulp-eslint
 This is how the `lint` task will look in this case.
 
 ```js
-gulp.task('lint', function() {
+gulp.task('lint', function () {
   return (
     gulp
       .src('/assets/scripts/**/*.js')

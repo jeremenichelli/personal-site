@@ -26,7 +26,7 @@ After hearing about this, I just loaded the stylesheet containing the **@font-fa
 ```js
 var fontStyleSheet = document.createElement('link')
 
-fontStyleSheet.onload = function() {
+fontStyleSheet.onload = function () {
   document.body.classList.add('font-loaded')
 }
 
@@ -44,7 +44,7 @@ You still need to add your fonts via **@font-face** declaration or include the *
 
 ```js
 FontFaceOnload('Oswald', {
-  success: function() {
+  success: function () {
     // when font is available, add class to body
     document.body.classList.add('font-loaded')
   }
@@ -58,7 +58,7 @@ Again, include your custom font by CSS but this time an observer object is creat
 ```js
 var observer = new FontFaceObserver('Oswald')
 
-observer.check().then(function() {
+observer.check().then(function () {
   document.body.classList.add('font-loaded')
 })
 ```
@@ -85,7 +85,7 @@ WebFont.load({
     families: ['Oswald']
   },
   classes: false,
-  active: function() {
+  active: function () {
     document.body.classList.add('font-loaded')
   }
 })
@@ -112,7 +112,7 @@ This is not hard to solve, once you load the font you can place a cookie.
 ```js
 var observer = new FontFaceObserver('Oswald')
 
-observer.check().then(function() {
+observer.check().then(function () {
   document.body.classList.add('font-loaded')
   document.cookie = 'fonts-loaded'
 })

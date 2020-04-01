@@ -55,7 +55,7 @@ var rename = require('gulp-rename')
 var less = require('gulp-less')
 var minifyCss = require('gulp-minify-css')
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
   return gulp
     .src('./src/less/main.less')
     .pipe(less())

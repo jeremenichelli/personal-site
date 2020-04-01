@@ -122,7 +122,7 @@ Another useful feature available is the `dom-repeat` extension that allows you t
   <script>
     Polymer({
       is: 'link-list',
-      ready: function() {
+      ready: function () {
         this.links = ['https://google.com', 'https://facebook.com']
       }
     })
@@ -314,10 +314,10 @@ Any function present in the descriptor object can be bound to an event inside th
           value: ''
         }
       },
-      _handleChange: function(e) {
+      _handleChange: function (e) {
         this.title = e.target.value
       },
-      _onSubmit: function(e) {
+      _onSubmit: function (e) {
         // do stuff...
       }
     })

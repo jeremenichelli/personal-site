@@ -40,7 +40,7 @@ You've may never heard of it before, but I'm pretty sure you've seen it or even 
 In order to show how a facade pattern implementation works, let's use it to create a function that detects if **classList** is available for use in case we want to add a class.
 
 ```js
-var addClass = function(el, cl) {
+var addClass = function (el, cl) {
   if (document.documentElement.classList) {
     el.classList.add(cl)
   } else {
@@ -76,12 +76,12 @@ So why don't just check it just once?
 var addClass
 if (document.documentElement.classList) {
   // call classList inside addClass method
-  addClass = function(el, cl) {
+  addClass = function (el, cl) {
     el.classList.add(cl)
   }
 } else {
   // fallback for classList.add
-  addClass = function(el, cl) {
+  addClass = function (el, cl) {
     el.className = el.className + ' ' + cl
   }
 }
@@ -97,11 +97,11 @@ This code works on Internet Explorer 7, and even in older versions, but if your 
 var els = HTMLElement || Element
 
 if (document.documentElement.classList) {
-  els.prototype.addClass = function(cl) {
+  els.prototype.addClass = function (cl) {
     this.classList.add(cl)
   }
 } else {
-  els.prototype.addClass = function(cl) {
+  els.prototype.addClass = function (cl) {
     this.className = this.className + ' ' + cl
   }
 }

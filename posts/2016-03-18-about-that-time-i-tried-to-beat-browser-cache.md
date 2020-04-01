@@ -28,7 +28,7 @@ link.rel = 'stylesheet'
 // add resource location
 link.href = 'styles.css'
 
-link.onload = function() {
+link.onload = function () {
   // loaded -- now, do something!
 }
 
@@ -40,7 +40,7 @@ After giving values to the necessary set of attributes and before adding the ele
 In some browsers this event is executed twice, to prevent that you can assign `null` to the event inside the function.
 
 ```js
-link.onload = function() {
+link.onload = function () {
   this.onload = null
   // loaded -- now, do something!
 }
@@ -55,7 +55,7 @@ In modern browsers, a `sheet` property is available on **link** elements which i
 For this case, I just needed one thing, a collection of strings for all the CSS rules.
 
 ```js
-link.onload = function() {
+link.onload = function () {
   this.onload = null
 
   var rules = this.sheet.cssRules
@@ -69,7 +69,7 @@ link.onload = function() {
 We had to crawl a little deep inside the `sheet` property but now we can iterate through all the CSS rules and do something with them. Since they are strings, as you know them, I decided to create an empty one and acummulate all the rules to later store the result.
 
 ```js
-link.onload = function() {
+link.onload = function () {
   this.onload = null
 
   var rules = this.sheet.cssRules
@@ -103,7 +103,7 @@ if (stored) {
   document.head.appendChild(style)
 } else {
   // nothing stored, load stylesheet
-  link.onload = function() {
+  link.onload = function () {
     this.onload = null
 
     var rules = this.sheet.cssRules

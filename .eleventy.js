@@ -7,7 +7,7 @@ const { actionLink, codepen } = require('./.eleventy/shortcodes')
 const { md } = require('./.eleventy/libraries')
 const { htmlmin } = require('./.eleventy/transforms')
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   /* LIQUID AND GLOBAL CONFIG */
   eleventyConfig.setLiquidOptions({ dynamicPartials: true })
   eleventyConfig.addLayoutAlias('base', 'layouts/base.liquid')
