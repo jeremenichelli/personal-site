@@ -9,19 +9,19 @@ We will see how using the web platform as a base is a great option to write less
 
 ## A world with no JavaScript
 
-Sounds horrifying, isn't it? But don't worry, JavaScript is going nowhere.
+It sounds horrifying, isn't it? But don't worry, JavaScript is going nowhere.
 
-And it shouldn't, it’s one of the reasons why building on the web is a great today, but it’s also part of something bigger which includes other technologies and specifications.
+And it shouldn't, it’s one of the reasons why building on the web is great today, but it's not the only tool we have available and it's usually a pretty critical one.
 
 Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](https://paper.dropbox.com//twitter.com/csswizardry) and he said to me:
 
 > "I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?"
 
-There are definitely a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support a JavaScript-disabled scenario. Later, he closes his quote with this:
+There are a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support a JavaScript-disabled scenario. Later, he closes his quote with this:
 
 > "As Jake Archibald said, ‘[…] all your users are non-JavaScript while they're downloading your JavaScript’. So while I don’t think we should build or optimize for visitors who have disabled JavaScript, we shouldn’t make too many assumptions that our JavaScript will always work as we expect."
 
-We do rely more and more on client code, and it's a trend that seems to not stop in the near future. It gave me a lot of thinking as someone who started coding when frameworks weren't a big thing.
+We do rely more and more on client code, and it's a trend that seems to not stop soon. It gave me a lot of thinking as someone who started coding when frameworks weren't a big thing.
 
 What if we lean back on the platform while still using them only to fill the gaps and improve things? Will that strategy translate into less and even better code or will this impact negatively the user experience?
 
@@ -33,15 +33,15 @@ One was _graceful degradation_, a concept in computing and electronic systems wh
 
 The second one was _progressive enhancement_, a strategy of prioritizing web content delivery first and start adding improvements to the experience as the user could afford them or as they were supported.
 
-Keeping these two concepts close, let's dive into a search application with form submission, data fetching, paged results and URL persistence.
+Keeping these two concepts close, let's dive into a search application with form submission, data fetching, paged results, and URL persistence.
 
 To start, let's **disable JavaScript** in the browser.
 
 ## Kick off and form submission
 
-As a first building block I'm choosing [Next](//nextjs.org), a framework built on top of React. Since I won't have JavaScript available on the client I need a stack that gives me control on the server side.
+As a first building block, I'm choosing [Next](//nextjs.org), a framework built on top of React. Since I won't have JavaScript available on the client I need a stack that gives me control on the server-side.
 
-On the index page, we start with the basic set of elements to get input from the user and fetch data later. If we forget about our premise in this article and assume JavaScript is there, we only need an input and a button.
+On the index page, we start with the basic set of elements to get input from the user and fetch data later. If we forget about our premise in this article and assume JavaScript is there, we only need an input element and a button.
 
 ```js
 import React, { useState } from 'react'
@@ -93,9 +93,9 @@ export default Index
 
 A button alone does nothing without JavaScript, like in the first code example.
 
-In the second one things are different, users have the ability to submit by clicking and even by using a keyboard. More importantly, we moved from an inert application to one that actually _does_ something, all without a single line of code on the client.
+In the second one, things are different. Users can submit by clicking, and even by using a keyboard. More importantly, we moved from an inert application to one that _does_ something, all without a single line of code on the client.
 
-Right now our application does one thing, after the user submits the page refreshes but now with the search value appended to the URL, which gives us back the control on the server side.
+Right now our application does one thing, after the user submits the page refreshes but now with the search value appended to the URL, which gives us back the control on the server-side.
 
 We can see now the importance of the _name_ and _action_ attributes.
 
@@ -103,7 +103,7 @@ We can see now the importance of the _name_ and _action_ attributes.
 
 After a search submission, a page request hits the server. There we can inspect the new parameters in the URL to know what data to fetch.
 
-For this we are going to use a method called `getInitialProps` provided by [Next](//nextjs.org), really convenient as it runs on each page request but also on route changes, useful to enhance the experience for users with JavaScript.
+For this, we are going to use a method called `getInitialProps` provided by [Next](//nextjs.org), really convenient as it runs on each page request but also on route changes, useful to enhance the experience for users with JavaScript.
 
 ```js
 Index.getInitialProps = async ({ query }) => {
@@ -200,7 +200,7 @@ Approaches like these aren’t seen much because we tend to build solutions with
 
 ## Pagination
 
-In the same way we lookup inside the context parameter to extract the search query, to enable specific page results we need to inspect this object and look for a `page` key.
+Similar to how we look up inside the context parameter to extract the search query, to enable specific page results we need to inspect this object and look for a `page` key.
 
 Back inside `getInitialProps` we check for this value in the `query` property and construct the correct URL to hit the service.
 
