@@ -1,48 +1,11 @@
-@import '__normalize.less';
-
-@light--color: #ffffff;
-@dark--color: #020210;
-
-@accent: #4242ef;
-@secondary: #505060;
-@code--background: rgba(0, 0, 10, 0.025);
-
-@accent__dark: #7575ff;
-@secondary__dark: #d0d0e0;
-@code--background__dark: rgba(255, 255, 255, 0.05);
-
-:root {
-  // main colors
-  --accent: @accent;
-  --secondary: @secondary;
-  --background: @light--color;
-  --text: @dark--color;
-
-  // code styles
-  --code--background: @code--background;
-
-  // letter spacing
-  --low--letter-spacing: 0.025em;
-  --medium--letter-spacing: 0.05em;
-}
-
-:root.dark {
-  --accent: @accent__dark;
-  --secondary: @secondary__dark;
-  --background: @dark--color;
-  --text: @light--color;
-  --code--background: @code--background__dark;
-}
-
-::selection {
-  background-color: var(--accent);
-  color: @light--color;
-}
+@import './_vars.less';
+@import './_fonts.less';
 
 html {
   box-sizing: border-box;
   font-size: 16px;
   line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
 
   @media (min-width: 737px) {
     font-size: 18px;
@@ -51,6 +14,11 @@ html {
   @media (max-width: 320px) {
     font-size: 15px;
   }
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
 }
 
 *,
@@ -72,14 +40,10 @@ html {
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Helvetica Neue, Arial, sans-serif;
+  font-family: 'Inter', BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   // transition between light and dark mode
   transition-property: color, background-color;
@@ -89,7 +53,8 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
-  text-decoration-skip-ink: auto;
+
+  // TODO: apply text-decoration new rules
 
   &:hover {
     text-decoration: underline;
@@ -129,36 +94,23 @@ main {
   }
 }
 
-.dark--toggle {
-  animation-duration: 0.2s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+.colorScheme--toggle {
   border: none;
   border-radius: 50%;
   background-color: var(--accent);
-  width: 1.5rem;
   height: 1.5rem;
-  opacity: 0;
+  left: 1rem;
+  outline: none; // sorry a11y gods, but focus ring is awful on circles
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  width: 1.5rem;
 
   @media (min-width: 737px) {
     top: 2rem;
     left: 2rem;
   }
 
-  // sorry a11y gods, but focus ring is awful on circles
-  outline: none;
-
-  &__visible {
-    animation-name: buttonFadeIn;
-  }
-
   &:active {
-    transform: scale(0.95) !important;
-    animation-fill-mode: none;
-    opacity: 1;
+    transform: scale(0.95);
   }
 }

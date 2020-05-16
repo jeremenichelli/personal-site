@@ -1,8 +1,8 @@
 // attach listener to dark toggle
-const toggle = document.querySelector('.dark--toggle')
+const toggle = document.querySelector('.colorScheme--toggle')
 
 // make it visible
-toggle.classList.add('dark--toggle__visible')
+toggle.classList.add('colorScheme--toggle__visible')
 
 // add click event
 toggle.addEventListener('click', () => {

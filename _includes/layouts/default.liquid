@@ -3,9 +3,11 @@ layout: base
 ---
 
 {% include 'nav' %}
+
 {% include 'header' %}
+
 <main id="main">
-  <div class="container main__container">
+  <div class="container">
     {% if excerpt %}
       <p class="page__excerpt">
         {{ excerpt | markdownify }}

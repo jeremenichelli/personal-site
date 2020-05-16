@@ -1,0 +1,34 @@
+// LESS Variables
+@lightColor: #ffffff;
+@darkColor: #020210;
+
+@accent: #4242ef;
+@secondary: #505060;
+@codeBackground: rgba(0, 0, 10, 0.025);
+
+@accent__dark: #7575ff;
+@secondary__dark: #d0d0e0;
+@codeBackground__dark: rgba(255, 255, 255, 0.05);
+
+// CSS Variables
+:root {
+  // main colors
+  --accent: @accent;
+  --secondary: @secondary;
+  --background: @lightColor;
+  --text: @darkColor;
+
+  // code styles
+  --codeBackground: @codeBackground;
+
+  // typography
+  --title--letterSpacing: -0.02rem;
+}
+
+:root.color--scheme--dark {
+  --accent: @accent__dark;
+  --secondary: @secondary__dark;
+  --background: @darkColor;
+  --text: @lightColor;
+  --codeBackground: @codeBackground__dark;
+}
