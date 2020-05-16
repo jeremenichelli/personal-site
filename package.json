@@ -7,11 +7,12 @@
     "clean": "rimraf _site assets _includes/styles _includes/scripts _includes/favicons.liquid",
     "bundle": "node .scripts/bundle.js",
     "favicons": "node .scripts/favicons.js",
-    "images": "node .scripts/images.js",
+    "fonts": "node .scripts/fonts.js",
     "less": "node .scripts/less.js",
+    "images": "node .scripts/images.js",
     "serve": "eleventy --serve",
     "build": "DEBUG=* eleventy",
-    "assets": "npm run bundle && npm run less && npm run favicons && npm run images",
+    "assets": "npm run bundle && npm run less && npm run favicons && npm run fonts && npm run images",
     "validate:feed": "feed-validator _site/feed.xml --no-showfeed",
     "prerelease": "npm run clean",
     "release": "npm run assets && npm run build && npm run validate:feed",
@@ -37,6 +38,7 @@
     "@rollup/plugin-replace": "^2.3.1",
     "autoprefixer": "^9.7.4",
     "chalk": "^3.0.0",
+    "cpy": "^8.1.0",
     "cssnano": "^4.1.10",
     "eleventy-nbsp-filter": "^0.1.0",
     "eleventy-xml-plugin": "^0.1.0",
@@ -48,17 +50,14 @@
     "jimp": "^0.9.5",
     "less": "^3.11.1",
     "lint-staged": "^9.2.0",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^5.2.4",
     "mkdirp": "^0.5.1",
     "postcss": "^7.0.27",
     "prettier": "2",
     "rimraf": "^2.6.3",
     "rollup": "^2.0.3",
     "rollup-plugin-terser": "^5.3.0"
-  },
-  "dependencies": {
-    "markdown-it": "^10.0.0",
-    "markdown-it-anchor": "^5.2.4",
-    "store-css": "^1.0.2"
   },
   "lint-staged": {
     "./**/*.js": [
