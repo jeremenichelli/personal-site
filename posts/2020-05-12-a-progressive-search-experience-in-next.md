@@ -1,6 +1,6 @@
 ---
 title: A progressive search experience in Next
-excerpt: One of the most controversial topics in web development today is the amount of client code we push with our applications. Bundle sizes keep increasing each year and some people put frameworks to blame, is the solution to stop using them or should we think better how we build features on top of them?
+excerpt: One of the most controversial topics in web development today is the amount of client code we send with our applications. Some people put frameworks to blame, but is the solution to stop using them or should we think better how we build features on top of them?
 ---
 
 In this article I will explore the idea of a progressively enhanced approach for a search experience, using the browser's native behavior first, giving control back to JavaScript only when needed.
@@ -11,13 +11,13 @@ We will see how using the web platform as a base is a great option to write less
 
 Sounds horrifying, isn't it? But don't worry, JavaScript is going nowhere.
 
-And it shouldn't, it’s one of the reasons why building on the web is a great today, but it’s also just part of something bigger, something that includes other technologies and specifications.
+And it shouldn't, it’s one of the reasons why building on the web is a great today, but it’s also part of something bigger which includes other technologies and specifications.
 
 Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](https://paper.dropbox.com//twitter.com/csswizardry) and he said to me:
 
 > "I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?"
 
-There are definitely a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support this scenario. Later, he closes his quote with this:
+There are definitely a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support a JavaScript-disabled scenario. Later, he closes his quote with this:
 
 > "As Jake Archibald said, ‘[…] all your users are non-JavaScript while they're downloading your JavaScript’. So while I don’t think we should build or optimize for visitors who have disabled JavaScript, we shouldn’t make too many assumptions that our JavaScript will always work as we expect."
 
@@ -27,7 +27,7 @@ What if we lean back on the platform while still using them only to fill the gap
 
 ### Back to the progressive mindset
 
-When I became a web developer there were two terms which got repeated pretty often, like mantras to have present every time you were building something.
+When I became a web developer, there were two terms which got repeated pretty often, like mantras to have present every time you were building something.
 
 One was _graceful degradation_, a concept in computing and electronic systems where they are still useful or functional even if some parts are not working correctly or have been removed.
 
@@ -46,10 +46,10 @@ On the index page, we start with the basic set of elements to get input from the
 ```js
 import React, { useState } from 'react'
 
-function onSubmit(search) {}
-
 const Index = () => {
   const [search, setSearch] = useState('')
+
+  function onSubmit(search) {}
 
   return (
     <>
@@ -64,7 +64,7 @@ export default Index
 
 Is the _name_ attribute in our input necessary? Do we need to wrap everything in a form? What about setting the _action_ on the form? The short answer is, to fetch data with JavaScript, you don't need any of those.
 
-But in the same way you have to write back all the native functionality of a `button` element when using a `div`, writing a semantically correct form will save you from a lot of heavy lifting while enabling a better and more accessible experience out of the box.
+But in the same way you have to write back all the native functionality of a `button` element when using a `div`, writing a semantically correct form will save you from a lot of heavy lifting while enabling a better and more accessible experience at the same time.
 
 ```js
 import React, { useState } from 'react'
@@ -93,17 +93,15 @@ export default Index
 
 A button alone does nothing without JavaScript, like in the first code example.
 
-In the second one things are different, users have the ability to submit by clicking and even by using a keyboard, all without writing a single line of code on the client.
+In the second one things are different, users have the ability to submit by clicking and even by using a keyboard. More importantly, we moved from an inert application to one that actually _does_ something, all without a single line of code on the client.
 
-We moved from an inert application to one that actually _does_ something and with better accessibility.
-
-Right now our application does one thing, after the user submits the page refreshes but now with the search value appended to the URL, which gives back the control on the server side.
+Right now our application does one thing, after the user submits the page refreshes but now with the search value appended to the URL, which gives us back the control on the server side.
 
 We can see now the importance of the _name_ and _action_ attributes.
 
 ## Fetching the search data
 
-After the search submission, a page request hits the server. There we can inspect the new parameters in the URL to know what data to fetch.
+After a search submission, a page request hits the server. There we can inspect the new parameters in the URL to know what data to fetch.
 
 For this we are going to use a method called `getInitialProps` provided by [Next](//nextjs.org), really convenient as it runs on each page request but also on route changes, useful to enhance the experience for users with JavaScript.
 
@@ -115,7 +113,7 @@ Index.getInitialProps = async ({ query }) => {
 
 `getInitialProps` receives a `context` argument, this object holds a collection of properties including the query section of the URL, which here contains the information from the form submitted by the user.
 
-We use `search` value of the query to request data from another service and return an object with the result, [Next](//nextjs.org) passes this object to the page component as props.
+We use the `search` value of the query to request data from another service and return an object with the result, [Next](//nextjs.org) passes this object to the page component as props.
 
 _As an example, we use the_ [_Open Movie Database API_](//www.omdbapi.com/) _service._
 
@@ -194,7 +192,7 @@ function onSubmit (evt) {
 }
 ```
 
-Relying completely on the event dispatching and its target, which both come built-in, and delegating the navigation to Next’s Router keeps the client side of the code minimal.
+Relying completely on the event dispatching and its target, which both come built-in, and delegating the navigation to Next’s router keeps the client side of the code minimal.
 
 > The web does the heavy lifting, our client code is there to enhance the experience
 
@@ -280,7 +278,9 @@ const Index = (props) => {
 }
 ```
 
-`Link` components are rendered as anchor elements, so navigation through page results will work perfectly without client code, while users with JavaScript will get a single page application experience.
+`Link` components are rendered as anchor elements, so navigation through page results will work perfectly without client code.
+
+For users with JavaScript, links will trigger a route change in Next's router logic, passing through `getInitialProps` in a single page application experience.
 
 ## Wrap-up
 
@@ -290,9 +290,9 @@ I don’t think frameworks are evil, though I do believe we need to advocate and
 
 > Writing better HTML might help you by having to write less JavaScript in the end
 
-The experience of tackling common features in a web application with a more incremental approach did produce better and simpler client code.
+Though it is a simplified case, the experience of tackling common features in a web application with a more incremental approach did produce better and simpler client code.
 
-Though it is a simplified case, it’s visible how this, as a starting point, is better than breaking or reinventing web fundamentals and try to patch them back again with even more client code.
+This as a starting point is better than breaking or reinventing web fundamentals and try to patch them back again with even more client code.
 
 I encourage you to explore its code base [here in its repository](//github.com/jeremenichelli/muvi) or even try the full application experience at [muvi.now.sh](//muvi.now.sh), or what’s better do it with JavaScript disabled.
 
