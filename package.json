@@ -79,11 +79,11 @@
     }
   },
   "browserslist": [
-    "Chrome 33",
-    "ChromeAndroid 80",
-    "Firefox 29",
-    "Edge 12",
-    "iOS 8",
-    "Safari 7.1"
+    "Chrome 49",
+    "ChromeAndroid 49",
+    "Firefox 31",
+    "Edge 15",
+    "iOS 9.3",
+    "Safari 9.1"
   ]
 }
