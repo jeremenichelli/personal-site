@@ -10,7 +10,10 @@ toggle.addEventListener('click', () => {
     const storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
     const newDarkModeValue = !storedDarkMode
     localStorage.setItem('dark-mode', newDarkModeValue)
-    document.documentElement.classList.toggle('dark', newDarkModeValue)
+    document.documentElement.classList.toggle(
+      'colorScheme--dark',
+      newDarkModeValue
+    )
   } catch (error) {
     if (__DEV__) console.error(error)
   }
