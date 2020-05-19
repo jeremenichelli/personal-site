@@ -3,3 +3,9 @@
   from = "/feed"
   to = "/feed.xml"
   force = true
+
+# sets headers for font delivery
+[[headers]]
+  for = '/assets/fonts/*'
+  [headers.values]
+    cache-control = 'public, max-age=31536000'
