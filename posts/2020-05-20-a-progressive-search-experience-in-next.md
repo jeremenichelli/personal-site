@@ -13,7 +13,7 @@ It sounds horrifying, isn't it? But don't worry, JavaScript is going nowhere.
 
 And it shouldn't, it’s one of the reasons why building on the web is great today, but it's not the only tool we have available and it's usually a pretty critical one.
 
-Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](https://paper.dropbox.com//twitter.com/csswizardry) and he said to me:
+Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](//csswizardry.com) and he said to me:
 
 > "I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?"
 
