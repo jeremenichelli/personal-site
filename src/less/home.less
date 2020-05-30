@@ -4,8 +4,8 @@
 main {
   margin-top: 2rem;
 
-  @media (min-width: @breakpoint__desktopStart) {
-    margin-top: 9rem;
+  @media (min-width: @breakpoint__desktop--start) {
+    margin-top: 10rem;
   }
 }
 
@@ -13,10 +13,10 @@ main {
   font-size: 2.625rem; // mobile 42px
   font-weight: 800;
   line-height: 1;
-  letter-spacing: var(--title--letterSpacing);
+  letter-spacing: @typography__letter-spacing--title;
   margin: 0;
 
-  @media (min-width: @breakpoint__desktopStart) {
+  @media (min-width: @breakpoint__desktop--start) {
     font-size: 2.666665rem; // desktop 48px
   }
 }
@@ -37,13 +37,13 @@ main {
   margin: 1rem 0 0;
   text-transform: lowercase;
 
-  @media (min-width: @breakpoint__desktopStart) {
+  @media (min-width: @breakpoint__desktop--start) {
     display: inline-block;
     margin: 0;
   }
 
   + .home__nav--line {
-    @media (min-width: @breakpoint__desktopStart) {
+    @media (min-width: @breakpoint__desktop--start) {
       margin: 0 0 0 3rem;
     }
   }
@@ -54,11 +54,11 @@ main {
   font-size: 2.5rem; // mobile 40px
   display: block;
   font-weight: 800;
-  letter-spacing: var(--title--letterSpacing);
+  letter-spacing: @typography__letter-spacing--title;
   line-height: 1;
   text-transform: capitalize;
 
-  @media (min-width: @breakpoint__desktopStart) {
+  @media (min-width: @breakpoint__desktop--start) {
     font-size: 2.666665rem; // desktop 48px
   }
 }

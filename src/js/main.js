@@ -1,18 +1,30 @@
-// attach listener to dark toggle
-const toggle = document.querySelector('.colorScheme--toggle')
+import {
+  COLOR_SCHEME_TOGGLE_CLASSNAME,
+  COLOR_SCHEME_DARK_CLASSNAME,
+  COLOR_SCHEME_KEY,
+  COLOR_SCHEME_DARK_VALUE,
+  COLOR_SCHEME_LIGHT_VALUE
+} from './_constants'
 
-// make it visible
-toggle.classList.add('colorScheme--toggle__visible')
+// handle dark scheme state toggling
+const toggle = document.getElementsByClassName(COLOR_SCHEME_TOGGLE_CLASSNAME)[0]
 
-// add click event
 toggle.addEventListener('click', () => {
   try {
-    const storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
-    const newDarkModeValue = !storedDarkMode
-    localStorage.setItem('dark-mode', newDarkModeValue)
+    const currentColorScheme = localStorage.getItem(COLOR_SCHEME_KEY)
+    const shouldChangeToDarkScheme =
+      currentColorScheme === COLOR_SCHEME_LIGHT_VALUE
+
     document.documentElement.classList.toggle(
-      'colorScheme--dark',
-      newDarkModeValue
+      COLOR_SCHEME_DARK_CLASSNAME,
+      shouldChangeToDarkScheme
+    )
+
+    localStorage.setItem(
+      COLOR_SCHEME_KEY,
+      shouldChangeToDarkScheme
+        ? COLOR_SCHEME_DARK_VALUE
+        : COLOR_SCHEME_LIGHT_VALUE
     )
   } catch (error) {
     if (__DEV__) console.error(error)
