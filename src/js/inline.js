@@ -1,27 +1,17 @@
-// import { css } from 'store-css'
+import {
+  COLOR_SCHEME_KEY,
+  COLOR_SCHEME_DARK_VALUE,
+  COLOR_SCHEME_DARK_CLASSNAME
+} from './_constants'
 
-// const url =
-//   'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700&display=swap'
-// const storage = 'session'
-// const crossOrigin = 'anonymous'
-// const config = { url, storage, crossOrigin }
+// handle initial dark scheme state
+const currentColorScheme = localStorage.getItem(COLOR_SCHEME_KEY)
+const shouldApplyDarkScheme = currentColorScheme === COLOR_SCHEME_DARK_VALUE
 
-// if (__DEV__) {
-//   config.logger = (error, message) => {
-//     if (error) console.error(message, error)
-//     else console.log(message)
-//   }
-// }
-// css(config)
-
-// TODO: Set new dark color strategy
-// try {
-//   // check dark mode initial state
-//   const storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
-//   document.documentElement.classList.toggle('dark', storedDarkMode)
-// } catch (error) {
-//   if (__DEV__) console.error(error)
-// }
+document.documentElement.classList.toggle(
+  COLOR_SCHEME_DARK_CLASSNAME,
+  shouldApplyDarkScheme
+)
 
 // remove no js class
 document.documentElement.classList.remove('no-js')
