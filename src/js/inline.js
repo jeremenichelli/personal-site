@@ -1,7 +1,8 @@
 import {
   COLOR_SCHEME_KEY,
   COLOR_SCHEME_DARK_VALUE,
-  COLOR_SCHEME_DARK_CLASSNAME
+  COLOR_SCHEME_DARK_CLASSNAME,
+  COLOR_SCHEME_LIGHT_VALUE
 } from './_constants'
 
 // handle initial dark scheme state
@@ -11,6 +12,11 @@ const shouldApplyDarkScheme = currentColorScheme === COLOR_SCHEME_DARK_VALUE
 document.documentElement.classList.toggle(
   COLOR_SCHEME_DARK_CLASSNAME,
   shouldApplyDarkScheme
+)
+
+localStorage.setItem(
+  COLOR_SCHEME_KEY,
+  shouldApplyDarkScheme ? COLOR_SCHEME_DARK_VALUE : COLOR_SCHEME_LIGHT_VALUE
 )
 
 // remove no js class
