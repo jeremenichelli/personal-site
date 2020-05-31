@@ -85,7 +85,7 @@ Eleventy has really good up-to-date documentation and Paul Lloyd wrote [a great 
 
 One of the things performance tools were _penalizing_ my site for was low server response which wasn't much in my control when I was using GitHub Pages. Now, this site lives in [Netlify](//netlify.com) supporting secure connections, branch previews and continuous deployment in addition to CDN distribution.
 
-> Netlify is the thing I wished was available when I was a kid throwing invalid HTML to an FTP server like twenty years&nbsp;ago
+> Netlify is the thing I wished was available when I was a kid throwing invalid HTML to an FTP server like twenty years ago
 
 I always recommend to go for the simplest setup to new developers and beginners to focus more on code and learning than in infrastructure and servers, and Netlify is just so simple I took my own advice, and it was the easiest thing to tackle from a the long migration list I had.
 

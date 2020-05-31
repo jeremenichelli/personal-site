@@ -86,7 +86,7 @@ const placeholderString = () =>
   </div>`
 ```
 
-{% actionLink 'https://codepen.io/jeremenichelli/pen/LrGNZm/' %}
+{% codeExampleLink 'https://codepen.io/jeremenichelli/pen/LrGNZm/' %}
 
 _Play with different combinations of sizes to better match your case._
 
@@ -143,7 +143,7 @@ p {
 }
 ```
 
-{% actionLink 'https://codepen.io/jeremenichelli/pen/mKVPMg' %}
+{% codeExampleLink 'https://codepen.io/jeremenichelli/pen/mKVPMg' %}
 
 ### The final result
 

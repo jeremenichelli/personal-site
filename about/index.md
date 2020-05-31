@@ -9,7 +9,7 @@ His interest in web development started back when he opened a website for the fi
 
 > Cartoon Network website sucked back in the 90s
 
-He has worked in a wide spectrum of web projects. Mobile first sites, web applications, animated experiences in the web and even corebusiness applications written in JavaScript, always with a keen eye on performance, user experience and best practices.
+He has worked in a wide spectrum of web projects. Mobile first sites, web applications and services and cool animated experiences, all written in JavaScript and Node.js, always with a keen eye on performance, user experience and best practices.
 
 Lately he's been focusing on tooling and design systems.
 
@@ -29,9 +29,7 @@ _For more details, download my resume <a download target="_blank" href="https://
 
 ## Today
 
-<!-- He is currently looking for a new opportunity, [reach out here](mailto:jmenichelli@gmail.com). -->
-
-He works at [New&nbsp;Relic](//newrelic.com) as a Software&nbsp;Engineer.
+He works at [New&nbsp;Relic](//newrelic.com) as a Software Engineer.
 
 You might also found him around giving talks about his experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
 

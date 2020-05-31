@@ -109,7 +109,7 @@ function shuffle(array) {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/sbLjxweu/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/sbLjxweu/' %}
 
 I've created a fiddle _(link above)_ where you can see this working. It also contains an iteration that gets executed a one hundred thousand times and its results showing the frequencies distribution in the console.
 

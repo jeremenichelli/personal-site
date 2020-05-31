@@ -199,7 +199,7 @@ class Movies extends Component {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/rt9tnk45/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/rt9tnk45/' %}
 
 These optimizations are similar to the ones shown before, the final take is to place outside the render function everything that will remain constant.
 
