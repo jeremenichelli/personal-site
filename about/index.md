@@ -2,26 +2,26 @@
 title: About
 layout: default
 type: about
-excerpt: Born and raised in Argentina, currently working in New Relic as a Software Engineer and living in sunny Barcelona.
+excerpt: Jeremias is a developer, writer and speaker born in Argentina, currently working at New Relic as a Software Engineer in Barcelona.
 ---
 
-His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
+His interest in web development started back when he opened a website for the first time as a kid and asked himself why it was so slow.
 
 > Cartoon Network website sucked back in the 90s
 
-He has worked in a wide spectrum of web projects. Mobile first sites, web applications and services and cool animated experiences, all written in JavaScript and Node.js, always with a keen eye on performance, user experience and best practices.
+He worked in a wide spectrum of web projects, from mobile first sites to modern web applications, web services and animated experiences, all of them using JavaScript and Node.js, always with a keen eye on user experience, performance and best practices.
 
-Lately he's been focusing on tooling and design systems.
+Lately he's been focusing in tooling and design systems.
 
 ## Experience
 
 Early in his career he worked on responsive sites for clients like **Microsoft** and **StateFarm**, focusing in accessibility, cross browsing compatibility and design consistency.
 
-In **OrderGroove** he helped build and maintain their core JavaScript applications with a keen eye on performance and code quality, all applying Agile methodologies.
+In **OrderGroove** he helped build and maintain their core JavaScript applications.
 
 > I'm experienced in accessible and mobile first sites as in various JavaScript frameworks and&nbsp;tooling
 
-He later was the technical lead and developer of cool animated projects for a large set of clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**.
+He later was a technical lead and developer of cool animated projects for a large set of clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**.
 
 After that, he joined **Typeform** as a front end engineer and became the lead of the design system project and initiatives around it.
 
@@ -31,7 +31,7 @@ _For more details, download my resume <a download rel="noopener noreferrer" targ
 
 He currently works at [New&nbsp;Relic](//newrelic.com) as a Software Engineer.
 
-You might also found him around giving talks about his experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
+You might also found him around [giving talks](/talks) about his experiences, [writing articles](/blog) or helping organize [JSHeroes](//jsheroes.io) conference.
 
 _Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, writing or speaking inquiries._
 
