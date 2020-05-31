@@ -26,7 +26,7 @@ let Link = React.createElement(
 )
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/kqLmfcq4' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/kqLmfcq4' %}
 
 In this example we are creating an anchor, passing the **href** and **class** properties and a text node as its only children.
 
@@ -141,7 +141,7 @@ class GitHubUsers extends Component {
 render(<GitHubUsers />, document.querySelector('#example'))
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
 
 The render function in React components always has to return a single root element, that's why the two GitHub links are placed inside a **div** tag.
 
@@ -168,7 +168,7 @@ class GitHubUsers extends Component {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
 
 This is a better pattern since now the logic inside `render` doesn't need to be updated when the data changes, improving the maintainability of the code.
 
@@ -245,7 +245,7 @@ class AccordionElement extends Component {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
 
 When the **toggleState** function gets called the context will be the rendered node, with **bind** we change it back to the component.
 
@@ -400,8 +400,7 @@ Try to learn a new framework always brings a learning curve that, in my opinion,
 
 The first one is the **documentation**. I have to admit is really complete but unorganized, which is a big deal for begginers, probably a consequence of a fast evolution pace the repository experimented recently.
 
-> "The official docs grew organically and need gardening."
-> <cite>Dan Abramov</cite>
+> <q>The official docs grew organically and need gardening.</q> > <cite>Dan Abramov</cite>
 
 The second one is **JSX** itself. Using it really improves the developing experience, but it brings its own tricks and limitations to the yard.
 

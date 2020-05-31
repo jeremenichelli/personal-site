@@ -3,7 +3,7 @@ const xmlPlugin = require('eleventy-xml-plugin')
 
 const { markdownify, nbsp } = require('./.eleventy/filters')
 const { all, archive, blogposts } = require('./.eleventy/collections')
-const { actionLink, codepen } = require('./.eleventy/shortcodes')
+const { codeExampleLink, codepen } = require('./.eleventy/shortcodes')
 const { md } = require('./.eleventy/libraries')
 const { htmlmin } = require('./.eleventy/transforms')
 
@@ -29,7 +29,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection('all', all)
 
   /* SHORT CODES */
-  eleventyConfig.addShortcode('actionLink', actionLink)
+  eleventyConfig.addShortcode('codeExampleLink', codeExampleLink)
   eleventyConfig.addShortcode('codepen', codepen)
 
   /* MARKDOWN */

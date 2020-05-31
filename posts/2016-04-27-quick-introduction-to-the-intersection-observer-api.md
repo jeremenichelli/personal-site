@@ -84,7 +84,7 @@ function onChange(changes) {
 }
 ```
 
-{% actionLink '//codesandbox.io/s/intersection-observer-example-p4gcl' %}
+{% codeExampleLink '//codesandbox.io/s/intersection-observer-example-p4gcl' %}
 
 Now, we will stop tracking images we already checked.
 

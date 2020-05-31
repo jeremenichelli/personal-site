@@ -14,7 +14,7 @@ nav {
   justify-content: flex-start;
   padding: var(--spacing);
 
-  @media (min-width: @breakpoint__desktop--start) {
+  @media (min-width: @breakpoints__desktop--start) {
     align-items: flex-end;
     flex-direction: row;
     justify-content: flex-end;
@@ -25,13 +25,13 @@ nav {
 .nav__link {
   font-size: 1.25rem; // mobile 20px
 
-  @media (min-width: @breakpoint__desktop--start) {
+  @media (min-width: @breakpoints__desktop--start) {
     font-size: 1.111112rem; // desktop 20px
     line-height: 2rem; // center vertically with logo
   }
 
   & + & {
-    @media (min-width: @breakpoint__desktop--start) {
+    @media (min-width: @breakpoints__desktop--start) {
       margin-left: 1rem;
     }
   }
@@ -44,7 +44,7 @@ nav {
 header {
   margin-top: 2rem;
 
-  @media (min-width: @breakpoint__desktop--start) {
+  @media (min-width: @breakpoints__desktop--start) {
     margin-top: 4rem;
   }
 }
@@ -56,7 +56,7 @@ header {
   line-height: 1.15;
   margin: 0;
 
-  @media (min-width: @breakpoint__desktop--start) {
+  @media (min-width: @breakpoints__desktop--start) {
     font-size: 3rem; // desktop 54px
   }
 }
@@ -71,16 +71,62 @@ header {
   margin-bottom: 2rem;
 }
 
+.heading__anchor {
+  @media print {
+    display: none;
+  }
+}
+
+blockquote {
+  margin: 2.5rem 0;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    margin: 3rem 0;
+    padding: 0 2rem 0 1rem;
+  }
+
+  p {
+    color: var(--secondary);
+    font-size: 1.125rem; // mobile 18px
+    font-style: italic;
+    margin: 0;
+    text-transform: uppercase;
+
+    @media (min-width: @breakpoints__desktop--start) {
+      font-size: 1.222223rem; // desktop 22px
+    }
+  }
+}
+
+cite {
+  color: var(--text);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  text-transform: none;
+}
+
 main {
   p {
     margin: 1.5rem 0;
   }
 
-  h2,
-  h3 {
+  h2 {
     font-size: 2rem; // mobile 32px, desktop 36px
     font-weight: 800;
     letter-spacing: @typography__letter-spacing--title;
     line-height: 1.15;
+    margin: 3rem 0 0;
+  }
+
+  h3 {
+    font-size: 1.5rem; // mobile 24px, desktop 27px
+    font-weight: 800;
+    letter-spacing: @typography__letter-spacing--title;
+    line-height: 1.15;
+    margin: 2rem 0 0;
   }
 }

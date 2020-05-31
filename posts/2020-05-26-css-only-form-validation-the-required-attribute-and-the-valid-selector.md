@@ -109,7 +109,7 @@ form.form__with-validation:invalid button.submit__button {
 }
 ```
 
-{% actionLink '//codesandbox.io/s/form-validation-example-ghjoy' %}
+{% codeExampleLink '//codesandbox.io/s/form-validation-example-ghjoy' %}
 
 This is indeed a really simple case to solve. Gladly, this specification contains a pretty wide range of attributes to combine and helpful JavaScript methods in case you want to provide a more custom experience.
 
