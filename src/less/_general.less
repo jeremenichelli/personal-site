@@ -16,11 +16,6 @@ html {
   }
 }
 
-::selection {
-  background-color: var(--accent);
-  color: #fff;
-}
-
 *,
 *:before,
 *:after {
@@ -31,10 +26,14 @@ html {
 }
 
 * {
-  // global focus ring color
   &:focus {
-    outline-color: var(--accent);
+    outline-color: var(--accent); // global focus ring color
   }
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
 }
 
 body {
@@ -64,7 +63,7 @@ a {
   padding: var(--spacing);
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
+  max-width: @sizing__container;
 
   > *:first-child {
     margin-top: 0;

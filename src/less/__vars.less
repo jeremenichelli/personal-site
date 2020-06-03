@@ -1,6 +1,8 @@
 /**
  * LESS Variables
  */
+@corners__code: 3px;
+
 @breakpoints__desktop--start: 798px;
 
 @colors__white: #ffffff;
@@ -12,10 +14,15 @@
 @colors__secondary: #505060;
 @colors__secondary--dark: #d0d0e0;
 
-@colors__code-background: rgba(0, 0, 10, 0.025);
-@colors__code-background--dark: rgba(255, 255, 255, 0.05);
+@colors__code--background: @colors__black;
+@colors__code--background--dark: @colors__white;
+
+@colors__code--text: @colors__white;
+@colors__code--text--dark: @colors__black;
 
 @typography__letter-spacing--title: -0.03em;
+
+@sizing__container: 42rem;
 
 @spacing__mobile: 1rem;
 @spacing__desktop: 2rem;
@@ -29,7 +36,8 @@
   --background: @colors__white;
   --text: @colors__black;
 
-  --code-background: @colors__code-background;
+  --code-background: @colors__code--background;
+  --code-text: @colors__code--text;
 
   --spacing: @spacing__mobile;
 
@@ -38,7 +46,8 @@
     --secondary: @colors__secondary--dark;
     --background: @colors__black;
     --text: @colors__white;
-    --code-background: @colors__code-background--dark;
+    --code-background: @colors__code--background--dark;
+    --code-text: @colors__code--text--dark;
   }
 
   @media (min-width: @breakpoints__desktop--start) {
