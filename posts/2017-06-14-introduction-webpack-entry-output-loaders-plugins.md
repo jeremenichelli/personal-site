@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to webpack: Entry, Output, Loaders, and Plugins'
 excerpt: Front-end development has shifted to a modular approach, improving the encapsulation and structure of codebases. Tooling became a critical part of any project, and right now there are a lot of possible choices.
-host: css-tricks
+host: CSS-Tricks
 host_url: https://css-tricks.com
 external_url: https://css-tricks.com/introduction-webpack-entry-output-loaders-plugins/
 ---

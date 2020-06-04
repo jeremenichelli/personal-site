@@ -2,6 +2,7 @@
  * LESS Variables
  */
 @corners__code: 3px;
+@corners__note: 3px;
 
 @breakpoints__desktop--start: 798px;
 
@@ -16,6 +17,9 @@
 
 @colors__code--background: @colors__black;
 @colors__code--background--dark: rgba(255, 255, 255, 0.05);
+
+@colors__note--background: rgba(0, 0, 0, 0.05);
+@colors__note--background--dark: rgba(255, 255, 255, 0.05);
 
 @colors__code--text: @colors__white;
 @colors__code--text--dark: @colors__white;
@@ -39,6 +43,8 @@
   --code-background: @colors__code--background;
   --code-text: @colors__code--text;
 
+  --note-background: @colors__note--background;
+
   --spacing: @spacing__mobile;
 
   &.color-scheme--dark {
@@ -48,6 +54,7 @@
     --text: @colors__white;
     --code-background: @colors__code--background--dark;
     --code-text: @colors__code--text--dark;
+    --note-background: @colors__note--background--dark;
   }
 
   @media (min-width: @breakpoints__desktop--start) {
