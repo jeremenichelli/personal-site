@@ -69,15 +69,23 @@ footer {
 .page__excerpt {
   color: var(--secondary);
   font-size: 1.111112rem; // desktop 20px
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    margin-bottom: 3rem;
+  }
 }
 
 .page__note {
   background-color: var(--note-background);
   border-radius: @corners__note;
-  margin: 3rem 0;
+  margin-bottom: 2rem;
   padding: 1rem var(--spacing);
   text-align: center;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    margin-bottom: 3rem;
+  }
 }
 
 .page__note-link {
@@ -140,47 +148,13 @@ ul {
   padding: 0 0 0 2rem;
 }
 
-code {
-  background-color: var(--code-background);
-  border-radius: @corners__code;
-  color: var(--code-text);
-  font-family: Menlo, Consolas, Monaco, monospace;
-  font-size: 0.9375rem; // mobile 15px
-  padding: 1px 3px;
-
-  @media (min-width: @breakpoints__desktop--start) {
-    font-size: 0.888888rem; // desktop 16px
-  }
-}
-
-pre {
-  background-color: var(--code-background);
-  color: var(--code-text);
-  left: calc(var(--spacing) * -1);
-  line-height: 1.5;
-  overflow: auto;
-  padding: 1rem 0;
-  position: relative;
-  width: 100vw;
-
-  @media (min-width: @breakpoints__desktop--start) {
-    border-radius: @corners__code;
-    width: @sizing__container;
-  }
-
-  code {
-    // reset styles for standalone code tags
-    background-color: transparent;
-    border-radius: 0;
-
-    // allow padding on horizontal overflow
-    display: inline-block;
-    padding: 0 var(--spacing);
-  }
-}
-
 main {
   p {
-    margin: 2rem 0; // alter vertical spacing only inside main content
+    // alter vertical spacing only inside main content
+    margin: 1.5rem 0;
+
+    @media (min-width: @breakpoints__desktop--start) {
+      margin: 2rem 0;
+    }
   }
 }
