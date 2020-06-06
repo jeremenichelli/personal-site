@@ -6,9 +6,11 @@
   "scripts": {
     "clean": "rimraf _site assets _includes/styles _includes/scripts _includes/favicons.liquid",
     "bundle": "node .scripts/bundle.js",
+    "bundle:watch": "npx cli-watch -f 'src/js/**/*.js' -r 'NODE_ENV=development npm run bundle'",
     "favicons": "node .scripts/favicons.js",
     "fonts": "node .scripts/fonts.js",
     "less": "node .scripts/less.js",
+    "less:watch": "npx cli-watch -f 'src/less/**/*.less' -r 'NODE_ENV=development npm run less'",
     "images": "node .scripts/images.js",
     "serve": "eleventy --serve",
     "build": "DEBUG=* eleventy",
