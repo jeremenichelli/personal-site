@@ -7,23 +7,26 @@ excerpt: These are some of the experiences, stories and articles on what I've le
 
 If you want me to write for your publication feel free [to send here](mailto:jmenichelli@gmail.com) the details.
 
-<ul class="list">
+<ul class="blog-list">
 {% for post in collections.blogposts %}
-  <li class="list__item">
-    <p class="list__item--info">
+  <li class="blog-list-item">
+    <a class="blog-list-item__title" alt="{{ post.data.title }}" href="{{ post.url }}">
+      {{ post.data.title | nbsp }}
+    </a>
+    <p class="blog-list-item__info">
       <time datetime="{{ post.date | iso_date }}">
         {{ post.date | date: '%b %d, %Y'}}
       </time>
     </p>
-    <a class="list__item--title" alt="{{ post.data.title }}" href="{{ post.url }}">
-      {{ post.data.title | nbsp }}
-    </a>
   {% if forloop.first %}
-  <p class="list__item--excerpt">{{ post.data.excerpt }}</p>
-  <a class="list--cta" href="{{ post.url }}">Read the article</a>
+  <p class="blog-list-item__excerpt">{{ post.data.excerpt }}</p>
+  <a class="blog-list-item__cta" href="{{ post.url }}">Read the article</a>
   {% endif %}
   </li>
 {% endfor %}
 </ul>
 
-<a class="archive--link" href="/archive">See all articles</a>
+<p class="blog-links">
+  <a class="blog-links__archive" href="/archive">See all articles</a>
+</p>
+
