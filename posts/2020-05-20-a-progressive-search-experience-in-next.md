@@ -15,7 +15,7 @@ And it shouldn't, it’s one of the reasons why building on the web is great tod
 
 Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](//csswizardry.com) and he said to me:
 
-> <q>I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?" false true</q>
+> <q>I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?"</q>
 
 There are a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support a JavaScript-disabled scenario. Later, he closes his quote with this:
 
