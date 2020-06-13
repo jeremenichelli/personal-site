@@ -7,24 +7,32 @@ excerpt: I am open for speaking requests around general web development, perform
 
 If you want me to speak at your event feel free [to send here](mailto:jmenichelli@gmail.com) the details.
 
-<ul class="list">
+<ul class="talks-list">
 {% for talk in talks %}
-  <li class="list__item">
-    <p class="list__item--info">{{ talk.date | date: '%b %d, %Y'}}
-    <span class="list__item--highlight">{{ talk.event }}</span></p>
+  <li class="talks-list-item">
+    <p class="talks-list-item__info">{{ talk.date | date: '%b %d, %Y'}}
+      <span class="talks-list-item__highlight">at {{ talk.event }}</span>
+    </p>
     <a
-      class="list__item--title"
+      class="talks-list-item__title"
       alt="{{ talk.title }}"
       href="{{ talk.url }}" 
       target="_blank"
       rel="noopener noreferrer"
     >
-      {{ talk.title }}
+      {{ talk.title | nbsp }}
     </a>
-    {%- if forloop.first -%}
-    <p class="list__item--excerpt">{{talk.abstract}}</p>
-    <a class="list--cta" href="{{ talk.url }}">Link to the event</a>
-    {%- endif -%}
+  {% if forloop.first %}
+  <p class="talks-list-item__excerpt">{{ talk.abstract }}</p>
+  <a
+    class="talks-list-item__cta"
+    href="{{ talk.url }}"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Link to the event
+  </a>
+  {% endif %}
   </li>
 {% endfor %}
 </ul>
