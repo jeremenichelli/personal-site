@@ -15,7 +15,7 @@ Lately he's been focusing in tooling and design systems.
 
 ## Experience
 
-Early in his career he worked on responsive sites for clients like **Microsoft** and **StateFarm**, focusing in accessibility, cross browsing compatibility and design consistency.
+Early in his career he worked on responsive sites for clients like **Microsoft** and **StateFarm**, focusing in accessibility, cross browsing compatibility and pixel perfect design.
 
 In **OrderGroove** he helped build and maintain their core JavaScript applications.
 
