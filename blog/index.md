@@ -10,7 +10,7 @@ If you want me to write for your publication feel free [to send here](mailto:jme
 <ul class="blog-list">
 {% for post in collections.blogposts %}
   <li class="blog-list-item">
-    <a class="blog-list-item__title" alt="{{ post.data.title }}" href="{{ post.url }}">
+    <a class="blog-list-item__title" href="{{ post.url }}">
       {{ post.data.title | nbsp }}
     </a>
     <p class="blog-list-item__info">
