@@ -2,10 +2,10 @@
 title: Talks & workshops
 layout: default
 type: talks
-excerpt: I am open for speaking requests around general web development, performance, developer experience, animation and design systems.
+excerpt: Events I spoke at about my ideas and thoughts on web development, performance, animation and design systems.
 ---
 
-If you want me to speak at your event feel free [to send here](mailto:jmenichelli@gmail.com) the details.
+If you want me to speak at your event feel free to [send here](mailto:jmenichelli@gmail.com) the details.
 
 <ul class="talks-list">
 {% for talk in talks %}
@@ -30,7 +30,7 @@ If you want me to speak at your event feel free [to send here](mailto:jmenichell
     rel="noopener noreferrer"
     target="_blank"
   >
-    Link to the event
+    Link to the talk
   </a>
   {% endif %}
   </li>

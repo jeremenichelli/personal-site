@@ -1,20 +1,22 @@
 ---
 title: Archive
-excerpt: Everything I've written and dared to make public, since the beginning of time. Scroll and read at your own peril.
+excerpt: All my writings since the beginning of times, scroll at your own peril.
 layout: default
 type: archive
 ---
 
 {% for post in collections.archive %}
-  {% assign postYear = post.date | date: "%Y" %}
+{% assign postYear = post.date | date: "%Y" %}
 
-  {% if postYear != year %}
+{% if postYear != year %}
 
   <!--
     When it is not the first post and year have changed
     closed leading <ul> element
   -->
-  {% if forloop.first != null %}
+
+{% if forloop.first != null %}
+
   </ul>
   {% endif %}
 
@@ -27,9 +29,10 @@ type: archive
   <!--
     Cache new year value
   -->
-  {% assign year = postYear %}
-  {% endif %}
-  
+
+{% assign year = postYear %}
+{% endif %}
+
   <li class="archive-list-item">
   <a class="archive-list-item__link" href="{{ post.url }}">
     {{ post.data.title | nbsp }}

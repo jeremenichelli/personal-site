@@ -2,10 +2,10 @@
 title: Blog
 type: blog
 layout: default
-excerpt: These are some of the experiences, stories and articles on what I've learned during my journey as a web developer.
+excerpt: A small part of my thoughts, experiences and stories turned into articles during my journey as a web developer.
 ---
 
-If you want me to write for your publication feel free [to send here](mailto:jmenichelli@gmail.com) the details.
+If you want me to write for your publication feel free to [send here](mailto:jmenichelli@gmail.com) the details.
 
 <ul class="blog-list">
 {% for post in collections.blogposts %}
@@ -29,4 +29,3 @@ If you want me to write for your publication feel free [to send here](mailto:jme
 <p class="blog-links">
   <a class="blog-links__archive" href="/archive">See all articles</a>
 </p>
-
