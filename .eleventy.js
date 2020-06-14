@@ -2,7 +2,7 @@ const syntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight')
 const xmlPlugin = require('eleventy-xml-plugin')
 
 const { markdownify, nbsp } = require('./.eleventy/filters')
-const { all, archive, blogposts } = require('./.eleventy/collections')
+const { all, archive, blog } = require('./.eleventy/collections')
 const { codeExampleLink, codepen } = require('./.eleventy/shortcodes')
 const { md } = require('./.eleventy/libraries')
 const { htmlmin } = require('./.eleventy/transforms')
@@ -24,7 +24,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('markdownify', markdownify)
 
   /* COLLECTIONS */
-  eleventyConfig.addCollection('blogposts', blogposts)
+  eleventyConfig.addCollection('blog', blog)
   eleventyConfig.addCollection('archive', archive)
   eleventyConfig.addCollection('all', all)
 
