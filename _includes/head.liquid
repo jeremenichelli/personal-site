@@ -41,9 +41,7 @@
 
   <!-- structured data -->
   <script type="application/ld+json">
-  {% if type == 'blog' or type == 'archive' or type == 'talks' %}
-    {% include 'structured-data/collection' %}
-  {% elsif type == 'post' %}
+  {% if type == 'post' %}
     {% include 'structured-data/post' %}
   {% else %}
     {% include 'structured-data/page' %}
