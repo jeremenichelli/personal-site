@@ -32,13 +32,6 @@
   <!-- favicon definitions -->
   {% include 'favicons' %}
 
-  <!-- include inline styles -->
-  {% capture stylesPath %}styles/{{type}}{% endcapture %}
-  <style>{% include stylesPath %}</style>
-
-  <!-- include inline scripts -->
-  <script>{% include 'scripts/inline' %}</script>
-
   <!-- structured data -->
   <script type="application/ld+json">
   {% if type == 'post' %}
@@ -62,6 +55,13 @@
   <link rel=“preload” href=“/assets/fonts/Inter-ExtraBold.woff2” as=“font”>
   <link rel=“preload” href=“/assets/fonts/Inter-Italic.woff2” as=“font”>
   <link rel=“preload” href=“/assets/fonts/Inter-Regular.woff2” as=“font”>
+
+  <!-- include inline styles -->
+  {% capture stylesPath %}styles/{{type}}{% endcapture %}
+  <style>{% include stylesPath %}</style>
+
+  <!-- include inline scripts -->
+  <script>{% include 'scripts/inline' %}</script>
 
   <!-- da javascript -->
   <script src="/assets/js/main.js" defer></script>
