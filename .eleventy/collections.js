@@ -1,4 +1,4 @@
-const blogposts = (collection) => {
+const blog = (collection) => {
   return collection.getFilteredByTag('post').reverse().slice(0, 8)
 }
 
@@ -13,5 +13,5 @@ const all = function (collection) {
 module.exports = {
   all,
   archive,
-  blogposts
+  blog
 }
