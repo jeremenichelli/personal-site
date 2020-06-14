@@ -14,6 +14,7 @@ If you want me to speak at your event feel free to [send here](mailto:jmenichell
       <span class="talks-list-item__highlight">at {{ talk.event }}</span>
     </p>
     <a
+      aria-label="{{ talk.title }} at {{ talk.event }}"
       class="talks-list-item__title"
       alt="{{ talk.title }}"
       href="{{ talk.url }}" 
@@ -25,6 +26,7 @@ If you want me to speak at your event feel free to [send here](mailto:jmenichell
   {% if forloop.first %}
   <p class="talks-list-item__excerpt">{{ talk.abstract }}</p>
   <a
+    aria-label="Link to {{ talk.title }} at {{ talk.event }}"
     class="talks-list-item__cta"
     href="{{ talk.url }}"
     rel="noopener noreferrer"

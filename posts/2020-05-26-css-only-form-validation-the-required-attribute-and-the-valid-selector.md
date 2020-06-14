@@ -65,7 +65,7 @@ We can go further and require a minimum length and even pass a regular expressio
 
 In this case, we are requiring at least two characters and the first one to be uppercase.
 
-In JavaScript, we have a set of methods to check if the current value of a given element is valid and set a custom error message. The [Constraint Validation API](//developer.mozilla.org/en-US/docs/Web/API/Constraint_validation) is a powerful one, and I strongly encourage developers to read and remember for projects.
+In JavaScript, we have a set of methods to check if the current value of a given element is valid and set a custom error message. The **Constraint Validation API** is a powerful one, and I strongly encourage developers to read and remember for projects.
 
 Along with its release, a useful set of new selectors came to the CSS spec. We can detect which elements are valid or not, and even if forms are valid.
 

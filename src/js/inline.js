@@ -9,10 +9,9 @@ import {
 const currentColorScheme = localStorage.getItem(COLOR_SCHEME_KEY)
 const shouldApplyDarkScheme = currentColorScheme === COLOR_SCHEME_DARK_VALUE
 
-document.documentElement.classList.toggle(
-  COLOR_SCHEME_DARK_CLASSNAME,
-  shouldApplyDarkScheme
-)
+if (currentColorScheme === COLOR_SCHEME_DARK_VALUE) {
+  document.documentElement.classList.add(COLOR_SCHEME_DARK_CLASSNAME)
+}
 
 localStorage.setItem(
   COLOR_SCHEME_KEY,

@@ -84,8 +84,21 @@ a {
   right: var(--spacing);
   top: var(--spacing);
   width: 2rem;
+  
+  .color-scheme__checkbox:focus + &,
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(1);
   }
+}
+
+.screen-reader__content {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
 }
