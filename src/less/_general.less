@@ -74,22 +74,22 @@ a {
   }
 }
 
-:not(.no-js) {
+.color-scheme__toggle {
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+  height: 2rem;
+  position: absolute;
+  right: var(--spacing);
+  top: var(--spacing);
+  width: 2rem;
 
-  .color-scheme__toggle {
-    border: none;
-    border-radius: 50%;
-    background-color: var(--accent);
-    height: 2rem;
-    position: absolute;
-    right: var(--spacing);
-    top: var(--spacing);
-    width: 2rem;
+  :not(.no-js) & {
 
     &:active {
-      transform: scale(0.95);
-    }
-  }
+       transform: scale(0.95);
+     }
+  }  
 }
 
 .screen-reader__content {
