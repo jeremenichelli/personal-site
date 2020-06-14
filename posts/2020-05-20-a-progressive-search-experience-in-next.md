@@ -37,7 +37,7 @@ Keeping these two concepts close, let's dive into a search application with form
 
 To start, let's **disable JavaScript** in the browser.
 
-## Kick off and form submission
+## Form submission and accessibility
 
 As a first building block, I'm choosing [Next](//nextjs.org), a framework built on top of React. Since I won't have JavaScript available on the client I need a stack that gives me control on the server-side.
 
@@ -99,7 +99,7 @@ Right now our application does one thing, after the user submits the page refres
 
 We can see now the importance of the _name_ and _action_ attributes.
 
-## Fetching the search data
+## Fetching data on the server side
 
 After a search submission, a page request hits the server. There we can inspect the new parameters in the URL to know what data to fetch.
 
@@ -198,7 +198,7 @@ Relying completely on the event dispatching and its target, which both come buil
 
 Approaches like these aren’t seen much because we tend to build solutions with JavaScript first in mind. Shifting that initial approach changes drastically the outcome in code for similar or identical tasks, tasks as common as fetching data and URL persistence.
 
-## Pagination
+## Pagination of data results
 
 Similar to how we look up inside the context parameter to extract the search query, to enable specific page results we need to inspect this object and look for a `page` key.
 
