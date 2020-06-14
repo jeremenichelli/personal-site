@@ -6,7 +6,9 @@ import {
   COLOR_SCHEME_LIGHT_VALUE
 } from './_constants'
 
-const checkbox = document.getElementsByClassName(COLOR_SCHEME_CHECKBOX_CLASSNAME)[0]
+const checkbox = document.getElementsByClassName(
+  COLOR_SCHEME_CHECKBOX_CLASSNAME
+)[0]
 
 // set initial state to checkbox
 const currentColorScheme = localStorage.getItem(COLOR_SCHEME_KEY)
