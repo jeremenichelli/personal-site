@@ -9,7 +9,7 @@ Validation is needed, we want to make sure we have all the data we need in the r
 
 In my previous article I explored an approach for [progressive enhancement in a React application](/2020/05/a-progressive-search-experience-in-next/). There I’m using a third-party service that has a rate limit and I have no control over, so preventing unwanted calls was necessary.
 
-## The hydration paradox
+## User interaction and hydration issues
 
 The easiest way to make sure a button doesn’t work is by disabling it. An given the only case I want to prevent a submit is when the search input is empty it’s tempting to disable the button when the value is _falsy_.
 
