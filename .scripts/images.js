@@ -11,9 +11,9 @@ const images = [
   },
   {
     entry: './src/favicon/favicon.png',
-    output: './assets/images/feed.jpeg',
+    output: './assets/images/site-logo.jpeg',
     quality: 85,
-    resize: [200, 200]
+    resize: [300, 300]
   }
 ]
 
