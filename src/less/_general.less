@@ -74,24 +74,21 @@ a {
   }
 }
 
-.color-scheme__toggle {
-  border: none;
-  border-radius: 50%;
-  background-color: var(--accent);
-  height: 2rem;
-  outline: none; // sorry a11y gods, but focus ring is awful on circles
-  position: absolute;
-  right: var(--spacing);
-  top: var(--spacing);
-  width: 2rem;
+:not(.no-js) {
 
-  .color-scheme__checkbox:focus + &,
-  &:hover {
-    transform: scale(1.05);
-  }
+  .color-scheme__toggle {
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent);
+    height: 2rem;
+    position: absolute;
+    right: var(--spacing);
+    top: var(--spacing);
+    width: 2rem;
 
-  &:active {
-    transform: scale(1);
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
 

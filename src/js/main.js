@@ -16,7 +16,7 @@ const isDarkScheme = currentColorScheme === COLOR_SCHEME_DARK_VALUE
 checkbox.checked = isDarkScheme
 checkbox.setAttribute('aria-checked', isDarkScheme)
 
-// handle clicks on color scheme label
+// handle color scheme switching
 checkbox.addEventListener('change', (e) => {
   try {
     const shouldChangeToDarkScheme = e.target.checked
