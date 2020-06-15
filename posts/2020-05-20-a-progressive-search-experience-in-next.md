@@ -181,7 +181,7 @@ Enhancing this for _JavaScript-ready_ users is surprisingly straight-forward.
 Because we have the logic already set in place, instead of re-implementing everything again we prevent the submit default behavior, serialize the form data and push a route change, `getInitialProps` handles the rest.
 
 ```js
-import Router form 'next/router'
+import Router from 'next/router'
 
 function onSubmit (evt) {
     evt.preventDefault()
