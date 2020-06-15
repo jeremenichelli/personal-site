@@ -183,12 +183,12 @@ Because we have the logic already set in place, instead of re-implementing every
 ```js
 import Router from 'next/router'
 
-function onSubmit (evt) {
-    evt.preventDefault()
-    const formData = new FormData(evt.target)
-    const searchQuery = formData.get('search')
-    const url = `/?search=${searchQuery}`
-    Router.push(url)
+function onSubmit(evt) {
+  evt.preventDefault()
+  const formData = new FormData(evt.target)
+  const searchQuery = formData.get('search')
+  const url = `/?search=${searchQuery}`
+  Router.push(url)
 }
 ```
 
