@@ -4,7 +4,7 @@ type: home
 ---
 
 <h1 class="home__title">Jeremias Menichelli</h1>
-<p class="home__subtitle">Curious mind, developer and writer</p>
+<h2 class="home__subtitle">Curious mind, developer and writer</h2>
 <p class="home__bio">  
   Software Engineer at <a href="//newrelic.com">New Relic</a>, a web developer with experience in accessible and mobile first projects, and design&nbsp;systems.
 </p>
