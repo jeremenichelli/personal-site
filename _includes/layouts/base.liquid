@@ -3,7 +3,11 @@
   {% include 'head' %}
   <body>
 
-    <aside>
+    <header>
+    {% if type != 'home' %}
+      {% include 'nav' %}
+    {% endif %}
+
       <input
         class="color-scheme__checkbox js--color-scheme__checkbox screen-reader__content"
         id="color-scheme__checkbox"
@@ -13,7 +17,7 @@
       <label for="color-scheme__checkbox" class="color-scheme__toggle">
         <span class="screen-reader__content">Toggle dark color scheme</span>
       </label>
-    </aside>
+    </header>
 
     {{ content }}
 

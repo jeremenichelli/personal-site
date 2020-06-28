@@ -2,12 +2,18 @@
 layout: base
 ---
 
-{% include 'nav' %}
-
-{% include 'header' %}
-
 <main>
   <div class="container">
+    <h1 class="page__title">{{ title | nbsp }}</h1>
+
+    {% if type == 'post' %}
+      <p class="page__date">
+        <time datetime="{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}">
+          {{ page.date | date: '%d %B, %Y'}}
+        </time>
+      </p>
+    {% endif %}
+ 
     {% if excerpt %}
       <p class="page__excerpt">
         {{ excerpt | markdownify }}
