@@ -10,9 +10,6 @@ If you want me to speak at your event feel free to [send here](mailto:jmenichell
 <ul class="talks-list">
 {% for talk in talks %}
   <li class="talks-list-item">
-    <p class="talks-list-item__info">{{ talk.date | date: '%b %d, %Y'}}
-      <span class="talks-list-item__highlight">at {{ talk.event }}</span>
-    </p>
     <a
       aria-label="{{ talk.title }} at {{ talk.event }}"
       class="talks-list-item__title"
@@ -23,6 +20,9 @@ If you want me to speak at your event feel free to [send here](mailto:jmenichell
     >
       {{ talk.title | nbsp }}
     </a>
+    <p class="talks-list-item__info">{{ talk.date | date: '%b %d, %Y'}}
+      <span class="talks-list-item__highlight">at {{ talk.event }}</span>
+    </p>
   {% if forloop.first %}
   <p class="talks-list-item__excerpt">{{ talk.abstract }}</p>
   <a
