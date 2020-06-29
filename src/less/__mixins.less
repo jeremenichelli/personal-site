@@ -13,9 +13,13 @@
 
     &__info {
       color: var(--secondary);
-      font-size: 0.944444rem;
+      font-size: 0.9375rem; // mobile 15px
       margin: 0.25rem 0 0;
       text-transform: uppercase;
+      
+      @media (min-width: @breakpoints__desktop--start) {
+        font-size: 0.944444rem; // desktop 17px
+      }
     }
 
     &__highlight {

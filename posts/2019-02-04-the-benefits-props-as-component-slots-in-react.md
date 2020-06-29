@@ -95,7 +95,7 @@ const DeleteModal = (props) => (
 )
 ```
 
-I haven't experience any inconvenience by doing this. The result is cleaner and more extensible code as we pass the props to `Button`directly to the element.
+I haven't experience any inconvenience by doing this. The result is cleaner and more extensible code as we pass the props to `Button` directly to the element.
 
 Other stuff you can do is to force certain configuration of the component, for example let's force any _button_ passed to be _secondary_.
 
