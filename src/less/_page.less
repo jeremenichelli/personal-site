@@ -94,8 +94,11 @@ footer {
 }
 
 blockquote {
+  border-color: var(--accent);
+  border-width: 0 0 0 0.3rem;
+  border-style: solid;
   margin: 2.5rem 0;
-  padding: 0 var(--spacing) 0 1rem;
+  padding: calc(var(--spacing) / 2) var(--spacing);
 
   @media (min-width: @breakpoints__desktop--start) {
     margin: 3rem 0;
@@ -104,9 +107,7 @@ blockquote {
   p {
     color: var(--secondary);
     font-size: 1.125rem; // mobile 18px
-    font-style: italic;
-    margin: 0;
-    text-transform: uppercase;
+    font-weight: 700;
 
     @media (min-width: @breakpoints__desktop--start) {
       font-size: 1.111112rem; // desktop 20px
@@ -117,10 +118,8 @@ blockquote {
 cite {
   color: var(--text);
   display: inline-block;
-  font-style: normal;
-  font-weight: 700;
+  font-style: normal; // reset italic native style
   margin: 0.5rem 0 0;
-  text-transform: none;
 }
 
 h2 {
@@ -155,6 +154,14 @@ main {
 
     @media (min-width: @breakpoints__desktop--start) {
       margin: 2rem 0;
+    }
+  }
+
+  // reset margin on paragraphs inside quotes
+  blockquote {
+
+    p {
+      margin: 0;
     }
   }
 }
