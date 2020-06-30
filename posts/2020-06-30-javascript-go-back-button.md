@@ -90,26 +90,26 @@ import React from 'react'
 import BackButton from '../components/back-button'
 
 export default const SearchResultPage = ({ data, referrer }) = {
-    return (
+  return (
     <>
-        <BackButton referer={referrer} />
-        <SearchResult data={data} />
+      <BackButton referer={referrer} />
+      <SearchResult data={data} />
     </>
-    )
+  )
 }
 
 SearchResultPage.getInitialProps = ({ req }) => {
-    let referrer
+  let referrer
 
-    if (req) {
+  if (req) {
     // referer is a known mispelling in the spec
     referrer = req.headers.referer
-    }
+  }
 
-    const response = await fetch('your.api/endpoint')
-    const data = await response.json()
+  const response = await fetch('your.api/endpoint')
+  const data = await response.json()
 
-    return { data, referrer }
+  return { data, referrer }
 }
 ```
 
