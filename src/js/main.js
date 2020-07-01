@@ -40,15 +40,15 @@ checkbox.addEventListener('change', (e) => {
 })
 
 /**
- * Force loading all font assets as not all pages use all weights using fetch
- * for high priority download. Cache will act in further navigation steps to
- * so it shouldn't impact data.
+ * Warm up all font variants by appending preload or prefetch link elements
+ * when supported. Cache will act in further navigation steps to prevent flash
+ * of unstyled content and avoid impacting data consumption.
  * 
  * The option of putting hidden text has been ruled out as it affects search
  * engines crawling the site's content.
  * 
- * The ideal solution would be to preload or prefetch, but preload isn't
- * supported in Firefox and Safari doesn't support prefetch.
+ * The ideal solution would be to preload or prefetch directly in the head,
+ * but preload isn't supported in Firefox and Safari doesn't support prefetch.
  */
 const fonts = [
   '/assets/fonts/Inter-Regular.woff2',
@@ -57,16 +57,41 @@ const fonts = [
   '/assets/fonts/Inter-ExtraBold.woff2',
 ]
 
-try {
+/**
+ * Returns the highest priority value possible, falls back to null if none are
+ * supported to signal no work should be done.
+ * 
+ * @method resolveRel
+ * 
+ * @returns {String|null}
+ */
+function resolveRel() {
+  const link = document.createElement('link');
+
+  if (link.relList && link.relList.supports) {
+
+    // when supported return 'preload' for high priority fetch
+    if (link.relList.supports('preload')) return 'preload'
+    
+    // fallback to 'prefetch' when 'preload' is not supported
+    if (link.relList.supports('prefetch')) return 'prefetch'
+  }
+
+  return null
+}
+
+const rel = resolveRel()
+
+if (rel) {
   fonts.forEach(fontUrl => {
-    fetch(fontUrl)
-      .then((response) => {
-        if (__DEV__) console.log(fontUrl, response)
-      })
-      .catch((error) => {
-        if (__DEV__) console.error(fontUrl, error)
-      })
+    const link = document.createElement('link')
+    
+    link.rel = rel
+    link.as = 'font'
+    link.href = fontUrl
+    
+    document.head.append(link)
+  
+    if (__DEV__) console.log(rel, fontUrl)
   })
-} catch(error) {
-  console.elog
 }
