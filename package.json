@@ -63,12 +63,15 @@
   },
   "lint-staged": {
     "./**/*.js": [
+      "git add .",
       "prettier --write"
     ],
     "./**/*.less": [
+      "git add .",
       "prettier --write"
     ],
     "./**/*.md": [
+      "git add .",
       "prettier --write"
     ]
   },
