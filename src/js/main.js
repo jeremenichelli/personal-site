@@ -43,10 +43,10 @@ checkbox.addEventListener('change', (e) => {
  * Warm up all font variants by appending preload or prefetch link elements
  * when supported. Cache will act in further navigation steps to prevent flash
  * of unstyled content and avoid impacting data consumption.
- * 
+ *
  * The option of putting hidden text has been ruled out as it affects search
  * engines crawling the site's content.
- * 
+ *
  * The ideal solution would be to preload or prefetch directly in the head,
  * but preload isn't supported in Firefox and Safari doesn't support prefetch.
  */
@@ -54,25 +54,24 @@ const fonts = [
   '/assets/fonts/Inter-Regular.woff2',
   '/assets/fonts/Inter-Italic.woff2',
   '/assets/fonts/Inter-Bold.woff2',
-  '/assets/fonts/Inter-ExtraBold.woff2',
+  '/assets/fonts/Inter-ExtraBold.woff2'
 ]
 
 /**
  * Returns the highest priority value possible, falls back to null if none are
  * supported to signal no work should be done.
- * 
+ *
  * @method resolveRel
- * 
+ *
  * @returns {String|null}
  */
 function resolveRel() {
-  const link = document.createElement('link');
+  const link = document.createElement('link')
 
   if (link.relList && link.relList.supports) {
-
     // when supported return 'preload' for high priority fetch
     if (link.relList.supports('preload')) return 'preload'
-    
+
     // fallback to 'prefetch' when 'preload' is not supported
     if (link.relList.supports('prefetch')) return 'prefetch'
   }
@@ -83,15 +82,15 @@ function resolveRel() {
 const rel = resolveRel()
 
 if (rel) {
-  fonts.forEach(fontUrl => {
+  fonts.forEach((fontUrl) => {
     const link = document.createElement('link')
-    
+
     link.rel = rel
     link.as = 'font'
     link.href = fontUrl
-    
+
     document.head.append(link)
-  
+
     if (__DEV__) console.log(rel, fontUrl)
   })
 }
