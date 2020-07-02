@@ -50,6 +50,12 @@
   <meta name="twitter:url" content="{{ url }}">
   <meta name="twitter:image" content="{{ site.url }}/assets/images/twitter-card-image.jpeg">
 
+  <!-- preload font files -->
+  <link rel="preload" href="/assets/fonts/Inter-Regular.woff2" as="font">
+  <link rel="preload" href="/assets/fonts/Inter-Italic.woff2" as="font">
+  <link rel="preload" href="/assets/fonts/Inter-Bold.woff2" as="font">
+  <link rel="preload" href="/assets/fonts/Inter-ExtraBold.woff2" as="font">
+
   <!-- include inline styles -->
   {% capture stylesPath %}styles/{{type}}{% endcapture %}
   <style>{% include stylesPath %}</style>
