@@ -34,6 +34,18 @@ nav {
   color: var(--text);
 }
 
+.nav__link--skip-navigation {
+  color: var(--secondary);
+
+  // show skip navigation link on focus
+  &:focus {
+    clip: auto;
+    height: auto;
+    width: auto;
+    position: static;
+  }
+}
+
 main,
 footer {
   margin-top: 2rem;
