@@ -19,7 +19,7 @@ nav {
   font-size: 1.25rem; // mobile 20px
 
   @media (min-width: @breakpoints__desktop--start) {
-    font-size: 1.111112rem; // desktop 20px
+    font-size: 1.111112rem; // desktop 20px (1) position in Major Second Scale
     line-height: 2rem; // center vertically with logo
   }
 
@@ -51,7 +51,7 @@ footer {
   margin: 0;
 
   @media (min-width: @breakpoints__desktop--start) {
-    font-size: 3.111111rem; // desktop 56px
+    font-size: 3.111111rem; // desktop 56px (~9) position in Major Second Scale
   }
 }
 
@@ -62,7 +62,7 @@ footer {
   text-transform: uppercase;
 
   @media (min-width: @breakpoints__desktop--start) {
-    font-size: 0.944444rem; // desktop 17px
+    font-size: 0.944444rem; // desktop 17px (value out of Major Second Scale)
   }
 }
 
@@ -72,7 +72,7 @@ footer {
   margin: 2rem 0;
 
   @media (min-width: @breakpoints__desktop--start) {
-    font-size: 1.111112rem; // desktop 20px
+    font-size: 1.111112rem; // desktop 20px (1) position in Major Second Scale
     margin: 4rem 0 3rem;
   }
 }
@@ -106,7 +106,7 @@ main {
 }
 
 h2 {
-  font-size: 2rem; // mobile 32px, desktop 36px
+  font-size: 2rem; // mobile 32px, desktop 36px (~6) position in Major Second Scale
   font-weight: 800;
   letter-spacing: @typography__letter-spacing--title;
   line-height: 1.15;
@@ -114,7 +114,15 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem; // mobile 24px, desktop 27px
+  font-size: 1.555556rem; // mobile 24.88px, desktop 28px (~4) position in Major Second Scale
+  font-weight: 800;
+  letter-spacing: @typography__letter-spacing--title;
+  line-height: 1.15;
+  margin: 2rem 0 0;
+}
+
+h4 {
+  font-size: 1.222223rem; // mobile 19.55px, desktop 22px (~2) position in Major Second Scale
   font-weight: 800;
   letter-spacing: @typography__letter-spacing--title;
   line-height: 1.15;
@@ -147,7 +155,7 @@ blockquote {
     margin: 0;
 
     @media (min-width: @breakpoints__desktop--start) {
-      font-size: 1.111112rem; // desktop 20px
+      font-size: 1.111112rem; // desktop 20px (1) position in Major Second Scale
     }
   }
 }

@@ -59,6 +59,12 @@ Variables are scoped per group (colors, typography), then separated by `__` to i
 
 If names are composed by more than one word a single hyphen is used.
 
+### Type scale
+
+All font sizes are a close match to the Major Second Scale, with some little exceptions, like page dates or elements with monospace fonts. This rule applies for desktop sizes, for mobile they are adapted but not caring much about the scale proportions.
+
+The initial position in the scale is `0` at `18px` and each font size rule has a comment on its size with the equivalent value in pixels and position in the scale. When the font size is proximate to a position in the scale but not exact the `~` character is used to signal the closest position.
+
 ## JavaScript bundling
 
 // TODO

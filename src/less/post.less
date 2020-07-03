@@ -6,12 +6,8 @@ code {
   border-radius: @corners__code;
   color: var(--code-text);
   font-family: Menlo, Consolas, Monaco, monospace;
-  font-size: 0.9375rem; // mobile 15px
+  font-size: 15px; // monospace sizes are out of the type scale
   padding: 1px 3px;
-
-  @media (min-width: @breakpoints__desktop--start) {
-    font-size: 0.888888rem; // desktop 16px
-  }
 }
 
 pre {
