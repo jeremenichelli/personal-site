@@ -32,7 +32,8 @@ async function main() {
   const filesList = await asyncGlob(filesGlob)
 
   const sourceMap = ENVIRONMENT !== 'production' && {
-    sourceMapFileInline: true
+    sourceMapFileInline: true,
+    outputSourceFiles: true
   }
 
   // process files content to css

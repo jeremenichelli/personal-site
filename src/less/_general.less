@@ -44,7 +44,7 @@ body {
   margin: 0;
   padding: 0;
 
-  // transition between light and dark mode
+  // transition between light and dark color scheme
   transition-property: color, background-color;
   transition-duration: 0.25s;
 }
@@ -52,10 +52,12 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
-  text-decoration-skip-ink: all;
 
   &:hover {
     text-decoration: underline;
+    text-decoration-skip-ink: all;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 2px;
   }
 }
 
