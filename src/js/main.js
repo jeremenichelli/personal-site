@@ -1,40 +1,47 @@
 import {
-  COLOR_SCHEME_CHECKBOX_CLASSNAME,
-  COLOR_SCHEME_DARK_CLASSNAME,
-  COLOR_SCHEME_KEY,
+  COLOR_SCHEME_BUTTON_CLASSNAME,
   COLOR_SCHEME_DARK_VALUE,
+  COLOR_SCHEME_KEY,
+  COLOR_SCHEME_DARK_CLASSNAME,
   COLOR_SCHEME_LIGHT_VALUE
 } from './_constants'
 
-const checkbox = document.getElementsByClassName(
-  COLOR_SCHEME_CHECKBOX_CLASSNAME
+// check stored color scheme value
+const isDarkSchemeApplied = document.documentElement.classList.contains(
+  COLOR_SCHEME_DARK_CLASSNAME
+)
+
+const colorSchemeButton = document.getElementsByClassName(
+  COLOR_SCHEME_BUTTON_CLASSNAME
 )[0]
 
-// set initial state to checkbox
-const currentColorScheme = localStorage.getItem(COLOR_SCHEME_KEY)
-const isDarkScheme = currentColorScheme === COLOR_SCHEME_DARK_VALUE
-checkbox.checked = isDarkScheme
-checkbox.setAttribute('aria-checked', isDarkScheme)
+// make button accessible for screen readers and set press state
+colorSchemeButton.setAttribute('tabindex', '0')
+colorSchemeButton.setAttribute(
+  'aria-pressed',
+  isDarkSchemeApplied ? 'true' : 'false'
+)
 
-// handle color scheme switching
-checkbox.addEventListener('change', (e) => {
-  try {
-    const shouldChangeToDarkScheme = e.target.checked
+// toggle color scheme on button click event
+colorSchemeButton.addEventListener('click', () => {
+  const shouldChangeToDarkScheme = !document.documentElement.classList.contains(
+    COLOR_SCHEME_DARK_CLASSNAME
+  )
 
-    document.documentElement.classList.toggle(
-      COLOR_SCHEME_DARK_CLASSNAME,
-      shouldChangeToDarkScheme
-    )
+  document.documentElement.classList.toggle(
+    COLOR_SCHEME_DARK_CLASSNAME,
+    shouldChangeToDarkScheme
+  )
 
-    checkbox.setAttribute('aria-checked', shouldChangeToDarkScheme)
+  colorSchemeButton.setAttribute(
+    'aria-pressed',
+    shouldChangeToDarkScheme ? 'true' : 'false'
+  )
 
-    localStorage.setItem(
-      COLOR_SCHEME_KEY,
-      shouldChangeToDarkScheme
-        ? COLOR_SCHEME_DARK_VALUE
-        : COLOR_SCHEME_LIGHT_VALUE
-    )
-  } catch (error) {
-    if (__DEV__) console.error(error)
-  }
+  localStorage.setItem(
+    COLOR_SCHEME_KEY,
+    shouldChangeToDarkScheme
+      ? COLOR_SCHEME_DARK_VALUE
+      : COLOR_SCHEME_LIGHT_VALUE
+  )
 })

@@ -7,16 +7,13 @@
     {% if type != 'home' %}
       {% include 'nav' %}
     {% endif %}
-
-      <input
-        class="color-scheme__checkbox js--color-scheme__checkbox screen-reader__content"
-        id="color-scheme__checkbox"
-        role="switch"
-        type="checkbox"
-      >
-      <label for="color-scheme__checkbox" class="color-scheme__toggle">
-        <span class="screen-reader__content">Toggle dark color scheme</span>
-      </label>
+    
+      <button
+        aria-label="Dark color scheme toggle"
+        class="color-scheme__button js--color-scheme__button"
+        tabindex="-1"
+        type="button">
+      </button>
     </header>
 
     {{ content }}

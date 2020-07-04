@@ -1,4 +1,4 @@
-export const COLOR_SCHEME_CHECKBOX_CLASSNAME = 'js--color-scheme__checkbox'
+export const COLOR_SCHEME_BUTTON_CLASSNAME = 'js--color-scheme__button'
 
 export const COLOR_SCHEME_DARK_CLASSNAME = 'color-scheme--dark'
 
