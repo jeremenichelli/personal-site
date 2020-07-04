@@ -1,9 +1,9 @@
 ---
 title: How to write a go back button for JavaScript applications
-excerpt: Going to the previous screen is such a common action on the web it has a dedicated button in baked in all browsers. Still, some web apps benefit from indicating this action in their interface, but writing a back button that avoids race conditions and hydration issues might be more complicated than it looks like.
+excerpt: Going to the previous screen is such a common action on the web it has a dedicated button in baked in all browsers. Still, some web apps benefit from indicating this action in their interface, but writing a back button that avoids race conditions and hydration issues might be more complicated than it looks.
 ---
 
-We don’t need back and forward actions to be present in our applications, but in some cases, it makes sense to include a back button, [Chris Coyer](//twitter.com/chriscoyier) puts this better than me.
+We don’t need back and forward actions to be present in our applications, but in some cases it makes sense to include a back button, [Chris Coyer](//twitter.com/chriscoyier) puts this better than me.
 
 > Browsers already have “back” buttons, so you’d better have a darn good reason
 
