@@ -70,7 +70,8 @@
   },
   "lint-staged": {
     "*.{js,less,md}": [
-      "prettier --write"
+      "prettier --write",
+      "git add ."
     ]
   },
   "browserslist": [
