@@ -3,7 +3,7 @@ const { asyncMakeDirectory } = require('./_utils')
 const copy = require('cpy')
 
 const fonts = {
-  input: './src/fonts/*',
+  input: './src/fonts/*.{woff,woff2}',
   output: './assets/fonts'
 }
 

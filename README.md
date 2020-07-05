@@ -75,7 +75,13 @@ The initial position in the scale is `0` at `18px` and each font size rule has a
 
 ## Fonts
 
-// TODO
+This project is currently using [Inter](//rsms.me/inter) by Rasmus Andersson. All font files are self-hosted, this move required to optimize font delivery even further as before it was relying on [Google Fonts](///google.com/fonts) to do so.
+
+Fonts are stored as `.ttf` files, they get subsetted using [fonttools](https://github.com/fonttools/fonttools) and compressed to `.woff` and `.woff2` formats. This strategy reduces drastically the font files as layout features are cherry-picked and unused unicodes get removed.
+
+To avoid flash of unstyled content, they are preloaded and font face rules are inlined in the head using _font-display_ to keep text visible as font files load.
+
+_At the moment, font subsetting needs to be done manually and push to the repository._
 
 ## Deployment
 
