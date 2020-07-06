@@ -3,18 +3,7 @@
   {% include 'head' %}
   <body>
 
-    <header>
-    {% if type != 'home' %}
-      {% include 'nav' %}
-    {% endif %}
-    
-      <button
-        aria-label="Dark color scheme toggle"
-        class="color-scheme__button js--color-scheme__button"
-        tabindex="-1"
-        type="button">
-      </button>
-    </header>
+    {% include 'nav' %}
 
     {{ content }}
 

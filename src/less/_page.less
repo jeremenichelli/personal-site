@@ -1,14 +1,11 @@
 @import './__vars.less';
 
 nav {
-  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   padding: var(--spacing);
 
   @media (min-width: @breakpoints__desktop--start) {
-    align-items: flex-end;
     flex-direction: row;
     justify-content: flex-end;
     padding: var(--spacing) 6rem var(--spacing) var(--spacing);
@@ -17,16 +14,16 @@ nav {
 
 .nav__link {
   font-size: 1.25rem; // mobile 20px
+  line-height: 2rem; // center vertically with logo
+  margin: 0 0 0.1rem;
 
   @media (min-width: @breakpoints__desktop--start) {
     font-size: 1.111112rem; // desktop 20px (1) position in Major Second Scale
-    line-height: 2rem; // center vertically with logo
+    margin: 0 1rem 0 0;
   }
 
-  & + & {
-    @media (min-width: @breakpoints__desktop--start) {
-      margin-left: 1rem;
-    }
+  &:last-of-type {
+    margin: 0;
   }
 }
 
@@ -51,12 +48,11 @@ nav {
   }
 }
 
-main,
-footer {
-  margin-top: 2rem;
+main {
+  margin: 2rem 0;
 
   @media (min-width: @breakpoints__desktop--start) {
-    margin-top: 4rem;
+    margin: 4rem 0;
   }
 }
 

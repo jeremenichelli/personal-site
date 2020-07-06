@@ -1,7 +1,16 @@
 <nav>
-  <a href="#main" class="nav__link nav__link--skip-navigation screen-reader__content">Skip navigation</a>
-  <a href="/" aria-label="Go to home" class="nav__link nav__link--home">Jeremias Menichelli</a>
-  <a href="/blog" aria-label="Read articles" class="nav__link">Blog</a>
-  <a href="/talks" aria-label="Check out talks" class="nav__link">Talks</a>
-  <a href="/about" aria-label="Know more about me" class="nav__link">About</a>
+  {% if type != 'home' %}
+    <a href="#main" class="nav__link nav__link--skip-navigation">Skip navigation</a>
+    <a href="/" aria-label="Go to home" class="nav__link nav__link--home">Jeremias Menichelli</a>
+    <a href="/blog" aria-label="Read articles" class="nav__link">Blog</a>
+    <a href="/talks" aria-label="Check out my talks" class="nav__link">Talks</a>
+    <a href="/about" aria-label="Know more about me" class="nav__link">About</a>
+  {% endif %}
+
+  <button
+    aria-label="Dark color scheme toggle"
+    class="color-scheme__button js--color-scheme__button"
+    tabindex="-1"
+    type="button">
+  </button>
 </nav>
