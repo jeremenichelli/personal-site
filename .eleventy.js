@@ -17,7 +17,9 @@ module.exports = function (eleventyConfig) {
 
   /* PLUGINS */
   eleventyConfig.addPlugin(xmlPlugin)
-  eleventyConfig.addPlugin(syntaxHighlightPlugin)
+  eleventyConfig.addPlugin(syntaxHighlightPlugin, {
+    alwaysWrapLineHighlights: false
+  })
 
   /* FILTERS */
   eleventyConfig.addFilter('nbsp', nbsp)
