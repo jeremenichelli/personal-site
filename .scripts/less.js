@@ -15,8 +15,40 @@ const postcss = require('postcss')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 
-const filesGlob = './src/less/{home,blog,post,archive,about,talks,404}.less'
-const outputPath = './_includes/styles/'
+const filesList = [
+  {
+    input: './src/less/home.less',
+    output: './_includes/styles/home.liquid'
+  },
+  {
+    input: './src/less/blog.less',
+    output: './_includes/styles/blog.liquid'
+  },
+  {
+    input: './src/less/post.less',
+    output: './_includes/styles/post.liquid'
+  },
+  {
+    input: './src/less/archive.less',
+    output: './_includes/styles/archive.liquid'
+  },
+  {
+    input: './src/less/about.less',
+    output: './_includes/styles/about.liquid'
+  },
+  {
+    input: './src/less/talks.less',
+    output: './_includes/styles/talks.liquid'
+  },
+  {
+    input: './src/less/404.less',
+    output: './_includes/styles/404.liquid'
+  },
+  {
+    input: './src/less/highlighting.less',
+    output: './assets/css/highlighting.css'
+  }
+]
 
 const asyncPostCSS = async (css) => {
   const postCSSPlugins = [autoprefixer]
@@ -28,18 +60,15 @@ const asyncPostCSS = async (css) => {
 async function main() {
   console.log(`\nProcessing ${cyan('styles')} for ${magenta(ENVIRONMENT)}`)
 
-  await asyncMakeDirectory(outputPath)
-  const filesList = await asyncGlob(filesGlob)
-
   const sourceMap = ENVIRONMENT !== 'production' && {
     sourceMapFileInline: true,
     outputSourceFiles: true
   }
 
   // process files content to css
-  for (const source of filesList) {
-    const input = await asyncReadFile(source, 'utf-8')
-    const paths = [path.dirname(source)]
+  for (const file of filesList) {
+    const input = await asyncReadFile(file.input, 'utf-8')
+    const paths = [path.dirname(file.input)]
     const options = { paths, sourceMap }
 
     // process less content
@@ -55,10 +84,9 @@ async function main() {
     const { css } = await asyncPostCSS(processed.css)
 
     // write files
-    const filename = path.basename(source).replace('.less', '.liquid')
-    const output = outputPath + filename
-    await asyncWriteFile(output, css, 'utf-8')
-    console.log(`${green(output)} file written`)
+    await asyncMakeDirectory(path.dirname(file.output))
+    await asyncWriteFile(file.output, css, 'utf-8')
+    console.log(`${green(file.output)} file written`)
   }
 }
 

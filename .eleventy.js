@@ -1,6 +1,4 @@
-const syntaxHighlightPlugin = require('@11ty/eleventy-plugin-syntaxhighlight')
 const xmlPlugin = require('eleventy-xml-plugin')
-
 const { markdownify, nbsp } = require('./.eleventy/filters')
 const { all, archive, blog } = require('./.eleventy/collections')
 const { codeExampleLink, codepen } = require('./.eleventy/shortcodes')
@@ -17,7 +15,6 @@ module.exports = function (eleventyConfig) {
 
   /* PLUGINS */
   eleventyConfig.addPlugin(xmlPlugin)
-  eleventyConfig.addPlugin(syntaxHighlightPlugin)
 
   /* FILTERS */
   eleventyConfig.addFilter('nbsp', nbsp)

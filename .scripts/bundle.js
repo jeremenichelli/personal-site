@@ -18,6 +18,10 @@ const bundles = [
   {
     input: './src/js/main.js',
     output: './assets/js/main.js'
+  },
+  {
+    input: './src/js/highlighting.js',
+    output: './assets/js/highlighting.js'
   }
 ]
 
@@ -52,6 +56,7 @@ if (ENVIRONMENT === 'production') {
 
 async function main() {
   console.log(`\nGenerating ${cyan('bundles')} for ${magenta(ENVIRONMENT)}`)
+
   try {
     await asyncMakeDirectory('_includes/scripts', { recursive: true })
     await asyncMakeDirectory('assets/js', { recursive: true })
