@@ -13,7 +13,7 @@ const setup = {
   developerName: site.author,
   background: '#020210',
   path: '/assets/favicon/',
-  online: false,
+  online: true,
   icons: {
     android: false,
     appleIcon: false,

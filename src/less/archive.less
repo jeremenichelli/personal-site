@@ -1,9 +1,10 @@
+@import '__vars.less';
 @import '_general.less';
 @import '_page.less';
 
 .archive-list {
   list-style: none;
-  padding: 0 var(--spacing);
+  padding: 0 calc(var(--spacing) * 2) 0 0;
 }
 
 .archive-list-item {
@@ -11,8 +12,12 @@
 }
 
 .archive-list-item__link {
-  font-size: 1.555556rem; // mobile 24.88px, desktop 28px (~4) position in Major Second Scale
+  font-size: 1.5rem; // mobile 24px
   font-weight: 700;
   letter-spacing: @typography__letter-spacing--title;
   line-height: 1.15;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 1.802rem; // desktop 32.44px (5) position in Major Second Scale
+  }
 }
