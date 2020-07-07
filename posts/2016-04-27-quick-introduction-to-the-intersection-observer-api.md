@@ -1,6 +1,7 @@
 ---
 title: Quick introduction to the Intersection Observer API
 excerpt: These last years browsers vendors have paid more attention to the riddles developers were trying to solve to implement native and more performant solutions.
+lastModified: 2019-08-09
 ---
 
 The new **Intersection Observer** interface is here as a response of developers trying to figure out the best way to detect when an element enters the viewport. Doing this is useful in a lot of cases like infinite scrolling, lazy loading images or animating content.
