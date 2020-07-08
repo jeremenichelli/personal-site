@@ -18,12 +18,12 @@ type: archive
 {% if forloop.first != null %}
 
   </ul>
-  {% endif %}
+{% endif %}
 
   <!--
     Print the year title and open a new list
   -->
-  <h2 class="archive__year">{{ postYear }}</h2>
+  <h2 class="archive__year" aria-label="Articles from {{ postYear }}">{{ postYear }}</h2>
   <ul class="archive-list">
 
   <!--
