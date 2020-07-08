@@ -8,20 +8,22 @@
   "headline": "{{ pageTitle }}",
   "description": "{{ pageDescription }}",
   "image": "{{ site.authorImage }}",
+  "datePublished": "{{ page.date | 'date_to_xmlschema' }}",
+  {% if page.data.lastModified %}
+  "dateModified": "{{ page.data.lastModified | 'date_to_xmlschema' }}",
+  {% else %}
+  "dateModified": "{{ page.date | 'date_to_xmlschema' }}",
+  {% endif %}
   "author": {
     "@type": "Person",
-    "name": "{{ site.author }}"
-  },  
-  "publisher": {
+    "name": "Jeremias Menichelli"
+  },
+    "publisher": {
     "@type": "Organization",
-    "name": "{{ site.title }}",
+    "name": "Jeremias Menichelli",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ site.authorImage }}",
-      "width": 300,
-      "height": 300
+      "url": "{{ site.logo }}"
     }
-  },
-  "datePublished": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}",
-  "dateModified": "{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}"
+  }
 }

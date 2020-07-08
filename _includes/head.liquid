@@ -41,6 +41,13 @@
   {% endif %}
   </script>
 
+  <!-- open graph meta -->
+  {% if type == 'post' %}
+    {% include 'open-graph/post' %}
+  {% else %}
+    {% include 'open-graph/page' %}
+  {% endif %}
+
   <!-- twitter card meta -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@jeremenichelli">
