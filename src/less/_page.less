@@ -65,7 +65,12 @@ main {
   margin: 0;
 
   @media (min-width: @breakpoints__desktop--start) {
-    font-size: 3.247rem; // desktop 58.45px (10) position in Major Second Scale
+    /**
+     * desktop 54px, and completely out of the Major Second Scale. I came up
+     * with this number cause I couldn't decide which size was big enough
+     * but not too big at the same time.
+     */
+    font-size: 3rem;
   }
 }
 
