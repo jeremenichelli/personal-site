@@ -17,15 +17,20 @@ main {
   margin: 0;
 
   @media (min-width: @breakpoints__desktop--start) {
-    font-size: 2.666665rem; // desktop 48px (~8) position in Major Second Scale
+    font-size: 2.8rem; // desktop 50.4px completely out of the Major Second Scale
   }
 }
 
 .home__subtitle {
   color: var(--secondary);
-  font-size: 1rem; // mobile 16px, desktop 18px (0) position in Major Second Scale
-  font-weight: 400;
-  margin: 0.25rem 0 1rem;
+  font-size: 0.9375rem; // mobile 15px
+  font-weight: normal;
+  margin: 0.5rem 0 1rem;
+  text-transform: uppercase;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 0.944444rem; // desktop 17px (out of the Major Second Scale)
+  }
 }
 
 .home__bio {
