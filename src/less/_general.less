@@ -67,6 +67,7 @@ a {
   margin-right: auto;
   max-width: @sizing__container;
 
+  // removing spacing on leading elements
   > *:first-child {
     margin-top: 0;
   }
@@ -86,7 +87,11 @@ a {
   top: var(--spacing);
   width: 2rem;
 
-  :not(.no-js) & {
+  /**
+   * Only add active state styles when JavaScript takes
+   * over the toggle button and makes it focusable.
+   */
+  &[tabindex='0'] {
     &:active {
       transform: scale(0.95);
     }
