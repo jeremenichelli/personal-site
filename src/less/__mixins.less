@@ -7,6 +7,16 @@
   &-item {
     margin: 2rem 0;
 
+    &:before {
+      /**
+       * Adding zero-width space returns list semantics to unstyled lists
+       * in accessibility tools like VoiceOver.
+       *
+       * https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+       */
+      content: '\200B';
+    }
+
     &:first-child {
       margin: 3rem 0;
     }
