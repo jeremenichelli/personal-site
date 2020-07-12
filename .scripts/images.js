@@ -14,6 +14,12 @@ const images = [
     output: './assets/images/site-logo.jpeg',
     quality: 85,
     resize: [300, 300]
+  },
+  {
+    entry: './src/images/me.jpg',
+    output: './assets/images/me.jpeg',
+    quality: 85,
+    resize: [800, 800]
   }
 ]
 
