@@ -5,13 +5,13 @@ const { asyncMakeDirectory } = require('./_utils')
 const images = [
   {
     entry: './src/images/site-logo.png',
-    output: './assets/images/site-logo.jpeg',
+    output: './assets/images/site-logo.jpg',
     quality: 85,
     resize: [300, 300]
   },
   {
-    entry: './src/images/me.jpg',
-    output: './assets/images/me.jpeg',
+    entry: './src/images/og-me.jpg',
+    output: './assets/images/og-me.jpg',
     quality: 85,
     resize: [800, 800]
   }
