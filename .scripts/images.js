@@ -13,7 +13,7 @@ const images = [
     entry: './src/images/og-me.jpg',
     output: './assets/images/og-me.jpg',
     quality: 85,
-    resize: [800, 800]
+    resize: [1200, 672]
   }
 ]
 
