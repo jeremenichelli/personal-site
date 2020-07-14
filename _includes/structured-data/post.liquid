@@ -5,8 +5,8 @@
     "@type": "WebPage",
     "@id": "{{ url }}"
   },
-  "headline": "{{ pageTitle }}",
-  "description": "{{ pageDescription }}",
+  "headline": "{{ title }}",
+  "description": "{{ excerpt }}",
   "image": "{{ site.authorImage }}",
   "datePublished": "{{ page.date | 'date_to_xmlschema' }}",
   {% if page.data.lastModified %}
@@ -23,7 +23,7 @@
     "name": "Jeremias Menichelli",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ site.logo }}"
+      "url": "{{ site.authorImage }}"
     }
   }
 }

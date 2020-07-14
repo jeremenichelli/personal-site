@@ -15,11 +15,12 @@
     "less:watch": "npx cli-watch -f 'src/less/**/*.less' -r 'NODE_ENV=development npm run less'",
     "images": "node .scripts/images.js",
     "serve": "eleventy --serve",
-    "build": "DEBUG=* eleventy",
+    "build": "eleventy",
     "assets": "npm run bundle && npm run less && npm run favicons && npm run fonts:copy && npm run images",
     "validate:feed": "feed-validator _site/feed.xml --no-showfeed",
     "prerelease": "npm run clean",
-    "release": "npm run assets && npm run build && npm run validate:feed",
+    "release": "npm run assets && npm run build",
+    "postrelease": "npm run validate:feed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -57,7 +57,7 @@ On the other hand, **CSS Variables** do not hold values just for the sake of dis
 
 Variables are scoped per group (colors, typography), then separated by `__` to indicate its meaning and they can be followed by `--` in case the variable is a variant or belongs to an specific usage.
 
-If names are composed by more than one word a single hyphen is used.
+If names are composed by more than one word a single hyphen is used as separation.
 
 ### Type scale
 
@@ -69,15 +69,19 @@ _I used [type-scale.com](type-scale.com) a lot, to figure out these numbers._
 
 ## JavaScript bundling
 
-// TODO
+This projects uses `rollup` to bundle of the different scripts in the project.
+
+The inlined bits of JavaScript which need to be executed before the page renders go to a partial so it gets embed directly in the HTML as part of the template of the page. It's important for those scripts to pass through the same scrutinity and process, this allows code formatting and minification on it.
+
+Other parts end as normal scripts exported to the `assets` folder, they are places in the `head` tag using the `defer` attribute, as these scripts are important but shouldn't be a blocker for the user to have a good experience while using the site.
 
 ## Favicons
 
-// TODO
+To generate favicons the main source is the `favicon.png` file and the script in `.scripts` folder. The script outputs both the assets and the markup needed for them as a partial in the `_includes` folder, automating the process.
 
 ## Fonts
 
-This project is currently using [Inter](//rsms.me/inter) by Rasmus Andersson. All font files are self-hosted, this move required to optimize font delivery even further as before it was relying on [Google Fonts](///google.com/fonts) to do so.
+This project is currently using [Inter](//rsms.me/inter) by Rasmus Andersson. All font files are self-hosted, this move required to optimize font delivery even further as before it was relying on [Google Fonts](//google.com/fonts) to do so.
 
 Fonts are stored as `.ttf` files, they get subsetted using [fonttools](https://github.com/fonttools/fonttools) and compressed to `.woff` and `.woff2` formats. This strategy reduces drastically the font files as layout features are cherry-picked and unused unicodes get removed.
 
@@ -87,7 +91,11 @@ _At the moment, font subsetting needs to be done manually and push to the reposi
 
 ## Deployment
 
-// TODO
+When a build is triggered in [Netlify](//netlify.com), a script named `npm run relase` takes place. First it cleans possible leading files in the final output directories of the project.
+
+The `release` script first runs `npm run assets` to generate and copy all files including styles partials, scripts, fonts, images and favicon related files. Then, it triggers an [Eleventy](//11ty.dev) build.
+
+As a post activity, for now only, it checks if the feed generated is valid. In the future it might absorb other responsibilities as checking broken links or visual testing.
 
 ## License
 

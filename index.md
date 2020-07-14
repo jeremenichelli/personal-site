@@ -1,6 +1,8 @@
 ---
 layout: home
 type: home
+title: Jeremias Menichelli
+excerpt: Personal site of Jeremias Menichelli — Curious mind, developer and writer
 ---
 
 <h1 class="home__title">Jeremias Menichelli</h1>

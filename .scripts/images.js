@@ -4,13 +4,7 @@ const { asyncMakeDirectory } = require('./_utils')
 
 const images = [
   {
-    entry: './src/favicon/favicon.png',
-    output: './assets/images/twitter-card-image.jpeg',
-    quality: 85,
-    resize: [300, 300]
-  },
-  {
-    entry: './src/favicon/favicon.png',
+    entry: './src/images/site-logo.png',
     output: './assets/images/site-logo.jpeg',
     quality: 85,
     resize: [300, 300]
