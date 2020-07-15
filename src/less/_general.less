@@ -3,9 +3,11 @@
 
 html {
   box-sizing: border-box;
+
+  /**
+   * General font size is declared at root level to use rem units.
+   */
   font-size: 16px;
-  line-height: 1.6;
-  -webkit-text-size-adjust: 100%;
 
   @media (min-width: @breakpoints__desktop--start) {
     font-size: 18px;
@@ -41,12 +43,26 @@ body {
   color: var(--text);
   font-family: 'Inter', BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Helvetica Neue', sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
+  -webkit-text-size-adjust: 100%;
 
   // transition between light and dark color scheme
   transition-property: color, background-color;
   transition-duration: 0.25s;
+}
+
+/**
+ * Some browsers don't support font-feature-settings inside font face
+ * declarations, so they are needed at tag level. 
+ */
+body {
+  font-feature-settings: 'ss01' on;
+}
+
+em {
+  font-feature-settings: 'ss01' on, 'cv05' on, 'cv11' on;
 }
 
 a {
