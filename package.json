@@ -82,5 +82,8 @@
     "Edge 15",
     "iOS 9.3",
     "Safari 9.1"
-  ]
+  ],
+  "dependencies": {
+    "prismjs": "^1.20.0"
+  }
 }

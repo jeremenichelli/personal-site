@@ -6,6 +6,28 @@ import {
   COLOR_SCHEME_LIGHT_VALUE
 } from './_constants'
 
+import Prism from 'prismjs'
+
+window.addEventListener('load', function () {
+  console.log('run on load', document, window)
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > 0) {
+          observer.unobserve(entry.target)
+          Prism.highlightElement(entry.target)
+        }
+      })
+    },
+    { rootMargin: '200px' }
+  )
+
+  Array.prototype.slice
+    .call(document.querySelectorAll('code[class*="language"]'))
+    .forEach((el) => observer.observe(el))
+})
+
 // check stored color scheme value
 const isDarkSchemeApplied = document.documentElement.classList.contains(
   COLOR_SCHEME_DARK_CLASSNAME

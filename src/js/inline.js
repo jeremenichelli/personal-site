@@ -21,3 +21,11 @@ localStorage.setItem(
   COLOR_SCHEME_KEY,
   shouldApplyDarkScheme ? COLOR_SCHEME_DARK_VALUE : COLOR_SCHEME_LIGHT_VALUE
 )
+
+window.Prism = window.Prism || {}
+Prism.manual = true
+
+window.addEventListener('load', () => console.log('window load event'))
+window.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed')
+})
