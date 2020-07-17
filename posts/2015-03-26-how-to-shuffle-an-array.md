@@ -119,7 +119,7 @@ After running those tests and making sure it worked well I started searching for
 
 Don't get me wrong, I think [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) is great, but when used for its original purposes, to establish a new known order in an array.
 
-For that you need a criteria and a compare function that responds to it. Random isn't a known order and has no criteria, but well, here's the little monster I found out there...
+For that you need a criteria and a compare function that responds to it. Random isn't a known order and has no criteria, but well, here's the little monster I found out there.
 
 ```js
 array.sort(function () {

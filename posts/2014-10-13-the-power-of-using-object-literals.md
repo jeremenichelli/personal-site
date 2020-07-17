@@ -147,7 +147,11 @@ This approach is used in this weather widget I did call <a href="https://github.
 
 If your dealing with a web app that needs to do JSONP calls, using object literals could help you store the callback to obtain the data.
 
-Just create a base name and an integer to increase everytime you make a call to the API that will compound the final callback name. With the brackets notation you can store the new callback as a string key in a global variable like _window_, though it would be safer to use a namespace. Depending on the API documentation you will also need to specify the callback name in the url of the request.
+Just create a base name and an integer to increase everytime you make a call to the API that will compound the final callback name.
+
+With the brackets notation you can store the new callback as a string key in a global variable like `window`, though it would be safer to use a namespace.
+
+Depending on the API documentation you will also need to specify the callback name in the url of the request.
 
 ```js
 var cName = 'apicall',

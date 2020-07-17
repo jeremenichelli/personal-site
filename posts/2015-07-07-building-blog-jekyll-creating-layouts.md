@@ -13,7 +13,7 @@ If you're going my way and you're starting with an empty folder then you're goin
 # site settings
 title: Your awesome title
 author: Your name
-description: 'Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description.'
+description: 'Write an awesome description for your new site here.'
 
 # build settings
 port: 4000
@@ -38,16 +38,13 @@ Doing this will make maintainance much easier, something similar to what you hav
 
 You can still play a little with Liquid here. For example inside the head tag you can check if the page has a title, and if not you can default you the site title.
 
-```liquid
+```html
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>
-    {% raw %}{% if page.title %}
-      {{ page.title }}
-    {% else %}
-      {{ site.title }}
-    {% endif %}{% endraw %}
+    {% raw %}{% if page.title %} {{ page.title }} {% else %} {{ site.title }} {%
+    endif %}{% endraw %}
   </title>
   <meta
     name="description"
@@ -63,11 +60,11 @@ We save this as **head.html** inside the **\_includes** folder and we can now cr
 
 This is the name of your folder where your layouts, pretty obvious, are going to be placed. There's not much to explain here, the best is to show you how a layout would look in Jekyll.
 
-```liquid
+```html
 <!DOCTYPE html>
 <html lang="en">
-  {% raw %}{% include head.html %}{% endraw %}
-  {% raw %}{% include header.html %}{% endraw %}
+  {% raw %}{% include head.html %}{% endraw %} {% raw %}{% include header.html
+  %}{% endraw %}
 
   <body>
     <section class="page-wrapper">
@@ -81,11 +78,11 @@ This is the name of your folder where your layouts, pretty obvious, are going to
 
 Pretty easy to understand. We're going to call this layout **default.html**, but if we want more special layouts for pages or posts we can add as many as we want. For example let's create a post layout structure. This time the `{% raw %}{{ content }}{% endraw %}` placeholder will hold the text inside the article and not the whole page.
 
-```liquid
+```html
 <!DOCTYPE html>
 <html lang="en">
-  {% raw %}{% include head.html %}{% endraw %}
-  {% raw %}{% include header.html %}{% endraw %}
+  {% raw %}{% include head.html %}{% endraw %} {% raw %}{% include header.html
+  %}{% endraw %}
 
   <body>
     <section class="post-wrapper">

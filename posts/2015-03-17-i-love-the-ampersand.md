@@ -50,7 +50,7 @@ It's a nice touch, maybe not a big thing. To me this little guy it's great when 
 .clearfix() {
   &:before,
   &:after {
-    content: ' ';
+    content: '';
     display: table;
   }
 

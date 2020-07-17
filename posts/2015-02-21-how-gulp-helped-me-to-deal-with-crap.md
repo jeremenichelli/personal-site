@@ -1,29 +1,33 @@
 ---
 title: How Gulp helped me to deal with tech debt
-excerpt: It's not a big secret that maintaining code that we didn't create is a big pain sometimes. Of course the only fact that other developer did it puts us in an uncomfortable place because there's a high chance that you're trying to understand patterns and approaches you wouldn't have taken, which doesn't mean they are wrong they just aren't yours. For a few months I had to deal not only with this, but with code full of bad practices.
+excerpt: It's not a big secret that maintaining code we haven't written is a big pain sometimes. You are gpoing to find yourself trying to understand patterns and approaches you wouldn't have taken, which doesn't mean they are wrong, they just aren't yours. For a few months I had to deal not only with this, but with code full of bad practices.
 ---
 
-Some guys from my home town have a news site and they needed some new stuff and little tweaks on the design, after looking at the code I said that I would only work on it if they gave me the time to improve loading times and clean a little bit the code. And you know what, it wasn't that bad. At the beggining I didn't know how to work around this and get a good output at the end. Two things came to help me in a big way: Gulp and LESS.
+Some folks from my home town have a news site and they needed some new stuff and little tweaks on the design, after looking at the code I said that I would only work on it if they gave me the time to improve loading times and clean a little bit the code.
+
+And you know what, it wasn't that bad. At the beggining I didn't know how to work around this and get a good output at the end. Two things came to help me in a big way: Gulp and LESS.
 
 ## Organizing the styles
 
-When I received the permissions to put my hands in the code the first little thing that made me open my eyes wide was a seven thousands lines style sheet. Bad indentation all the way and of course not the best practices on CSS, impossible to maintain and detect unused styles so the first thing I did was to pass the entire file through a CSS to LESS process. You can find CSS to LESS online processors in the web, they don't take all the advantages of the LESS language so I had to go line through line and fix a couple of lines to really look like a nice LESS file.
+When I received the permissions to put my hands in the code the first little thing that made me open my eyes wide was a seven thousands lines style sheet. Bad indentation all the way and of course not the best practices on CSS, impossible to maintain and detect unused styles so the first thing I did was to pass the entire file through a CSS to LESS process.
 
-They weren't the funniest hours of my life but it reduced the file by more than a half and I lost less time trying to find what to fix or delete in the code in the next weeks.
+You can find CSS to LESS online processors in the web, they don't take all the advantages of the LESS language so I had to go line through line and fix a couple of lines to really look like a nice LESS file.
+
+They weren't the funniest hours of my life, but it reduced the file by more than a half and lost less time trying to find what to fix or delete in the code later.
 
 ### One .less file to rule them all
 
 A small decision sometimes becomes big. I decided to create a _main.less_ file that will import first the _\_oldStyles.less_ file and everytime I refactored a particular section or functionality of the site I should erase them from that file and move it to a new one.
 
-So, the main file looked like this at the beginning...
+So, the main file looked like this at the beginning.
 
-```
+```less
 @import '_oldStyles.less';
 ```
 
-After working a lot in the site and modularizing some parts of the site the main file looked like this...
+After working a lot in the site and modularizing some parts of the site the main file looked like this:
 
-```
+```less
 @import '_reset.less';
 @import '_general.less';
 @import '_layout.less';

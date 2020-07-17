@@ -117,4 +117,4 @@ Every time we want to change the value of the pointer we need to use the star pr
 
 ## Wrap-up
 
-Hopefully after writing this small article I won't have to google again how pointers work, but just in case I forget again, I know I just need to come back here.
+Hopefully after writing this small article I won't have to google again how pointers work, but just in case I forget again, I just need to come back here.

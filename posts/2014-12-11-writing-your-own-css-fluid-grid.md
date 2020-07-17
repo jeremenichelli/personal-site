@@ -144,7 +144,7 @@ For this to work we need to wrap every row within a _&lt;div&gt;_ tag.
 
 ## The markup
 
-So, we need a row class element and then fill it up with the group of columns we want.
+We need a row class element and then fill it up with the columns we want.
 
 ```html
 <div class="row">
@@ -158,7 +158,9 @@ That's pretty simple and clean, isn't it? If we want vertical spacing my recomme
 
 ## What about mobile?
 
-In order to have a grid completely responsive we need to add a media query to our style sheet and make some changes to our columns. They need to cover the whole width, remove the float and the left margin and add a top margin or they will be have no vertical spacing between each other, I'll choose _20px_ as an example.
+In order to have a grid completely responsive we need to add a media query to our style sheet and make some changes to our columns.
+
+They need to cover the whole width, remove the float and the left margin and add a top margin or they will be have no vertical spacing between each other, I'll choose _20px_ as an example.
 
 ```css
 @media (max-width: 768px) {
