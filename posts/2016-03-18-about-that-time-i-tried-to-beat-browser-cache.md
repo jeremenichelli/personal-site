@@ -130,8 +130,8 @@ Long answer, both profiles got really similar metrics. The one using this small 
 
 One of the main reasons why **cache** is faster &mdash; its request is done in parallel while the script needed to recover the CSS rules blocks rendering while it executes.
 
-- _Using local storage: <a href="http://www.webpagetest.org/result/160315_DA_1AM8/" target="_blank">http://www.webpagetest.org/result/160315_DA_1AM8/</a>_
-- _Using browser cache: <a href="http://www.webpagetest.org/result/160315_00_1AN4/" target="_blank">http://www.webpagetest.org/result/160315_00_1AN4/</a>_
+- Benchmark using [local storage](http://www.webpagetest.org/result/160315_DA_1AM8/).
+- Benchmark using [browser cache](http://www.webpagetest.org/result/160315_00_1AN4/).
 
 Those are links to each result in case you want to see all the numbers and graphics around them.
 

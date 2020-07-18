@@ -54,13 +54,13 @@ class Circle {
 }
 ```
 
-Though it's not declared using parenthesis **Circle** is still a function, but now all the stuff that happens when a new instance is created must be moved to the **constructor** method inside the **class** block.
+Though it's not declared using parenthesis `Circle` is still a function, but now all the stuff that happens when a new instance is created must be moved to the `constructor` method inside the `class` block.
 
-Any method you add inside that block, as **getCircumference** in our example, will be assigned to the prototype of the class.
+Any method you add inside that block, as `getCircumference` in our example, will be assigned to the prototype of the class.
 
 ### Getters and setters
 
-Thanks to this new access to the prototype of the constructor and the **get** and **set** special words we don't necessarily have to use `Object.defineProperty` for computed properties.
+Thanks to this new access to the prototype of the constructor and the `get` and `set` special words we don't necessarily have to use `Object.defineProperty` for computed properties.
 
 ```js
 // ES2015
@@ -88,13 +88,13 @@ sample.diameter // 10
 sample.getCircumference() // 31.41592
 ```
 
-With this new notation everything related to the **Circle** class gets declared inside the same block which is way better to read and quicker understand.
+With this new notation everything related to the `Circl`\* class gets declared inside the same block which is way better to read and quicker understand.
 
 ## Inheritance
 
-Generating a long prototype chain was literally a mess and if you got the chance to take part on a variety of projects you probably saw each of them had a **clone** or an **inherit** to make things look a little bit more organized.
+Generating a long prototype chain was literally a mess and if you got the chance to take part on a variety of projects you probably saw each of them had a _clone_ or an _inherit_ to make things look a little bit more organized.
 
-This time, our new friends on the neighbourhood are **extends** and **super** words, they will make inheritance an easy thing to track through our code base.
+This time, our new friends on the neighbourhood are `extends` and `super` words, they will make inheritance an easy thing to track through our code base.
 
 ```js
 // ES2015
@@ -140,7 +140,7 @@ sample.width // 3.5
 sample.area // 12.25
 ```
 
-Using **super** we execute the constructor method from the class we are extending, avoiding duplicated code or helper functions.
+Using `super` we execute the constructor method from the class we are extending, avoiding duplicated code or helper functions.
 
 It can also work as a namespace for calling inherited methods.
 

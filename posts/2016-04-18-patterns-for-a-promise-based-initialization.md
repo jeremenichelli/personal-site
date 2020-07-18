@@ -206,9 +206,9 @@ var domReady = new Promise(function (resolve) {
 
 document.addEventListener('DOMContentLoaded', domResolve)
 
-Promise.all([scriptPromise, stylesPromise, domResolve, mapsResolve]).then(
-  initApp
-) // everything is ready, kick off!
+Promise.all([scriptPromise, stylesPromise, domResolve, mapsResolve])
+  // everything is ready, kick off!
+  .then(initApp)
 ```
 
 It is important to mention that **load** and **error** events aren't supported by all browsers and loading resources asynchornously is a little more tricky than the methods exposed in this article.

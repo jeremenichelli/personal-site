@@ -263,7 +263,7 @@ var baseConfig = {
 
 ### Generate an index file
 
-When building single-page applications we usually need one .html file to serve it.
+When building single-page applications we need a **.html** file to serve it.
 
 The `HtmlWebpackPlugin` automatically creates an `index.html` file and add script tags for each resulting bundle. It also supports templating syntax and is highly configurable.
 
@@ -336,7 +336,7 @@ if (ENV === 'production') {
 }
 ```
 
-## Wrap Up
+## Wrap-up
 
 webpack config files are incredibly useful, and the complexity of the file will depend on your needs. Take care to organize them well as they can become harder to tame as your project grows.
 

@@ -143,7 +143,7 @@ The hardest part is done, but our **header** won't move unless we write some sty
 
 ### Leave the magic to CSS
 
-Apart from setting a **fixed** position to the element, we need to make it disappear when the **header--hidden** class hits it.
+Apart from setting a **fixed** position to the element, we need to make it disappear when the `header--hidden` class hits it.
 
 ```css
 header {
@@ -189,20 +189,11 @@ But you know, maybe you just want some library to help you do the trick and keep
 var header = document.getElementsByTagName('header')[0]
 
 steer.set({
-  events: false,
   up: function () {
     header.classList.remove('header--hidden')
   },
   down: function () {
     header.classList.add('header--hidden')
-  }
-})
-
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 150) {
-    steer.trigger()
-  } else {
-    showHeader()
   }
 })
 ```

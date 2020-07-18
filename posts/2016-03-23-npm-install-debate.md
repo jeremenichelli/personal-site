@@ -44,4 +44,4 @@ As any group of individuals, we the developers see the same thing from a differe
 
 Something went wrong. It means we need to do it better. We can do better.
 
-_Let's!_.
+_Let's!_

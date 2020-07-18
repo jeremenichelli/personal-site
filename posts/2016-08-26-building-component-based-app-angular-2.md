@@ -17,22 +17,19 @@ Even if you have a bunch of experience with Angular 1.x, mastering this new vers
 
 If you have used some of the popular rendering libraries today and ES2015 classes, this Angular 2 component file will look familiar to you.
 
-```
-import { Component } from '@angular/core';
+```js
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'sample-component',
-  styleUrls: [ './sample-component.less' ],
+  styleUrls: ['./sample-component.less'],
   templateUrl: './sample-component.html'
 })
-
 export class SampleComponent {
-  firstProp: string;
-  secondProp = true;
+  firstProp: string
+  secondProp = true
 
-  someFn() {
-
-  }
+  someFn() {}
 }
 ```
 
@@ -48,7 +45,7 @@ Instead of being a class we can extend from, `Component` is a decorator used to 
 
 Inside of that decorator we indicate the files where the styles and template for our component will be, or they can also be placed in line.
 
-```
+```js
 @Component({
   selector: 'sample-component',
   styles: [ '.link { font-weight: 700; }' ],

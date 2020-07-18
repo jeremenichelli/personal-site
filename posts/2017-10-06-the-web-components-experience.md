@@ -87,7 +87,7 @@ class MovieBox extends React.Component {
 
 In custom elements, we declare the template of our component with **shadow DOM**. Switching back to HTML means we lose that _reactivity_ that stateful React components gave us.
 
-To better understand what **shadow DOM** is, imagine DOM elements as you know them as _light DOM_, or elements that can be altered by any known DOM API.
+To better understand what **shadow DOM** is imagine DOM elements as you know them as _light DOM_, elements that can be modified outside of its own DOM tree.
 
 On the other hand, **shadow DOM** can only be accessed and styled inside of its host element, giving us native encapsulation.
 

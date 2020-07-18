@@ -3,11 +3,11 @@ title: Automating the critical CSS inlining with npm scripts
 excerpt: A few months ago I published an article about inling critical CSS to improve content-first-pages performance and looking at the stats it became quite popular. Later I wrote another one about the benefits of using npm scripts when possible, so consider this a merge of both.
 ---
 
-_I will avoid an introduction about these topics, but you can go to my previous posts about [critical css inlining](/2015/10/automating-the-critical-css-inlining-with-gulp) and [npm scripts](/2016/01/you-might-not-need-a-task-runner) and then come back to this one._
+_I will avoid an introduction about these topics, but you can go to my previous posts about [critical css inlining](/2015/10/automating-the-critical-css-inlining-with-gulp) and [npm scripts](/2016/01/you-might-not-need-a-task-runner) and then come back._
 
 ## Divide and conquer
 
-Nowadays it's really weird to not use a preprocesor, so let's suppose we are using **LESS**. The files structure might change depending on your needs and you can use **@import**(s) to improve the maintainability of your project, for now we're going to create two files containing the critical and noncritical styles.
+Nowadays it's really weird to not use a preprocesor, so let's suppose we are using **LESS**. The files structure might change depending on your needs and you can use _imports_ to improve the maintainability of your project, for now we're going to create two files containing the critical and noncritical styles.
 
 ```
 ├── src

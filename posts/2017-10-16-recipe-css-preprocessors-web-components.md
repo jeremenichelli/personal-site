@@ -79,7 +79,7 @@ But what if you need a preprocessor?
 
 Adding a preprocessor to the mix is as simple as concatenating a new loader.
 
-```
+```js
 {
   test: /\.less$/,
   use: [
@@ -151,7 +151,7 @@ class MovieTitle extends HTMLElement {
 
 With this change we are injecting the styles on our own, so there's actually no need for a `style-loader`.
 
-```
+```js
 {
   test: /\.less$/,
   use: [
@@ -175,7 +175,7 @@ this.shadowRoot.innerHTML = `
 
 The last piece of improvement is adding source maps on development, this is super helpful while debugging styles to know where they are coming from.
 
-```
+```js
 {
   test: /\.less$/,
   use: [
@@ -190,6 +190,6 @@ The last piece of improvement is adding source maps on development, this is supe
 }
 ```
 
-We could go further and enable the **minimize** option in the `css-loader` to make our template strings shorter in production or add the `postcss-loader` to autoprefix or optimize deeper the styles.
+We could go further and enable the _minimize_ option in the `css-loader` to make our template strings shorter in production or add the `postcss-loader` to autoprefix or optimize deeper the styles.
 
 _This approach speeded up the migration from an application built in a framework to web components, you can check it working in [this repository](https://github.com/jeremenichelli/movies-web-components)._

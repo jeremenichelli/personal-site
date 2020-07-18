@@ -38,7 +38,7 @@ Facebook team built **React** with architecture in mind, it pushes you to separa
 
 One of its biggest drawbacks is that abstraction layer, which relays entirely on JavaScript and can be a pain to get used to. When you do, the experience really pays off.
 
-> After understanding its concept, building stuff with React is great
+> After understanding its concept, building stuff with React is a really good experience
 
 It isn't slow, but it isn't fast either unless you apply certain patterns in specific parts of your project, _shouldComponentUpdate_ is an example.
 
@@ -89,7 +89,7 @@ This was an experiment for me to jump in the game and learn, the result is a set
 
 The intention wasn't to provide a _how to_ article for each, but to quickly describe and compare how these four work and my opinion about my experience.
 
-I still think frameworks focus more in making life easier for us the developers than for the final users.
+> I still think frameworks focus more in making life easier for us the developers than for final users
 
 Right now, I don't feel there is one that clearly beats the rest, same results can be achieved with either of them.
 

@@ -24,7 +24,7 @@ Not only it was slow, you could actually see the browser pushing each pixel of t
 }
 ```
 
-As you might have noticed that this code is animating from **7rem** to **8rem** the `top` property giving the menu a slide in entrance effect.
+As you might have noticed that this code is animating from `7rem` to `8rem` the `top` property giving the menu a slide in entrance effect.
 
 This triggers layout and paint unnecessarily while we could use composition properties and improve frames per second numbers making it smoothier visually speaking.
 
@@ -69,13 +69,13 @@ If you want to create a nice _but not immediate_ animation is better to add a su
 }
 ```
 
-The transition delay should not exceed the **100ms** neither or users will feel it _unresponsive_.
+The transition delay should not exceed the **100ms** neither or users will feel percieve it as unresponsive.
 
 ### Recommended links
 
-- Post by Paul Irish about the benefits of [moving objects using translate][1]
-- Google Developers article on [composition layers and animation][2]
-- UX question in StackOverflow about [optimal duration on transitions][3]
+- Post by Paul Irish about the benefits of [moving objects using translate][1].
+- Google Developers article on [composition layers and animation][2].
+- UX question in StackOverflow about [optimal duration on transitions][3].
 
 ## Wrap-up
 
