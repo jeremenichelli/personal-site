@@ -1,6 +1,7 @@
 ---
 title: A Gulp recipe for timestamps
 excerpt: Making sure you serve your users the correct collection of assets is a real challenge, even for static websites, but you can combine some logic on a task runner and your site generator templating to solve this riddle.
+lastModified: 2020-07-18
 ---
 
 A quick solution in Jekyll would be to get the last build time and put it at the end of the urls as a query parameter.
@@ -139,6 +140,10 @@ The result will be similar to this.
 ## Wrap-up
 
 I've used **Gulp** and **Jekyll** in this article but it could be easily adapted to any site generator that accepts this type of data access through _.json_ files and any modern task runner.
+
+### Update
+
+**18 JUL 2020 —** Though forcing the re-fetching of a new resource through a query in the URL might work, ideally the timestamp should be part of the file name to completely beat browser cache and force users to new versions of the project.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
 [2]: https://www.npmjs.com/package/gulp-file

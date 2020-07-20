@@ -11,7 +11,7 @@ const markdownItAnchorOptions = {
   permalink: true,
   permalinkSymbol: '#',
   permalinkBefore: true,
-  permalinkClass: 'heading--anchor',
+  permalinkClass: 'heading__anchor',
   level: [2, 3, 4]
 }
 

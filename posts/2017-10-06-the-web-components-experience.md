@@ -87,7 +87,7 @@ class MovieBox extends React.Component {
 
 In custom elements, we declare the template of our component with **shadow DOM**. Switching back to HTML means we lose that _reactivity_ that stateful React components gave us.
 
-To better understand what **shadow DOM** is, imagine DOM elements as you know them as _light DOM_, or elements that can be altered by any known DOM API.
+To better understand what **shadow DOM** is imagine DOM elements as you know them as _light DOM_, elements that can be modified outside of its own DOM tree.
 
 On the other hand, **shadow DOM** can only be accessed and styled inside of its host element, giving us native encapsulation.
 
@@ -388,7 +388,7 @@ And it's a big deal, since developer experience is one of the reasons why React 
 
 Also, web components being included in a magical global store difficults declarative and deterministic views or any other concept which hangs on a visual map of dependencies like code splitting.
 
-> "Unfortunately the developer experience of building an application with web components today is quite painful."
+> Unfortunately the developer experience of building an application with web components today is quite painful.
 > <cite>Sam Saccone</cite>
 
 DOM manipulation and non-declarative operations have their cost.
@@ -403,7 +403,7 @@ Web components do solve part of the current component situation in web developme
 
 As libraries get better at [working with custom elements](https://custom-elements-everywhere.com/), the interoperatibility will be a big win for the platform, a company could build one component that teams using Angular or Vue could make use of.
 
-> "JavaScript frameworks as we know them are never going to deliver interop."
+> JavaScript frameworks as we know them are never going to deliver interop.
 > <cite>Alex Russell</cite>
 
 In the same way I've built a _patch_ to use refs in custom elements, other developers will find common and solid solutions for necessities not natively covered, and as that happens frameworks will have to do less.

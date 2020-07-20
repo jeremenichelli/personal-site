@@ -87,9 +87,9 @@ Ignoring **inherit**, this is the last optional value that _box-sizing_ can adop
 <div class="box"></div>
 ```
 
-Last time, what's the width of the element? Yes, now the element is **100px** wide!
+Last time, what's the width of the element? Yes, now the element is _100px_ wide!
 
-If you think about it, this behavior makes more sense than the default one. After the release of the CSS1 specification, developers and designers complained a lot about how painful it was to code a layout with this being the standard. Jeff Kaufman wrote <a href="http://www.jefftk.com/p/the-revenge-of-the-ie-box-model" target="_blank">a nice post about this story</a>.
+If you think about it, this behavior makes more sense than the default one. After the release of the CSS1 specification, developers and designers complained a lot about how painful it was to code a layout with this being the standard. Jeff Kaufman wrote [a nice post](//www.jefftk.com/p/the-revenge-of-the-ie-box-model) about this story.
 
 ## What's the trend?
 
@@ -99,6 +99,7 @@ Almost all developers around the globe reset the default to follow the **border-
 html {
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
@@ -106,18 +107,18 @@ html {
 }
 ```
 
-Basically all frameworks and style guides like <a href="http://foundation.zurb.com/" target="_blank">Foundation</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> and GitHub's <a href="http://primercss.io/" target="_blank">Primer</a> do this because it's way more easy to develop grids and complex layouts.
+Basically all frameworks and style guides like [Foundation](//foundation.zurb.com/), [Bootstrap](//getbootstrap.com/) and GitHub's [Primer](//primercss.io/) do this because it's way more easy to develop grids and complex layouts.
 
 ## Then, why a lot of developers don't know about it?
 
 It's really weird that people with years in the field haven't even heard about it in some cases. After scratching my head a little, my best guess is that you can survive without it. You can still build and mantain complex stuff in CSS without it, though it will be harder to achieve.
 
-You can survive in the front end world without **border-box**, but I don't know for how long. Truth is that once you know about it, it becomes one of the first rules you write every time you start a new project.
+You can survive in the front end world without `border-box`, but I don't know for how long. Truth is that once you know about it, it becomes one of the first rules you write every time you start a new project.
 
 ## Related articles
 
-If my explanation was a little confusing I suggest <a href="http://www.paulirish.com/2012/box-sizing-border-box-ftw/" target="_blank">Paul Irish's article</a> and <a href="https://css-tricks.com/box-sizing/" target="_blank">CSS Trick's reference page</a> about this. You can also download this small html page in this <a href="https://gist.github.com/jeremenichelli/a7f26e5951bfb2b77043" target="_blank">gist</a> I did and see how this property affects an element with the same border, padding, height and width.
+If my explanation was a little confusing I suggest [Paul Irish's article](//www.paulirish.com/2012/box-sizing-border-box-ftw/) and [CSS-Trick reference page](//css-tricks.com/box-sizing/) about this. You can also download this small html page in this [gist](//gist.github.com/jeremenichelli/a7f26e5951bfb2b77043) I did and see how this property affects an element with the same border, padding, height and width.
 
-Something else, there is an <a href="https://css-tricks.com/international-box-sizing-awareness-day/">International box-sizing Awareness Day</a>.
+Something else, there is an [International box-sizing Awareness Day](//css-tricks.com/international-box-sizing-awareness-day/).
 
 _Yes, this is real._

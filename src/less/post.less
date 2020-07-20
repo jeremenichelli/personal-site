@@ -1,72 +1,43 @@
 @import '_general.less';
 @import '_page.less';
+@import '_highlighting.less';
 
-del,
 code {
-  display: inline-block;
+  background-color: var(--code-background);
+  border-radius: @corners__code;
+  color: var(--code-text);
   font-family: Menlo, Consolas, Monaco, monospace;
-  font-size: 0.833334rem; /* desktop 15px */
-  padding: 0 5px;
-}
-
-code {
-  background-color: var(--code--background);
-  border-radius: 4px;
-  font-size: 0.833334rem; /* desktop 15px */
-}
-
-// general highlighting
-.comment {
-  opacity: 0.5;
-  font-style: italic;
-}
-
-// js highlighting
-.language-js {
-  .keyword {
-    font-weight: 700;
-  }
-}
-
-// scss highlighting
-.language-scss,
-.language-css {
-  .selector,
-  .rule {
-    font-weight: 700;
-  }
-}
-
-.post__note {
-  background-color: var(--code--background);
-  border-radius: 4px;
-  font-style: italic;
-  margin: 2rem 0;
-  padding: 1rem;
-  text-align: center;
-  word-break: keep-all;
-
-  a {
-    color: var(--text);
-  }
+  font-size: 15px; // monospace fonts are out of the Mayor Second Scale rule
+  padding: 1px 3px;
 }
 
 pre {
-  background-color: var(--code--background);
-  border-radius: 4px;
+  background-color: var(--code-background);
+  color: var(--code-text);
+  left: calc(var(--spacing) * -1);
+  line-height: 1.5;
   overflow: auto;
-  padding: 0.75rem 1rem;
+  padding: 1rem 0;
+  position: relative;
+  width: 100vw;
+
+  @media (min-width: @breakpoints__desktop--start) {
+    border-radius: @corners__code;
+    width: @sizing__container;
+  }
 
   code {
+    // reset styles for standalone code tags
     background-color: transparent;
-    margin: 0;
-    padding: 0;
+    border-radius: 0;
+
+    // allow padding on horizontal overflow
+    display: inline-block;
+    padding: 0 var(--spacing);
   }
 }
 
-.action--link {
-  color: var(--secondary);
-  display: block;
-  font-size: 0.944444rem; /* desktop 17px */
+.code-example__link {
+  margin-top: 1rem;
   text-align: center;
 }

@@ -2,10 +2,18 @@
 layout: base
 ---
 
-{% include 'nav' %}
-{% include 'header' %}
-<main id="main">
-  <div class="container main__container">
+<main id="main" aria-label="main content">
+  <div class="container">
+    <h1 class="page__title">{{ title | nbsp }}</h1>
+
+    {% if type == 'post' %}
+      <p class="page__subtitle">
+        <time datetime="{{ page.date | date: '%Y-%m-%d' | append: 'T00:00:00.000Z' }}">
+          {{ page.date | date: '%d %B, %Y'}}
+        </time>
+      </p>
+    {% endif %}
+ 
     {% if excerpt %}
       <p class="page__excerpt">
         {{ excerpt | markdownify }}
@@ -13,8 +21,10 @@ layout: base
     {% endif %}
     
     {% if external_url %}
-      <p class="post__note">
-        <a href="{{ external_url }}">Article originally published at {{ host }}</a>
+      <p class="page__note">
+        <a class="page__note-link" rel="noopener noreferrer" href="{{ external_url }}">
+          Article originally published at {{ host }}
+        </a>
       </p>
     {% endif %}
 

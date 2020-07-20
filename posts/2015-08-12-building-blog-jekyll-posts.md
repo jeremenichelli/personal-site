@@ -92,7 +92,7 @@ Not so hard, but what if you're launching your site and didn't wrote anything ye
 {% endif %}{% endraw %}
 ```
 
-A **for** loop and an **if** block, I'm guessing you're familiar with those in any other programming language, that's them in their Liquid form. Of course you have plenty of options to structure this view and show the date, the excerpt or any data related to posts.
+A `for` loop and an `if` block, I'm guessing you're familiar with those in any other programming language, that's them in their Liquid form. Of course you have plenty of options to structure this view and show the date, the excerpt or any data related to posts.
 
 As you get into the Liquid language the opportunities will multiply.
 

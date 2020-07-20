@@ -74,6 +74,7 @@ So why don't just check it just once?
 
 ```js
 var addClass
+
 if (document.documentElement.classList) {
   // call classList inside addClass method
   addClass = function (el, cl) {

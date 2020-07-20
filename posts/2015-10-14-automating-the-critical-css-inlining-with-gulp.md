@@ -113,7 +113,7 @@ gulp.task('styles:critical', function () {
 
 Then include the file in `head.php`.
 
-```html
+```php
 <head>
   ...
   <?php include (TEMPLATEPATH . '/criticalCSS.php'); ?>
@@ -198,6 +198,8 @@ After this small addition you can run `gulp watch` on your terminal and presto!
 
 ## Wrap-up
 
-If you decide to inline styles at the top of your site you need to find out which styles are _critical_ and which aren't. Which ones are critical and which aren't will depend on the design of your site, but most of the articles about authoring those critical rules recommend to focus on the portion of the page that is first seen by the user and leave probably nitpicky design styles for a later load.
+If you decide to inline styles at the top of your site you need to find out which styles are _critical_ and which aren't.
+
+Which ones are critical and which aren't will depend on the design of your site, but most of the articles about authoring those critical rules recommend to focus on the portion of the page that is first seen by the user and leave probably nitpicky design styles for a later load.
 
 Hope you find this useful and, in case you give a try, that it really simplifies your work flow and improves your page loading times.

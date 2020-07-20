@@ -250,7 +250,7 @@ class InputModal extends React.Component {
 export default InputModal
 ```
 
-{% actionLink 'https://codesandbox.io/s/input-modal-example-gvrpo' %}
+{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-gvrpo' %}
 
 Remember that you need to access the element through the `current` property.
 
@@ -327,7 +327,7 @@ class InputModal extends React.Component {
 export default InputModal
 ```
 
-{% actionLink 'https://codesandbox.io/s/input-modal-example-1to08' %}
+{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-1to08' %}
 
 Here, we are checking if the element click is out of the modal limits.
 
@@ -435,7 +435,7 @@ class InputModal extends React.Component {
 export default InputModal
 ```
 
-{% actionLink 'https://codesandbox.io/s/input-modal-example-z63vr' %}
+{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-z63vr' %}
 
 At the constructor level, we are setting up the initial animation values, which will modify the styles of our DOM references. The timeline only plays when the component mounts.
 
@@ -552,7 +552,7 @@ const LabelledInput = (props, ref) => {
 export default React.forwardRef(InputCombo)
 ```
 
-{% actionLink 'https://codesandbox.io/s/input-modal-example-l2wst' %}
+{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-l2wst' %}
 
 To achieve this, we'll pass a second argument to our function and place it in the desired element.
 

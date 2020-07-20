@@ -1,7 +1,16 @@
-<a href="#main" class="skip--navigation">Skip navigation and go to content</a>
-<nav>
-  <a href="/" aria-label="Go to home" class="nav__link nav__link--home">Jeremias Menichelli</a>
-  <a href="/blog" aria-label="Read articles" class="nav__link">Blog</a>
-  <a href="/talks" aria-label="Check out talks" class="nav__link">Talks</a>
-  <a href="/about" aria-label="Know more about me" class="nav__link">About</a>
+<nav id="main-navigation" aria-label="main navigation">
+  {% if type != 'home' %}
+    <a href="#main" class="nav__link nav__link--skip-navigation">Skip navigation</a>
+    <a href="/" aria-label="Go to home" class="nav__link nav__link--home">Jeremias Menichelli</a>
+    <a {% if type == 'blog' %}aria-current="page"{% endif %} href="/blog" aria-label="Read articles" class="nav__link">Blog</a>
+    <a {% if type == 'talks' %}aria-current="page"{% endif %} href="/talks" aria-label="Check out my talks" class="nav__link">Talks</a>
+    <a {% if type == 'about' %}aria-current="page"{% endif %} href="/about" aria-label="Know more about me" class="nav__link">About</a>
+  {% endif %}
+
+  <button
+    aria-label="Dark color scheme toggle"
+    class="color-scheme__button js--color-scheme__button"
+    tabindex="-1"
+    type="button">
+  </button>
 </nav>

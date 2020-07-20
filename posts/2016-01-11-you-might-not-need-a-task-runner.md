@@ -37,7 +37,7 @@ npm install --save-dev browserify
 
 Of course you can't just use the `browserify` command in your terminal, for that you would need to install it using the `-g` flag, but when you install it as a dev dependency and call it through scripts declared in the **package.json** file of your project npm itself acts as some kind of wrapper and binds the command to their corresponding local reference.
 
-```js
+```json
 {
   "name": "npm-scripts-sample",
   "title": "npm scripts sample project",
@@ -61,7 +61,7 @@ npm install --save-dev uglify-js
 
 We can use the `|` operator to pass the output of browserify to uglify command.
 
-```js
+```json
 "scripts": {
   "build:dev": "browserify js/app.js -o main.js --debug",
   "build:prod": "browserify js/app.js | uglifyjs > main.js"
@@ -72,7 +72,7 @@ We can use the `|` operator to pass the output of browserify to uglify command.
 
 Let's include styles in our build process. We better rename the script tasks so things don't get confusing.
 
-```js
+```json
 "scripts": {
   "js:dev": "browserify js/app.js -o main.js --debug",
   "js:prod": "browserify js/app.js | uglifyjs > main.js"
@@ -87,7 +87,7 @@ npm install --save-dev less cssmin
 
 Then add the style script and a general `build` task to run both.
 
-```js
+```json
 "scripts": {
   "js:dev": "browserify js/app.js -o main.js --debug",
   "js:prod": "browserify js/app.js | uglifyjs > main.js",
@@ -103,7 +103,7 @@ Because neither browserify or less need each other to finish we can concat them 
 
 You can also specify a task that needs to finish successfully before a script can run just by creating a new one with the same name and a **pre** prefix. For example, we could add a lint checking before building our **.js** file.
 
-```js
+```json
 "scripts": {
   "lint": "eslint js/**/*.js",
   "prejs:dev": "npm run lint",
@@ -124,7 +124,7 @@ You can do the same with the **post** prefix and add task that should run after 
 
 To avoid running the same script over and over again we can install a <a href="https://www.npmjs.com/package/onchange" target="_blank">package</a> to watch our files.
 
-```js
+```json
 "scripts": {
   "lint": "eslint js/**/*.js",
   "prejs:dev": "npm run lint",

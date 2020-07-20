@@ -2,18 +2,18 @@ const { cyan, green, red } = require('chalk')
 const favicons = require('favicons')
 const { asyncMakeDirectory, asyncWriteFile, asyncRimraf } = require('./_utils')
 
-const site = require('../_data/site.json')
-const entry = './src/favicon/favicon.png'
+const site = require('../_data/site')
+const entry = './src/images/site-logo.png'
 const outputPath = './assets/favicon/'
 const html = './_includes/favicons.liquid'
 
 const setup = {
-  appName: 'jeremenichelli.io',
+  appName: site.title,
   appDescription: site.description,
   developerName: site.author,
   background: '#020210',
   path: '/assets/favicon/',
-  online: false,
+  online: true,
   icons: {
     android: false,
     appleIcon: false,

@@ -96,14 +96,14 @@ As a consequence, _delve_ and my first approach itself are faster than _lodash_ 
 
 I'm seeing a lot of solved-in-one-line approaches that work like a magic trick, and actually solve the problem which is great, but they are not the best choices if you're taking performance in account. Remember that when the code is minified and gzipped the differences in using a _while_ loop or a _for_ loop are just bytes, but speed can get really affected.
 
-If you look at **delve** code you'll notice that it also uses _while_. The reason why **delve** is faster than **lodash** when they are both using similar approaches is that the second one contains other methods that are used by more than one public function, so it makes sense to have them there but they might cause <a href="http://jsforallof.us/2014/09/19/hoisting/" target="_blank">hoisting</a> and larger code too.
+If you look at **delve** code you'll notice that it also uses _while_. The reason why **delve** is faster than **lodash** when they are both using similar approaches is that the second one contains other methods that are used by more than one public function, so it makes sense to have them there but they are just more functions call for the same action.
 
-Obviously if you use this method just a couple of times it won't hurt a lot, but you can be sure that this functionality will be called **a lot of times** in a data binding library.
+Obviously if you use this method just a couple of times it won't hurt a lot, but it will depend on the problem a project is trying to solve.
 
 ## Wrap-up
 
 Libraries are good (**lodash** is great in my opinion) it solves a lot of problems, but they also contain general private methods and no so performant choices that can slow down the execution of simple operations.
 
-In case you need it, my approach is in this <a href="https://gist.github.com/jeremenichelli/63b75db9434272b16d1d" target="_blank">gist</a>.
+In case you need it, my approach is in this [gist](//gist.github.com/jeremenichelli/63b75db9434272b16d1d).
 
-And yes, I love John Oliver.
+_And yes, I love John Oliver._

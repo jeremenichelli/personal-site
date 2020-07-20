@@ -156,6 +156,6 @@ And as **jQuery** once appeared because we needed a better DOM manipulation API,
 
 While it's great to have nice and popular libraries, they add an abstraction layer to the language.
 
-This is great when people are doing their first steps in web programming, but it's good to later explore the native capabilities of JavaScript to extend the knowledge we have of its API and prevent us from adding code when it is not needed.
+This is great when people are doing their first steps in web programming, but it's good to later explore the features JavaScript brings out of the box to extend that knowledge.
 
 [1]: http://vuejs.org/guide/computed.html

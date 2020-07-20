@@ -1,11 +1,11 @@
 ---
 title: Building a component based app with Vue
-excerpt: Developers have been trying to find a solution to architecture on complex web applications. The most recent answer to that are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability.
+excerpt: The most recent answer to build and scale complex web applications are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability. I'm going to explore how developing a component-based app with Vue looks like and the current state of its ecosystem.
 ---
 
-In this case I will go through my thoughts and feelings on developing a web application using [Vue][vue], a young library that has gained a lot popularity in the recent time.
-
 _This writing belongs to a serie of articles about using components with Vue, [React][react-article], [Polymer][polymer-article] and [Angular 2][angular-article]._
+
+In this case I will go through my thoughts and feelings on developing a web application using [Vue][vue], a young library that has gained a lot popularity in the recent time.
 
 ## Introduction to Vue
 
@@ -69,7 +69,7 @@ new Vue({
 })
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/k9vatv0m/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/k9vatv0m/' %}
 
 The library is really well documented, one of the things I like the most about it. Give the [guide][guide] a quick read which details methods, features available and also explains how it works under the hood.
 
@@ -136,7 +136,7 @@ new Vue({
 })
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/k4xqwto9/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/k4xqwto9/' %}
 
 ### Props
 
@@ -184,7 +184,7 @@ Vue.component('results-list', {
 })
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/eoa5qhsf/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/eoa5qhsf/' %}
 
 Props are prefixed with a _colon_ because we are passing a data reference, but it should be removed when passing the value itself.
 
@@ -361,22 +361,22 @@ For some reason, there's no such a thing from the React community yet.
 
 Thanks to the single file components solution Vue's learning curve is not that steep and it embraces some look and feel from combining HTML imports and native web components.
 
-Definitely worth giving it a try, I actually did and created a [simple web app][vue-movies] using all of the tools mentioned in this article.
+Definitely worth giving it a try, I actually did and created a [simple web app][vue-app] using all of the tools mentioned in this article.
 
 As any other framework, its ecosystem kind of forces you to do things you might or might not feel comfortable doing, but if you do, Vue speeds up adoption and simplifies a lot of decisions when building large scale apps.
 
-[vue]: https://www.vuejs.org
-[guide]: https://www.vuejs.org/guide
-[vue-router]: https://github.com/vuejs/vue-router
-[scoped-css]: https://github.com/webpack/css-loader#local-scope
-[jsx]: https://facebook.github.io/react/docs/jsx-in-depth.html
+[vue]: //www.vuejs.org
+[guide]: //www.vuejs.org/guide
+[vue-router]: //github.com/vuejs/vue-router
+[scoped-css]: //github.com/webpack/css-loader#local-scope
+[jsx]: //facebook.github.io/react/docs/jsx-in-depth.html
 [css-modules]: http://andrewhfarmer.com/what-are-css-modules/
-[vue-loader]: https://github.com/vuejs/vue-loader
-[vueify]: https://github.com/vuejs/vueify
-[vue-cli]: https://github.com/vuejs/vue-cli
-[polymer-cli]: https://github.com/Polymer/polymer-cli
-[angular-cli]: https://github.com/angular/angular-cli
-[vue-movies]: https://github.com/jeremenichelli/movies/tree/master/results/vue
+[vue-loader]: //github.com/vuejs/vue-loader
+[vueify]: //github.com/vuejs/vueify
+[vue-cli]: //github.com/vuejs/vue-cli
+[polymer-cli]: //github.com/Polymer/polymer-cli
+[angular-cli]: //github.com/angular/angular-cli
+[vue-app]: //github.com/jeremenichelli/movies/tree/master/results/vue
 [vue-article]: /2016/06/building-component-based-app-vue/
 [react-article]: /2016/07/building-a-component-based-app-react/
 [polymer-article]: /2016/08/building-a-component-based-app-polymer/

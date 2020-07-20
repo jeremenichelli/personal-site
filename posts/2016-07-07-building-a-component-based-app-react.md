@@ -1,19 +1,19 @@
 ---
 title: Building a component based app with React
-excerpt: Developers have been trying to find a solution to architecture on complex web applications. The most recent answer to that are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability.
+excerpt: The most recent answer to build and scale complex web applications are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability. I'm going to explore how developing a component-based app with React looks like and the current state of its ecosystem.
 ---
-
-In this case I will go through my thoughts and feelings on developing a web application using [React][react], probably the most popular library to render views these days, created by Facebook developers.
 
 _This writing belongs to a serie of articles about using components with [Vue][vue-article], React, [Polymer][polymer-article] and [Angular 2][angular-article]._
 
+In this case I will go through my thoughts and feelings on developing a web application using [React][react], probably the most popular library to render views these days, created by Facebook developers.
+
 ## Introduction to React
 
-According to its authors, the mear existence of this framework is to compose large web applications through components instead of directives. Those components will only be updated if the data bound to them does.
+According to its authors, the mear existence of this framework is to compose large web applications through components and not directives. Those components will only be updated if the data bound to them does.
 
 To achieve this React provides a set of methods to express HTML elements with object notation, an abstraction pattern usually known as _virtual DOM_.
 
-So, instead of creating and appending elements as usual, you represent them with an object passing tag, properties and children to the **createElement** function.
+Instead of creating and appending elements as usual, you represent them with an object passing tag, properties and children to the `createElement` function.
 
 ```js
 let Link = React.createElement(
@@ -26,11 +26,11 @@ let Link = React.createElement(
 )
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/kqLmfcq4' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/kqLmfcq4' %}
 
-In this example we are creating an anchor, passing the **href** and **class** properties and a text node as its only children.
+In this example we are creating an anchor, passing the `href` and `class` properties and a text node as its only children.
 
-It's necessary to express element's properties as their JavaScript equivalent, that's why **className** is used instead of **class**.
+It's necessary to express element's properties as their JavaScript equivalent, that's why `className` is used instead of `class`.
 
 ### JSX
 
@@ -141,7 +141,7 @@ class GitHubUsers extends Component {
 render(<GitHubUsers />, document.querySelector('#example'))
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
 
 The render function in React components always has to return a single root element, that's why the two GitHub links are placed inside a **div** tag.
 
@@ -168,7 +168,7 @@ class GitHubUsers extends Component {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
 
 This is a better pattern since now the logic inside `render` doesn't need to be updated when the data changes, improving the maintainability of the code.
 
@@ -212,11 +212,11 @@ class AccordionElement extends Component {
 }
 ```
 
-Here we are defining an accordion element, the _expanded_ value will define whether the content will be visible or not, so it makes sense to define it as a _state_.
+Here in this accordion element, the _expanded_ value will define whether the content will be visible or not, so it makes sense to define it as a _state_.
 
 To reveal the content we need to toggle the _expanded_ value.
 
-To do it we use **setState** and React will update the components view.
+To do it we use `setState` and React will update the components view.
 
 ```js
 import React, { Component } from 'react'
@@ -245,9 +245,9 @@ class AccordionElement extends Component {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
 
-When the **toggleState** function gets called the context will be the rendered node, with **bind** we change it back to the component.
+When the `toggleState` function gets called the context will be the rendered node, with `bind` we change it back to the component.
 
 ### Model binding
 
@@ -400,7 +400,7 @@ Try to learn a new framework always brings a learning curve that, in my opinion,
 
 The first one is the **documentation**. I have to admit is really complete but unorganized, which is a big deal for begginers, probably a consequence of a fast evolution pace the repository experimented recently.
 
-> "The official docs grew organically and need gardening."
+> The official docs grew organically and need gardening.
 > <cite>Dan Abramov</cite>
 
 The second one is **JSX** itself. Using it really improves the developing experience, but it brings its own tricks and limitations to the yard.
@@ -452,14 +452,14 @@ React has something that makes you like it, it does **one** thing. Short set of 
 
 It definitely forces you to change how you develop and scale an application, but after you passed the initial learning curve, letting React rule your project's architecture is a relief.
 
-Most of these thoughts came while building a [simple web app][react-movies] using tools and approaches mentioned in this article you can explore on GitHub.
+Most of these thoughts came while building a [simple web app][react-app] using tools and approaches mentioned in this article you can explore on GitHub.
 
-[react]: https://facebook.github.io/react
-[props]: https://facebook.github.io/react/docs/reusable-components.html#single-child
+[react]: //facebook.github.io/react
+[props]: //facebook.github.io/react/docs/reusable-components.html#single-child
 [css-modules]: http://andrewhfarmer.com/what-are-css-modules/
-[css-modules-webpack]: https://css-modules.github.io/webpack-demo/
-[react-router]: https://github.com/reactjs/react-router
-[react-movies]: https://github.com/jeremenichelli/movies/tree/master/results/react
+[css-modules-webpack]: //css-modules.github.io/webpack-demo/
+[react-router]: //github.com/reactjs/react-router
+[react-app]: //github.com/jeremenichelli/movies/tree/master/results/react
 [vue-article]: /2016/06/building-component-based-app-vue/
 [react-article]: /2016/07/building-a-component-based-app-react/
 [polymer-article]: /2016/08/building-a-component-based-app-polymer/

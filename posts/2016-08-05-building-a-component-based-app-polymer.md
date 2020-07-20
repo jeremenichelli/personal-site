@@ -1,17 +1,18 @@
 ---
 title: Building a component based app with Polymer
-excerpt: Developers have been trying to find a solution to architecture on complex web applications. The most recent answer to that are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability.
+excerpt: The most recent answer to build and scale complex web applications are components, divide an interface in smaller and autonomous blocks to conquer maintainability and scalability. I'm going to explore how developing a component-based app with Polymer looks like and the current state of its ecosystem.
+lastModified: 2016-08-08
 ---
 
-In this case I will go through my thoughts and feelings on developing a web application using [Polymer][polymer], a library written by Google developers built on top of native web technologies.
-
 _This writing belongs to a serie of articles about using components with [Vue][vue-article], [React][react-article], Polymer and [Angular 2][angular-article]._
+
+In this case I will go through my thoughts and feelings on developing a web application using [Polymer][polymer], a library written by Google developers built on top of native web technologies.
 
 ## Introduction to Polymer
 
 Instead of redefining how views should render or being heavily tied to complex data flow concepts, Polymer simply acts as a wrapper for modern and native web techonologies.
 
-These technologies are **HTML imports** to modularize the project, **web components** to create reusable elements, **template** tags and **Shadow DOM** for render trees and styles encapsulation.
+These technologies are **HTML imports** to modularize the project, **web components** to create reusable elements, `template` tags and **Shadow DOM** for render trees and styles encapsulation.
 
 ### HTML Imports
 
@@ -23,7 +24,7 @@ This comes handy since web components will probably need both.
 <link rel="import" href="/sample-component.html" />
 ```
 
-To import an **.html** file you include a **link** tag referencing the source and setting the value _import_ in the **rel** attribute.
+To import an **.html** file you include a `link` tag referencing the source and setting the value _import_ in the `rel` attribute.
 
 ### Custom elements
 
@@ -54,9 +55,9 @@ class GitHubLink extends HTMLElement {
 document.registerElement('github-link', GitHubLink)
 ```
 
-{% actionLink 'https://jsfiddle.net/8Lrm8dzh/' %}
+{% codeExampleLink 'https://jsfiddle.net/8Lrm8dzh/' %}
 
-When extending native elements prototype, some life cycle functions become available like the **createdCallback** and **attachedCallback** to run some code at specific moments.
+When extending native elements prototype, some life cycle functions become available like the `createdCallback` and `attachedCallback` to run some code at specific moments.
 
 This way we generate a root using **Shadow DOM** which can be filled by appending elements, using _innerHTML_ or cloning a template tag.
 
@@ -97,9 +98,9 @@ The one you're going to use more is the `<dom-module>` tag, inside of which we p
 </dom-module>
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/nvd4t92h/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/nvd4t92h/' %}
 
-The element's name must match in the `<dom-module>` tag and the Polymer function call for the [is](https://www.w3.org/TR/custom-elements/#custom-elements-customized-builtin-example) attribute and property respectively.
+The element's name must match in the `<dom-module>` tag and the Polymer function call for the `is` attribute and property respectively.
 
 Also the name must contain a _hyphen_, a web components gotcha.
 
@@ -162,7 +163,7 @@ When we create a new element with Polymer, properties are declared in its object
 </dom-module>
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/fdg4mwez/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/fdg4mwez/' %}
 
 Properties are accessible in the view by enclosing them with square brackets.
 
@@ -204,7 +205,7 @@ Remember that with Polymer, we are working with actual web elements and not an a
 
 Popular libraries allow you to put complex JavaScript expressions on their bindings.
 
-In Polymer when using `[[ ]]`, single operators can be used and object properties can be accessed but for heavier logic you will need **computed** values.
+In Polymer when using `[[ ]]`, single operators can be used and object properties can be accessed but for heavier logic you will need _computed_ values.
 
 ```js
 <link rel="import" href="path/to/polymer.html">
@@ -239,9 +240,9 @@ In Polymer when using `[[ ]]`, single operators can be used and object propertie
 </dom-module>
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/kfz4pbqn/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/kfz4pbqn/' %}
 
-To define a computed property, add it with a **computed** key referencing a method and including the properties that will trigger a value change in the arguments.
+To define a computed property, add it with a _computed_ key referencing a method and including the properties that will trigger a value change in the arguments.
 
 Polymer also provides [observers](https://www.polymer-project.org/1.0/docs/devguide/properties#change-callbacks) which also work as a solution for this cases.
 
@@ -397,7 +398,7 @@ Polymer tries to squeeze every feature of the modern web and provides others tha
 
 But the lack of versatility of its ecosystem and uncommon architecture makes it hard to choose it over other popular libraries which provide similar development experience without these caveats.
 
-All these conclusions came up while building a [simple web app available on GitHub](https://github.com/jeremenichelli/movies/tree/master/results/polymer).
+All these thoughts came from building a [simple web app][polymer-app] available on GitHub.
 
 I hope Polymer team keeps working hard and improves this since it is the closest alternative to native web features.
 
@@ -405,8 +406,9 @@ I hope Polymer team keeps working hard and improves this since it is the closest
 
 **8 AUG 2016** &mdash; specs have been updated, `document.registerElement` has been deprecated in favor of `customElements.define` and easier extending syntax was added. I suggest reading [Eric Bidelman's article](https://developers.google.com/web/fundamentals/primers/customelement) which explains these two changes.
 
-[polymer]: https://www.polymer-project.org
+[polymer]: //www.polymer-project.org
 [vue-article]: /2016/06/building-component-based-app-vue/
 [react-article]: /2016/07/building-a-component-based-app-react/
 [polymer-article]: /2016/08/building-a-component-based-app-polymer/
 [angular-article]: /2016/08/building-component-based-app-angular-2/
+[polymer-app]: //github.com/jeremenichelli/movies/tree/master/results/polymer

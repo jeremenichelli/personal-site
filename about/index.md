@@ -2,43 +2,39 @@
 title: About
 layout: default
 type: about
-excerpt: Born and raised in Argentina, currently working in New Relic as a Software Engineer and living in sunny Barcelona.
+excerpt: Jeremias is a developer, writer, and speaker born in Argentina currently working at New Relic as a Software Engineer in Barcelona.
 ---
 
-His interest in web development started back when he opened a website for the first time as a child and asked himself why it was so slow.
+His interest in web development started back when he opened a website for the first time as a kid and asked himself why it was so slow.
 
 > Cartoon Network website sucked back in the 90s
 
-He has worked in a wide spectrum of web projects. Mobile first sites, web applications, animated experiences in the web and even corebusiness applications written in JavaScript, always with a keen eye on performance, user experience and best practices.
+He worked in a wide spectrum of projects, from mobile first sites to modern web applications, web services and animated experiences. All of them using JavaScript and Node.js, always with a keen eye on user experience, performance and best practices.
 
-Lately he's been focusing on tooling and design systems.
+Lately he's been focusing in tooling and design systems.
 
 ## Experience
 
-Early in his career he worked on responsive sites for clients like **Microsoft** and **StateFarm**, focusing in accessibility, cross browsing compatibility and design consistency.
+Early in his career he worked on responsive sites for clients like **Microsoft** and **StateFarm**, focusing in accessibility, cross browsing compatibility and pixel perfect design.
 
-In **OrderGroove** he helped build and maintain their core JavaScript applications with a keen eye on performance and code quality, all applying Agile methodologies.
+In **OrderGroove** he helped build and maintain their core JavaScript applications.
 
 > I'm experienced in accessible and mobile first sites as in various JavaScript frameworks and&nbsp;tooling
 
-He later was the technical lead and developer of cool animated projects for a large set of clients including **ESPN**, **Facebook**, **Pixar**, **Marvel** and **Oreo**.
+He later joined as a technical lead at **Jam3** creating animated web experiences for clients including **Facebook**, **Pixar**, **Doritos**, **Oreo** and many more.
 
-After that, he joined **Typeform** as a front end engineer and became the lead of the design system project and initiatives around it.
+After that, he joined **Typeform** as a front end engineer and led the design system project of the company and initiatives around it.
 
-_For more details, download my resume <a download target="_blank" href="https://drive.google.com/file/d/1Dal1FrgqJ-unPpRUYLBeETAACrMtsPOj/view?usp=sharing">here</a>._
+_For more details, download my resume <a download rel="noopener noreferrer" target="_blank" href="https://drive.google.com/file/d/1Dal1FrgqJ-unPpRUYLBeETAACrMtsPOj/view?usp=sharing">here</a>._
 
 ## Today
 
-<!-- He is currently looking for a new opportunity, [reach out here](mailto:jmenichelli@gmail.com). -->
+He currently works at [New&nbsp;Relic](//newrelic.com) as a Software Engineer.
 
-He works at [New&nbsp;Relic](//newrelic.com) as a Software&nbsp;Engineer.
-
-You might also found him around giving talks about his experiences, writing articles and helping organize [JSHeroes](//jsheroes.io) conference.
+You might also found him [giving talks](/talks) about his experiences, [writing articles](/blog) or helping organize [JSHeroes](//jsheroes.io) conference.
 
 _Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, writing or speaking inquiries._
 
 ## About this site
 
-Built with [Eleventy](//11ty.io) and hosted by [Netlify](//netlify.com), learn more about the site architecture in this [article](/2019/05/new-site-who-dis/) about the technical approaches.
-
-The code is open sourced, you can check it in [this repository](//github.com/jeremenichelli/personal-site) too.
+Built with [Eleventy](//11ty.io) and hosted by [Netlify](//netlify.com). The project is open source, feel free to dive into [its repository](//github.com/jeremenichelli/personal-site) and check the code.

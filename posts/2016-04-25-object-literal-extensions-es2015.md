@@ -114,9 +114,9 @@ let student = {
 
 let { firstName: first, age, birthDate } = student
 
-first // 'Violet'
-age // 10
-birthDate // undefined
+console.log(first) // 'Violet'
+console.log(age) // 10
+console.log(birthDate) // undefined
 ```
 
 Trying to access a property that is not present in the object will safely return `undefined` as value without throwing any error.

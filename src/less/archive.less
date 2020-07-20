@@ -1,28 +1,33 @@
+@import '__vars.less';
 @import '_general.less';
 @import '_page.less';
 
-.archive {
+.archive-list {
   list-style: none;
-  padding: 0;
+  padding: 0 calc(var(--spacing) * 2) 0 0;
 }
 
-.archive__item {
-  margin: 1rem 0 0;
+.archive-list-item {
+  margin: 2rem 0;
+
+  &:before {
+    /**
+       * Adding zero-width space returns list semantics to unstyled lists
+       * in accessibility tools like VoiceOver.
+       *
+       * https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+       */
+    content: '\200B';
+  }
 }
 
-.archive__item--title {
-  color: var(--text);
-  font-size: 1.222223rem; /* desktop 22px */
+.archive-list-item__link {
+  font-size: 1.5rem; // mobile 24px
   font-weight: 700;
-  line-height: 1.35;
-}
+  letter-spacing: @typography__letter-spacing--title;
+  line-height: 1.15;
 
-.archive__year {
-  color: var(--secondary);
-  font-size: 1.444444rem; /* desktop 26px */
-  margin-top: 2rem;
-
-  &:first-child {
-    margin-top: 0;
+  @media (min-width: @breakpoints__desktop--start) {
+    font-size: 1.802rem; // desktop 32.44px (5) position in Major Second Scale
   }
 }

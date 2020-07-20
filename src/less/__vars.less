@@ -1,0 +1,64 @@
+/**
+ * LESS Variables
+ */
+@corners__code: 3px;
+@corners__note: 3px;
+
+@breakpoints__desktop--start: 798px;
+
+@colors__white: #ffffff;
+@colors__black: #020210;
+
+@colors__accent: #4242ef;
+@colors__accent--dark: #7575ff;
+
+@colors__secondary: #505060;
+@colors__secondary--dark: #e0e0f0;
+
+@colors__code--background: @colors__black;
+@colors__code--background--dark: rgba(255, 255, 255, 0.05);
+
+@colors__note--background: rgba(0, 0, 0, 0.035);
+@colors__note--background--dark: rgba(255, 255, 255, 0.05);
+
+@colors__code--text: @colors__white;
+@colors__code--text--dark: @colors__white;
+
+@typography__letter-spacing--title: -0.02em;
+@typography__letter-spacing--list-title: -0.02em;
+
+@sizing__container: 42rem;
+
+@spacing__mobile: 1rem;
+@spacing__desktop: 2rem;
+
+/**
+ * CSS Variables
+ */
+:root {
+  --accent: @colors__accent;
+  --secondary: @colors__secondary;
+  --background: @colors__white;
+  --text: @colors__black;
+
+  --code-background: @colors__code--background;
+  --code-text: @colors__code--text;
+
+  --note-background: @colors__note--background;
+
+  --spacing: @spacing__mobile;
+
+  &.color-scheme--dark {
+    --accent: @colors__accent--dark;
+    --secondary: @colors__secondary--dark;
+    --background: @colors__black;
+    --text: @colors__white;
+    --code-background: @colors__code--background--dark;
+    --code-text: @colors__code--text--dark;
+    --note-background: @colors__note--background--dark;
+  }
+
+  @media (min-width: @breakpoints__desktop--start) {
+    --spacing: @spacing__desktop;
+  }
+}

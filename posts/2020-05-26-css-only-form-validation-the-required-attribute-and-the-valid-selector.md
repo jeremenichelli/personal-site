@@ -9,7 +9,7 @@ Validation is needed, we want to make sure we have all the data we need in the r
 
 In my previous article I explored an approach for [progressive enhancement in a React application](/2020/05/a-progressive-search-experience-in-next/). There I’m using a third-party service that has a rate limit and I have no control over, so preventing unwanted calls was necessary.
 
-## The hydration paradox
+## User interaction and hydration issues
 
 The easiest way to make sure a button doesn’t work is by disabling it. An given the only case I want to prevent a submit is when the search input is empty it’s tempting to disable the button when the value is _falsy_.
 
@@ -65,7 +65,7 @@ We can go further and require a minimum length and even pass a regular expressio
 
 In this case, we are requiring at least two characters and the first one to be uppercase.
 
-In JavaScript, we have a set of methods to check if the current value of a given element is valid and set a custom error message. The [Constraint Validation API](//developer.mozilla.org/en-US/docs/Web/API/Constraint_validation) is a powerful one, and I strongly encourage developers to read and remember for projects.
+In JavaScript, we have a set of methods to check if the current value of a given element is valid and set a custom error message. The **Constraint Validation API** is a powerful one, and I strongly encourage developers to read and remember for projects.
 
 Along with its release, a useful set of new selectors came to the CSS spec. We can detect which elements are valid or not, and even if forms are valid.
 
@@ -109,7 +109,7 @@ form.form__with-validation:invalid button.submit__button {
 }
 ```
 
-{% actionLink '//codesandbox.io/s/form-validation-example-ghjoy' %}
+{% codeExampleLink '//codesandbox.io/s/form-validation-example-ghjoy' %}
 
 This is indeed a really simple case to solve. Gladly, this specification contains a pretty wide range of attributes to combine and helpful JavaScript methods in case you want to provide a more custom experience.
 

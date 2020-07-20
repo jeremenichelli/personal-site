@@ -1,27 +1,23 @@
-import { css } from 'store-css'
-
-const url =
-  'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700&display=swap'
-const storage = 'session'
-const crossOrigin = 'anonymous'
-const config = { url, storage, crossOrigin }
-
-if (__DEV__) {
-  config.logger = (error, message) => {
-    if (error) console.error(message, error)
-    else console.log(message)
-  }
-}
-
-css(config)
-
-try {
-  // check dark mode initial state
-  const storedDarkMode = JSON.parse(localStorage.getItem('dark-mode'))
-  document.documentElement.classList.toggle('dark', storedDarkMode)
-} catch (error) {
-  if (__DEV__) console.error(error)
-}
+import {
+  COLOR_SCHEME_KEY,
+  COLOR_SCHEME_DARK_VALUE,
+  COLOR_SCHEME_DARK_CLASSNAME,
+  COLOR_SCHEME_LIGHT_VALUE
+} from './_constants'
 
 // remove no js class
 document.documentElement.classList.remove('no-js')
+
+// handle initial dark scheme state
+const storedColorScheme = localStorage.getItem(COLOR_SCHEME_KEY)
+const shouldApplyDarkScheme = storedColorScheme === COLOR_SCHEME_DARK_VALUE
+
+if (storedColorScheme === COLOR_SCHEME_DARK_VALUE) {
+  document.documentElement.classList.add(COLOR_SCHEME_DARK_CLASSNAME)
+}
+
+// store color scheme resolution
+localStorage.setItem(
+  COLOR_SCHEME_KEY,
+  shouldApplyDarkScheme ? COLOR_SCHEME_DARK_VALUE : COLOR_SCHEME_LIGHT_VALUE
+)

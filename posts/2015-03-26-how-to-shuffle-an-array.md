@@ -109,7 +109,7 @@ function shuffle(array) {
 }
 ```
 
-{% actionLink 'https://jsfiddle.net/jeremenichelli/sbLjxweu/' %}
+{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/sbLjxweu/' %}
 
 I've created a fiddle _(link above)_ where you can see this working. It also contains an iteration that gets executed a one hundred thousand times and its results showing the frequencies distribution in the console.
 
@@ -119,7 +119,7 @@ After running those tests and making sure it worked well I started searching for
 
 Don't get me wrong, I think [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) is great, but when used for its original purposes, to establish a new known order in an array.
 
-For that you need a criteria and a compare function that responds to it. Random isn't a known order and has no criteria, but well, here's the little monster I found out there...
+For that you need a criteria and a compare function that responds to it. Random isn't a known order and has no criteria, but well, here's the little monster I found out there.
 
 ```js
 array.sort(function () {

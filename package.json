@@ -6,15 +6,21 @@
   "scripts": {
     "clean": "rimraf _site assets _includes/styles _includes/scripts _includes/favicons.liquid",
     "bundle": "node .scripts/bundle.js",
+    "bundle:watch": "npx cli-watch -f 'src/js/**/*.js' -r 'NODE_ENV=development npm run bundle'",
     "favicons": "node .scripts/favicons.js",
-    "images": "node .scripts/images.js",
+    "fonts:copy": "node .scripts/fonts.js",
+    "fonts:subsetting": "bash .scripts/fonts-subsetting.sh",
+    "fonts": "npm run fonts:subsetting && npm run fonts:copy",
     "less": "node .scripts/less.js",
+    "less:watch": "npx cli-watch -f 'src/less/**/*.less' -r 'NODE_ENV=development npm run less'",
+    "images": "node .scripts/images.js",
     "serve": "eleventy --serve",
-    "build": "DEBUG=* eleventy",
-    "assets": "npm run bundle && npm run less && npm run favicons && npm run images",
+    "build": "eleventy",
+    "assets": "npm run bundle && npm run less && npm run favicons && npm run fonts:copy && npm run images",
     "validate:feed": "feed-validator _site/feed.xml --no-showfeed",
     "prerelease": "npm run clean",
-    "release": "npm run assets && npm run build && npm run validate:feed",
+    "release": "npm run assets && npm run build",
+    "postrelease": "npm run validate:feed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,13 +36,14 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@rollup/plugin-buble": "^0.21.1",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
     "autoprefixer": "^9.7.4",
     "chalk": "^3.0.0",
+    "cpy": "^8.1.0",
     "cssnano": "^4.1.10",
     "eleventy-nbsp-filter": "^0.1.0",
     "eleventy-xml-plugin": "^0.1.0",
@@ -44,47 +51,36 @@
     "feed-validator": "^1.1.1",
     "glob": "^7.1.4",
     "html-minifier": "^4.0.0",
-    "husky": "^3.0.0",
+    "husky": "^4.2.5",
     "jimp": "^0.9.5",
     "less": "^3.11.1",
-    "lint-staged": "^9.2.0",
+    "lint-staged": "^10.2.11",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^5.2.4",
     "mkdirp": "^0.5.1",
     "postcss": "^7.0.27",
-    "prettier": "2",
+    "prettier": "^2.0.5",
     "rimraf": "^2.6.3",
     "rollup": "^2.0.3",
     "rollup-plugin-terser": "^5.3.0"
-  },
-  "dependencies": {
-    "markdown-it": "^10.0.0",
-    "markdown-it-anchor": "^5.2.4",
-    "store-css": "^1.0.2"
-  },
-  "lint-staged": {
-    "./**/*.js": [
-      "prettier --write",
-      "git add"
-    ],
-    "./**/*.less": [
-      "prettier --write",
-      "git add"
-    ],
-    "./**/*.md": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "lint-staged": {
+    "*.{js,less,md}": [
+      "prettier --write",
+      "git add ."
+    ]
+  },
   "browserslist": [
-    "Chrome 33",
-    "ChromeAndroid 80",
-    "Firefox 29",
-    "Edge 12",
-    "iOS 8",
-    "Safari 7.1"
+    "Chrome 49",
+    "ChromeAndroid 49",
+    "Firefox 31",
+    "Edge 15",
+    "iOS 9.3",
+    "Safari 9.1"
   ]
 }

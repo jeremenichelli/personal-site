@@ -1,50 +1,15 @@
-@import '__normalize.less';
-
-@light--color: #ffffff;
-@dark--color: #020210;
-
-@accent: #4242ef;
-@secondary: #505060;
-@code--background: rgba(0, 0, 10, 0.025);
-
-@accent__dark: #7575ff;
-@secondary__dark: #d0d0e0;
-@code--background__dark: rgba(255, 255, 255, 0.05);
-
-:root {
-  // main colors
-  --accent: @accent;
-  --secondary: @secondary;
-  --background: @light--color;
-  --text: @dark--color;
-
-  // code styles
-  --code--background: @code--background;
-
-  // letter spacing
-  --low--letter-spacing: 0.025em;
-  --medium--letter-spacing: 0.05em;
-}
-
-:root.dark {
-  --accent: @accent__dark;
-  --secondary: @secondary__dark;
-  --background: @dark--color;
-  --text: @light--color;
-  --code--background: @code--background__dark;
-}
-
-::selection {
-  background-color: var(--accent);
-  color: @light--color;
-}
+@import './__vars.less';
+@import './_fonts.less';
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
-  line-height: 1.65;
 
-  @media (min-width: 737px) {
+  /**
+   * General font size is declared at root level to use rem units.
+   */
+  font-size: 16px;
+
+  @media (min-width: @breakpoints__desktop--start) {
     font-size: 18px;
   }
 
@@ -63,102 +28,88 @@ html {
 }
 
 * {
-  // global focus ring color
   &:focus {
-    outline-color: var(--accent);
+    outline-color: var(--accent); // global focus ring color
   }
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
 }
 
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Helvetica Neue, Arial, sans-serif;
+  font-family: 'Inter', BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Helvetica Neue', sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
-  // transition between light and dark mode
+  // transition between light and dark color scheme
   transition-property: color, background-color;
   transition-duration: 0.25s;
+}
+
+/**
+ * Some browsers don't support font-feature-settings inside font face
+ * declarations, so they are needed at tag level. 
+ */
+body {
+  font-feature-settings: 'ss01' on;
+}
+
+em {
+  font-feature-settings: 'ss01' on, 'cv05' on, 'cv11' on;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  text-decoration-skip-ink: auto;
 
   &:hover {
     text-decoration: underline;
+    text-decoration-skip-ink: all;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 2px;
   }
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 40rem;
-  padding: 1rem;
+  padding: var(--spacing);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: @sizing__container;
 
-  @media (min-width: 737px) {
-    padding: 2rem;
-  }
-}
-
-// delete the margins in first and last elements
-main {
-  .container > *:first-child {
+  // removing spacing on leading elements
+  > *:first-child {
     margin-top: 0;
   }
 
-  .container > *:last-child {
+  > *:last-child {
     margin-bottom: 0;
   }
 }
 
-// dark button toggle
-@keyframes buttonFadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.dark--toggle {
-  animation-duration: 0.2s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+.color-scheme__button {
   border: none;
   border-radius: 50%;
   background-color: var(--accent);
-  width: 1.5rem;
-  height: 1.5rem;
-  opacity: 0;
+  height: 2rem;
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  right: var(--spacing);
+  top: var(--spacing);
+  width: 2rem;
 
-  @media (min-width: 737px) {
-    top: 2rem;
-    left: 2rem;
-  }
-
-  // sorry a11y gods, but focus ring is awful on circles
-  outline: none;
-
-  &__visible {
-    animation-name: buttonFadeIn;
-  }
-
-  &:active {
-    transform: scale(0.95) !important;
-    animation-fill-mode: none;
-    opacity: 1;
+  /**
+   * Only add active state styles when JavaScript takes
+   * over the toggle button and makes it focusable.
+   */
+  &[tabindex='0'] {
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }

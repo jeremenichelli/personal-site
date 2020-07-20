@@ -15,11 +15,11 @@ And it shouldn't, it’s one of the reasons why building on the web is great tod
 
 Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](//csswizardry.com) and he said to me:
 
-> "I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?"
+> I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?
 
 There are a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support a JavaScript-disabled scenario. Later, he closes his quote with this:
 
-> "As Jake Archibald said, ‘[…] all your users are non-JavaScript while they're downloading your JavaScript’. So while I don’t think we should build or optimize for visitors who have disabled JavaScript, we shouldn’t make too many assumptions that our JavaScript will always work as we expect."
+> As Jake Archibald said, ‘[…] all your users are non-JavaScript while they're downloading your JavaScript’. So while I don’t think we should build or optimize for visitors who have disabled JavaScript, we shouldn’t make too many assumptions that our JavaScript will always work as we expect.
 
 We do rely more and more on client code, and it's a trend that seems to not stop soon. It gave me a lot of thinking as someone who started coding when frameworks weren't a big thing.
 
@@ -37,7 +37,7 @@ Keeping these two concepts close, let's dive into a search application with form
 
 To start, let's **disable JavaScript** in the browser.
 
-## Kick off and form submission
+## Form submission and accessibility
 
 As a first building block, I'm choosing [Next](//nextjs.org), a framework built on top of React. Since I won't have JavaScript available on the client I need a stack that gives me control on the server-side.
 
@@ -89,7 +89,7 @@ const Index = () => {
 export default Index
 ```
 
-{% actionLink '//codesandbox.io/s/javascript-less-submission-e8z3g' %}
+{% codeExampleLink '//codesandbox.io/s/javascript-less-submission-e8z3g' %}
 
 A button alone does nothing without JavaScript, like in the first code example.
 
@@ -99,7 +99,7 @@ Right now our application does one thing, after the user submits the page refres
 
 We can see now the importance of the _name_ and _action_ attributes.
 
-## Fetching the search data
+## Fetching data on the server side
 
 After a search submission, a page request hits the server. There we can inspect the new parameters in the URL to know what data to fetch.
 
@@ -181,14 +181,14 @@ Enhancing this for _JavaScript-ready_ users is surprisingly straight-forward.
 Because we have the logic already set in place, instead of re-implementing everything again we prevent the submit default behavior, serialize the form data and push a route change, `getInitialProps` handles the rest.
 
 ```js
-import Router form 'next/router'
+import Router from 'next/router'
 
-function onSubmit (evt) {
-    evt.preventDefault()
-    const formData = new FormData(evt.target)
-    const searchQuery = formData.get('search')
-    const url = `/?search=${searchQuery}`
-    Router.push(url)
+function onSubmit(evt) {
+  evt.preventDefault()
+  const formData = new FormData(evt.target)
+  const searchQuery = formData.get('search')
+  const url = `/?search=${searchQuery}`
+  Router.push(url)
 }
 ```
 
@@ -198,7 +198,7 @@ Relying completely on the event dispatching and its target, which both come buil
 
 Approaches like these aren’t seen much because we tend to build solutions with JavaScript first in mind. Shifting that initial approach changes drastically the outcome in code for similar or identical tasks, tasks as common as fetching data and URL persistence.
 
-## Pagination
+## Pagination of data results
 
 Similar to how we look up inside the context parameter to extract the search query, to enable specific page results we need to inspect this object and look for a `page` key.
 

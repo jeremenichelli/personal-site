@@ -84,7 +84,7 @@ componentWillLeave(done) {
 
 Calling **done** we indicate that the lifecycle sequence should continue.
 
-To make sure out animations will run smooth, we need to **hint** the browser which elements will require GPU acceleration, give it **time** so it can upgrade them, **animate** and when the animations are done, **remove hints** to free up resources since they are no longer needed.
+To make sure out animations will run smooth, we need to _hint_ the browser which elements will require GPU acceleration, give it _time_ so it can upgrade them, _animate_ and when the animations are done, _remove hints_ to free up resources since they are no longer needed.
 
 ## will-change
 

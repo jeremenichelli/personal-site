@@ -1,0 +1,104 @@
+/**
+ * Highlighting color pallette.
+ */
+@highlighting__cyan: #76d9e6;
+@highlighting__gray: #aeaeba;
+@highlighting__gray--comment: rgba(255, 255, 255, 0.5);
+@highlighting__green: #98ea58;
+@highlighting__purple: #7575ff;
+@highlighting__red: #ef3b7d;
+@highlighting__white: #ffffff;
+@highlighting__yellow: #fff871;
+
+code[class*='language'] {
+  .comment {
+    color: @highlighting__gray--comment;
+  }
+
+  .operator,
+  .boolean {
+    color: @highlighting__purple;
+  }
+
+  .number {
+    color: @highlighting__yellow;
+  }
+
+  .cdata,
+  .doctype,
+  .prolog {
+    color: @highlighting__gray;
+  }
+
+  .attr-name,
+  .string,
+  .url {
+    color: @highlighting__yellow;
+  }
+
+  .atrule,
+  .attr-value,
+  .keyword,
+  .important,
+  .deleted,
+  .selector {
+    color: @highlighting__red;
+  }
+
+  .regex,
+  .statement {
+    color: @highlighting__cyan;
+  }
+
+  .placeholder,
+  .variable {
+    color: @highlighting__white;
+  }
+
+  .punctuation {
+    color: @highlighting__gray;
+  }
+
+  .inserted {
+    color: @highlighting__green;
+  }
+}
+
+code.language-css,
+code.language-less,
+code.language-scss,
+code.language-sass,
+code.language-html .style {
+  .selector {
+    color: @highlighting__red;
+  }
+
+  .property {
+    color: @highlighting__cyan;
+  }
+}
+
+code.language-json {
+  .operator {
+    color: @highlighting__gray;
+  }
+}
+
+code.language-html {
+  .tag {
+    color: @highlighting__red;
+  }
+
+  .attr-name {
+    color: @highlighting__green;
+  }
+
+  .attr-value {
+    color: @highlighting__yellow;
+  }
+
+  .script,
+  .keyword {
+    color: @highlighting__cyan;
+  }
+}

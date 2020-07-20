@@ -1,60 +1,62 @@
 <head>
-  {% if title %}{% capture pageTitle %}{{ title }}{% endcapture %}
-  {% else %}{% capture pageTitle %}{{ site.title }}{% endcapture %}
-  {% endif %}
-
-  {% if excerpt %}{% capture pageDescription %}{{ excerpt }}{% endcapture %}
-  {% else %}{% capture pageDescription %}{{ site.description }}{% endcapture %}
-  {% endif %}
-
   {% capture url %}{{ page.url | prepend: site.url }}{% endcapture %}
 
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>{{ pageTitle }}</title>
-  <meta name="description" content="{{ pageDescription }}">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ excerpt }}">
 
   {% if external_url %}
-  <link rel="canonical" href="{{ external_url }}">
+    <link rel="canonical" href="{{ external_url }}">
   {% else %}
-  <link rel="canonical" href="{{ url }}">
+    <link rel="canonical" href="{{ url }}">
   {% endif %}
   
   {% if type == 'post' %}
-  <meta name="author" content="Jeremias Menichelli">
+    <meta name="author" content="{{ site.author }}">
   {% endif %}
 
   <!-- favicon definitions -->
   {% include 'favicons' %}
 
-  <!-- include inline styles -->
-  {% capture stylesPath %}styles/{{type}}{% endcapture %}
-  <style>{% include stylesPath %}</style>
-
-  <!-- include inline scripts -->
-  <script>{% include 'scripts/inline' %}</script>
-
   <!-- structured data -->
   <script type="application/ld+json">
-  {% if type == 'blog' or type == 'archive' or type == 'talks' %}
-    {% include 'structured-data/collection' %}
-  {% elsif type == 'post' %}
+  {% if type == 'post' %}
     {% include 'structured-data/post' %}
   {% else %}
     {% include 'structured-data/page' %}
   {% endif %}
   </script>
 
+  <!-- open graph meta -->
+  {% if type == 'post' %}
+    {% include 'open-graph/post' %}
+  {% else %}
+    {% include 'open-graph/page' %}
+  {% endif %}
+
   <!-- twitter card meta -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@jeremenichelli">
   <meta name="twitter:creator" content="@jeremenichelli" />
-  <meta name="twitter:title" content="{{ pageTitle }}">
-  <meta name="twitter:description" content="{{ pageDescription }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ excerpt }}">
   <meta name="twitter:url" content="{{ url }}">
-  <meta name="twitter:image" content="{{ site.url }}/assets/images/twitter-card-image.jpeg">
+  <meta name="twitter:image" content="{{ site.logo }}">
+
+  <!-- preload font files -->
+  <link rel="preload" href="/assets/fonts/Inter-Regular-subset.woff2" as="font" crossorigin>
+  <link rel="preload" href="/assets/fonts/Inter-Italic-subset.woff2" as="font" crossorigin>
+  <link rel="preload" href="/assets/fonts/Inter-Bold-subset.woff2" as="font" crossorigin>
+  <link rel="preload" href="/assets/fonts/Inter-ExtraBold-subset.woff2" as="font" crossorigin>
+
+  <!-- include inline styles -->
+  {% capture stylesPathPartial %}styles/{{type}}{% endcapture %}
+  <style>{% include stylesPathPartial %}</style>
+
+  <!-- include inline scripts -->
+  <script>{% include 'scripts/inline' %}</script>
 
   <!-- da javascript -->
   <script src="/assets/js/main.js" defer></script>

@@ -13,7 +13,7 @@ Industry is making us solve stuff quick, build stuff quick, and that comes at a 
 
 I'm pretty sure that an event like this wouldn't have been possible in the front end community just a couple of years ago because the needs really differed from the ones we have today.
 
-> "Change is constant."
+> Change is constant.
 > <cite>Benjamin Disraeli</cite>
 
 We are in presence of one of those big moments when we found out that something is not as good as we thought and we need to evolve and find a solution.
@@ -44,4 +44,4 @@ As any group of individuals, we the developers see the same thing from a differe
 
 Something went wrong. It means we need to do it better. We can do better.
 
-_Let's!_.
+_Let's!_

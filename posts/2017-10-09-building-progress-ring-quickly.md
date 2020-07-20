@@ -1,7 +1,7 @@
 ---
 title: Building a Progress Ring, Quickly
 excerpt: On some particularly heavy sites, the user needs to see a visual cue temporarily to indicate that resources and assets are still loading before they taking in a finished site. There are different kinds of approaches to solving for this kind of UX, from spinners to skeleton screens.
-host: css-tricks
+host: CSS-Tricks
 host_url: https://css-tricks.com
 external_url: https://css-tricks.com/building-progress-ring-quickly/
 ---

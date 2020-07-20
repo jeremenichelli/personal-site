@@ -13,7 +13,7 @@ If you're going my way and you're starting with an empty folder then you're goin
 # site settings
 title: Your awesome title
 author: Your name
-description: 'Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description.'
+description: 'Write an awesome description for your new site here.'
 
 # build settings
 port: 4000
@@ -32,7 +32,7 @@ The first thing that you need to do is separate parts that are going to be in ev
 
 The most common parts are the head tag, the header and the footer of your site, but this depends on the design you're trying to achieve. You can have a side column, a **recent posts** section you can attach to every article or a badge with your information for example.
 
-> includes make maintainance much easier, something similar to what you have in php based generators
+> Includes make maintainance much easier, something similar to what you have in php based generators
 
 Doing this will make maintainance much easier, something similar to what you have in php based generators like Wordpress. This time, they are just **.html** files and the only thing you're required to do is to include this parts inside the **\_includes** folder and nothing more.
 
@@ -104,13 +104,14 @@ With small changes you can heavily alter the markup and structure of your templa
 
 Now that we have the basic needs for our site, we can create an **index** file in our folder. This file can be either be an html file or a markdown file.
 
-```html
+```markdown
 ---
 layout: default
 ---
 
-## Hi this is my site This is the **index** page. This site is built with
-Jekyll.
+## Hi, welcome to my site!
+
+This is the **index** page. This site is built with Jekyll.
 ```
 
 After you've saved this file in the root folder, you can run the `serve` command and see the results.
