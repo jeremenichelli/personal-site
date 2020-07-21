@@ -25,9 +25,9 @@ It could be the font you want is not on Google Fonts' catalog, or simply you wan
 
 I recently launched a new design for this site, and as part of the release I wanted to push even more performance improvements.
 
-_It's fair to say the previous version was using Google Fonts, and was already in good shape, with a perfect score and good numbers in performance measuring tools like [Lighthouse](lighthouse)._
+_It's fair to say the previous version was using Google Fonts, and was already in good shape, with a perfect score and good numbers in performance measuring tools like [Lighthouse][lighthouse]._
 
-I described my font strategy several times in [articles](font-strategy-article) and [talks](font-strategy-talk), which included loading the stylesheet without blocking text content, switching to the custom font only when it is ready, and saving the stylesheet rules with web storage to prevent text flickering while navigating through the site.
+I described my font strategy several times in [articles][font-strategy-article] and [talks][font-strategy-talk], which included loading the stylesheet without blocking text content, switching to the custom font only when it is ready, and saving the stylesheet rules with web storage to prevent text flickering while navigating through the site.
 
 Let's see how that strategy changes when you self-hosted your font files.
 
@@ -35,7 +35,7 @@ Let's see how that strategy changes when you self-hosted your font files.
 
 The first step is to stop loading Google's stylesheet and move files to your site.
 
-For this redesign I'm using [Inter](inter-font) by Rasmus Andersson, so I downloaded the font files into my own assets folder and added the font face rules to my styles.
+For this redesign I'm using [Inter][inter-font] by Rasmus Andersson, so I downloaded the font files into my own assets folder and added the font face rules to my styles.
 
 ```css
 @font-face {
@@ -106,9 +106,9 @@ Using Google Fonts the homepage of this site was **~50Kb**, but my page weighted
 
 Authors of typefaces usually provide glyphs and features for different usages and languages. The best solution is to create new font files containing only the ones your project needs.
 
-_A great way to find out what your font files contain is to visit [wakamaifondue](wakamaifondue) and drop them there. You will get a list of all symbols and features._
+_A great way to find out what your font files contain is to visit [wakamaifondue][wakamaifondue] and drop them there. You will get a list of all symbols and features._
 
-An important part of this is the **unicode range**, the group of symbols your project needs. Tools like [glyphhanger](glyphhanger) can crawl the pages of your site and return the glyphs they are using.
+An important part of this is the **unicode range**, the group of symbols your project needs. Tools like [glyphhanger][glyphhanger] can crawl the pages of your site and return the glyphs they are using.
 
 Another option, specially if you were already using Google Fonts is to rely on the unicode range they use to compress their font files.
 
@@ -122,7 +122,7 @@ From the Inter family, I'm only going to make use of a small group of the featur
 LAYOUT_FEATURES="ss01,cv05,cv11"
 ```
 
-Next step is to use [fonttools](fonttools), a Python library that among other utilies provides a subsetting command. We need to pass files with _.ttf_ extension to it.
+Next step is to use [fonttools][fonttools], a Python library that among other utilies provides a subsetting command. We need to pass files with _.ttf_ extension to it.
 
 ```bash
 pyftsubset "src/fonts/Inter-Regular.ttf" --layout-features=$LAYOUT_FEATURES --unicodes=$UNICODES
@@ -140,9 +140,9 @@ The final step is to output these as compressed files optimized for web usage.
 
 Unless you need to support really old browsers, `woff` and `woff2` formats should be good enough.
 
-_If you aren't sure, check [compatibility data](caniuse-woff) for compressed file formats._
+_If you aren't sure, check [compatibility data][caniuse-woff] for compressed file formats._
 
-To export files in these formats you will have to install [zopfli](zopfli) and [brotli](brotli) Python libraries and specify the flavor you want to the `pyftsubset` command.
+To export files in these formats you will have to install [zopfli][zopfli] and [brotli][brotli] Python libraries and specify the flavor you want to the `pyftsubset` command.
 
 ```bash
 pyftsubset "src/fonts/Inter-Regular.ttf" --output-file="assets/fonts/Inter-Regular-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --layout-features=$LAYOUT_FEATURES --unicodes=$UNICODES
@@ -178,7 +178,7 @@ The benefits of self-hosting font files are still relevant, but **you need to ma
 
 You can't afford all these actions on your project? **It's fine**, Google Fonts is still more than a fair and reasonable choice.
 
-_If you do so, Harry Roberts recently wrote an [article on the fastest way to deliver Google Fonts](fastest-google-fonts) for your site, I highly recommend._
+_If you do so, Harry Roberts recently wrote an [article on the fastest way to deliver Google Fonts][fastest-google-fonts] for your site, I highly recommend._
 
 Here's a **TL;DR** list of optimizations and things to remember if you decide to self-host your font files:
 
@@ -187,7 +187,7 @@ Here's a **TL;DR** list of optimizations and things to remember if you decide to
 - Using modern techniques and tools to compress the final files.
 - Measure and compare the performance of your strategies to be sure they represent an advantage for your project and the users.
 
-_Shout out to Zach Leatherman's article [Developing a Robust Font Loading Strategy for CSS-Tricks](css-tricks-web-fonts) which was a huge help while applying all these optimizations plus a great inspiration for writing this article._
+_Shout out to Zach Leatherman's article [Developing a Robust Font Loading Strategy for CSS-Tricks][css-tricks-web-fonts] which was a huge help while applying all these optimizations plus a great inspiration for writing this article._
 
 [lighthouse]: //developers.google.com/web/tools/lighthouse
 [font-strategy-article]: /2016/05/font-loading-strategy-static-generated-sites/
