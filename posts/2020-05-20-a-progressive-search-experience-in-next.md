@@ -294,6 +294,6 @@ Though it is a simplified case, the experience of tackling common features in a 
 
 This as a starting point is better than breaking or reinventing web fundamentals and try to patch them back again with even more client code.
 
-I encourage you to explore its code base [here in its repository](//github.com/jeremenichelli/muvi) or even try the full application experience at [muvi.now.sh](//muvi.now.sh), or what’s better do it with JavaScript disabled.
+I encourage you to explore its code base [here in its repository](//github.com/jeremenichelli/muvi) or try the full application experience at [muvi.now.sh](//muvi.now.sh), and to do it with JavaScript disabled.
 
 It’s the web, built using a framework, and **it just works**.
