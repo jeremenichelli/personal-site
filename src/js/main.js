@@ -6,7 +6,7 @@ import {
   COLOR_SCHEME_LIGHT_VALUE
 } from './_constants'
 
-// check stored color scheme value
+// Check stored color scheme value
 const isDarkSchemeApplied = document.documentElement.classList.contains(
   COLOR_SCHEME_DARK_CLASSNAME
 )
@@ -15,29 +15,32 @@ const colorSchemeButton = document.getElementsByClassName(
   COLOR_SCHEME_BUTTON_CLASSNAME
 )[0]
 
-// make button accessible for screen readers and set press state
+// Make button accessible for screen readers and set press state
 colorSchemeButton.setAttribute('tabindex', '0')
 colorSchemeButton.setAttribute(
   'aria-pressed',
   isDarkSchemeApplied ? 'true' : 'false'
 )
 
-// toggle color scheme on button click event
+// Toggle color scheme on button click event
 colorSchemeButton.addEventListener('click', () => {
   const shouldChangeToDarkScheme = !document.documentElement.classList.contains(
     COLOR_SCHEME_DARK_CLASSNAME
   )
 
+  // Update root element class name
   document.documentElement.classList.toggle(
     COLOR_SCHEME_DARK_CLASSNAME,
     shouldChangeToDarkScheme
   )
 
+  // Set pressed attribute for button accessibility
   colorSchemeButton.setAttribute(
     'aria-pressed',
     shouldChangeToDarkScheme ? 'true' : 'false'
   )
 
+  // Update cached state in web storage
   localStorage.setItem(
     COLOR_SCHEME_KEY,
     shouldChangeToDarkScheme

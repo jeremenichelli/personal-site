@@ -4,9 +4,7 @@
 html {
   box-sizing: border-box;
 
-  /**
-   * General font size is declared at root level to use rem units.
-   */
+  // General font size is declared at root level to use rem units.
   font-size: 16px;
 
   @media (min-width: @breakpoints__desktop--start) {
@@ -23,13 +21,22 @@ html {
 *:after {
   box-sizing: inherit;
 
-  // disable tap color in Chrome mobile
+  // Disable tap color in Chrome mobile.
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 * {
+  // Adjust global focus outline styles.
   &:focus {
-    outline-color: var(--accent); // global focus ring color
+    outline-color: var(--accent);
+    outline-offset: 3px;
+    outline-width: 2px;
+    outline-style: dashed;
+  }
+
+  // Hide firefox focus ring.
+  &::-moz-focus-inner {
+    border: 0;
   }
 }
 
@@ -48,7 +55,7 @@ body {
   padding: 0;
   -webkit-text-size-adjust: 100%;
 
-  // transition between light and dark color scheme
+  // Transition between light and dark color scheme.
   transition-property: color, background-color;
   transition-duration: 0.25s;
 }
@@ -75,6 +82,12 @@ a {
     text-decoration-thickness: 0.075em;
     text-underline-offset: 2px;
   }
+
+  // Hide focus on hover and after being pressed.
+  &:active,
+  &:hover {
+    outline-width: 0;
+  }
 }
 
 .container {
@@ -83,7 +96,7 @@ a {
   margin-right: auto;
   max-width: @sizing__container;
 
-  // removing spacing on leading elements
+  // Removing spacing on leading elements.
   > *:first-child {
     margin-top: 0;
   }
