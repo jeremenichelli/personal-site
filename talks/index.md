@@ -13,14 +13,16 @@ If you want me to speak at your event feel free to [send here](mailto:jmenichell
     <a
       aria-label="{{ talk.title }} at {{ talk.event }}"
       class="talks-list-item__title"
-      alt="{{ talk.title }}"
       href="{{ talk.url }}" 
       target="_blank"
       rel="noopener noreferrer"
     >
       {{ talk.title | nbsp }}
     </a>
-    <p class="talks-list-item__info">{{ talk.date | date: '%b %d, %Y'}}
+    <p class="talks-list-item__info">
+      <time datetime="{{ talk.date }}">
+        {{ talk.date | date: '%b %d, %Y'}}
+      </time>
       <span class="talks-list-item__highlight">at {{ talk.event }}</span>
     </p>
   {% if forloop.first %}

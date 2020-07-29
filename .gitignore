@@ -10,4 +10,4 @@ _includes/favicons.liquid
 assets
 
 # ignore error logs
-*log
+*.log
