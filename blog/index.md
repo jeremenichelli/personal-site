@@ -14,7 +14,7 @@ If you want me to write for your publication feel free to [send here](mailto:jme
       {{ post.data.title | nbsp }}
     </a>
     <p class="blog-list-item__info">
-      <time datetime="{{ post.date | iso_date }}">
+      <time datetime="{{ post.date | 'date_to_xmlschema' }}">
         {{ post.date | date: '%b %d, %Y'}}
       </time>
     </p>
