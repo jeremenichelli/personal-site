@@ -30,13 +30,6 @@ html {
   &:focus {
     outline-color: var(--accent);
     outline-offset: 2px;
-    outline-width: 2px;
-    outline-style: dashed;
-  }
-
-  // Hide firefox focus ring.
-  &::-moz-focus-inner {
-    border: 0;
   }
 }
 
@@ -81,12 +74,6 @@ a {
     text-decoration-skip-ink: all;
     text-decoration-thickness: 0.075em;
     text-underline-offset: 2px;
-  }
-
-  // Hide focus on hover and after being pressed.
-  &:active,
-  &:hover {
-    outline-width: 0;
   }
 }
 
