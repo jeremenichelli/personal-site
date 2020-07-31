@@ -2,7 +2,7 @@
 title: Blog
 type: blog
 layout: default
-excerpt: A small part of my thoughts, experiences and stories as a web developer, turned into articles.
+excerpt: A small part of my thoughts and experiences acquired through my career as a web developer, turned into articles.
 ---
 
 If you want me to write for your publication feel free to [send here](mailto:jmenichelli@gmail.com) the details.
