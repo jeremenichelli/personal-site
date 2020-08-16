@@ -144,4 +144,4 @@ You can always add a [polyfill](https://github.com/w3c/IntersectionObserver/tree
 
 ### Updates
 
-**9 AUG 2016** &mdash; The article was udpated to reflect the last changes in the spec.
+**9 AUG 2016** &mdash; The article was updated to reflect the last changes in the spec.
