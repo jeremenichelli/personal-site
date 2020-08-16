@@ -402,9 +402,9 @@ All these thoughts came from building a [simple web app][polymer-app] available 
 
 I hope Polymer team keeps working hard and improves this since it is the closest alternative to native web features.
 
-### Update
+### Updates
 
-**8 AUG 2016** &mdash; specs have been updated, `document.registerElement` has been deprecated in favor of `customElements.define` and easier extending syntax was added. I suggest reading [Eric Bidelman's article](https://developers.google.com/web/fundamentals/primers/customelement) which explains these two changes.
+**8 AUG 2016** &mdash; Specs have been updated, `document.registerElement` was deprecated in favor of `customElements.define` and easier extending syntax was added. I suggest this [article by Eric Bidelman](https://developers.google.com/web/fundamentals/primers/customelement) explaining these two changes.
 
 [polymer]: //www.polymer-project.org
 [vue-article]: /2016/06/building-component-based-app-vue/

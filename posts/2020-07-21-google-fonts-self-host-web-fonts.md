@@ -1,6 +1,7 @@
 ---
 title: The cost of moving from Google Fonts to self-hosted web fonts
 excerpt: In this article we are going to explore what it takes to self-host and serve your own font files, along with the benefits that come with it, and we are going to compare this with using Google Fonts.
+lastModified: 2020-08-16
 ---
 
 Google Fonts has been one of my favorite products on the web of all time. It checks a lot of boxes, and there aren't many reasons for you to not use it.
@@ -119,7 +120,7 @@ UNICODES="U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000
 From the Inter family, I'm only going to make use of a small group of the features it brings by default.
 
 ```bash
-LAYOUT_FEATURES="ss01,cv05,cv11"
+LAYOUT_FEATURES="kern,ss01,cv05,cv11"
 ```
 
 Next step is to use [fonttools][fonttools], a Python library that among other utilies provides a subsetting command. We need to pass files with _.ttf_ extension to it.
@@ -148,7 +149,7 @@ To export files in these formats you will have to install [zopfli][zopfli] and [
 pyftsubset "src/fonts/Inter-Regular.ttf" --output-file="assets/fonts/Inter-Regular-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --layout-features=$LAYOUT_FEATURES --unicodes=$UNICODES
 ```
 
-After doing this, each font file went from weighing **~100Kb** to **~10Kb** bringing back the site to its original size of **~50Kb** for the homepage.
+After doing this, each font file went from weighing **~100Kb** to **~12Kb** bringing back the site closer to its original size at **~60Kb** for the homepage.
 
 ## Performance results
 
@@ -188,6 +189,10 @@ Here's a **TL;DR** list of optimizations and things to remember if you decide to
 - Measure and compare the performance of your strategies to be sure they represent an advantage for your project and the users.
 
 _Shout out to Zach Leatherman's article [Developing a Robust Font Loading Strategy for CSS-Tricks][css-tricks-web-fonts] which was a huge help while applying all these optimizations plus a great inspiration for writing this article._
+
+### Updates
+
+**16 AUG 2020** &mdash; Initially the article stated the size of the hompeage file went down to its original **50Kb** weight, but _kerning_ was not included in the subset configuration. That part was updated to reflect the final numbers.
 
 [lighthouse]: //developers.google.com/web/tools/lighthouse
 [font-strategy-article]: /2016/05/font-loading-strategy-static-generated-sites/
