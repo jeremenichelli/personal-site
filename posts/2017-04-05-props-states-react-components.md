@@ -5,7 +5,7 @@ excerpt: React not only changed the way we build our interfaces but also put dat
 
 ## Props
 
-By definition _props_ are initial data that affect how a component is rendered.
+By definition _props_ are initial data that affects how a component is rendered.
 
 **Props** must be first class citizen in your application code base, and you should try to achieve all possible _flavors_ or variants of your components with them whenever possible.
 

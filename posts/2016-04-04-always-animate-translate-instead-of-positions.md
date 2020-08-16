@@ -1,6 +1,7 @@
 ---
 title: Always animate translate instead of positions
 excerpt: While visiting an article in WebKit's blog I noticed how badly an animation in a nested menu performed and decided to fix it.
+lastModified: 2014-04-07
 ---
 
 Not only it was slow, you could actually see the browser pushing each pixel of the menu with their list of links so I inspected its styles and this was the output.
@@ -81,9 +82,9 @@ The transition delay should not exceed the **100ms** neither or users will feel 
 
 When animating elements think a way to accomplish the desired effect using tranform operations and opacity to avoid unperformant results and show nice animations and transitions to the user.
 
-### Update
+### Updates
 
-**7 APR 2014** &mdash; after reporting this to the WebKit team about this, they quickly fixed and shipped the new improved transitions to their site.
+**7 APR 2014** &mdash; After reporting this to the WebKit team about this, they quickly fixed and shipped the new improved transitions to their site.
 
 [1]: http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 [2]: https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count?hl=en

@@ -6,8 +6,6 @@ lastModified: 2019-08-09
 
 The new **Intersection Observer** interface is here as a response of developers trying to figure out the best way to detect when an element enters the viewport. Doing this is useful in a lot of cases like infinite scrolling, lazy loading images or animating content.
 
-_This article was updated in August 2019 to reflect the last changes in the spec._
-
 ## Create a new observer
 
 First thing you need to do is to create an observer passing a `callback` function that will be executed everytime an element or more changes its status and an `options` object to configure the observer's behavior.
@@ -143,3 +141,7 @@ It's interesting to see vendors filling up the gaps between what we do on our pr
 If you find yourself observing the DOM as you scroll to observe elements you should definitely consider intersection observers as a more performant solution as it immediately frees the main thread for its execution.
 
 You can always add a [polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill) for legacy browsers that don't support or for partial implementations.
+
+### Updates
+
+**9 AUG 2016** &mdash; The article was updated to reflect the last changes in the spec.
