@@ -42,6 +42,7 @@ async function main() {
       .on('change', async function () {
         console.log('') // Insert line break to create space from Browsersync messages.
         console.log(`[${blue('.scripts/serve')}] Content files changed`, '\n')
+
         try {
           console.log(
             `[${blue('.scripts/serve')}] Running eleventy build`,
@@ -62,6 +63,7 @@ async function main() {
     server.watch('./src/**/*.less').on('change', async function () {
       console.log('') // Insert line break to create space from Browsersync messages.
       console.log(`[${blue('.scripts/serve')}] Styles changed`, '\n')
+
       try {
         await less('development')
         await asyncExec('npx eleventy')
@@ -79,6 +81,7 @@ async function main() {
     server.watch('./src/**/*.js').on('change', async function () {
       console.log('') // Insert line break to create space from Browsersync messages.
       console.log(`[${blue('.scripts/serve')}] Scripts changed`, '\n')
+
       try {
         await bundle('development')
         await asyncExec('npx eleventy')
