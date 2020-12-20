@@ -1,6 +1,6 @@
 // util modules
 const path = require('path')
-const { cyan, green, magenta, red } = require('chalk')
+const { red, blue, cyan, green, gray } = require('kleur')
 const {
   asyncMakeDirectory,
   asyncReadFile,
@@ -45,17 +45,17 @@ const filesList = [
   }
 ]
 
-const asyncPostCSS = async (css) => {
+const asyncPostCSS = async (css, env) => {
   const postCSSPlugins = [autoprefixer]
-  if (ENVIRONMENT === 'production') postCSSPlugins.push(cssnano)
+  if (env === 'production') postCSSPlugins.push(cssnano)
 
   return await postcss(postCSSPlugins).process(css, { from: undefined })
 }
 
-async function main() {
-  console.log(`\nProcessing ${cyan('styles')} for ${magenta(ENVIRONMENT)}`)
+async function main(env = ENVIRONMENT) {
+  console.log(`[${blue('.scripts/less')}] Generating styles for ${cyan(env)}`)
 
-  const sourceMap = ENVIRONMENT !== 'production' && {
+  const sourceMap = env !== 'production' && {
     sourceMapFileInline: true,
     outputSourceFiles: true
   }
@@ -72,17 +72,31 @@ async function main() {
     try {
       processed = await less.render(input, options)
     } catch (error) {
-      console.error(red(error))
+      console.log(
+        `[${blue('.scripts/less')}] ${red(
+          'An error occurred while processing styles'
+        )}`,
+        '\n',
+        error.message
+      )
     }
 
     // process with Post CSS
-    const { css } = await asyncPostCSS(processed.css)
+    const { css } = await asyncPostCSS(processed.css, env)
 
     // write files
     await asyncMakeDirectory(path.dirname(file.output), { recursive: true })
     await asyncWriteFile(file.output, css, 'utf-8')
-    console.log(`${green(file.output)} file written`)
+    console.log(`[${blue('.scripts/less')}] ${green(file.output)} file written`)
   }
+
+  // Print final line break.
+  console.log('')
 }
 
-main()
+// Detect call from command line and run or export main method.
+if (require.main === module) {
+  main()
+} else {
+  module.exports = main
+}

@@ -4,7 +4,7 @@
 html {
   box-sizing: border-box;
 
-  // General font size is declared at root level to use rem units.
+  // general font size is declared at root level to use rem units
   font-size: 16px;
 
   @media (min-width: @breakpoints__desktop--start) {
@@ -21,12 +21,12 @@ html {
 *:after {
   box-sizing: inherit;
 
-  // Disable tap color in Chrome mobile.
+  // disable tap color in Chrome mobile
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 * {
-  // Adjust global focus outline styles.
+  // adjust global focus outline styles
   &:focus {
     outline-color: var(--accent);
     outline-offset: 2px;
@@ -48,7 +48,7 @@ body {
   padding: 0;
   -webkit-text-size-adjust: 100%;
 
-  // Transition between light and dark color scheme.
+  // transition between light and dark color scheme
   transition-property: color, background-color;
   transition-duration: 0.25s;
 }
@@ -83,7 +83,7 @@ a {
   margin-right: auto;
   max-width: @sizing__container;
 
-  // Removing spacing on leading elements.
+  // removing spacing on leading elements
   > *:first-child {
     margin-top: 0;
   }

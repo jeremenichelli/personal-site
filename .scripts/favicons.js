@@ -1,4 +1,4 @@
-const { cyan, green, red } = require('chalk')
+const { blue, green, red } = require('chalk')
 const favicons = require('favicons')
 const { asyncMakeDirectory, asyncWriteFile, asyncRimraf } = require('./_utils')
 
@@ -35,7 +35,7 @@ const asyncFavicons = (entry, setup) =>
   })
 
 async function main() {
-  console.log(`\nGenerating ${cyan('favicons')} assets`)
+  console.log(`[${blue('.scripts/favicons')}] Generating assets`)
 
   try {
     // clean favicons directory and generate favicons
@@ -45,24 +45,44 @@ async function main() {
 
     // write favicons html content
     await asyncWriteFile(html, result.html.join('\n'), 'utf-8')
-    console.log(`favicon ${green('html partial')} created`)
+    console.log(
+      `[${blue('.scripts/favicons')}] ${green('liquid partial')} file written`
+    )
 
     // write favicons files
     for (const file of result.files) {
       const filename = `${outputPath}${file.name}`
       await asyncWriteFile(filename, file.contents, 'utf-8')
-      console.log(`favicon ${green(file.name)} file created`)
+      console.log(
+        `[${blue('.scripts/favicons')}] ${green(file.name)} file written`
+      )
     }
 
     // write favicon images files
     for (const image of result.images) {
       const imageName = `${outputPath}${image.name}`
       await asyncWriteFile(imageName, image.contents, 'utf-8')
-      console.log(`favicon ${green(image.name)} image created`)
+      console.log(
+        `[${blue('.scripts/favicons')}] ${green(image.name)} file written`
+      )
     }
   } catch (error) {
-    console.log(red(error))
+    console.log(
+      `[${blue('.scripts/favicons')}] ${red(
+        'An error occurred while generating assets'
+      )}`,
+      '\n',
+      error.message
+    )
   }
+
+  // Print final line break.
+  console.log('')
 }
 
-main()
+// Detect call from command line and run or export main method.
+if (require.main === module) {
+  main()
+} else {
+  module.exports = main
+}
