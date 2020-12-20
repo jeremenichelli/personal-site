@@ -1,4 +1,4 @@
-const { cyan, green, red } = require('chalk')
+const { blue, green, red } = require('kleur')
 const jimp = require('jimp')
 const { asyncMakeDirectory } = require('./_utils')
 
@@ -18,7 +18,7 @@ const images = [
 ]
 
 async function main() {
-  console.log(`\nProcessing ${cyan('images')}`)
+  console.log(`[${blue('.scripts/images')}] Processing image files`)
 
   try {
     await asyncMakeDirectory('./assets/images', { recursive: true })
@@ -31,11 +31,27 @@ async function main() {
       image.quality(file.quality)
       image.resize(file.resize[0], file.resize[1])
       image.write(file.output)
-      console.log(`${green(file.output)} image processed`)
+      console.log(
+        `[${blue('.scripts/images')}] ${green(file.output)} file written`
+      )
     }
   } catch (error) {
-    console.log(red(error))
+    console.log(
+      `[${blue('.scripts/images')}] ${red(
+        'An error occurred while processing files'
+      )}`,
+      '\n',
+      error.message
+    )
   }
+
+  // Print final line break.
+  console.log('')
 }
 
-main()
+// Detect call from command line and run or export main method.
+if (require.main === module) {
+  main()
+} else {
+  module.exports = main
+}
