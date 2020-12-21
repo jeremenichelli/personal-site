@@ -28,8 +28,8 @@ async function main() {
     server.init({
       server: { baseDir: './_site' },
       port: 8080,
-      open: false,
-      watch: false
+      watch: false,
+      notify: false
     })
 
     // Watch content files, trigger Eleventy build and browser reload.

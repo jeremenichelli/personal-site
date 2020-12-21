@@ -10,9 +10,7 @@ You will need [Node.js](//nodejs.org) and [npm](//www.npmjs.com) installed.
 
 Install all dependencies by running `npm install` first.
 
-Prepare all pre-processed assets with `npm run assets`, this command just groups all bundling, style processing, favicons, iamges and fonts. Each of them has a specific script that can be run in case you want to update one specific type of assets.
-
-Run `npm run serve` to kick off the server.
+Run `npm run serve` to kick off the development server.
 
 ## Folder structure
 
@@ -65,7 +63,7 @@ All font sizes are a close match to the Major Second Scale, with some little exc
 
 The initial position in the scale is `0` at `18px` and each font size rule has a comment on its side with the equivalent value in pixels and position in the scale. When the font size is proximate to a position in the scale but not exact the `~` character is used to signal the closest position.
 
-_I used [type-scale.com](type-scale.com) a lot, to figure out these numbers._
+_I checked [type-scale.com](type-scale.com) a lot, to figure out these numbers._
 
 ## JavaScript bundling
 
@@ -87,15 +85,19 @@ Fonts are stored as `.ttf` files, they get subsetted using [fonttools](https://g
 
 To avoid flash of unstyled content, they are preloaded and font face rules are inlined in the head using _font-display_ to keep text visible as font files load.
 
-_At the moment, font subsetting needs to be done manually and push to the repository._
+_At the moment, font subsetting needs to be done manually and pushed to the repository._
+
+## Development
+
+When the `serve` command is running, first a full build takes place to make sure no assets are missing. Second, a [Browsersync](https://browsersync.io/) server starts and finally the same server watches styles, scripts and content files to reload an updated version of the site.
 
 ## Deployment
 
-When a build is triggered in [Netlify](//netlify.com), a script named `npm run relase` takes place. First it cleans possible leading files in the final output directories of the project.
+When a build happens in [Netlify](//netlify.com), a script named `npm run relase` takes place.
 
 The `release` script first runs `npm run assets` to generate and copy all files including styles partials, scripts, fonts, images and favicon related files. Then, it triggers an [Eleventy](//11ty.dev) build.
 
-As a post activity, for now only, it checks if the feed generated is valid. In the future it might absorb other responsibilities as checking broken links or visual testing.
+As a post validation happens (at the moment the only one), a script checks if the feed generated is valid. In the future this step might absorb other responsibilities, as checking broken links or visual testing for example.
 
 ## License
 
