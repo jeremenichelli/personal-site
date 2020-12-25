@@ -17,31 +17,31 @@ const cssnano = require('cssnano')
 const filesList = [
   {
     input: './src/less/home.less',
-    output: './_includes/styles/home.liquid'
+    output: './_includes/generated/styles/home.liquid'
   },
   {
     input: './src/less/blog.less',
-    output: './_includes/styles/blog.liquid'
+    output: './_includes/generated/styles/blog.liquid'
   },
   {
     input: './src/less/post.less',
-    output: './_includes/styles/post.liquid'
+    output: './_includes/generated/styles/post.liquid'
   },
   {
     input: './src/less/archive.less',
-    output: './_includes/styles/archive.liquid'
+    output: './_includes/generated/styles/archive.liquid'
   },
   {
     input: './src/less/about.less',
-    output: './_includes/styles/about.liquid'
+    output: './_includes/generated/styles/about.liquid'
   },
   {
     input: './src/less/talks.less',
-    output: './_includes/styles/talks.liquid'
+    output: './_includes/generated/styles/talks.liquid'
   },
   {
     input: './src/less/404.less',
-    output: './_includes/styles/404.liquid'
+    output: './_includes/generated/styles/404.liquid'
   }
 ]
 

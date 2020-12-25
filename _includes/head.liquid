@@ -18,7 +18,7 @@
   {% endif %}
 
   <!-- favicon definitions -->
-  {% include 'favicons' %}
+  {% include 'generated/favicons' %}
 
   <!-- structured data -->
   <script type="application/ld+json">
@@ -52,11 +52,11 @@
   <link rel="preload" href="/assets/fonts/Inter-ExtraBold-subset.woff2" as="font" crossorigin>
 
   <!-- include inline styles -->
-  {% capture stylesPathPartial %}styles/{{type}}{% endcapture %}
+  {% capture stylesPathPartial %}generated/styles/{{type}}{% endcapture %}
   <style>{% include stylesPathPartial %}</style>
 
   <!-- include inline scripts -->
-  <script>{% include 'scripts/inline' %}</script>
+  <script>{% include 'generated/scripts/inline' %}</script>
 
   <!-- da javascript -->
   <script src="/assets/js/main.js" defer></script>

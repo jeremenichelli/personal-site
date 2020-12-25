@@ -12,7 +12,7 @@ const { terser } = require('rollup-plugin-terser')
 const bundles = [
   {
     input: './src/js/inline.js',
-    output: './_includes/scripts/inline.liquid'
+    output: './_includes/generated/scripts/inline.liquid'
   },
   {
     input: './src/js/main.js',

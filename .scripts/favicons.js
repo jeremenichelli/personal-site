@@ -5,7 +5,7 @@ const { asyncMakeDirectory, asyncWriteFile, asyncRimraf } = require('./_utils')
 const site = require('../_data/site')
 const entry = './src/images/site-logo.png'
 const outputPath = './assets/favicon/'
-const html = './_includes/favicons.liquid'
+const html = './_includes/generated/favicons.liquid'
 
 const setup = {
   appName: site.title,
