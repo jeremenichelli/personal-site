@@ -1,6 +1,6 @@
 // util modules
 const path = require('path')
-const { red, blue, cyan, green, gray } = require('kleur')
+const { red, blue, cyan, green } = require('kleur')
 const {
   asyncMakeDirectory,
   asyncReadFile,
