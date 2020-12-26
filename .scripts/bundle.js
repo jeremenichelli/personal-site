@@ -7,7 +7,6 @@ const { rollup } = require('rollup')
 const commonjs = require('@rollup/plugin-commonjs')
 const replace = require('@rollup/plugin-replace')
 const resolve = require('@rollup/plugin-node-resolve')
-const buble = require('@rollup/plugin-buble')
 const { terser } = require('rollup-plugin-terser')
 
 const bundles = [
@@ -33,8 +32,7 @@ async function main(env = ENVIRONMENT) {
       // support commonjs
       commonjs({
         include: 'node_modules/**'
-      }),
-      buble()
+      })
     ]
   }
 

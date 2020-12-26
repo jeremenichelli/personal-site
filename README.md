@@ -75,6 +75,8 @@ The inlined bits of JavaScript which need to be executed before the page renders
 
 Other parts end as normal scripts exported to the `assets` folder, they are places in the `head` tag using the `defer` attribute, as they shouldn't be a blocker for the user to have a good experience while using this site.
 
+At the moment the little bit of JavaScript in this site is not _transpiled_, as this project only supports latest versions of browsers.
+
 ## Favicons
 
 To generate favicons the main source is the `favicon.png` file and the script in `.scripts` folder. The script outputs both the assets and the markup needed for them as a partial in the `_includes/generated` folder, automating the whoe assets generation step.
