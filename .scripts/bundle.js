@@ -54,7 +54,7 @@ async function main(env = ENVIRONMENT) {
   )
 
   try {
-    const format = 'iife'
+    const format = 'es'
     const sourcemap = env === 'development' ? 'inline' : false
 
     for (const bundle of bundles) {
