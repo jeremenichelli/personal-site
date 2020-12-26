@@ -1,12 +1,12 @@
 const { red, blue, cyan, green, gray } = require('kleur')
 const { asyncMakeDirectory, ENVIRONMENT } = require('./_utils.js')
 const { statSync } = require('fs')
+const path = require('path')
 
 const { rollup } = require('rollup')
 const commonjs = require('@rollup/plugin-commonjs')
 const replace = require('@rollup/plugin-replace')
 const resolve = require('@rollup/plugin-node-resolve')
-const buble = require('@rollup/plugin-buble')
 const { terser } = require('rollup-plugin-terser')
 
 const bundles = [
@@ -32,8 +32,7 @@ async function main(env = ENVIRONMENT) {
       // support commonjs
       commonjs({
         include: 'node_modules/**'
-      }),
-      buble()
+      })
     ]
   }
 
@@ -55,15 +54,13 @@ async function main(env = ENVIRONMENT) {
   )
 
   try {
-    await asyncMakeDirectory('_includes/scripts', { recursive: true })
-    await asyncMakeDirectory('assets/js', { recursive: true })
-
     const format = 'iife'
     const sourcemap = env === 'development' ? 'inline' : false
 
     for (const bundle of bundles) {
       const { input, output } = bundle
 
+      await asyncMakeDirectory(path.dirname(output), { recursive: true })
       const result = await rollup({ input, ...baseConfig })
       await result.write({ file: output, format, sourcemap })
 

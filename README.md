@@ -29,9 +29,11 @@ Here's a description of the first level of folders:
 
 In this project, LESS is used as base for its styles. All styles generated are exported as partials and inlined in the head of each page containing only the styles needed for that page to render.
 
-This approach makes pages larger than it would be if styles were exported as stylesheets and doesn't take advantage of caching, but avoids render blocking resources and flash of unstyled content. This is why is important to keep them at minimum or it would eliminate its purposes.
+This approach makes pages to weight more than they would be if styles were exported as stylesheets and doesn't take advantage of caching.
 
-Each page needs to hold a `type`, that type needs a reference file,a partial inside the `_includes/styles` directory which will be include it at build time.
+This architectural move makes sense because styles are minimal and it's better to avoid render blocking resources or flash of unstyled content. But it is important to keep them at minimum or otherwise it's make more sense to separate styles between above and below the fold files.
+
+Each page needs to hold a `type`, that type needs a reference file,a partial inside the `_includes/generated/styles` directory which will be include it at build time.
 
 To build LESS files do `npm run less`.
 
@@ -69,19 +71,21 @@ _I checked [type-scale.com](type-scale.com) a lot, to figure out these numbers._
 
 This projects uses `rollup` to bundle of the different scripts in the project.
 
-The inlined bits of JavaScript which need to be executed before the page renders go to a partial so it gets embed directly in the HTML as part of the template of the page. It's important for those scripts to pass through the same scrutinity and process, this allows code formatting and minification on it.
+The inlined bits of JavaScript which need to be executed before the page renders go to a partial in `_includes/generated/scripts` so they are embed directly in the HTML as part of the template of the page. It's important for those scripts to pass through the same scrutinity and processes, like code formatting and minification.
 
-Other parts end as normal scripts exported to the `assets` folder, they are places in the `head` tag using the `defer` attribute, as these scripts are important but shouldn't be a blocker for the user to have a good experience while using the site.
+Other parts end as normal scripts exported to the `assets` folder, they are places in the `head` tag using the `defer` attribute, as they shouldn't be a blocker for the user to have a good experience while using this site.
+
+At the moment the little bit of JavaScript in this site is not _transpiled_, as this project only supports latest versions of browsers.
 
 ## Favicons
 
-To generate favicons the main source is the `favicon.png` file and the script in `.scripts` folder. The script outputs both the assets and the markup needed for them as a partial in the `_includes` folder, automating the process.
+To generate favicons the main source is the `favicon.png` file and the script in `.scripts` folder. The script outputs both the assets and the markup needed for them as a partial in the `_includes/generated` folder, automating the whoe assets generation step.
 
 ## Fonts
 
 This project is currently using [Inter](//rsms.me/inter) by Rasmus Andersson. All font files are self-hosted, this move required to optimize font delivery even further as before it was relying on [Google Fonts](//google.com/fonts) to do so.
 
-Fonts are stored as `.ttf` files, they get subsetted using [fonttools](https://github.com/fonttools/fonttools) and compressed to `.woff` and `.woff2` formats. This strategy reduces drastically the font files as layout features are cherry-picked and unused unicodes get removed.
+Fonts are stored as `.ttf` files, they get subsetted using [fonttools](https://github.com/fonttools/fonttools) and compressed to `.woff` and `.woff2` formats. The strategy reduces drastically font files content such as unused layout features or characters this site does not use.
 
 To avoid flash of unstyled content, they are preloaded and font face rules are inlined in the head using _font-display_ to keep text visible as font files load.
 

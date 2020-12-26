@@ -23,7 +23,7 @@ colorSchemeButton.setAttribute(
 )
 
 // Toggle color scheme on button click event
-colorSchemeButton.addEventListener('click', () => {
+colorSchemeButton.addEventListener('click', function () {
   const shouldChangeToDarkScheme = !document.documentElement.classList.contains(
     COLOR_SCHEME_DARK_CLASSNAME
   )

@@ -29,35 +29,32 @@ async function main() {
       server: { baseDir: './_site' },
       port: 8080,
       watch: false,
-      notify: false
+      notify: false,
+      open: false
     })
 
     // Watch content files, trigger Eleventy build and browser reload.
-    server
-      .watch([
-        '**/*.{md,liquid}',
-        '!./_includes/scripts/*',
-        '!./_includes/styles/*'
-      ])
-      .on('change', async function () {
-        console.log('') // Insert line break to create space from Browsersync messages.
-        console.log(`[${blue('.scripts/serve')}] Content files changed`, '\n')
+    server.watch('**/*.{md,liquid}').on('change', async function (file) {
+      // We ignore generated partials as other watch scripts take care of them.
+      if (file.includes('generated')) {
+        return
+      }
 
-        try {
-          console.log(
-            `[${blue('.scripts/serve')}] Running eleventy build`,
-            '\n'
-          )
-          await asyncExec('npx eleventy')
-          server.reload()
-        } catch (error) {
-          console.log(
-            `[${blue('.scripts/serve')}] ${red('Eleventy build failed')}`,
-            '\n',
-            error.message
-          )
-        }
-      })
+      console.log('') // Insert line break to create space from Browsersync messages.
+      console.log(`[${blue('.scripts/serve')}] Content files changed`, '\n')
+
+      try {
+        console.log(`[${blue('.scripts/serve')}] Running eleventy build`, '\n')
+        await asyncExec('npx eleventy')
+        server.reload()
+      } catch (error) {
+        console.log(
+          `[${blue('.scripts/serve')}] ${red('Eleventy build failed')}`,
+          '\n',
+          error.message
+        )
+      }
+    })
 
     // Watch styles files, trigger Eleventy build and browser reload.
     server.watch('./src/**/*.less').on('change', async function () {
@@ -66,6 +63,8 @@ async function main() {
 
       try {
         await less('development')
+
+        console.log(`[${blue('.scripts/serve')}] Running eleventy build`, '\n')
         await asyncExec('npx eleventy')
         server.reload()
       } catch (error) {
@@ -78,12 +77,14 @@ async function main() {
     })
 
     // Watch scripts, trigger bundling and browser reload.
-    server.watch('./src/**/*.js').on('change', async function () {
+    server.watch('./src/**/*.js').on('change', async function (file) {
       console.log('') // Insert line break to create space from Browsersync messages.
       console.log(`[${blue('.scripts/serve')}] Scripts changed`, '\n')
 
       try {
         await bundle('development')
+
+        console.log(`[${blue('.scripts/serve')}] Running eleventy build`, '\n')
         await asyncExec('npx eleventy')
         server.reload()
       } catch (error) {
