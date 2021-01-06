@@ -97,19 +97,19 @@ As this site is deployed on Netlify, in my _netlify.toml_ configuration file I s
 
 _Depending on what you are using to deploy your site, how you solve this part will be different._
 
-After this change, font files are retrieved from browser cache every time I navigate to a new page in the site, without any text flickering.
+After this change, font files are retrieved from browser cache every time I navigate to a new page, avoiding ny text flickering.
 
 ### Font subsetting
 
-On each step of the move, I'm checking performance metrics to make sure I'm not impacting negatively the site. One number went up badly, page size.
+On every step of the move, I'm checking performance metrics to make sure nothing is impacting negatively the site. One number that went up badly was page size.
 
 Using Google Fonts the homepage of this site was **~50Kb**, but my page weighted **~350Kb** with self-hosted font files.
 
-Authors of typefaces usually provide glyphs and features for different usages and languages. The best solution is to create new font files containing only the ones your project needs.
+The reason is authors of typefaces usually provide glyphs and features for different usages and languages. Google also optimizes this for a more general usage shrinking file sizes. The best solution to this is to create new font files containing only the glyphs your project needs.
 
 _A great way to find out what your font files contain is to visit [wakamaifondue][wakamaifondue] and drop them there. You will get a list of all symbols and features._
 
-An important part of this is the **unicode range**, the group of symbols your project needs. Tools like [glyphhanger][glyphhanger] can crawl the pages of your site and return the glyphs they are using.
+An important part is knowing the **unicode range** to cover, basically the group of symbols your project needs. Tools like [glyphhanger][glyphhanger] can crawl pages of your site and return which glyphs they are using.
 
 Another option, specially if you were already using Google Fonts is to rely on the unicode range they use to compress their font files.
 
@@ -123,13 +123,13 @@ From the Inter family, I'm only going to make use of a small group of the featur
 LAYOUT_FEATURES="kern,ss01,cv05,cv11"
 ```
 
-Next step is to use [fonttools][fonttools], a Python library that among other utilies provides a subsetting command. We need to pass files with _.ttf_ extension to it.
+Next step is to use [fonttools][fonttools], a Python library that among other utilies provides a subsetting command. We just need to provide files with _.ttf_ extension.
 
 ```bash
 pyftsubset "src/fonts/Inter-Regular.ttf" --layout-features=$LAYOUT_FEATURES --unicodes=$UNICODES
 ```
 
-Additionally font files frequently include hinting. Some operative systems like _macOS_ ignore hinting at all, and improvements are relevant only at small sizes, so I decided to remove them from my subset.
+Font files frequently include hinting. Some operative systems like _macOS_ ignore hinting at all, and improvements are relevant only at small sizes, so I decided to remove them from my subset.
 
 ```bash
 pyftsubset "src/fonts/Inter-Regular.ttf" --no-hinting --desubroutinize --layout-features=$LAYOUT_FEATURES --unicodes=$UNICODES
@@ -149,7 +149,7 @@ To export files in these formats you will have to install [zopfli][zopfli] and [
 pyftsubset "src/fonts/Inter-Regular.ttf" --output-file="assets/fonts/Inter-Regular-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --layout-features=$LAYOUT_FEATURES --unicodes=$UNICODES
 ```
 
-After doing this, each font file went from weighing **~100Kb** to **~12Kb** bringing back the site closer to its original size at **~60Kb** for the homepage.
+After doing this, each font file went from weighing **~100Kb** to **~12Kb** bringing back the site closer to its original size at **~60Kb** per page.
 
 ## Performance results
 
@@ -159,34 +159,34 @@ I set the configuration with a **Slow 3G** network in a Motorola G device using 
 
 That's good! It means my previous font loading strategy was good, and using a different domain for my fonts wasn't affecting content delivery.
 
-Metrics which improved were **Largest Contentful Paint** and **Fully Loaded** document as self-hosting your own assets eliminates the need to start and wait for a new domain connection.
+**Largest Contentful Paint** was a metric that improved, as self-hosting your own assets eliminates the need to connect to a new external domain.
 
 > When a resource comes from the same domain as the page, the DNS resolution, handshakes, and negotiation have all been made already
 
-For third-party requests using `link` with `preconnect` usually allows the browser to run these connections ahead of the resource being needed.
+For third-party requests using `link` with `preconnect` usually allows the browser to run these connections ahead of the resource being requested.
 
-The Google Fonts version of the project had this set, but under certain conditions like a slow network it might not make any difference at all, and browsers might even decide to ignore this.
+The Google Fonts version of the project had this set, but under certain conditions like a slow network it might not make any difference at all, and browsers might decide to ignore this.
 
 _Pre-connecting to third party domains is still a recommended practice, but it's not a silver bullet approach for third-party assets to get faster to the user._
 
-In a way this demonstrates self-hosting resources ends up making a bigger difference for those users under a slow connections.
+In a way this demonstrates self-hosting resources ends up making a bigger difference for those users under a slow connections. If possible, self-hosting always wins across several user conditions like connectivity.
 
 ## Wrap-up
 
 I have mentioned this a lot of times in this article, Google Fonts is _really fast_, and checks all the boxes for a safe and well executed third-party resource.
 
-The benefits of self-hosting font files are still relevant, but **you need to match their optimizations** like caching strategy, font subsetting and file compression.
+The benefits of self-hosting font files are still relevant, but **only when you match their optimizations** like caching strategy, font subsetting and file compression.
 
-You can't afford all these actions on your project? **It's fine**, Google Fonts is still more than a fair and reasonable choice.
+You can't afford all these actions on your project? **It's fine**, Google Fonts is a fair and more than reasonable choice to make.
 
-_If you do so, Harry Roberts recently wrote an [article on the fastest way to deliver Google Fonts][fastest-google-fonts] for your site, I highly recommend._
+_If you do so, Harry Roberts recently wrote an article on [the fastest way to deliver Google Fonts][fastest-google-fonts] for your site I highly recommend._
 
 Here's a **TL;DR** list of optimizations and things to remember if you decide to self-host your font files:
 
 - Make sure files are correctly cached by checking their response headers.
 - Decide on a set of glyphs and font features, and create a subset file.
 - Using modern techniques and tools to compress the final files.
-- Measure and compare the performance of your strategies to be sure they represent an advantage for your project and the users.
+- Measure and compare performance of your new strategy to make sure they represent an improvement to the user experience.
 
 _Shout out to Zach Leatherman's article [Developing a Robust Font Loading Strategy for CSS-Tricks][css-tricks-web-fonts] which was a huge help while applying all these optimizations plus a great inspiration for writing this article._
 
