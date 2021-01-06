@@ -77,7 +77,7 @@ async function main() {
     })
 
     // Watch scripts, trigger bundling and browser reload.
-    server.watch('./src/**/*.js').on('change', async function (file) {
+    server.watch('./src/**/*.js').on('change', async function () {
       console.log('') // Insert line break to create space from Browsersync messages.
       console.log(`[${blue('.scripts/serve')}] Scripts changed`, '\n')
 
