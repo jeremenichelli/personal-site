@@ -130,10 +130,12 @@ I don't know you but to me that's beautiful.
 Well this has nothing to do with the ampersand selector, but this simple feature is a beast if you know where you can use it. What it basically does is to put variables content inside strings. Again, examples are better.
 
 ```less
-@base-img-url: '../img' #header{
+@base-img-url: '../img';
+
+#header {
   background-image: url('@{base-img-url}/banner.jpg');
   background-repeat: no-repeat;
-};
+}
 ```
 
 There's a higher chance you'll use the same base path for images so in case you need to change it for some reason, you only have to do it in one place.

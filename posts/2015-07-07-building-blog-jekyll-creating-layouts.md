@@ -67,9 +67,7 @@ This is the name of your folder where your layouts, pretty obvious, are going to
   %}{% endraw %}
 
   <body>
-    <section class="page-wrapper">
-      {% raw %}{{content}}{% endraw %}
-    </section>
+    <section class="page-wrapper">{% raw %}{{content}}{% endraw %}</section>
   </body>
 
   {% raw %}{% include footer.html %}{% endraw %}
@@ -89,9 +87,7 @@ Pretty easy to understand. We're going to call this layout **default.html**, but
       <p class="post-date">{% raw %}{{ page.date }}{% endraw %}</p>
     </section>
     <h1 class="post-title">{{ page.title}}</h1>
-    <article class="post-content">
-      {% raw %}{{content}}{% endraw %}
-    </article>
+    <article class="post-content">{% raw %}{{content}}{% endraw %}</article>
   </body>
 
   {% raw %}{% include footer.html %}{% endraw %}
