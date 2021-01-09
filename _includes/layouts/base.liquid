@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   {% include 'head' %}
-  <body>
+  <body data-instant-intensity="viewport">
 
     {% include 'nav' %}
 
     {{ content }}
 
+  <!-- Load instant page module at the end to speed up inner navigation -->
+  <script src="/assets/js/instant-page.js" type="module"></script>
   </body>
 </html>

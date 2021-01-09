@@ -17,6 +17,10 @@ const bundles = [
   {
     input: './src/js/main.js',
     output: './assets/js/main.js'
+  },
+  {
+    input: './src/js/instant-page.js',
+    output: './assets/js/instant-page.js'
   }
 ]
 
