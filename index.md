@@ -12,12 +12,12 @@ excerpt: Personal site of Jeremias Menichelli — Curious mind, developer and wr
 </p>
 <nav class="home__nav">
   <p class="home__nav--line">
-    Check out my <a href="/blog" class="home__nav--link">Articles</a>
+    Check out my <a href="/blog/" class="home__nav--link">Articles</a>
   </p>
   <p class="home__nav--line">
-    Watch my <a href="/talks" class="home__nav--link">Talks</a>
+    Watch my <a href="/talks/" class="home__nav--link">Talks</a>
   </p>
   <p class="home__nav--line">
-    Find out more <a href="/about" class="home__nav--link">About me</a>
+    Find out more <a href="/about/" class="home__nav--link">About me</a>
   </p>
 </nav>
