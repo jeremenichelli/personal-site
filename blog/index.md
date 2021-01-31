@@ -27,5 +27,5 @@ If you want me to write for your publication feel free to [send here](mailto:jme
 </ul>
 
 <p class="blog-links">
-  <a class="blog-links__archive" href="/archive">See all articles</a>
+  <a class="blog-links__archive" href="/archive/">See all articles</a>
 </p>

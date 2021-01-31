@@ -33,7 +33,7 @@ _For more details, download my resume <a download rel="noopener noreferrer" targ
 
 He currently works at [New&nbsp;Relic](//newrelic.com) as a Software Engineer.
 
-You might also found him [giving talks](/talks) about his experiences, [writing articles](/blog) or helping organize [JSHeroes](//jsheroes.io) conference.
+You might also found him [giving talks](/talks/) about his experiences, [writing articles](/blog/) or helping organize [JSHeroes](//jsheroes.io) conference.
 
 _Feel free to [contact me here](mailto:jmenichelli@gmail.com) for consultancy, writing or speaking inquiries._
 
