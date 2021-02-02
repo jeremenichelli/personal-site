@@ -45,12 +45,6 @@
   <meta name="twitter:url" content="{{ url }}">
   <meta name="twitter:image" content="{{ site.logo }}">
 
-  <!-- preload font files, empty crossorigin attribute added to prevent Chrome from complaining -->
-  <link rel="preload" href="/assets/fonts/Inter-Regular-subset.woff2" as="font" crossorigin>
-  <link rel="preload" href="/assets/fonts/Inter-Italic-subset.woff2" as="font" crossorigin>
-  <link rel="preload" href="/assets/fonts/Inter-Bold-subset.woff2" as="font" crossorigin>
-  <link rel="preload" href="/assets/fonts/Inter-ExtraBold-subset.woff2" as="font" crossorigin>
-
   <!-- include inline styles -->
   {% capture stylesPathPartial %}generated/styles/{{type}}{% endcapture %}
   <style>{% include stylesPathPartial %}</style>
