@@ -48,3 +48,16 @@ colorSchemeButton.addEventListener('click', function () {
       : COLOR_SCHEME_LIGHT_VALUE
   )
 })
+
+window.addEventListener('storage', function (event) {
+  if (event.key === COLOR_SCHEME_KEY) {
+    // Check if new value from different environment is dark scheme
+    const shouldChangeToDarkScheme = event.newValue === COLOR_SCHEME_DARK_VALUE
+
+    // Update root element class name
+    document.documentElement.classList.toggle(
+      COLOR_SCHEME_DARK_CLASSNAME,
+      shouldChangeToDarkScheme
+    )
+  }
+})

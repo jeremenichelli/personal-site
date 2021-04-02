@@ -30,7 +30,9 @@ async function main() {
       port: 8080,
       watch: false,
       notify: false,
-      open: false
+      open: false,
+      ghostMode: false,
+      minify: false
     })
 
     // Watch content files, trigger Eleventy build and browser reload.
