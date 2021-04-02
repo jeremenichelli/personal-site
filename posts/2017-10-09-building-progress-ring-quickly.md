@@ -96,16 +96,16 @@ Since we know **52** is the radius of our ring:
 We could also get this value by JavaScript if we want:
 
 ```js
-const circle = document.querySelector('.progress-ring__circle')
-const radius = circle.r.baseVal.value
-const circumference = radius * 2 * Math.PI
+const circle = document.querySelector('.progress-ring__circle');
+const radius = circle.r.baseVal.value;
+const circumference = radius * 2 * Math.PI;
 ```
 
 This way we can later assign styles to our circle element.
 
 ```js
-circle.style.strokeDasharray = `${circumference} ${circumference}`
-circle.style.strokeDashoffset = circumference
+circle.style.strokeDasharray = `${circumference} ${circumference}`;
+circle.style.strokeDashoffset = circumference;
 ```
 
 ## Step 3: Progress to offset
@@ -116,8 +116,8 @@ Therefore, as the progress grows we need to reduce the offset like this:
 
 ```js
 function setProgress(percent) {
-  const offset = circumference - (percent / 100) * circumference
-  circle.style.strokeDashoffset = offset
+  const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
 }
 ```
 
@@ -246,7 +246,7 @@ Web components are great. That said, some of the available libraries and framewo
 To start, we need to define the view component.
 
 ```js
-const ProgressRing = Vue.component('progress-ring', {})
+const ProgressRing = Vue.component('progress-ring', {});
 ```
 
 Writing a single file component is also possible and probably cleaner but we are adopting the factory syntax to match the final code demo.
@@ -261,15 +261,15 @@ const ProgressRing = Vue.component('progress-ring', {
     stroke: Number
   },
   data() {
-    const normalizedRadius = this.radius - this.stroke * 2
-    const circumference = normalizedRadius * 2 * Math.PI
+    const normalizedRadius = this.radius - this.stroke * 2;
+    const circumference = normalizedRadius * 2 * Math.PI;
 
     return {
       normalizedRadius,
       circumference
-    }
+    };
   }
-})
+});
 ```
 
 Since computed properties are supported out-of-the-box in Vue we can use it to calculate the value of `stroke-dashoffset`.
@@ -301,7 +301,7 @@ template: `
       :cy="radius"
     />
   </svg>
-`
+`;
 ```
 
 When we update the `progress` prop of the element in our app, Vue takes care of computing the changes and update the element styles.
@@ -319,12 +319,12 @@ First, we obtain some data from props passed down.
 ```js
 class ProgressRing extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    const { radius, stroke } = this.props
+    const { radius, stroke } = this.props;
 
-    this.normalizedRadius = radius - stroke * 2
-    this.circumference = this.normalizedRadius * 2 * Math.PI
+    this.normalizedRadius = radius - stroke * 2;
+    this.circumference = this.normalizedRadius * 2 * Math.PI;
   }
 }
 ```

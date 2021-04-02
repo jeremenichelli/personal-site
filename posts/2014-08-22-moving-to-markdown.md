@@ -32,7 +32,7 @@ There are a lot of Markdown interpreters that you can use, most of them respect 
 
 ```js
 function doSomething() {
-  var anything = 'string'
+  var anything = 'string';
   // do something
 }
 ```

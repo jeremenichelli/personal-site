@@ -1,4 +1,4 @@
-const deindent = (str) => str.replace(/\n|\t/g, '').trim()
+const deindent = (str) => str.replace(/\n|\t/g, '').trim();
 
 const codeExampleLink = (link) =>
   deindent(`
@@ -7,7 +7,7 @@ const codeExampleLink = (link) =>
         See this example in action
       </a>
     </p>
-`)
+`);
 
 const codepen = (hash) =>
   deindent(`
@@ -15,9 +15,9 @@ const codepen = (hash) =>
       ${codeExampleLink(`https://codepen.io/jeremenichelli/pen/${hash}/`)}
     </div>
     <script defer src="https://static.codepen.io/assets/embed/ei.js"></script>
-`)
+`);
 
 module.exports = {
   codeExampleLink,
   codepen
-}
+};

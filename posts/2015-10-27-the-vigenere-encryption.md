@@ -93,10 +93,10 @@ We already know how to solve this problem and the languages aren't that differen
 As I said we have to use strings, so we would need this two methods to convert the letters on the strings to their corresponding ASCII value and back again to a string after the math has been done.
 
 ```js
-'A'.charCodeAt(0)
+'A'.charCodeAt(0);
 // returns 65
 
-String.fromCharCode(65)
+String.fromCharCode(65);
 // returns "A"
 ```
 
@@ -105,9 +105,9 @@ Though going on with this solution isn't a bad idea, we would be ignoring how **
 As **C** lets you treat characters as integers, **JavaScript** is very flexible when working with strings. My approach was to create a string reference for all the letters in the alphabet and use `indexOf` to get its position which it is the letter's value in the Vigenère encryption, and that means no conversion or type changing at all.
 
 ```js
-var ref = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+var ref = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-ref.indexOf('E')
+ref.indexOf('E');
 // returns 5
 ```
 
@@ -117,19 +117,19 @@ In other words, you get the Vigenère equivalent of a letter using `indexOf`, ap
 var ref = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   phrase = 'HELLOWORLD',
   word = 'BANANA',
-  result = ''
+  result = '';
 
 for (var i = 0, j = 0, len = phrase.length; i < len; i++) {
-  var h = ref.indexOf(phrase[i]) + ref.indexOf(word[j])
-  h %= 26
-  result += ref[h]
-  j++
+  var h = ref.indexOf(phrase[i]) + ref.indexOf(word[j]);
+  h %= 26;
+  result += ref[h];
+  j++;
   // reset word index
-  if (j === word.length) j = 0
+  if (j === word.length) j = 0;
 }
 
 // print result in console
-console.log(result)
+console.log(result);
 ```
 
 Using this approach you can apply any alphabetic encryption method changing only the algebraic portion of the script.
@@ -148,7 +148,7 @@ for (var i = 0, j = 0, len = phrase.length; i < len; i++) {
     // apply encryption algorithm
   } else {
     // add to the result string without modification
-    result += phrase[i]
+    result += phrase[i];
   }
 }
 ```

@@ -10,8 +10,8 @@ This happened to me in a recent project with view transitions. After debugging a
 In general, a view looks like a regular React component with some extra lifecycle hooks to handle animations when it enters or gets unmounted.
 
 ```js
-import { Component } from 'react'
-import animate from 'gsap-promise'
+import { Component } from 'react';
+import animate from 'gsap-promise';
 
 class Home extends Component {
   componentWillAppear(done) {
@@ -26,7 +26,7 @@ class Home extends Component {
         <h1 ref={(el) => (this.title = el)}>home</h1>
         <p ref={(el) => (this.content = el)}>Lorem ipsum dolor sit amet...</p>
       </div>
-    )
+    );
   }
 }
 ```
@@ -36,8 +36,8 @@ Instead of [gsap](https://www.npmjs.com/package/gsap) module, I will use [gsap-p
 For this to work, the parent component that will render `Home` and the rest of the views needs to wrap them with `TransitionGroup` components.
 
 ```js
-import { Component } from 'react'
-import TransitionGroup from 'react-addons-transition-group'
+import { Component } from 'react';
+import TransitionGroup from 'react-addons-transition-group';
 
 class App extends Component {
   render() {
@@ -45,7 +45,7 @@ class App extends Component {
       <div className="app--wrapper">
         <TransitionGroup>{this.props.children}</TransitionGroup>
       </div>
-    )
+    );
   }
 }
 ```
@@ -203,15 +203,15 @@ Also, the user might access the app from different routes so it's better to have
 To achieve this keeping the code consistent, before we kicked off the application render process, I exposed a global `Promise` that got resolved when the `load` event was triggered.
 
 ```js
-let appResolve
+let appResolve;
 
 self.appReady = new Promise((resolve) => {
   // expose fulfilled state holder to outer scope
-  appResolve = resolve
-})
+  appResolve = resolve;
+});
 
 // add event listener and trigger resolve when ready
-self.addEventListener('load', appResolve)
+self.addEventListener('load', appResolve);
 ```
 
 If you want to understand better how this code works, I wrote an [article about it](/2016/04/patterns-for-a-promise-based-initialization/) a while ago.

@@ -10,15 +10,15 @@ To answer this questions I moved an entire application from React to web compone
 The entry selling points of components is their declarative and reusable nature, this benefit is around architecture of a project that needs to scale and not tied to technologies.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 class MovieBox extends React.Component {
   constructor() {
-    super()
+    super();
   }
 }
 
-export default MovieBox
+export default MovieBox;
 ```
 
 **React** introduced a new paradigm to define small units of functionality which can be imported and used in different parts of a project. Web components declaration imposes something really similar.
@@ -26,11 +26,11 @@ export default MovieBox
 ```js
 class MovieBox extends HTMLElement {
   constructor() {
-    super()
+    super();
   }
 }
 
-window.customElements.define('movie-box', MovieBox)
+window.customElements.define('movie-box', MovieBox);
 ```
 
 _As JSX needs React components to be capitalized, custom element tag names need to contain a hyphen._
@@ -48,7 +48,7 @@ In all frameworks we have some combination of callbacks that fire at a certain m
 ```js
 class MovieBox extends HTMLElement {
   constructor() {
-    super()
+    super();
   }
 
   connectedCallback() {}
@@ -80,7 +80,7 @@ class MovieBox extends React.Component {
       <div className="movie__box">
         <h2 className="title">{this.props.title}</h2>
       </div>
-    )
+    );
   }
 }
 ```
@@ -94,14 +94,14 @@ On the other hand, **shadow DOM** can only be accessed and styled inside of its 
 ```js
 class MovieBox extends HTMLElement {
   constructor() {
-    super()
+    super();
 
-    this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <div class="movie__box">
         <h2 class="title">${this.getAttribute('title')}</h2>
       </div>
-    `
+    `;
   }
 }
 ```
@@ -115,20 +115,20 @@ Since there is no such a thing as _props_ in custom elements, we use attributes 
 The issue with this approach is we trigger HTML parsing for each element that gets instantiated. To avoid this we can create a template tag, clone its content and append it to the shadow root.
 
 ```js
-const template = document.createElement('template')
+const template = document.createElement('template');
 
 template.innerHTML = `
   <div class="movie__box">
     <h2 class="title"></h2>
   </div>
-`
+`;
 
 class MovieBox extends HTMLElement {
   constructor() {
-    super()
+    super();
 
-    this.attachShadow({ mode: 'open' })
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
 ```
@@ -159,9 +159,9 @@ It's inevitable to go back to DOM scraping, which is not particularly a bad thin
 As I was translating components written in React to custom elements I noticed I was creating unnecesary nodes. When we extend the `HTMLElement` we already have a tag, so try to avoid wrappers.
 
 ```js
-const template = document.createElement('template')
+const template = document.createElement('template');
 
-template.innerHTML = `<h2 class="title"></h2>`
+template.innerHTML = `<h2 class="title"></h2>`;
 ```
 
 The tree inside the component will be:
@@ -176,7 +176,7 @@ The tree inside the component will be:
 Styles that were affecting the `.movie__box` selector can be moved to `:host` to be applied to the root tag of our component.
 
 ```js
-const template = document.createElement('template')
+const template = document.createElement('template');
 
 template.innerHTML = `
   <style>
@@ -190,7 +190,7 @@ template.innerHTML = `
     }
   </style>
   <h2 class="title"></h2>
-`
+`;
 ```
 
 ## DOM manipulation and refs
@@ -225,15 +225,15 @@ Bringing this feature to web components is possible by selecting all elements wi
 
 ```js
 function collectRefs() {
-  const refsArray = [...this.shadowRoot.querySelectorAll('[ref]')]
+  const refsArray = [...this.shadowRoot.querySelectorAll('[ref]')];
 
   if (refsArray.length > 0) {
-    this.refs = {}
+    this.refs = {};
 
     refsArray.map((el) => {
-      this.refs[el.getAttribute('ref')] = el
-      el.removeAttribute('ref')
-    })
+      this.refs[el.getAttribute('ref')] = el;
+      el.removeAttribute('ref');
+    });
   }
 }
 ```
@@ -261,7 +261,7 @@ On React components we use `{ this.props.children }` to render child nodes.
 Custom elements and shadow DOM contain a similar, and probably more powerful interface to place content inside web components.
 
 ```js
-const template = document.createElement('template')
+const template = document.createElement('template');
 
 template.innerHTML = `
   <style>
@@ -270,18 +270,18 @@ template.innerHTML = `
       display: block;
     }
   </style>
-`
+`;
 
 class AppCard extends HTMLElement {
   constructor() {
-    super()
+    super();
 
-    this.attachShadow({ mode: 'open' })
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
 
-window.customElements.define('app-card', AppCard)
+window.customElements.define('app-card', AppCard);
 ```
 
 Nodes inside of this custom element won't actually get rendered at all. To allow this, just as you would use the `children` prop, you can place a `<slot>` in the shadow root.
@@ -296,7 +296,7 @@ template.innerHTML = `
   </style>
 
   <slot></slot>
-`
+`;
 ```
 
 But `<slot>` tags are not just content placeholders, they can be named to get a better control of the place where the children nodes will be.

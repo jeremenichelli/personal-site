@@ -30,10 +30,10 @@ Going back to StateFarm project we had to cover Web ARIA features and that invol
 
 ```js
 // get an attribute value
-var someValue = element.getAttribute('attribute_name')
+var someValue = element.getAttribute('attribute_name');
 
 // set an attribute value
-element.setAttribute('attribute_name', 'new_value')
+element.setAttribute('attribute_name', 'new_value');
 ```
 
 These are only two examples of things that jQuery adds as a feature that most of the browsers already have.

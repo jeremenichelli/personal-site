@@ -15,12 +15,12 @@ As the language evolved, new artifacts appeared in the scene to allow asynchrono
 As mentioned in the introduction, JavaScript runs the code you write line by line, most of the time. Even in its first years, the language had exceptions to this rule, though they were a few and you might know them already: HTTP Requests, DOM events and time intervals.
 
 ```js
-const button = document.querySelector('button')
+const button = document.querySelector('button');
 
 // observe for user interaction
 button.addEventListener('click', function (e) {
-  console.log('user click just happened!')
-})
+  console.log('user click just happened!');
+});
 ```
 
 If we add an event listener, for example the click of an element and the user triggers this interaction, the JavaScript engine will queue a task for the event listener callback but will continue executing what is present in its current stack. After it’s done with the calls present there, it will now run the listener’s callback.
@@ -32,17 +32,17 @@ Though these were exceptions of common synchronous execution in JavaScript, it�
 For example, let’s check out a network request.
 
 ```js
-var request = new XMLHttpRequest()
-request.open('GET', '//some.api.at/server', true)
+var request = new XMLHttpRequest();
+request.open('GET', '//some.api.at/server', true);
 
 // observe for server response
 request.onreadystatechange = function () {
   if (request.readyState === 4 && request.status === 200) {
-    console.log(request.responseText)
+    console.log(request.responseText);
   }
-}
+};
 
-request.send()
+request.send();
 ```
 
 When the server comes back, a task for the method assigned to `onreadystatechange` is queued (code execution continues in the main thread).
@@ -58,30 +58,30 @@ This is why code shaped this way is called the **Observer Pattern**, which is be
 A good example is Node.js which page describes itself as “an asynchronous event-driven JavaScript runtime”, so event emitters and callback were first-class citizens. It even had an `EventEmitter` constructor already implemented.
 
 ```js
-const EventEmitter = require('events')
-const emitter = new EventEmitter()
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
 // respond to events
-emitter.on('greeting', (message) => console.log(message))
+emitter.on('greeting', (message) => console.log(message));
 
 // send events
-emitter.emit('greeting', 'Hi there!')
+emitter.emit('greeting', 'Hi there!');
 ```
 
 This was not only the to-go approach for asynchronous execution but a core pattern and convention of its ecosystem. Node.js opened a new era of writing JavaScript in a different environment — even outside the web. As a consequence, other asynchronous situations were possible, like creating new directories or writing files.
 
 ```js
-const { mkdir, writeFile } = require('fs')
+const { mkdir, writeFile } = require('fs');
 
-const styles = 'body { background: #ffdead; }'
+const styles = 'body { background: #ffdead; }';
 
 mkdir('./assets/', (error) => {
   if (!error) {
     writeFile('assets/main.css', styles, 'utf-8', (error) => {
-      if (!error) console.log('stylesheet created')
-    })
+      if (!error) console.log('stylesheet created');
+    });
   }
-})
+});
 ```
 
 You might notice that callbacks receive an `error` as a first argument, if a response data is expected, it goes as a second argument. This was called **Error-first Callback Pattern**, which became a convention that authors and contributors adopted for their own packages and libraries.
@@ -93,22 +93,22 @@ As web development faced more complex problems to solve, the need for better asy
 For example, let’s add only two more steps, file reading and styles preprocessing.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs')
-const less = require('less')
+const { mkdir, writeFile, readFile } = require('fs');
+const less = require('less');
 
 readFile('./main.less', 'utf-8', (error, data) => {
-  if (error) throw error
+  if (error) throw error;
   less.render(data, (lessError, output) => {
-    if (lessError) throw lessError
+    if (lessError) throw lessError;
     mkdir('./assets/', (dirError) => {
-      if (dirError) throw dirError
+      if (dirError) throw dirError;
       writeFile('assets/main.css', output.css, 'utf-8', (writeError) => {
-        if (writeError) throw writeError
-        console.log('stylesheet created')
-      })
-    })
-  })
-})
+        if (writeError) throw writeError;
+        console.log('stylesheet created');
+      });
+    });
+  });
+});
 ```
 
 We can see how as the program we are writing gets more complex the code becomes harder to follow for the human eye due to multiple callback chaining and repeated error handling.
@@ -124,16 +124,16 @@ Migrating a method from a callback approach to a promise-based one became more a
 Let’s, for example, wrap Node’s `readFile` method:
 
 ```js
-const { readFile } = require('fs')
+const { readFile } = require('fs');
 
 const asyncReadFile = (path, options) => {
   return new Promise((resolve, reject) => {
     readFile(path, options, (error, data) => {
-      if (error) reject(error)
-      else resolve(data)
-    })
-  })
-}
+      if (error) reject(error);
+      else resolve(data);
+    });
+  });
+};
 ```
 
 Here we obscure the callback by executing inside a Promise constructor, calling `resolve` when the method result is successful, and `reject` when the error object is defined.
@@ -149,7 +149,7 @@ Now we can use these new methods and avoid callback chains.
 ```js
 asyncRead('./main.less', 'utf-8')
   .then((data) => console.log('file content', data))
-  .catch((error) => console.error('something went wrong', error))
+  .catch((error) => console.error('something went wrong', error));
 ```
 
 Having a native way to create asynchronous tasks and a clear interface to follow up its possible results enabled the industry to move out of the Observer Pattern. Promise-based ones seemed to solve the unreadable and prone-to-error code.
@@ -165,8 +165,8 @@ It even provided a `promisify` util to wrap any function which followed the Erro
 Let’s re-imagine our style preprocessing task written with Promises.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises
-const less = require('less')
+const { mkdir, writeFile, readFile } = require('fs').promises;
+const less = require('less');
 
 readFile('./main.less', 'utf-8')
   .then(less.render)
@@ -175,7 +175,7 @@ readFile('./main.less', 'utf-8')
       writeFile('assets/main.css', result.css, 'utf-8')
     )
   )
-  .catch((error) => console.error(error))
+  .catch((error) => console.error(error));
 ```
 
 There is a clear reduction of redundancy in the code, especially around the error handling as we now rely on `catch`, but Promises somehow failed to deliver a clear code indentation that directly relates to the concatenation of actions.
@@ -193,17 +193,17 @@ Gladly, the JavaScript community learned again from other language syntaxes and 
 A `Promise` is defined as an unresolved value at execution time, and creating an instance of a `Promise` is an _explicit_ call of this artifact.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises
-const less = require('less')
+const { mkdir, writeFile, readFile } = require('fs').promises;
+const less = require('less');
 
 readFile('./main.less', 'utf-8')
   .then(less.render)
   .then((result) =>
     mkdir('./assets').then(() => {
-      writeFile('assets/main.css', result.css, 'utf-8')
+      writeFile('assets/main.css', result.css, 'utf-8');
     })
   )
-  .catch((error) => console.error(error))
+  .catch((error) => console.error(error));
 ```
 
 Inside an async method, we can use the `await` reserved word to determinate the resolution of a `Promise` before continuing its execution.
@@ -211,17 +211,17 @@ Inside an async method, we can use the `await` reserved word to determinate the 
 Let’s revisit or code snippet using this syntax.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises
-const less = require('less')
+const { mkdir, writeFile, readFile } = require('fs').promises;
+const less = require('less');
 
 async function processLess() {
-  const content = await readFile('./main.less', 'utf-8')
-  const result = await less.render(content)
-  await mkdir('./assets')
-  await writeFile('assets/main.css', result.css, 'utf-8')
+  const content = await readFile('./main.less', 'utf-8');
+  const result = await less.render(content);
+  await mkdir('./assets');
+  await writeFile('assets/main.css', result.css, 'utf-8');
 }
 
-processLess()
+processLess();
 ```
 
 Notice that we needed to move all our code to a method because we can’t use `await` outside the scope of an async function today.
@@ -233,21 +233,21 @@ There’s a clear consequence of using async/await notation, despite its asynchr
 What about error handling? For it, we use statements that have been present for a long time in the language, `try` and `catch`.
 
 ```js
-const { mkdir, writeFile, readFile } = require('fs').promises
-const less = require('less')
+const { mkdir, writeFile, readFile } = require('fs').promises;
+const less = require('less');
 
 async function processLess() {
   try {
-    const content = await readFile('./main.less', 'utf-8')
-    const result = await less.render(content)
-    await mkdir('./assets')
-    await writeFile('assets/main.css', result.css, 'utf-8')
+    const content = await readFile('./main.less', 'utf-8');
+    const result = await less.render(content);
+    await mkdir('./assets');
+    await writeFile('assets/main.css', result.css, 'utf-8');
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
 }
 
-processLess()
+processLess();
 ```
 
 We rest assured any error thrown in the process will be handled by the code inside the `catch` statement. We have a centric place that takes care of error handling, but now we have a code that is easier to read and follow.

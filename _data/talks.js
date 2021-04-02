@@ -65,4 +65,4 @@ module.exports = [
       'https://www.meetup.com/Barcelona-Front-End-Development-Meetup/events/248467102/',
     date: '2018-03-28'
   }
-]
+];

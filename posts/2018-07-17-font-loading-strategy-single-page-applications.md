@@ -93,48 +93,48 @@ Inside our _font.js_ file we need to import the dependencies needed, observe the
 We are going to use Bram Stein's [fontfaceobserver][4] package to watch the different font stacks and [store-css][5] to load the font stylesheet.
 
 ```js
-import Observer from 'fontfaceobserver'
-import { css } from 'store-css'
+import Observer from 'fontfaceobserver';
+import { css } from 'store-css';
 
 // import fonts stylesheet
 css({
   url: 'https://fonts.googleapis.com/css?family=Lato|Roboto:700',
   crossOrigin: 'anonymous'
-})
+});
 
 // observe body font
 const bodyFont = new Observer('Lato', {
   weight: 400
-})
+});
 
 bodyFont.load().then(() => {
-  document.documentElement.classList.add('lato-ready')
-})
+  document.documentElement.classList.add('lato-ready');
+});
 
 // observe heading font
 const headingFont = new Observer('Roboto', {
   weight: 700
-})
+});
 
 headingFont.load().then(() => {
-  document.documentElement.classList.add('roboto-ready')
-})
+  document.documentElement.classList.add('roboto-ready');
+});
 ```
 
 If you are self-hosting your font files and your application doesn't refresh on navigations, instead of using [store-css][5] add an `import` with the root of the stylesheet containing the font face declarations and use webpack's [css loader][6] to automatically include it in your bundle.
 
 ```js
-import Observer from 'fontfaceobserver'
+import Observer from 'fontfaceobserver';
 
 // import fonts stylesheet
-import('./fonts.css')
+import('./fonts.css');
 
 // observe body font
-const customFont = new Observer('Your Custom Font')
+const customFont = new Observer('Your Custom Font');
 
 customFont.load().then(() => {
-  document.documentElement.classList.add('custom-font-ready')
-})
+  document.documentElement.classList.add('custom-font-ready');
+});
 ```
 
 You can check out this solution working [on this repository][8].
@@ -146,13 +146,13 @@ As I described it in my article about [font strategies for static sites][7], it 
 For [store-css][5] is as easy as adding a `storage` option.
 
 ```js
-import { css } from 'store-css'
+import { css } from 'store-css';
 
 css({
   url: 'https://fonts.googleapis.com/css?family=Lato|Roboto:700',
   storage: 'session',
   crossOrigin: 'anonymous'
-})
+});
 ```
 
 The approach and code would be identical but if your application has routing incorporated, then keeping this persistency on the font loading state won't be necessary.

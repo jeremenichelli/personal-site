@@ -59,16 +59,16 @@ We need some good ol' JavaScript.
 _Making a button or checkbox completely accessible with all the bells and whistles might require more work (that you should do), but I am going to oversimplify for the sake of this article, and because I am lazy._
 
 ```js
-const DARK_MODE_CLASSNAME = 'darkMode'
+const DARK_MODE_CLASSNAME = 'darkMode';
 
-const darkModeCheckbox = document.getElementById('dark-mode')
+const darkModeCheckbox = document.getElementById('dark-mode');
 
 darkModeCheckbox.addEventListener('change', function (event) {
   document.documentElement.classList.toggle(
     DARK_MODE_CLASSNAME,
     event.target.checked
-  )
-})
+  );
+});
 ```
 
 Now that's what I call a fully working and modern dark mode implementation.
@@ -86,17 +86,17 @@ darkModeCheckbox.addEventListener('change', function (event) {
   document.documentElement.classList.toggle(
     DARK_MODE_CLASSNAME,
     event.target.checked
-  )
+  );
 
-  localStorage.setItem('mode', event.target.checked ? 'dark' : 'light')
-})
+  localStorage.setItem('mode', event.target.checked ? 'dark' : 'light');
+});
 ```
 
 For it to work you also need to inline some JavaScript in the page to check the value in the storage on load, and add the class before anything renders or the user will see some flash between modes.
 
 ```js
 if (localStorage.getItem('mode') === 'dark') {
-  document.documentElement.classList.toggle('darkMode', true)
+  document.documentElement.classList.toggle('darkMode', true);
 }
 ```
 
@@ -144,18 +144,20 @@ window.addEventListener('storage', function (event) {
     document.documentElement.classList.toggle(
       DARK_MODE_CLASSNAME,
       event.newValue === 'dark'
-    )
+    );
   }
-})
+});
 ```
 
 And that's it! Now, go and fix the dark mode of your site, or let the developer of your favorite blog about it, open a pull request if you feel like it too.
 
 ### Some gotchas
 
-If you or your development environment are using <a href="//browsersync.io/" rel="noopener noreferrer" target="_blank">Browsersync</a> you might not see this issue. That's because _Browsersync_ is doing it for you, but of course, it won't work once you deploy your site.
+If you are using <a href="//browsersync.io/" rel="noopener noreferrer" target="_blank">Browsersync</a> as part of your development environment you might not see this issue while working locally on your project.
 
-In your configuration, set `ghostMode` to `false`, at least while working on this.
+That's because _Browsersync is doing it for you_, but of course, it won't work once you deploy your site.
+
+In your configuration, set `ghostMode` to `false` while working on this.
 
 ## Wrap up
 

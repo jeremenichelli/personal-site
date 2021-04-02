@@ -30,10 +30,10 @@ npm install --save-dev gulp-uglify
 Finally, create a file called _gulpfile.js_, require all your modules you'll use and you can start automating tasks for your projects.
 
 ```js
-var gulp = require('gulp')
-var rename = require('gulp-rename')
-var jshint = require('gulp-jshint')
-var uglify = require('gulp-uglify')
+var gulp = require('gulp');
+var rename = require('gulp-rename');
+var jshint = require('gulp-jshint');
+var uglify = require('gulp-uglify');
 ```
 
 ## How it works
@@ -54,8 +54,8 @@ gulp.task('minify', function () {
         suffix: '.min'
       })
     )
-    .pipe(gulp.dest('dist/'))
-})
+    .pipe(gulp.dest('dist/'));
+});
 ```
 
 What I've noticed when seeing a code similar to this for the first time was that, while I still had a lot to understand about Gulp and streams, I could totally tell somebody else what was happening. All files inside the folder _src_ with a _.js_ extension are getting uglified, renamed and put inside the _dist_ folder.
@@ -101,7 +101,7 @@ your-pc: to/path/project/ jeremenichelli$ gulp minify
 You can also declare a default task and run it just writing _gulp_.
 
 ```js
-gulp.task('default', ['minify'])
+gulp.task('default', ['minify']);
 ```
 
 ## Wrap-up

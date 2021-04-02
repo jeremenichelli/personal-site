@@ -23,7 +23,7 @@ var carousel = new Carousel(document.getElementById('photos'), {
   time: 500,
   prevButton: 'previous',
   nextButton: 'next'
-})
+});
 ```
 
 Here we are creating a new carousel instance and we're passing an HTML element and an object as parameters. Object literals are a good way to manage overriden default options inside the _Carousel_ object.
@@ -38,20 +38,20 @@ var dflt = {
   navigation: true,
   nextButton: '&gt;',
   prevButton: '&lt;'
-}
+};
 ```
 
 Then we have to create a method that will compare the modified options object with the default one.
 
 ```js
 function setOptions(options) {
-  var newOptions = {}
+  var newOptions = {};
 
   for (var opt in dflt) {
-    newOptions[opt] = options[opt] !== 'undefined' ? options[opt] : dflt[opt]
+    newOptions[opt] = options[opt] !== 'undefined' ? options[opt] : dflt[opt];
   }
 
-  return newOptions
+  return newOptions;
 }
 ```
 
@@ -76,12 +76,12 @@ var method = {
   waiting: function () {
     // do something for the waiting state
   }
-}
+};
 
 // assuming getState returns a string
-var state = getState()
+var state = getState();
 
-method[state]()
+method[state]();
 ```
 
 Doing this is convenient because you avoid doing this not-so-good approach.
@@ -99,14 +99,14 @@ function isWaiting() {
   // do something for waiting state
 }
 
-var state = getState()
+var state = getState();
 
 if (state === 'active') {
-  isActive()
+  isActive();
 } else if (state === 'inactive') {
-  isInactive()
+  isInactive();
 } else {
-  isWaiting()
+  isWaiting();
 }
 ```
 
@@ -125,14 +125,14 @@ var data = {
   field: 'Computing Science',
   job: 'professor',
   place: 'Cambridge'
-}
+};
 
 for (var property in data) {
   var selector = '[data-' + property + ']',
-    element = document.querySelector(selector)
+    element = document.querySelector(selector);
 
   if (element) {
-    element.innerHTML = data[property]
+    element.innerHTML = data[property];
   }
 }
 ```
@@ -155,27 +155,27 @@ Depending on the API documentation you will also need to specify the callback na
 
 ```js
 var cName = 'apicall',
-  cNumber = 0
+  cNumber = 0;
 
 var _getData = function (baseUrl, callback) {
   var script = document.createElement('script'),
-    callbackId = cName + cNumber
+    callbackId = cName + cNumber;
 
   // increase callback number
-  cNumber++
+  cNumber++;
 
   // make padding method global
   window[callbackId] = function (data) {
     if (typeof callback === 'function') {
-      callback(data)
+      callback(data);
     } else {
-      console.error('You must specify a method as a callback')
+      console.error('You must specify a method as a callback');
     }
-  }
+  };
 
-  script.src = baseUrl + '&callback=' + callbackId
-  document.head.appendChild(script)
-}
+  script.src = baseUrl + '&callback=' + callbackId;
+  document.head.appendChild(script);
+};
 ```
 
 These lines belong to a simple script I developed to make JSONP calls that, for some unknown reason I named <a href="https://www.github.com/jeremenichelli/jabiru" target="_blank">jabiru</a>. I wrote <a href="/2014/09/south-american-bird-cross-domain-calls/" target="_blank">a post about it</a> if you're interested on cross domain requests.

@@ -22,8 +22,8 @@ The button's content could be the _children_ prop, a _kind_ prop to indicate whe
 How modal should handle the customization of its _button_? The immediate thing we do is to match all the props at the component level.
 
 ```js
-import React from 'react'
-import Button from '../button'
+import React from 'react';
+import Button from '../button';
 
 const Modal = (props) => (
   <div className="modal">
@@ -37,7 +37,7 @@ const Modal = (props) => (
       {props.buttonText}
     </Button>
   </div>
-)
+);
 ```
 
 Of course there's nothing particularly wrong with the code above and you are going to be just fine with this, specially if these two components are unlikely to change with time.
@@ -58,7 +58,7 @@ Modal.propTypes = {
   buttonText: PropTypes.string,
   buttonIcon: PropTypes.string,
   buttonOnClick: PropTypes.func
-}
+};
 ```
 
 If the signature of the component expands, it will translate into even more work and duplicated definitions, and for something that might be trivial.
@@ -68,7 +68,7 @@ If the signature of the component expands, it will translate into even more work
 The solution I've found is to pass component through props, this allows you to render a component in a certain section.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 const Modal = (props) => (
   <div className="modal">
@@ -76,15 +76,15 @@ const Modal = (props) => (
     <h2 className="modal--body">{props.body}</h2>
     {props.action}
   </div>
-)
+);
 ```
 
 Whenever we use `Modal`, we just pass an instance of `Button` to _action_.
 
 ```js
-import React from 'react'
-import Modal from '../modal'
-import Button from '../button'
+import React from 'react';
+import Modal from '../modal';
+import Button from '../button';
 
 const DeleteModal = (props) => (
   <Modal
@@ -92,7 +92,7 @@ const DeleteModal = (props) => (
     body="Do you want to delete this from your page?"
     action={<Button kind="danger">Delete</Button>}
   />
-)
+);
 ```
 
 I haven't experience any inconvenience by doing this. The result is cleaner and more extensible code as we pass the props to `Button` directly to the element.
@@ -100,7 +100,7 @@ I haven't experience any inconvenience by doing this. The result is cleaner and 
 Other stuff you can do is to force certain configuration of the component, for example let's force any _button_ passed to be _secondary_.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 const Modal = (props) => (
   <div className="modal">
@@ -108,7 +108,7 @@ const Modal = (props) => (
     <h2 className="modal--body">{props.body}</h2>
     {React.cloneElement(props.action, { kind: 'secondary' })}
   </div>
-)
+);
 ```
 
 No matter what the developer defines for `kind` in the button it will be ignored and `"secondary"` will always be the prop value. This is super useful inside design systems when trying to force certain visual patterns.
@@ -120,21 +120,21 @@ One thing that I don't like much about this, and couldn't figure out a better wa
 It's necessary to import the component and check the instance.
 
 ```js
-import Button from '../button'
+import Button from '../button';
 
 Modal.propTypes = {
   action: ({ action }) => {
     if (action && action.type !== Button) {
-      return new Error('Modal expects action to be a Button instance.')
+      return new Error('Modal expects action to be a Button instance.');
     }
   }
-}
+};
 ```
 
 Before you say it, no, the following approach doesn't work.
 
 ```js
-PropTypes.instanceOf(Button)
+PropTypes.instanceOf(Button);
 ```
 
 I still think this is a small price to pay, giving all the unnecessary prop manipulation it's saved me, specially inside the design system repository on my current job where internal components are reused as much as possible.
@@ -148,11 +148,11 @@ I haven't detected performance regression around this, but if you do, think abou
 My recommendation is to hoist the element when possible.
 
 ```js
-import React from 'react'
-import Modal from '../modal'
-import Button from '../button'
+import React from 'react';
+import Modal from '../modal';
+import Button from '../button';
 
-const deleteButton = <Button kind="danger">Delete</Button>
+const deleteButton = <Button kind="danger">Delete</Button>;
 
 const DeleteModal = (props) => (
   <Modal
@@ -160,7 +160,7 @@ const DeleteModal = (props) => (
     body="Do you want to delete this from your page?"
     action={deleteButton}
   />
-)
+);
 ```
 
 If the _action_ doesn't depend on a higher prop to define its configuration, then turning it into a static element piece will avoid reconciliation around it.

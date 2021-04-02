@@ -23,7 +23,7 @@ Interesting for us in this case scenario, if you don't pass any arguments to sli
 
 ```js
 function shuffle(array) {
-  var copiedArray = array.slice()
+  var copiedArray = array.slice();
 }
 ```
 
@@ -39,11 +39,11 @@ With [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ```js
 function shuffle(array) {
-  var copiedArray = array.slice()
-  var len = copiedArray.length
-  var randomPosition
+  var copiedArray = array.slice();
+  var len = copiedArray.length;
+  var randomPosition;
 
-  randomPosition = Math.floor(Math.random() * len)
+  randomPosition = Math.floor(Math.random() * len);
 }
 ```
 
@@ -51,12 +51,12 @@ Because we plan on reducing the length as we slice one element from the array, I
 
 ```js
 function shuffle(array) {
-  var copiedArray = array.slice()
-  var len = copiedArray.length
-  var randomPosition
+  var copiedArray = array.slice();
+  var len = copiedArray.length;
+  var randomPosition;
 
   while (len) {
-    randomPosition = Math.floor(Math.random() * len--)
+    randomPosition = Math.floor(Math.random() * len--);
   }
 }
 ```
@@ -69,17 +69,17 @@ For this we can use again `splice` but this time we are going to pass `randomPos
 
 ```js
 function shuffle(array) {
-  var copiedArray = array.slice()
-  var len = copiedArray.length
-  var shuffledArray = []
-  var randomPosition
+  var copiedArray = array.slice();
+  var len = copiedArray.length;
+  var shuffledArray = [];
+  var randomPosition;
 
   while (len) {
-    randomPosition = Math.floor(Math.random() * len--)
-    shuffledArray.push(copiedArray.splice(randomPosition, 1)[0])
+    randomPosition = Math.floor(Math.random() * len--);
+    shuffledArray.push(copiedArray.splice(randomPosition, 1)[0]);
   }
 
-  return shuffledArray
+  return shuffledArray;
 }
 ```
 
@@ -92,20 +92,20 @@ We can even return early when an array is empty or only contains one element, wh
 ```js
 function shuffle(array) {
   if (array.length < 2) {
-    return array
+    return array;
   }
 
-  var copiedArray = array.slice()
-  var len = copiedArray.length
-  var shuffledArray = []
-  var randomPosition
+  var copiedArray = array.slice();
+  var len = copiedArray.length;
+  var shuffledArray = [];
+  var randomPosition;
 
   while (len) {
-    randomPosition = Math.floor(Math.random() * len--)
-    shuffledArray.push(copiedArray.splice(randomPosition, 1)[0])
+    randomPosition = Math.floor(Math.random() * len--);
+    shuffledArray.push(copiedArray.splice(randomPosition, 1)[0]);
   }
 
-  return shuffledArray
+  return shuffledArray;
 }
 ```
 
@@ -123,8 +123,8 @@ For that you need a criteria and a compare function that responds to it. Random 
 
 ```js
 array.sort(function () {
-  return 0.5 - Math.random()
-})
+  return 0.5 - Math.random();
+});
 ```
 
 Beautiful, isn't it? Just one line, something that will encourage you to put it inside your code right away because, you know, it's just one line! The problem is it isn't taking in consideration how _sort_ really works. Every time the compare function is called, sort expects a negative number, a positive number or zero.

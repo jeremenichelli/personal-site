@@ -1,5 +1,5 @@
 /*! instant.page v5.0.1 - (C) 2019-2020 Alexandre Dieulot - https://instant.page/license */
-let t, e
+let t, e;
 const n = new Set(),
   o = document.createElement('link'),
   i =
@@ -12,15 +12,15 @@ const n = new Set(),
   a = 'instantAllowExternalLinks' in document.body.dataset,
   r = 'instantWhitelist' in document.body.dataset,
   c = !('instantNoMousedownShortcut' in document.body.dataset),
-  d = 1111
+  d = 1111;
 let l = 65,
   u = !1,
   f = !1,
-  m = !1
+  m = !1;
 if ('instantIntensity' in document.body.dataset) {
-  const t = document.body.dataset.instantIntensity
+  const t = document.body.dataset.instantIntensity;
   if ('mousedown' == t.substr(0, 'mousedown'.length))
-    (u = !0), 'mousedown-only' == t && (f = !0)
+    (u = !0), 'mousedown-only' == t && (f = !0);
   else if ('viewport' == t.substr(0, 'viewport'.length))
     (navigator.connection &&
       (navigator.connection.saveData ||
@@ -30,23 +30,23 @@ if ('instantIntensity' in document.body.dataset) {
         ? document.documentElement.clientWidth *
             document.documentElement.clientHeight <
             45e4 && (m = !0)
-        : 'viewport-all' == t && (m = !0))
+        : 'viewport-all' == t && (m = !0));
   else {
-    const e = parseInt(t)
-    isNaN(e) || (l = e)
+    const e = parseInt(t);
+    isNaN(e) || (l = e);
   }
 }
 if (i) {
-  const n = { capture: !0, passive: !0 }
+  const n = { capture: !0, passive: !0 };
   if (
     (f ||
       document.addEventListener(
         'touchstart',
         function (t) {
-          e = performance.now()
-          const n = t.target.closest('a')
-          if (!h(n)) return
-          v(n.href)
+          e = performance.now();
+          const n = t.target.closest('a');
+          if (!h(n)) return;
+          v(n.href);
         },
         n
       ),
@@ -55,22 +55,22 @@ if (i) {
         document.addEventListener(
           'mousedown',
           function (t) {
-            const e = t.target.closest('a')
-            if (!h(e)) return
-            v(e.href)
+            const e = t.target.closest('a');
+            if (!h(e)) return;
+            v(e.href);
           },
           n
         )
       : document.addEventListener(
           'mouseover',
           function (n) {
-            if (performance.now() - e < d) return
-            const o = n.target.closest('a')
-            if (!h(o)) return
+            if (performance.now() - e < d) return;
+            const o = n.target.closest('a');
+            if (!h(o)) return;
             o.addEventListener('mouseout', p, { passive: !0 }),
               (t = setTimeout(() => {
-                v(o.href), (t = void 0)
-              }, l))
+                v(o.href), (t = void 0);
+              }, l));
           },
           n
         ),
@@ -78,54 +78,54 @@ if (i) {
       document.addEventListener(
         'mousedown',
         function (t) {
-          if (performance.now() - e < d) return
-          const n = t.target.closest('a')
-          if (t.which > 1 || t.metaKey || t.ctrlKey) return
-          if (!n) return
+          if (performance.now() - e < d) return;
+          const n = t.target.closest('a');
+          if (t.which > 1 || t.metaKey || t.ctrlKey) return;
+          if (!n) return;
           n.addEventListener(
             'click',
             function (t) {
-              1337 != t.detail && t.preventDefault()
+              1337 != t.detail && t.preventDefault();
             },
             { capture: !0, passive: !1, once: !0 }
-          )
+          );
           const o = new MouseEvent('click', {
             view: window,
             bubbles: !0,
             cancelable: !1,
             detail: 1337
-          })
-          n.dispatchEvent(o)
+          });
+          n.dispatchEvent(o);
         },
         n
       ),
     m)
   ) {
-    let t
-    ;(t = window.requestIdleCallback
+    let t;
+    (t = window.requestIdleCallback
       ? (t) => {
-          requestIdleCallback(t, { timeout: 1500 })
+          requestIdleCallback(t, { timeout: 1500 });
         }
       : (t) => {
-          t()
+          t();
         })(() => {
       const t = new IntersectionObserver((e) => {
         e.forEach((e) => {
           if (e.isIntersecting) {
-            const n = e.target
-            t.unobserve(n), v(n.href)
+            const n = e.target;
+            t.unobserve(n), v(n.href);
           }
-        })
-      })
+        });
+      });
       document.querySelectorAll('a').forEach((e) => {
-        h(e) && t.observe(e)
-      })
-    })
+        h(e) && t.observe(e);
+      });
+    });
   }
 }
 function p(e) {
-  ;(e.relatedTarget && e.target.closest('a') == e.relatedTarget.closest('a')) ||
-    (t && (clearTimeout(t), (t = void 0)))
+  (e.relatedTarget && e.target.closest('a') == e.relatedTarget.closest('a')) ||
+    (t && (clearTimeout(t), (t = void 0)));
 }
 function h(t) {
   if (
@@ -142,10 +142,10 @@ function h(t) {
       'noInstant' in t.dataset
     )
   )
-    return !0
+    return !0;
 }
 function v(t) {
-  if (n.has(t)) return
-  const e = document.createElement('link')
-  ;(e.rel = 'prefetch'), (e.href = t), document.head.appendChild(e), n.add(t)
+  if (n.has(t)) return;
+  const e = document.createElement('link');
+  (e.rel = 'prefetch'), (e.href = t), document.head.appendChild(e), n.add(t);
 }

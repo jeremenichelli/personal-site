@@ -24,11 +24,11 @@ body {
 Now, we need to add that class when the font's ready. In this example I'm going to use [Bram Stein's Font Face Observer][2] library, but there are some others that you might want to checkout.
 
 ```js
-var robotoFamily = new FontFaceObserver('Roboto')
+var robotoFamily = new FontFaceObserver('Roboto');
 
 robotoFamily.load().then(function () {
-  document.documentElement.classList.add('fonts-loaded')
-})
+  document.documentElement.classList.add('fonts-loaded');
+});
 ```
 
 With this simple set of lines we can move any project to a better font loading strategy.
@@ -46,15 +46,15 @@ Of course this is not possible in static sites since the server already holds th
 ```js
 if (sessionStorage.getItem('fonts-loaded')) {
   // fonts cached, add class to document
-  document.documentElement.classList.add('fonts-loaded')
+  document.documentElement.classList.add('fonts-loaded');
 } else {
-  var robotoFamily = new FontFaceObserver('Roboto')
+  var robotoFamily = new FontFaceObserver('Roboto');
 
   robotoFamily.load().then(function () {
-    document.documentElement.classList.add('fonts-loaded')
+    document.documentElement.classList.add('fonts-loaded');
     // set mark on storage for future page views
-    sessionStorage.setItem('fonts-loaded', true)
-  })
+    sessionStorage.setItem('fonts-loaded', true);
+  });
 }
 ```
 
@@ -75,10 +75,10 @@ The following code should be placed inside the head including the previously men
 
 if (sessionStorage.getItem('fonts-loaded')) {
   // fonts cached, add class to document
-  document.documentElement.classList.add('fonts-loaded')
+  document.documentElement.classList.add('fonts-loaded');
 } else {
   // load script with font observing logic
-  loadJS('/scripts/font.js')
+  loadJS('/scripts/font.js');
 }
 ```
 
@@ -87,13 +87,13 @@ The **font.js** file will look similar to this.
 ```js
 /* include Font Face Observer library */
 
-var robotoFamily = new FontFaceObserver('Roboto')
+var robotoFamily = new FontFaceObserver('Roboto');
 
 robotoFamily.load().then(function () {
-  document.documentElement.classList.add('fonts-loaded')
+  document.documentElement.classList.add('fonts-loaded');
   // set mark on storage for future page views
-  sessionStorage.setItem('fonts-loaded', true)
-})
+  sessionStorage.setItem('fonts-loaded', true);
+});
 ```
 
 Users will only experiment a _flick_ in the font style on the first page view. You can check how this works on this [demo page][5] and the resulting code in its [repository][6].

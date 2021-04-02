@@ -18,7 +18,7 @@ Even if you have a bunch of experience with Angular 1.x, mastering this new vers
 If you have used some of the popular rendering libraries today and ES2015 classes, this Angular 2 component file will look familiar to you.
 
 ```js
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'sample-component',
@@ -26,8 +26,8 @@ import { Component } from '@angular/core'
   templateUrl: './sample-component.html'
 })
 export class SampleComponent {
-  firstProp: string
-  secondProp = true
+  firstProp: string;
+  secondProp = true;
 
   someFn() {}
 }
@@ -126,7 +126,7 @@ THe difference in Angular 2 is that properties are encapsulated and can't be mod
 
 ```js
 // child component
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'github-link',
@@ -137,7 +137,7 @@ import { Component, Input } from '@angular/core'
   `
 })
 export class GitHubLink {
-  @Input() user: string
+  @Input() user: string;
 }
 ```
 
@@ -145,14 +145,14 @@ If we don't place the `@Input` decorator before the property, not only the paren
 
 ```js
 // parent component
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
   template: '<github-link [user]="users[1]"><github-link>'
 })
 export class App {
-  users = ['jeremenichelli', 'iamdustan']
+  users = ['jeremenichelli', 'iamdustan'];
 }
 ```
 
@@ -177,7 +177,7 @@ For form elements, Angular 2 provides an `ngModel` directive available.
   `
 })
 export class SearchBox {
-  searchValue = ''
+  searchValue = '';
 }
 ```
 
@@ -216,7 +216,7 @@ After the custom event is created we can bind to a method present in the parent 
 
 ```js
 // parent component
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'search-view',

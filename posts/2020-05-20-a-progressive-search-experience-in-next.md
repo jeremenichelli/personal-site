@@ -44,10 +44,10 @@ As a first building block, I'm choosing [Next](//nextjs.org), a framework built 
 On the index page, we start with the basic set of elements to get input from the user and fetch data later. If we forget about our premise in this article and assume JavaScript is there, we only need an input element and a button.
 
 ```js
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Index = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
 
   function onSubmit(search) {}
 
@@ -56,10 +56,10 @@ const Index = () => {
       <input value={search} onChange={(evt) => setSearch(evt.target.value)} />
       <button onClick={() => onSubmit(search)}>Search</button>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 ```
 
 Is the _name_ attribute in our input necessary? Do we need to wrap everything in a form? What about setting the _action_ on the form? The short answer is, to fetch data with JavaScript, you don't need any of those.
@@ -67,12 +67,12 @@ Is the _name_ attribute in our input necessary? Do we need to wrap everything in
 But in the same way you have to write back all the native functionality of a `button` element when using a `div`, writing a semantically correct form will save you from a lot of heavy lifting while enabling a better and more accessible experience at the same time.
 
 ```js
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function onSubmit() {}
 
 const Index = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
 
   return (
     <form action="?" onSubmit={onSubmit}>
@@ -83,10 +83,10 @@ const Index = () => {
       />
       <button type="submit">Search</button>
     </form>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 ```
 
 {% codeExampleLink '//codesandbox.io/s/javascript-less-submission-e8z3g' %}
@@ -107,8 +107,8 @@ For this, we are going to use a method called `getInitialProps` provided by [Nex
 
 ```js
 Index.getInitialProps = async ({ query }) => {
-  const currentSearch = query.search
-}
+  const currentSearch = query.search;
+};
 ```
 
 `getInitialProps` receives a `context` argument, this object holds a collection of properties including the query section of the URL, which here contains the information from the form submitted by the user.
@@ -118,22 +118,22 @@ We use the `search` value of the query to request data from another service and 
 _As an example, we use the_ [_Open Movie Database API_](//www.omdbapi.com/) _service._
 
 ```js
-import unfetch from 'isomorphic-unfetch'
+import unfetch from 'isomorphic-unfetch';
 
 Index.getInitialProps = async ({ query }) => {
-  const currentSearch = query.search
+  const currentSearch = query.search;
 
-  if (!currentSearch) return {}
+  if (!currentSearch) return {};
 
-  const searchUrl = `//www.omdbapi.com/?s=${currentSearch}`
-  const response = await unfetch(searchUrl)
-  const results = await response.json()
+  const searchUrl = `//www.omdbapi.com/?s=${currentSearch}`;
+  const response = await unfetch(searchUrl);
+  const results = await response.json();
 
   return {
     currentSearch,
     pageResults: results.Search
-  }
-}
+  };
+};
 ```
 
 An undefined `search` value indicates we aren’t coming from a form submission, so we return an empty object.
@@ -141,14 +141,14 @@ An undefined `search` value indicates we aren’t coming from a form submission,
 Inside our `Index` page component we inspect the value of the current search passed by the `getInitialProps` method and iterate over the data to show the results.
 
 ```js
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import Link from 'next/link';
 
 function onSubmit() {}
 
 const Index = (props) => {
-  const { pageResults, currentSearch } = props
-  const [search, setSearch] = useState('')
+  const { pageResults, currentSearch } = props;
+  const [search, setSearch] = useState('');
 
   return (
     <>
@@ -172,8 +172,8 @@ const Index = (props) => {
         </ul>
       )}
     </>
-  )
-}
+  );
+};
 ```
 
 Enhancing this for _JavaScript-ready_ users is surprisingly straight-forward.
@@ -181,14 +181,14 @@ Enhancing this for _JavaScript-ready_ users is surprisingly straight-forward.
 Because we have the logic already set in place, instead of re-implementing everything again we prevent the submit default behavior, serialize the form data and push a route change, `getInitialProps` handles the rest.
 
 ```js
-import Router from 'next/router'
+import Router from 'next/router';
 
 function onSubmit(evt) {
-  evt.preventDefault()
-  const formData = new FormData(evt.target)
-  const searchQuery = formData.get('search')
-  const url = `/?search=${searchQuery}`
-  Router.push(url)
+  evt.preventDefault();
+  const formData = new FormData(evt.target);
+  const searchQuery = formData.get('search');
+  const url = `/?search=${searchQuery}`;
+  Router.push(url);
 }
 ```
 
@@ -206,20 +206,20 @@ Back inside `getInitialProps` we check for this value in the `query` property an
 
 ```js
 Index.getInitialProps = async ({ query }) => {
-  const currentSearch = query.search
+  const currentSearch = query.search;
 
-  if (!currentSearch) return {}
+  if (!currentSearch) return {};
 
-  const currentPage = query.page ? +query.page : 1
+  const currentPage = query.page ? +query.page : 1;
 
-  const searchUrl = `//www.omdbapi.com/?s=${currentSearch}&page=${currentPage}`
+  const searchUrl = `//www.omdbapi.com/?s=${currentSearch}&page=${currentPage}`;
 
-  const response = await unfetch(searchUrl)
-  const results = await response.json()
+  const response = await unfetch(searchUrl);
+  const results = await response.json();
 
-  const RESULTS_PER_PAGE = 10
-  const hasNextPage = RESULTS_PER_PAGE * currentPage < results.totalResults
-  const hasPrevPage = currentPage > 1
+  const RESULTS_PER_PAGE = 10;
+  const hasNextPage = RESULTS_PER_PAGE * currentPage < results.totalResults;
+  const hasPrevPage = currentPage > 1;
 
   return {
     pageResults,
@@ -227,8 +227,8 @@ Index.getInitialProps = async ({ query }) => {
     currentSearch,
     nextPage: hasNextPage ? currentPage + 1 : null,
     prevPage: hasPrevPage ? currentPage - 1 : null
-  }
-}
+  };
+};
 ```
 
 By making `page` an optional key we still support our initial flow as we obtain the same result with `?search=batman` and `?search=batman&page=1`, later in the method we use the `totalResults` number to determine if there’s a next page, and a previous page in case the current page is higher than one.
@@ -236,11 +236,11 @@ By making `page` an optional key we still support our initial flow as we obtain 
 We use again the data returned by `getInitialProps` in the page component to construct those links to different results pages.
 
 ```js
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Index = (props) => {
-  const { pageResults, currentSearch, prevPage, nextPage } = props
-  const [search, setSearch] = useState('')
+  const { pageResults, currentSearch, prevPage, nextPage } = props;
+  const [search, setSearch] = useState('');
 
   return (
     <>
@@ -274,8 +274,8 @@ const Index = (props) => {
         </Link>
       )}
     </>
-  )
-}
+  );
+};
 ```
 
 `Link` components are rendered as anchor elements, so navigation through page results will work perfectly without client code.

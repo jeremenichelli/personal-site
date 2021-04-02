@@ -20,7 +20,7 @@ Usually, the logic part comes as style calculation, covering backwards compatibi
 Let's think of a dialog element as a functional component.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 const Dialog = ({ isOpen, title, content }) => {
   return (
@@ -32,8 +32,8 @@ const Dialog = ({ isOpen, title, content }) => {
         </div>
       </div>
     )
-  )
-}
+  );
+};
 ```
 
 _Of course this is an oversimplified example on how it would look from the code perspective, and it will look different depending on the tooling your company is using to distribute styles._
@@ -43,11 +43,11 @@ So here our dialog will be displayed every time the `isOpen` prop changes to `tr
 Now, think about the chance that we need to lock scrolling every time the dialog opens. There's no way today to do it without switching this to a class component.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 class Dialog extends React.Component {
   render() {
-    const { isOpen, title, content } = this.props
+    const { isOpen, title, content } = this.props;
     return (
       isOpen && (
         <div className="dialog---overlay">
@@ -57,7 +57,7 @@ class Dialog extends React.Component {
           </div>
         </div>
       )
-    )
+    );
   }
 }
 ```
@@ -65,21 +65,21 @@ class Dialog extends React.Component {
 Then we use the lifecycle hooks to toggle a class or a style on the `body` element of the document.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 class Dialog extends React.Component {
   componentDidMount() {
-    const { isOpen } = this.props
-    document.body.style.overflow = isOpen ? 'hidden' : 'visible'
+    const { isOpen } = this.props;
+    document.body.style.overflow = isOpen ? 'hidden' : 'visible';
   }
 
   componentDidUpdate() {
-    const { isOpen } = this.props
-    document.body.style.overflow = isOpen ? 'hidden' : 'visible'
+    const { isOpen } = this.props;
+    document.body.style.overflow = isOpen ? 'hidden' : 'visible';
   }
 
   render() {
-    const { isOpen, title, content } = this.props
+    const { isOpen, title, content } = this.props;
     return (
       isOpen && (
         <div className="dialog---overlay">
@@ -89,7 +89,7 @@ class Dialog extends React.Component {
           </div>
         </div>
       )
-    )
+    );
   }
 }
 ```
@@ -99,13 +99,13 @@ For something so little and trivial as this, we needed a whole refactor of our c
 We can avoid this by using `useEffect`.
 
 ```js
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 const Dialog = ({ isOpen, title, content }) => {
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'visible'
-    return () => (document.body.style.overflow = 'visible')
-  }, [isOpen])
+    document.body.style.overflow = isOpen ? 'hidden' : 'visible';
+    return () => (document.body.style.overflow = 'visible');
+  }, [isOpen]);
 
   return (
     isOpen && (
@@ -116,8 +116,8 @@ const Dialog = ({ isOpen, title, content }) => {
         </div>
       </div>
     )
-  )
-}
+  );
+};
 ```
 
 Every time our `Dialog` instance changes the `useEffect` hook will be called. Inside of it, we are deciding what to do based on the `isOpen` value.
@@ -139,26 +139,26 @@ There's a huge chance you will need this for a lot of other elements like overla
 Let's imagine the use case from above, isollated in a single file that can be consumed by any component from a project.
 
 ```js
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 function useLockBodyScroll(toggle) {
   useEffect(() => {
-    document.body.style.overflow = toggle ? 'hidden' : 'visible'
-    return () => (document.body.style.overflow = 'visible')
-  }, [toggle])
+    document.body.style.overflow = toggle ? 'hidden' : 'visible';
+    return () => (document.body.style.overflow = 'visible');
+  }, [toggle]);
 }
 
-export default useLockBodyScroll
+export default useLockBodyScroll;
 ```
 
 Later we add the hook and pass the property that will toggle the style.
 
 ```js
-import React from 'react'
-import useLockBodyScreen from './hooks/useLockBodyScreen'
+import React from 'react';
+import useLockBodyScreen from './hooks/useLockBodyScreen';
 
 const Dialog = ({ isOpen, title, content }) => {
-  useLockBodyScreen(isOpen)
+  useLockBodyScreen(isOpen);
 
   return (
     isOpen && (
@@ -169,8 +169,8 @@ const Dialog = ({ isOpen, title, content }) => {
         </div>
       </div>
     )
-  )
-}
+  );
+};
 ```
 
 {% codeExampleLink 'https://codesandbox.io/s/pl8ollk70' %}
@@ -188,18 +188,18 @@ I don't think states themselves are _dumb_, but it is a little annoying how a lo
 For example, menus and dropdowns.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 class Menu extends React.Component {
-  state = { open: false }
+  state = { open: false };
 
   toggleMenu = () => {
-    this.setState({ open: !this.state.open })
-  }
+    this.setState({ open: !this.state.open });
+  };
 
   render() {
-    const { open } = this.state
-    const { options } = this.props
+    const { open } = this.state;
+    const { options } = this.props;
 
     return (
       <div className="menu">
@@ -212,7 +212,7 @@ class Menu extends React.Component {
           </div>
         )}
       </div>
-    )
+    );
   }
 }
 ```

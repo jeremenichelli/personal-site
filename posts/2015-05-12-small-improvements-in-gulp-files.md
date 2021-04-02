@@ -58,7 +58,7 @@ As I explained in <a href="/2015/05/using-gulp/">my previous post</a>, Gulp has 
 ```js
 gulp.task('karma', ['lint'], function () {
   // do something
-})
+});
 ```
 
 Gulp waits for **lint** to execute before starting with **karma** task here. As you see we pass an array of task names as a second argument. The third one, the function that holds the functionality of the task, is actually optional. This means that you can use an alias to group similar tasks.
@@ -66,7 +66,7 @@ Gulp waits for **lint** to execute before starting with **karma** task here. As 
 Something I often do in my projects is to check the syntax in both test and source files of my projects and use the name of the process followed by a colon and the name of the folder where I'm applying the task, for example _hint:src_ and _hint:spec_. Then you can create a general _hint_ task.
 
 ```js
-gulp.task('hint', ['hint:spec', 'hint:src'])
+gulp.task('hint', ['hint:spec', 'hint:src']);
 ```
 
 This gives you the option of just check the syntax in your spec files or in your source files only but also to call the _hint_ task and run it on both directories.
