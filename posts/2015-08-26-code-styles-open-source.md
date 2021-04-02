@@ -67,7 +67,7 @@ Once you've done that you can create a `lint` task.
 ```js
 var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
-  jscs = require('gulp-jscs')
+  jscs = require('gulp-jscs');
 
 gulp.task('lint', function () {
   return (
@@ -77,8 +77,8 @@ gulp.task('lint', function () {
       // interrupt task if an error is found
       .pipe(jshint.reporter('fail'))
       .pipe(jscs())
-  )
-})
+  );
+});
 ```
 
 In case you want to use **eslint** you need to create a `.eslintrc` file instead and install the package.
@@ -100,8 +100,8 @@ gulp.task('lint', function () {
       // To have the process exit with an error code (1) on
       // lint error, return the stream and pipe to failOnError last.
       .pipe(eslint.failOnError())
-  )
-})
+  );
+});
 ```
 
 Now any developer who wants to contribute with your project doesn't need to know your coding preferences, just by running `gulp lint` the terminal will report what needs to be changed.

@@ -52,9 +52,9 @@ The element to append should look like this:
 First thing, let's collect all the anchors from the current page and turn them into an array to loop over them easier.
 
 ```js
-const anchors = document.getElementsByTagName('a')
+const anchors = document.getElementsByTagName('a');
 
-const anchorsArray = [].slice.call(anchors)
+const anchorsArray = [].slice.call(anchors);
 // yay, we can use array methods now!
 ```
 
@@ -62,12 +62,12 @@ Next, let's create a method that adds a `link` element to the document with the 
 
 ```js
 const prefetchRoute = function () {
-  const link = document.createElement('link')
-  link.href = this.href
-  link.rel = 'prefetch'
+  const link = document.createElement('link');
+  link.href = this.href;
+  link.rel = 'prefetch';
 
-  document.head.appendChild(link)
-}
+  document.head.appendChild(link);
+};
 ```
 
 _Keep in mind that once we use this method in an event listener the keyword this will point to the anchor element being hovered._
@@ -76,8 +76,8 @@ Now we attach this function to all anchors' events.
 
 ```js
 anchorsArray.map((anchor) => {
-  anchor.addEventListener('mouseover', prefetchRoute)
-})
+  anchor.addEventListener('mouseover', prefetchRoute);
+});
 ```
 
 The interval of time between the user hovering and clicking a link might not be much, but it's enough to start ahead the connection to the resource and speed up the navigation at practically no cost.
@@ -90,24 +90,24 @@ For the solution to work properly we should skip anchors with external links.
 anchorsArray.map((anchor) => {
   // only listen to hover when hosts match
   if (anchor.host === document.location.host) {
-    anchor.addEventListener('mouseover', prefetchRoute)
+    anchor.addEventListener('mouseover', prefetchRoute);
   }
-})
+});
 ```
 
 We could also remove the listener after prefetching the route.
 
 ```js
 const prefetchRoute = function () {
-  const link = document.createElement('link')
-  link.href = this.href
-  link.rel = 'prefetch'
+  const link = document.createElement('link');
+  link.href = this.href;
+  link.rel = 'prefetch';
 
-  document.head.appendChild(link)
+  document.head.appendChild(link);
 
   // remove listener from anchor element
-  this.removeEventListener('mouseover', prefetchRoute)
-}
+  this.removeEventListener('mouseover', prefetchRoute);
+};
 ```
 
 This way we avoid injecting the same `link` element several times.

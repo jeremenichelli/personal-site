@@ -37,7 +37,7 @@ const placeholderString = () =>
       <p> </p>
       <p> </p>
       <p> </p>
-  </div>`
+  </div>`;
 ```
 
 Since we already have styles defined for headings and paragraphs I just listed these elements on a fashion similar to most articles' bodies.
@@ -83,7 +83,7 @@ const placeholderString = () =>
     <p class="placeholder__large"> </p>
     <p class="placeholder__small"> </p>
     <p class="placeholder__medium"> </p>
-  </div>`
+  </div>`;
 ```
 
 {% codeExampleLink 'https://codepen.io/jeremenichelli/pen/LrGNZm/' %}

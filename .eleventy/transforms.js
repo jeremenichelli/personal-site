@@ -1,4 +1,4 @@
-const htmlMinifier = require('html-minifier')
+const htmlMinifier = require('html-minifier');
 
 const htmlmin = (content, outputPath) => {
   if (outputPath.endsWith('.html')) {
@@ -7,12 +7,12 @@ const htmlmin = (content, outputPath) => {
       removeComments: true,
       collapseWhitespace: true,
       processScripts: ['application/ld+json']
-    })
+    });
 
-    return minified
+    return minified;
   }
 
-  return content
-}
+  return content;
+};
 
-module.exports.htmlmin = htmlmin
+module.exports.htmlmin = htmlmin;

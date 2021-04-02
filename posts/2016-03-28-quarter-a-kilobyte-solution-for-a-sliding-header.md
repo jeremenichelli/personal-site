@@ -15,11 +15,11 @@ First of all we need to know in which direction the user is scrolling, which it'
  * y: current scroll position
  * direction: no value
  */
-var y = window.scrollY
-var direction = null
+var y = window.scrollY;
+var direction = null;
 
 window.addEventListener('scroll', function () {
-  direction = window.scrollY > y ? 'down' : 'up'
+  direction = window.scrollY > y ? 'down' : 'up';
 
   if (direction === 'down') {
     // scrolling down, do something!
@@ -30,8 +30,8 @@ window.addEventListener('scroll', function () {
   }
 
   // update scroll position
-  y = window.scrollY
-})
+  y = window.scrollY;
+});
 ```
 
 This works great, we can toggle a class on our **header** and call it the day, but we can do it better.
@@ -41,16 +41,16 @@ We are executing the code inside the `if` statements on each scroll event which 
 Since we are going to toggle our header when the user _starts_ scrolling up or down, we rather detect when the scrolling the direction has changed craeting one more variable to store the last direction registered and compare it with the current one.
 
 ```js
-var y = window.scrollY
-var previousDirection = null
-var direction = null
+var y = window.scrollY;
+var previousDirection = null;
+var direction = null;
 
 window.addEventListener('scroll', function () {
-  direction = window.scrollY > y ? 'down' : 'up'
+  direction = window.scrollY > y ? 'down' : 'up';
 
   if (direction !== previousDirection) {
     // update direction value
-    previousDirection = direction
+    previousDirection = direction;
 
     if (direction === 'down') {
       // just started scrolling down, do something!
@@ -62,81 +62,81 @@ window.addEventListener('scroll', function () {
   }
 
   // update scroll position
-  y = window.scrollY
-})
+  y = window.scrollY;
+});
 ```
 
 We can now add a class toggle on our **header** inside to the solution. It is also recommended to execute this solution once the user has scrolled a bit so the **header** is always present on the top of out site.
 
 ```js
-var header = document.getElementsByTagName('header')[0]
-var y = window.scrollY
-var previousDirection = null
-var direction = null
+var header = document.getElementsByTagName('header')[0];
+var y = window.scrollY;
+var previousDirection = null;
+var direction = null;
 
 window.addEventListener('scroll', function () {
   if (window.scrollY > 150) {
-    direction = window.scrollY > y ? 'down' : 'up'
+    direction = window.scrollY > y ? 'down' : 'up';
 
     if (direction !== previousDirection) {
       // update direction value
-      previousDirection = direction
+      previousDirection = direction;
 
       if (direction === 'down') {
         // hide the header
-        header.classList.add('header--hidden')
+        header.classList.add('header--hidden');
       }
 
       if (direction === 'up') {
         // show the header again
-        header.classList.remove('header--hidden')
+        header.classList.remove('header--hidden');
       }
     }
   } else {
     // show the header on top
-    header.classList.remove('header--hidden')
+    header.classList.remove('header--hidden');
   }
 
   // update scroll position
-  y = window.scrollY
-})
+  y = window.scrollY;
+});
 ```
 
 Those are a lot of `if` statements, we can reduce them using [the power of object literals](/2014/10/the-power-of-using-object-literals).
 
 ```js
-var header = document.getElementsByTagName('header')[0]
-var y = window.scrollY
-var previousDirection = null
-var direction = null
+var header = document.getElementsByTagName('header')[0];
+var y = window.scrollY;
+var previousDirection = null;
+var direction = null;
 
 var actions = {
   up: function () {
-    header.classList.remove('header--hidden')
+    header.classList.remove('header--hidden');
   },
   down: function () {
-    header.classList.add('header--hidden')
+    header.classList.add('header--hidden');
   }
-}
+};
 
 window.addEventListener('scroll', function () {
   if (window.scrollY > 150) {
-    direction = window.scrollY > y ? 'down' : 'up'
+    direction = window.scrollY > y ? 'down' : 'up';
 
     if (direction !== previousDirection) {
       // update direction value
-      previousDirection = direction
+      previousDirection = direction;
 
       // call to action
-      actions[direction]()
+      actions[direction]();
     }
   } else {
-    actions['up']()
+    actions['up']();
   }
 
   // update scroll position
-  y = window.scrollY
-})
+  y = window.scrollY;
+});
 ```
 
 The hardest part is done, but our **header** won't move unless we write some styles for it.
@@ -186,16 +186,16 @@ See it working in this [demostration page](https://jeremenichelli.github.io/stic
 But you know, maybe you just want some library to help you do the trick and keep moving. Then you can include [steer](https://jeremenichelli.github.io/steer) in your project and use its API to toggle the **header** class.
 
 ```js
-var header = document.getElementsByTagName('header')[0]
+var header = document.getElementsByTagName('header')[0];
 
 steer.set({
   up: function () {
-    header.classList.remove('header--hidden')
+    header.classList.remove('header--hidden');
   },
   down: function () {
-    header.classList.add('header--hidden')
+    header.classList.add('header--hidden');
   }
-})
+});
 ```
 
 This script will add some legacy browser support under the hood for this approach, though you will still need a polyfill for [classList](https://github.com/eligrey/classList.js) which doesn't work in older versions of Internet Explorer.

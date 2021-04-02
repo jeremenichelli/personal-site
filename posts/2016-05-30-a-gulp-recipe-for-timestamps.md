@@ -43,9 +43,9 @@ Notice we are saving a timestamp for each type of resource.
 Each time a build modifies a file from one of these assets we need to update the corresponding timestamp.
 
 ```js
-var gulp = require('gulp')
-var less = require('gulp-less')
-var minify = require('gulp-clean-css')
+var gulp = require('gulp');
+var less = require('gulp-less');
+var minify = require('gulp-clean-css');
 
 // styles task
 gulp.task('styles', function () {
@@ -57,27 +57,27 @@ gulp.task('styles', function () {
       .pipe(gulp.dest('./assets/'))
       // update timestamp for styles
       .pipe(updateTimestamp('styles'))
-  )
-})
+  );
+});
 ```
 
 This is a simple task in Gulp where we process less files and then minify the output, but at the end of it we _pipe_ a custom method.
 
 ```js
-var gulp = require('gulp')
-var util = require('gulp-util')
-var file = require('gulp-file')
+var gulp = require('gulp');
+var util = require('gulp-util');
+var file = require('gulp-file');
 
 // import timestamps
-var timestamps = require('./_data/timestamps.json')
+var timestamps = require('./_data/timestamps.json');
 
 // update timestamp
 function updateTimestamp(stamp) {
-  timestamps[stamp] = Date.now()
+  timestamps[stamp] = Date.now();
 
   return file('timestamps.json', JSON.stringify(timestamps, null, 2), {
     src: true
-  }).pipe(gulp.dest('./_data'))
+  }).pipe(gulp.dest('./_data'));
 }
 ```
 
@@ -88,21 +88,21 @@ _The [Date.now][1] method returns the number of milliseconds elapsed since 1 Jan
 Let's get this recipe together.
 
 ```js
-var gulp = require('gulp')
-var less = require('gulp-less')
-var minify = require('gulp-clean-css')
-var file = require('gulp-file')
+var gulp = require('gulp');
+var less = require('gulp-less');
+var minify = require('gulp-clean-css');
+var file = require('gulp-file');
 
 // import timestamps
-var timestamps = require('./_data/timestamps.json')
+var timestamps = require('./_data/timestamps.json');
 
 // update timestamp
 function updateTimestamp(stamp) {
-  timestamps[stamp] = Date.now()
+  timestamps[stamp] = Date.now();
 
   return file('timestamps.json', JSON.stringify(timestamps, null, 2), {
     src: true
-  }).pipe(gulp.dest('./_data'))
+  }).pipe(gulp.dest('./_data'));
 }
 
 // styles task
@@ -115,8 +115,8 @@ gulp.task('styles', function () {
       .pipe(gulp.dest('./assets/'))
       // update timestamp for styles
       .pipe(updateTimestamp('styles'))
-  )
-})
+  );
+});
 ```
 
 The method can be easily use in other tasks by changing the string passed to the _updateTimestamp_ method.

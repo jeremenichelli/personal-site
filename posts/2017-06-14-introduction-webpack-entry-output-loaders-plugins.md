@@ -44,7 +44,7 @@ The easiest one is to pass a string:
 ```js
 var baseConfig = {
   entry: './src/index.js'
-}
+};
 ```
 
 We could also pass an object in case we need more than one entry in the future.
@@ -54,7 +54,7 @@ var baseConfig = {
   entry: {
     main: './src/index.js'
   }
-}
+};
 ```
 
 I recommend the last one since it will scale better as your project grows.
@@ -66,7 +66,7 @@ webpack commands will pick up the config file we've just created unless we indic
 The output in webpack is an object holding the path where our bundles and assets will go, as well as the name the entries will adopt.
 
 ```js
-var path = require('path')
+var path = require('path');
 
 var baseConfig = {
   entry: {
@@ -76,10 +76,10 @@ var baseConfig = {
     filename: 'main.js',
     path: path.resolve('./build')
   }
-}
+};
 
 // export configuration
-module.exports = baseConfig
+module.exports = baseConfig;
 ```
 
 If you're defining the entry with an object, rather than hardcoding the output filename with a string, you can do:
@@ -101,10 +101,10 @@ The goal of webpack is to handle all our dependencies.
 
 ```js
 // index.js file
-import helpers from '/helpers/main.js'
+import helpers from '/helpers/main.js';
 
 // Hey webpack! I will need these styles:
-import 'main.css'
+import 'main.css';
 ```
 
 What's that? Requiring a stylesheet in JavaScript? Yes! But bundlers are only prepared to handle JavaScript dependencies out-of-the-box. This is where "loaders" make their entrance.
@@ -159,7 +159,7 @@ var baseConfig = {
       }
     ]
   }
-}
+};
 ```
 
 In this example, `main.css` will go first through **css-loader** and then **style-loader**.
@@ -178,7 +178,7 @@ rules: [
       { loader: 'less-loader' }
     ]
   }
-]
+];
 ```
 
 ### Transpiling
@@ -191,7 +191,7 @@ rules: [
     test: /\.js$/,
     use: [{ loader: 'babel-loader' }]
   }
-]
+];
 ```
 
 ### Images
@@ -243,11 +243,11 @@ For example, webpack by default includes our styles inside our bundle, but we ca
 A common use for a plugin is to extract the generated stylesheet and load it as we normally do using a `<link>` tag.
 
 ```js
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var lessRules = {
   use: [{ loader: 'css-loader' }, { loader: 'less-loader' }]
-}
+};
 
 var baseConfig = {
   // ...
@@ -258,7 +258,7 @@ var baseConfig = {
     ]
   },
   plugins: [new ExtractTextPlugin('main.css')]
-}
+};
 ```
 
 ### Generate an index file
@@ -268,12 +268,12 @@ When building single-page applications we need a **.html** file to serve it.
 The `HtmlWebpackPlugin` automatically creates an `index.html` file and add script tags for each resulting bundle. It also supports templating syntax and is highly configurable.
 
 ```js
-var HTMLWebpackPlugin = require('html-webpack-plugin')
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 var baseConfig = {
   // ...
   plugins: [new HTMLWebpackPlugin()]
-}
+};
 ```
 
 ## Building for Production
@@ -285,7 +285,7 @@ A lot of libraries introduce warnings that are useful during development time bu
 webpack comes with a built-in plugin to set global constants inside your bundle.
 
 ```js
-var ENV = process.env.NODE_ENV
+var ENV = process.env.NODE_ENV;
 
 var baseConfig = {
   // ...
@@ -294,7 +294,7 @@ var baseConfig = {
       'process.env.NODE_ENV': JSON.stringify(ENV)
     })
   ]
-}
+};
 ```
 
 We now need to specify the environment on our commands:
@@ -312,7 +312,7 @@ This is really useful to introduce warnings in your codebase for your team and t
 
 ```js
 if (process.env.NODE_ENV === 'development') {
-  console.warn('This warning will dissapear on production build!')
+  console.warn('This warning will dissapear on production build!');
 }
 ```
 
@@ -324,15 +324,15 @@ One of the most popular tools to do this is `UglifyJS`, and webpack comes with a
 
 ```js
 // webpack.config.js file
-var ENV = process.env.NODE_ENV
+var ENV = process.env.NODE_ENV;
 
 var baseConfig = {
   // ...
   plugins: []
-}
+};
 
 if (ENV === 'production') {
-  baseConfig.plugins.push(new webpack.optimize.UglifyJsPlugin())
+  baseConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 ```
 

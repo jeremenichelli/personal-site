@@ -42,10 +42,10 @@ Then create a file called `gulpfile.js` in the root of your project and require 
 
 ```js
 // require the dependencies
-var gulp = require('gulp')
-var rename = require('gulp-rename')
-var concat = require('gulp-concat-util')
-var minify = require('gulp-minify-css')
+var gulp = require('gulp');
+var rename = require('gulp-rename');
+var concat = require('gulp-concat-util');
+var minify = require('gulp-minify-css');
 ```
 
 Let's take the critical file first. What do we need to do? Grab the file, minify its content, wrap it with `style` tags and convert it to a file we can include in our site generator, let's take Jekyll as an example.
@@ -70,8 +70,8 @@ gulp.task('styles:critical', function () {
       )
       // insert file in the includes folder
       .pipe(gulp.dest('_includes/'))
-  )
-})
+  );
+});
 ```
 
 Then you just need to include the **criticalCSS.html** file in the head of the site.
@@ -107,8 +107,8 @@ gulp.task('styles:critical', function () {
       )
       // insert it Wordpress theme folder
       .pipe(gulp.dest('wp-content/themes/your_theme/'))
-  )
-})
+  );
+});
 ```
 
 Then include the file in `head.php`.
@@ -136,8 +136,8 @@ Require them in your `gulpfile.js`.
 
 ```js
 // in addition to the packages required previously
-var less = require('gulp-less')
-var autoprefixer = require('gulp-autoprefixer')
+var less = require('gulp-less');
+var autoprefixer = require('gulp-autoprefixer');
 ```
 
 Add these new steps to the task.
@@ -157,8 +157,8 @@ gulp.task('styles:critical', function () {
         extname: '.html'
       })
     )
-    .pipe(gulp.dest('_includes/'))
-})
+    .pipe(gulp.dest('_includes/'));
+});
 ```
 
 ### Create the noncritical stylesheet
@@ -175,8 +175,8 @@ gulp.task('styles:noncritical', function () {
         basename: 'site'
       })
     )
-    .pipe(gulp.dest('assets/styles/'))
-})
+    .pipe(gulp.dest('assets/styles/'));
+});
 ```
 
 Of course you need to include a **&lt;link&gt;** tag at the bottom of your page referencing the location of this file or lazy load it using JavaScript to make its styles visible.
@@ -189,9 +189,9 @@ To actually automate this, we need to trigger those tasks every time we modify a
 
 ```js
 gulp.task('watch', function () {
-  gulp.watch(['src/styles/critical.css'], ['styles:critical'])
-  gulp.watch(['src/styles/noncritical.css'], ['styles:noncritical'])
-})
+  gulp.watch(['src/styles/critical.css'], ['styles:critical']);
+  gulp.watch(['src/styles/noncritical.css'], ['styles:noncritical']);
+});
 ```
 
 After this small addition you can run `gulp watch` on your terminal and presto!

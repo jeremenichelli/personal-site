@@ -16,11 +16,11 @@ In previous articles, I described [a progressive enhancement approach for React 
 To build this component we are going to start with the HTML, as it is a navigation action it makes sense for this back button to be represented with an anchor element.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 const BackButton = () => {
-  return <a href="/">Go back</a>
-}
+  return <a href="/">Go back</a>;
+};
 ```
 
 Though we are going to override the behavior of the anchor with JavaScript, it’s important to put something inside its `href` attribute.
@@ -34,22 +34,22 @@ There’s more than one way to achieve this, as all of them are similar let’s 
 ```js
 function goBack(evt) {
   // ignore the native anchor action
-  evt.preventDefault()
+  evt.preventDefault();
 
-  history.back()
+  history.back();
 }
 ```
 
 If you are using a routing library like [React Router](//reacttraining.com/react-router/web/guides/quick-start) or even routers present in frameworks like [Next.js](//nextjs.org) you might be able to do something similar to the following.
 
 ```js
-import Router from 'next/router'
+import Router from 'next/router';
 
 function goBack(evt) {
   // ignore the native anchor action
-  evt.preventDefault()
+  evt.preventDefault();
 
-  Router.back()
+  Router.back();
 }
 ```
 
@@ -63,8 +63,8 @@ const BackButton = () => {
     <a href="/" onClick={goBack}>
       Go back
     </a>
-  )
-}
+  );
+};
 ```
 
 If you are relying completely on client-side rendering and giving your users a white screen until your bundle loads, then this is all you are going to need. The article might as well end here.
@@ -117,14 +117,14 @@ When defined, this newly added `referrer` prop is used as the `href` fallback va
 
 ```js
 const BackButton = ({ referrer }) => {
-  const href = referrer ? referrer : '/'
+  const href = referrer ? referrer : '/';
 
   return (
     <a href={href} onClick={goBack}>
       Go back
     </a>
-  )
-}
+  );
+};
 ```
 
 You might have noticed we check if `req` is defined inside the `getInitialProps` method. As I said, this header is present when the request reaches the server.
@@ -139,15 +139,15 @@ A bit of quick advice to improve accessibility for this component would be to ad
 
 ```js
 const BackButton = ({ referrer, searchQuery, resultPage }) => {
-  const href = referrer ? referrer : '/'
-  const ariaLabel = `Go back to page ${resultPage} of ${searchQuery} search`
+  const href = referrer ? referrer : '/';
+  const ariaLabel = `Go back to page ${resultPage} of ${searchQuery} search`;
 
   return (
     <a href={href} ariaLabel={ariaLabel} onClick={goBack}>
       Go back
     </a>
-  )
-}
+  );
+};
 ```
 
 It might not seem necessary, but a more complete announcement in screen readers will help assisted users to know exactly where they are heading if they hit the link.

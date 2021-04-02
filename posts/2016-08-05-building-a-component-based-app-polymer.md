@@ -35,24 +35,24 @@ This is not hard to achieve extending the **HTMLElement** class, here shown with
 ```js
 class GitHubLink extends HTMLElement {
   constructor() {
-    super()
+    super();
   }
   createdCallback() {
-    this._createRoot()
+    this._createRoot();
   }
   attachedCallback() {
-    let a = document.createElement('a')
-    a.innerHTML = 'GitHub profile'
-    a.href = 'https://github.com/jeremenichelli'
+    let a = document.createElement('a');
+    a.innerHTML = 'GitHub profile';
+    a.href = 'https://github.com/jeremenichelli';
 
-    this.root.appendChild(a)
+    this.root.appendChild(a);
   }
   _createRoot() {
-    this.root = this.createShadowRoot()
+    this.root = this.createShadowRoot();
   }
 }
 
-document.registerElement('github-link', GitHubLink)
+document.registerElement('github-link', GitHubLink);
 ```
 
 {% codeExampleLink 'https://jsfiddle.net/8Lrm8dzh/' %}
@@ -124,9 +124,9 @@ Another useful feature available is the `dom-repeat` extension that allows you t
     Polymer({
       is: 'link-list',
       ready: function () {
-        this.links = ['https://google.com', 'https://facebook.com']
+        this.links = ['https://google.com', 'https://facebook.com'];
       }
-    })
+    });
   </script>
 </dom-module>
 ```
@@ -316,12 +316,12 @@ Any function present in the descriptor object can be bound to an event inside th
         }
       },
       _handleChange: function (e) {
-        this.title = e.target.value
+        this.title = e.target.value;
       },
       _onSubmit: function (e) {
         // do stuff...
       }
-    })
+    });
   </script>
 </dom-module>
 ```

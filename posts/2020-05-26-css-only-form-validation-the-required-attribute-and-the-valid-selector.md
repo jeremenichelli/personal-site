@@ -15,7 +15,7 @@ The easiest way to make sure a button doesn’t work is by disabling it. An give
 
 ```js
 const Index = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
 
   return (
     <form action="?" onSubmit={onSubmit}>
@@ -28,8 +28,8 @@ const Index = () => {
         Search
       </button>
     </form>
-  )
-}
+  );
+};
 ```
 
 In the `input` element, when the `search` state is an empty string the `button` will get disabled and the user won’t be able to trigger a submission.
@@ -73,7 +73,7 @@ We definitely can’t change the value of an attribute in a form element with CS
 
 ```js
 const Index = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
 
   return (
     <form action="?" onSubmit={onSubmit}>
@@ -85,8 +85,8 @@ const Index = () => {
       />
       <button type="submit">Search</button>
     </form>
-  )
-}
+  );
+};
 ```
 
 First in our form, we need to mark the search input as **required**.

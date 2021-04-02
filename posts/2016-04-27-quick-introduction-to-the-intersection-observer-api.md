@@ -13,14 +13,14 @@ First thing you need to do is to create an observer passing a `callback` functio
 ```js
 const observer = new IntersectionObserver(onChange, {
   threshold: [0.25]
-})
+});
 
 function onChange(changes) {
   // for each element that has become visible
   changes.forEach((entry) => {
     // change in one of the targets observed
-    console.log(entry)
-  })
+    console.log(entry);
+  });
 }
 ```
 
@@ -75,11 +75,11 @@ That's how you can easily implement a lazy loading logic right now on browsers s
 function onChange(changes) {
   changes.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.src = entry.target.dataset.src
+      entry.target.src = entry.target.dataset.src;
       // STOP OBSERVING IMAGE
-      observer.unobserve(entry.target)
+      observer.unobserve(entry.target);
     }
-  })
+  });
 }
 ```
 
@@ -94,10 +94,10 @@ function onChange(changes) {
   changes.forEach((entry) => {
     // rely on intersectionRatio
     if (entry.intersectionRatio > 0) {
-      entry.target.src = entry.target.dataset.src
-      observer.unobserve(entry.target)
+      entry.target.src = entry.target.dataset.src;
+      observer.unobserve(entry.target);
     }
-  })
+  });
 }
 ```
 
@@ -111,10 +111,10 @@ It doesn't make any sense to do this as soon as one pixel from the target enters
 function onChange(changes) {
   changes.forEach((entry) => {
     if (entry.intersectionRatio > 0.5) {
-      entry.target.classList.add('animate')
-      observer.unobserve(entry.target)
+      entry.target.classList.add('animate');
+      observer.unobserve(entry.target);
     }
-  })
+  });
 }
 ```
 

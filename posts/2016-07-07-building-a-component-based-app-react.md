@@ -23,7 +23,7 @@ let Link = React.createElement(
     className: 'github-link'
   },
   'GitHub'
-)
+);
 ```
 
 {% codeExampleLink 'https://jsfiddle.net/jeremenichelli/kqLmfcq4' %}
@@ -41,7 +41,7 @@ const GitHubLink = (
   <a className="github-link" href="https://github.com/jeremenichelli">
     GitHub
   </a>
-)
+);
 ```
 
 Seeing tags inside your code might feel weird at first, however it becomes a better option when writing more complex elements with a bigger number of children that can be harder to read using React's method.
@@ -55,8 +55,8 @@ As React promises, the best reason for using it is to improve the architecture o
 One of the many ways to achieve this is extending the component class.
 
 ```js
-import React, { Component } from 'react'
-import { render } from 'react-dom'
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
 class GitHubLink extends Component {
   render() {
@@ -64,11 +64,14 @@ class GitHubLink extends Component {
       <a href="https://github.com/jeremenichelli" className="github-link">
         {this.props.user} on github
       </a>
-    )
+    );
   }
 }
 
-render(<GitHubLink user="jeremenichelli" />, document.querySelector('#example'))
+render(
+  <GitHubLink user="jeremenichelli" />,
+  document.querySelector('#example')
+);
 ```
 
 These components become custom tags you can put inside other components or pass it to the render function. Component tags need to be **capitalized** so JSX can differenciate them from standard HTML ones.
@@ -80,25 +83,28 @@ The problem with this component here is that the url is hardcoded, and an anchor
 To customize our components, data values can be passed to them as _props_.
 
 ```js
-import React, { Component } from 'react'
-import { render } from 'react-dom'
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
-const baseUrl = 'https://github.com/'
+const baseUrl = 'https://github.com/';
 
 class GitHubLink extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return (
       <a href={baseUrl + this.props.user} className="github-link">
         {this.props.user} on github
       </a>
-    )
+    );
   }
 }
 
-render(<GitHubLink user="jeremenichelli" />, document.querySelector('#example'))
+render(
+  <GitHubLink user="jeremenichelli" />,
+  document.querySelector('#example')
+);
 ```
 
 When declaring components with this pattern, _props_ need to be passed to the **super** class constructor so they are applied to the component itself.
@@ -106,27 +112,27 @@ When declaring components with this pattern, _props_ need to be passed to the **
 As you see in the **href** value, JavaScript expressions can be used inside JSX when wrapped with curly braces to apply more dynamic and readable approaches.
 
 ```js
-import React, { Component } from 'react'
-import { render } from 'react-dom'
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
-const baseUrl = 'https://github.com/'
+const baseUrl = 'https://github.com/';
 
 class GitHubLink extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return (
       <a href={baseUrl + this.props.user} className="github-link">
         {this.props.user} on github
       </a>
-    )
+    );
   }
 }
 
 class GitHubUsers extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return (
@@ -134,11 +140,11 @@ class GitHubUsers extends Component {
         <GitHubLink user="jeremenichelli" />
         <GitHubLink user="iamdustan" />
       </div>
-    )
+    );
   }
 }
 
-render(<GitHubUsers />, document.querySelector('#example'))
+render(<GitHubUsers />, document.querySelector('#example'));
 ```
 
 {% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
@@ -148,13 +154,13 @@ The render function in React components always has to return a single root eleme
 Remember you can use JavaScript inside `render`, which is pretty neat when the number of children is unknown or too big.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-const users = ['jeremenichelli', 'iamdustan']
+const users = ['jeremenichelli', 'iamdustan'];
 
 class GitHubUsers extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return (
@@ -163,7 +169,7 @@ class GitHubUsers extends Component {
           <GitHubLink user={user} />
         ))}
       </div>
-    )
+    );
   }
 }
 ```
@@ -179,7 +185,7 @@ Validation can be added to props, for example specifying type.
 ```js
 GitHubLink.propTypes = {
   user: PropTypes.string.isRequired
-}
+};
 ```
 
 After passing the type we can go further and use `isRequired` so the presence of it becomes mandatory for rendering the component.
@@ -191,15 +197,15 @@ _propTypes have been moved to [a standalone package](https://reactjs.org/docs/ty
 When data values can change internally because a network request or a user interaction happened, we placed them on the component's _state_.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class AccordionElement extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       expanded: false
-    }
+    };
   }
   render() {
     return (
@@ -207,7 +213,7 @@ class AccordionElement extends Component {
         <button>{this.props.heading}</button>
         <p>{this.props.content}</p>
       </div>
-    )
+    );
   }
 }
 ```
@@ -219,18 +225,18 @@ To reveal the content we need to toggle the _expanded_ value.
 To do it we use `setState` and React will update the components view.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class AccordionElement extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       expanded: false
-    }
+    };
   }
   toggleState() {
-    this.setState({ expanded: !this.state.expanded })
+    this.setState({ expanded: !this.state.expanded });
   }
   render() {
     return (
@@ -240,7 +246,7 @@ class AccordionElement extends Component {
         </button>
         <p>{this.props.content}</p>
       </div>
-    )
+    );
   }
 }
 ```
@@ -256,21 +262,21 @@ As the library doesn't come with directives out of the box, when you need to tra
 It's not hard since React encapsulation itself comes handy for this.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class SearchBox extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       searchValue: ''
-    }
+    };
 
     // bind events
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
-    this.setState({ searchValue: e.target.value })
+    this.setState({ searchValue: e.target.value });
   }
   render() {
     return (
@@ -282,7 +288,7 @@ export default class SearchBox extends Component {
         />
         <button type="submit">Search</button>
       </form>
-    )
+    );
   }
 }
 ```
@@ -296,13 +302,13 @@ If you're using React, the main reason should be that you find the separation of
 **CSS modules** alter original selectors so they are unique, and as a consequence, encapsulates the styles for a set of elements.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import styles from '../styles/icon.css'
+import styles from '../styles/icon.css';
 
 class Icon extends Component {
   render() {
-    return <i className={styles.icon}></i>
+    return <i className={styles.icon}></i>;
   }
 }
 ```
@@ -316,7 +322,7 @@ Of course this happens at compilation time so you will need external tools like 
 The most popular alternative to turn your React project in a single page application is the [official react router][react-router]. As you might have guessed, you need to define the shell of your app and the views as components.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class App extends Component {
   render() {
@@ -325,7 +331,7 @@ class App extends Component {
         <h1>React single page application</h1>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
 
@@ -336,7 +342,7 @@ class Home extends Component {
         <h2>Home</h2>
         // view content ...
       </div>
-    )
+    );
   }
 }
 
@@ -347,7 +353,7 @@ class About extends Component {
         <h2>About</h2>
         // view content ...
       </div>
-    )
+    );
   }
 }
 ```
@@ -355,8 +361,8 @@ class About extends Component {
 Next, you pass these views as _props_ to special route components that will mount the app and manage the transitions for you.
 
 ```js
-import { render } from 'react-dom'
-import { Router, Route, IndexRoute } from 'react-router'
+import { render } from 'react-dom';
+import { Router, Route, IndexRoute } from 'react-router';
 
 render(
   <Router>
@@ -368,14 +374,14 @@ render(
     </Route>
   </Router>,
   document.getElementById('app')
-)
+);
 ```
 
 Basically you're configuring the routes by placing tags defining the structure of your project, meaning you can go deeper placing routes and defining parameters.
 
 ```js
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class Home extends Component {
   render() {
@@ -385,7 +391,7 @@ class Home extends Component {
         <Link to="about/jeremenichelli">About me</Link>
         // view content ...
       </div>
-    )
+    );
   }
 }
 ```
@@ -424,22 +430,22 @@ Once you've resolved the tooling part, enclosing each component as a module is t
 The **SearchBox** component example shown previously can be easily imported to compose more complex components or views.
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 // components
-import Card from '../components/card.js'
-import SearchBox from '../components/search-box.js'
+import Card from '../components/card.js';
+import SearchBox from '../components/search-box.js';
 
 export default class SearchView extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return (
       <Card>
         <SearchBox />
       </Card>
-    )
+    );
   }
 }
 ```

@@ -10,9 +10,9 @@ The result was very good so I forgot to look at third party solutions. Later I d
 The start point for this is a _node_ object which has a property called _attributes_, an array-like list with all the attributes of the element. Pretty obvious so far.
 
 ```js
-var node = document.getElementById('sample-element')
-var attrs = node.attributes
-var sampleAttr = attrs[0]
+var node = document.getElementById('sample-element');
+var attrs = node.attributes;
+var sampleAttr = attrs[0];
 ```
 
 The value of this attribute is accessible by doing _sampleAttr.value_. When you're using a data binding library (or writing one) you get something like this _'user.name.first'_.
@@ -25,25 +25,25 @@ var model = {
       last: 'Oliver'
     }
   }
-}
+};
 ```
 
 Now the question is how we could get the value _'John'_ given this model and the string _'user.name.first'_.
 
 ```js
 function getFromPath(obj, path) {
-  var props = path.split('.')
-  var newObj = obj
+  var props = path.split('.');
+  var newObj = obj;
 
   for (var i = 0, len = props.length; i < len; i++) {
     if (newObj[props[i]] !== null && newObj[props[i]] !== undefined) {
-      newObj = newObj[props[i]]
+      newObj = newObj[props[i]];
     } else {
-      return null
+      return null;
     }
   }
 
-  return newObj
+  return newObj;
 }
 ```
 
@@ -61,18 +61,18 @@ A good thing about **lodash**'s approach is that it lets you pass a default valu
 
 ```js
 function getFromPath(obj, path, defaultValue) {
-  var props = path.split('.')
-  var newObj = obj
+  var props = path.split('.');
+  var newObj = obj;
 
   for (var i = 0, len = props.length; i < len; i++) {
     if (newObj[props[i]] !== null && newObj[props[i]] !== undefined) {
-      newObj = newObj[props[i]]
+      newObj = newObj[props[i]];
     } else {
-      return defaultValue || null
+      return defaultValue || null;
     }
   }
 
-  return newObj
+  return newObj;
 }
 
 var model = {
@@ -82,9 +82,9 @@ var model = {
       last: 'Oliver'
     }
   }
-}
+};
 
-var middleName = getFromPath(model, 'user.name.middle', 'William')
+var middleName = getFromPath(model, 'user.name.middle', 'William');
 // middleName value is "William"
 ```
 

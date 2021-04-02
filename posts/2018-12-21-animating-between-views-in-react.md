@@ -21,18 +21,18 @@ As a simple example of a use case, we can try to animate a modal or dialog — y
 A dialog component might look something like this:
 
 ```js
-import React from 'react'
+import React from 'react';
 
 class Dialog extends React.Component {
   render() {
-    const { isOpen, onClose, message } = this.props
+    const { isOpen, onClose, message } = this.props;
     return (
       isOpen && (
         <div className="dialog--overlay" onClick={onClose}>
           <div className="dialog">{message}</div>
         </div>
       )
-    )
+    );
   }
 }
 ```
@@ -42,12 +42,12 @@ Notice we are using the `isOpen` prop to determine whether the component is rend
 First thing we need is to wrap the entire component in another `TransitionGroup` component. Inside, we keep the prop to mount or unmount the dialog, which we are wrapping in a `CSSTransition`.
 
 ```js
-import React from 'react'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import React from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class Dialog extends React.Component {
   render() {
-    const { isOpen, onClose, message } = this.props
+    const { isOpen, onClose, message } = this.props;
     return (
       <TransitionGroup component={null}>
         {isOpen && (
@@ -58,7 +58,7 @@ class Dialog extends React.Component {
           </CSSTransition>
         )}
       </TransitionGroup>
-    )
+    );
   }
 }
 ```
@@ -124,12 +124,12 @@ The React ecosystem offers plenty of router options. I’m gonna use `react-rout
 Let’s start with a basic route definition:
 
 ```js
-import React, { Component } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Home from '../views/Home'
-import Author from '../views/Author'
-import About from '../views/About'
-import Nav from '../components/Nav'
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from '../views/Home';
+import Author from '../views/Author';
+import About from '../views/About';
+import Nav from '../components/Nav';
 
 class App extends Component {
   render() {
@@ -143,7 +143,7 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
-    )
+    );
   }
 }
 ```
@@ -188,7 +188,7 @@ In case you are not familiar with them, React keys identify elements in the virt
 ```js
 <Route
   render={({ location }) => {
-    const { pathname, key } = location
+    const { pathname, key } = location;
 
     return (
       <TransitionGroup component={null}>
@@ -205,7 +205,7 @@ In case you are not familiar with them, React keys identify elements in the virt
           </Switch>
         </Transition>
       </TransitionGroup>
-    )
+    );
   }}
 />
 ```
@@ -218,14 +218,14 @@ Once the transition hooks are called on each location change, we can run a metho
 
 ```js
 export const play = (pathname, node, appears) => {
-  const delay = appears ? 0 : 0.5
-  let timeline
+  const delay = appears ? 0 : 0.5;
+  let timeline;
 
-  if (pathname === '/') timeline = getHomeTimeline(node, delay)
-  else timeline = getDefaultTimeline(node, delay)
+  if (pathname === '/') timeline = getHomeTimeline(node, delay);
+  else timeline = getDefaultTimeline(node, delay);
 
-  timeline.play()
-}
+  timeline.play();
+};
 ```
 
 Our `play` function will build a GreenSock timeline here depending on the `pathname`, and we can set as many transitions as we want for each different routes.
@@ -234,8 +234,8 @@ Once the timeline is built for the current `pathname`, we play it.
 
 ```js
 const getHomeTimeline = (node, delay) => {
-  const timeline = new Timeline({ paused: true })
-  const texts = node.querySelectorAll('h1 > div')
+  const timeline = new Timeline({ paused: true });
+  const texts = node.querySelectorAll('h1 > div');
 
   timeline
     .from(node, 0, { display: 'none', autoAlpha: 0, delay })
@@ -244,10 +244,10 @@ const getHomeTimeline = (node, delay) => {
       0.375,
       { autoAlpha: 0, x: -25, ease: Power1.easeOut },
       0.125
-    )
+    );
 
-  return timeline
-}
+  return timeline;
+};
 ```
 
 Each timeline method digs into the DOM nodes of the view and animates them. You can use other animation libraries instead of GreenSock, but the important detail is that we build the timeline beforehand so that our main `play` method can decide which one should run for each route.
@@ -287,7 +287,7 @@ We can put this in the document `head` or just before the script tag that loads 
 Plus, doing this allows us to use the globally exposed `loadPromise` to any animation in our application. Let’s say that we don’t only want to animate the entry view but a cookie banner or the header of the application. We can simply call each of these animations after the promise has resolved using `then` along with our transitions.
 
 ```js
-window.loadPromise.then(() => timeline.play())
+window.loadPromise.then(() => timeline.play());
 ```
 
 This approach is reusable across the entire codebase, eliminating the issue that would result when an event gets resolved before the animations run. It will defer them until the browser `DOMContentLoaded` event has passed.

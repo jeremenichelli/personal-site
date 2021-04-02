@@ -23,13 +23,13 @@ Are you familiar with the facade pattern? If you are, awesome. If you aren't, we
 function addEvent(el, event, method) {
   if (el.addEventListener) {
     // add listener for modern browsers
-    el.addEventListener(event, method)
+    el.addEventListener(event, method);
   } else if (el.attachEvent) {
     // fallback for browsers with no addEventListener method
-    el.attachEvent('on' + event, method)
+    el.attachEvent('on' + event, method);
   } else {
     // add event for legacy browsers
-    el['on' + event] = method
+    el['on' + event] = method;
   }
 }
 ```

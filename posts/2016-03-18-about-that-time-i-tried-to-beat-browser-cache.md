@@ -20,19 +20,19 @@ The first step was to know when the stylesheet is finally loaded so all the rule
 This event is present in all elements which allow you to load an external resource. Pretty obvious.
 
 ```js
-var link = document.createElement('link')
+var link = document.createElement('link');
 
 // add rel attribute
-link.rel = 'stylesheet'
+link.rel = 'stylesheet';
 
 // add resource location
-link.href = 'styles.css'
+link.href = 'styles.css';
 
 link.onload = function () {
   // loaded -- now, do something!
-}
+};
 
-document.head.appendChild(link)
+document.head.appendChild(link);
 ```
 
 After giving values to the necessary set of attributes and before adding the element to the **head** of the document, we can assign a function that will be called when the stylesheet is ready.
@@ -41,9 +41,9 @@ In some browsers this event is executed twice, to prevent that you can assign `n
 
 ```js
 link.onload = function () {
-  this.onload = null
+  this.onload = null;
   // loaded -- now, do something!
-}
+};
 ```
 
 We are ready to start playing with our **link** element and its stylesheet.
@@ -56,67 +56,67 @@ For this case, I just needed one thing, a collection of strings for all the CSS 
 
 ```js
 link.onload = function () {
-  this.onload = null
+  this.onload = null;
 
-  var rules = this.sheet.cssRules
+  var rules = this.sheet.cssRules;
 
   for (var i = 0, len = rules.length; i < len; i++) {
     // rules[i].cssText -- do something with it!
   }
-}
+};
 ```
 
 We had to crawl a little deep inside the `sheet` property but now we can iterate through all the CSS rules and do something with them. Since they are strings, as you know them, I decided to create an empty one and acummulate all the rules to later store the result.
 
 ```js
 link.onload = function () {
-  this.onload = null
+  this.onload = null;
 
-  var rules = this.sheet.cssRules
-  var ssContent = ''
+  var rules = this.sheet.cssRules;
+  var ssContent = '';
 
   for (var i = 0, len = rules.length; i < len; i++) {
-    ssContent += rules[i].cssText
+    ssContent += rules[i].cssText;
   }
 
   // use link href as key
-  localStorage.setItem(this.href, ssContent)
-}
+  localStorage.setItem(this.href, ssContent);
+};
 ```
 
 There you go, we have stored all the rules from our stylesheet. Next step is to detect if our rules have been previously saved and inject a **style** tag containing them.
 
 ```js
-var link = document.createElement('link')
+var link = document.createElement('link');
 
-link.rel = 'stylesheet'
-link.href = 'styles.css'
+link.rel = 'stylesheet';
+link.href = 'styles.css';
 
-var stored = localStorage.getItem(link.href)
+var stored = localStorage.getItem(link.href);
 
 if (stored) {
   // retrieve stored rules
-  var style = document.createElement('style')
+  var style = document.createElement('style');
 
-  style.textContent = stored
+  style.textContent = stored;
 
-  document.head.appendChild(style)
+  document.head.appendChild(style);
 } else {
   // nothing stored, load stylesheet
   link.onload = function () {
-    this.onload = null
+    this.onload = null;
 
-    var rules = this.sheet.cssRules
-    var ssContent = ''
+    var rules = this.sheet.cssRules;
+    var ssContent = '';
 
     for (var i = 0, len = rules.length; i < len; i++) {
-      ssContent += rules[i].cssText
+      ssContent += rules[i].cssText;
     }
 
-    localStorage.setItem(this.href, ssContent)
-  }
+    localStorage.setItem(this.href, ssContent);
+  };
 
-  document.head.appendChild(link)
+  document.head.appendChild(link);
 }
 ```
 

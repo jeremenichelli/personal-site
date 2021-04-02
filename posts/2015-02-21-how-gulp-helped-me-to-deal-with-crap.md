@@ -53,11 +53,11 @@ In case you've never heard of it, <a href="http://www.gulpjs.com" target="_blank
 One of the reasons why I prefer it from <a href="http://www.gruntjs.com" target="_blank">GruntJS</a> is that is faster to set and easier to read, if this is the first time you ever read a **gulpfile** you will notice that you will be able to guess what's happening in most of the lines.
 
 ```js
-var gulp = require('gulp')
-var autoprefixer = require('gulp-autoprefixer')
-var rename = require('gulp-rename')
-var less = require('gulp-less')
-var minifyCss = require('gulp-minify-css')
+var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
+var rename = require('gulp-rename');
+var less = require('gulp-less');
+var minifyCss = require('gulp-minify-css');
 
 gulp.task('styles', function () {
   return gulp
@@ -70,8 +70,8 @@ gulp.task('styles', function () {
         suffix: '.min'
       })
     )
-    .pipe(gulp.dest('./assets/styles/'))
-})
+    .pipe(gulp.dest('./assets/styles/'));
+});
 ```
 
 Basically what we do is to require the modules we'll use, then we take the _main.less_ file as a source, compile it to a CSS file, add prefixes, minify, rename it and place it in the destination folder. I will cover GulpJS in more depth in a future post.

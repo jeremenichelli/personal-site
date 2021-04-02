@@ -15,50 +15,50 @@ While modules make their way to be natively supported, bundlers like Webpack tra
 Here is a quick example of this transformation:
 
 ```js
-import action from './other-module.js'
+import action from './other-module.js';
 
-var value = action()
+var value = action();
 
-export default value
+export default value;
 ```
 
 … which turns into this:
 
 ```js
-;(function (module, exports, WEBPACK_REQUIRE_METHOD) {
-  'use strict'
+(function (module, exports, WEBPACK_REQUIRE_METHOD) {
+  'use strict';
 
-  var action = WEBPACK_REQUIRE_METHOD(1)
-  var value = action()
+  var action = WEBPACK_REQUIRE_METHOD(1);
+  var value = action();
 
-  exports.default = value
-})
+  exports.default = value;
+});
 ```
 
 Here is a simplified version of it.
 
 ```js
-;(function (modules) {
-  var installedModules = {}
+(function (modules) {
+  var installedModules = {};
 
   function WEBPACK_REQUIRE_METHOD(id) {
     // if module was already imported, return its exports
     if (installedModules[id]) {
-      return installedModules[id].exports
+      return installedModules[id].exports;
     }
 
     // create module object and cache it
     var module = (installedModules[id] = {
       id: id,
       exports: {}
-    })
+    });
 
     // call module’s function wrapper
-    modules[id](module, module.exports, WEBPACK_REQUIRE_METHOD)
+    modules[id](module, module.exports, WEBPACK_REQUIRE_METHOD);
   }
 
   // kick off by calling entry module
-  WEBPACK_REQUIRE_METHOD(0)
+  WEBPACK_REQUIRE_METHOD(0);
 })([
   /* 0 module */
   function () {},
@@ -66,7 +66,7 @@ Here is a simplified version of it.
   function () {},
   /* n module */
   function () {}
-])
+]);
 ```
 
 _A lot it’s happening here. Let’s break it down!_
@@ -94,37 +94,37 @@ This new feature was introduced to detect where these _import_ chaining can be f
 Let’s picture the previously described situation where a method needs to import another.
 
 ```js
-;(function () {
-  'use strict'
+(function () {
+  'use strict';
 
-  var helper = WEBPACK_REQUIRE_METHOD(0)
+  var helper = WEBPACK_REQUIRE_METHOD(0);
 
   var action = function () {
-    var value = helper()
-    return value
-  }
+    var value = helper();
+    return value;
+  };
 
-  exports.action = action
-})
+  exports.action = action;
+});
 ```
 
 If scope hoisting is enabled, Webpack here will see the opportunity to save one require method call by inlining the helper method like this:
 
 ```js
-;(function () {
-  'use strict'
+(function () {
+  'use strict';
 
   function helper() {
     /* inlined function from module */
   }
 
   var action = function () {
-    var value = helper()
-    return value
-  }
+    var value = helper();
+    return value;
+  };
 
-  exports.action = action
-})
+  exports.action = action;
+});
 ```
 
 _No call to Webpack’s require function, no access to the modules array… Faster!_
@@ -136,12 +136,12 @@ We not only save an extra function call, but also an access to the modules array
 To use this feature you will need the latest _webpack_ package version and add the **ModuleConcatenationPlugin** to your config.
 
 ```js
-var webpack = require('webpack')
+var webpack = require('webpack');
 
 module.exports = {
   // your config
   plugins: [new webpack.optimize.ModuleConcatenationPlugin()]
-}
+};
 ```
 
 This optimising technique might break in some edge cases, that’s why webpack did a major release.

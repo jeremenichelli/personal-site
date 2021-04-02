@@ -16,7 +16,7 @@ Knowing how our components behave might also unveil when they actually need to b
 Given this loading bar component, it’s noticeable that unless its hidden state changes after being mounted, we won’t need to update it.
 
 ```js
-import { Component } from 'react'
+import { Component } from 'react';
 
 class LoadingBar extends Component {
   render() {
@@ -24,7 +24,7 @@ class LoadingBar extends Component {
       <div className="loading-bar" hidden={this.props.hidden}>
         <div className="loading-bar-progress"></div>
       </div>
-    )
+    );
   }
 }
 ```
@@ -32,18 +32,18 @@ class LoadingBar extends Component {
 `shouldComponentUpdate` give us better control over the component’s update cycle by comparing the upcoming **props** and **state** from the current ones.
 
 ```js
-import { Component } from 'react'
+import { Component } from 'react';
 
 class LoadingBar extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.hidden !== nextProps.hidden
+    return this.props.hidden !== nextProps.hidden;
   }
   render() {
     return (
       <div className="loading-bar" hidden={this.props.hidden}>
         <div className="loading-bar-progress"></div>
       </div>
-    )
+    );
   }
 }
 ```
@@ -59,11 +59,11 @@ This method will be called every time React tries to update the element. If deci
 A common case is when a component receives an object as a _prop_.
 
 ```js
-import { Component } from 'react'
+import { Component } from 'react';
 
 class MovieBox extends Component {
   shouldComponentUpdate(nextProps) {
-    return this.props.data.id !== nextProps.data.id
+    return this.props.data.id !== nextProps.data.id;
   }
   render() {
     return (
@@ -72,7 +72,7 @@ class MovieBox extends Component {
         <img src={this.props.data.thumb} />
         <p>Plot: {this.props.data.plot}</p>
       </div>
-    )
+    );
   }
 }
 ```
@@ -98,7 +98,7 @@ Without **JSX** a component declaration might look like this:
 ```js
 class Icon extends Component {
   render() {
-    return React.createElement('i', { className: 'small-icon' })
+    return React.createElement('i', { className: 'small-icon' });
   }
 }
 ```
@@ -129,12 +129,12 @@ class SearchButton extends Component {
 Beside elements creation, other computational operations like loops can happen inside a render function.
 
 ```js
-import { Component } from 'react'
-import MovieBox from './movie-box.js'
+import { Component } from 'react';
+import MovieBox from './movie-box.js';
 
 class Movies extends Component {
   render() {
-    const movies = this.props.movies
+    const movies = this.props.movies;
 
     return (
       <div className="movies">
@@ -142,7 +142,7 @@ class Movies extends Component {
           <MovieBox data={m} />
         ))}
       </div>
-    )
+    );
   }
 }
 ```
@@ -154,14 +154,14 @@ Doing `[]` equals to `new Array()`, not only these are expensive operations, but
 Quick solution, create a constant reference with a default value.
 
 ```js
-import { Component } from 'react'
-import MovieBox from './movie-box.js'
+import { Component } from 'react';
+import MovieBox from './movie-box.js';
 
-const noMovies = []
+const noMovies = [];
 
 class Movies extends Component {
   render() {
-    const movies = this.props.movies
+    const movies = this.props.movies;
 
     return (
       <div className="movies">
@@ -169,7 +169,7 @@ class Movies extends Component {
           <MovieBox data={m} />
         ))}
       </div>
-    )
+    );
   }
 }
 ```

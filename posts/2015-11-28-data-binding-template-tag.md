@@ -24,10 +24,10 @@ Last year I <a href="https://github.com/jeremenichelli/mnster" target="_blank">w
 Let's do a simple binding so that you get familiar with the library syntax. First you need an element that you want to alter depending on certain information present in your script scope. You can create that element with JavaScript or grab it from the DOM.
 
 ```js
-var element = document.createElement('p')
+var element = document.createElement('p');
 
 // set mnster attributes for data binding
-element.setAttribute('mns-text', 'user.name')
+element.setAttribute('mns-text', 'user.name');
 ```
 
 Now there's an element and we've set an attribute on it that will use the **text** binding in **mnster** to insert the user name.
@@ -37,13 +37,13 @@ The data can come from a request or a plain object that resides in a script.
 ```js
 var userData = {
   name: 'Jeremias Menichelli'
-}
+};
 ```
 
 We have an element, and the data, we just need to bind it using **mnster** and here's how.
 
 ```js
-mnster.view(element, { context: 'user', model: userData })
+mnster.view(element, { context: 'user', model: userData });
 ```
 
 I've just call the `view` method, passing an element and then an object with the context name I'll use in my attributes and an object that holds the data to bind.
@@ -68,16 +68,16 @@ You can still access to its content and make modifications, but I think the righ
 
 ```js
 // get template
-var userTemplate = document.getElementById('user-template')
+var userTemplate = document.getElementById('user-template');
 
 // clone template content
-var clone = document.importNode(userTemplate.content, true)
+var clone = document.importNode(userTemplate.content, true);
 
 // bind data
-mnster.view(clone, { context: 'user', model: { name: 'Jeremias Menichelli' } })
+mnster.view(clone, { context: 'user', model: { name: 'Jeremias Menichelli' } });
 
 // append content to body
-document.body.appendChild(clone)
+document.body.appendChild(clone);
 ```
 
 _A template content is a document fragment object in JavaScript, while you can still do a lot of operations not all the DOM APIs are available for it until you append it to the document, for example classList._
@@ -138,7 +138,7 @@ function build(name, data) {
 Now we can easily call `build` function to bind the data and insert the result in the DOM.
 
 ```js
-build('user', { name: 'Jeremias Menichelli' })
+build('user', { name: 'Jeremias Menichelli' });
 ```
 
 Notice that we've used a specific notation on elements to make the code more semantic and future proof, then if we need to cover more views we have to update the `templates` and `views` objects but the `clone` and `build` methods can remain the same.

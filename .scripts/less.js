@@ -1,18 +1,18 @@
 // util modules
-const path = require('path')
-const { red, blue, cyan, green } = require('kleur')
+const path = require('path');
+const { red, blue, cyan, green } = require('kleur');
 const {
   asyncMakeDirectory,
   asyncReadFile,
   asyncWriteFile,
   ENVIRONMENT
-} = require('./_utils')
+} = require('./_utils');
 
 // style processing modules
-const less = require('less')
-const postcss = require('postcss')
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
+const less = require('less');
+const postcss = require('postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 const filesList = [
   {
@@ -43,34 +43,34 @@ const filesList = [
     input: './src/less/404.less',
     output: './_includes/generated/styles/404.liquid'
   }
-]
+];
 
 const asyncPostCSS = async (css, env) => {
-  const postCSSPlugins = [autoprefixer]
-  if (env === 'production') postCSSPlugins.push(cssnano)
+  const postCSSPlugins = [autoprefixer];
+  if (env === 'production') postCSSPlugins.push(cssnano);
 
-  return await postcss(postCSSPlugins).process(css, { from: undefined })
-}
+  return await postcss(postCSSPlugins).process(css, { from: undefined });
+};
 
 async function main(env = ENVIRONMENT) {
-  console.log(`[${blue('.scripts/less')}] Generating styles for ${cyan(env)}`)
+  console.log(`[${blue('.scripts/less')}] Generating styles for ${cyan(env)}`);
 
   const sourceMap = env !== 'production' && {
     sourceMapFileInline: true,
     outputSourceFiles: true
-  }
+  };
 
   // process files content to css
   for (const file of filesList) {
-    const input = await asyncReadFile(file.input, 'utf-8')
-    const paths = [path.dirname(file.input)]
-    const options = { paths, sourceMap }
+    const input = await asyncReadFile(file.input, 'utf-8');
+    const paths = [path.dirname(file.input)];
+    const options = { paths, sourceMap };
 
     // process less content
-    let processed
+    let processed;
 
     try {
-      processed = await less.render(input, options)
+      processed = await less.render(input, options);
     } catch (error) {
       console.log(
         `[${blue('.scripts/less')}] ${red(
@@ -78,25 +78,27 @@ async function main(env = ENVIRONMENT) {
         )}`,
         '\n',
         error.message
-      )
+      );
     }
 
     // process with Post CSS
-    const { css } = await asyncPostCSS(processed.css, env)
+    const { css } = await asyncPostCSS(processed.css, env);
 
     // write files
-    await asyncMakeDirectory(path.dirname(file.output), { recursive: true })
-    await asyncWriteFile(file.output, css, 'utf-8')
-    console.log(`[${blue('.scripts/less')}] ${green(file.output)} file written`)
+    await asyncMakeDirectory(path.dirname(file.output), { recursive: true });
+    await asyncWriteFile(file.output, css, 'utf-8');
+    console.log(
+      `[${blue('.scripts/less')}] ${green(file.output)} file written`
+    );
   }
 
   // Print final line break.
-  console.log('')
+  console.log('');
 }
 
 // Detect call from command line and run or export main method.
 if (require.main === module) {
-  main()
+  main();
 } else {
-  module.exports = main
+  module.exports = main;
 }
