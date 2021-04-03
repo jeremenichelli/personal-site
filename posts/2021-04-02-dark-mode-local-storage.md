@@ -1,6 +1,7 @@
 ---
 title: The thing every dark mode implementation is missing
 excerpt: I am an avid reader of personal blogs. A year ago or so, almost every blog I read got a dark mode toggle (I did too, it's hidden in some circle around this page, top corner right), but almost all of them forgot one detail.
+lastModified: 2021-04-03
 ---
 
 The title of the article might sound a little bit like a click bait, well if you are here, it worked! But for real, almost every site out there has a dark mode, and all of them are missing something.
@@ -159,8 +160,25 @@ That's because _Browsersync is doing it for you_, but of course, it won't work o
 
 In your configuration, set `ghostMode` to `false` while working on this.
 
+## About system color scheme
+
+Something I didn't mention in this piece is the `prefers-color-scheme` option.
+
+Instead of a custom toggle, you can consume whatever preference the user has set on their device, [I wrote an article about how to do that](/2019/05/a-css-variables-implementation-of-dark-mode/) you can go and check it out.
+
+The reasons I didn't cover this here are:
+
+- If you went with that approach _only_, then your site is already _reactive_ to those setting changes.
+- Even when `prefers-color-scheme` is in <a href="//caniuse.com/prefers-color-scheme" rel="noopener noreferrer" target="_blank">a decent compatibility situation</a> in modern browsers, they depend on the device the user is in to have a color scheme setting, which is not always the case.
+- The dark mode toggles I am talking about usually don't have this option, even if they do have a **three states toggle** and you repeat the user flow form above and choose the system option, the other previously opened tabs won't react to this configuration change.
+- As a user, I don't change constantly the color scheme setting in my device depending on the site or time of the day. I am always on dark or light scheme and switch the specific site settings depending on the conditions I am in at the moment.
+
 ## Wrap up
 
 Shout out to <a href="//twitter.com/jaffathecake" rel="noopener noreferrer" target="_blank">Jake Archibald</a> who started a research on web storage usage, which I participated in. Reading his <a href="//docs.google.com/document/d/1cCTBZR6nWsVC2TlQ8PBse7eBb4ro0rtPJxX0zCou1lw/" rel="noopener noreferrer" target="_blank">findings</a> led me to check all this.
 
 Do you want to see a working solution to this? Go to <a href="//jeremenichelli-mode-but-right.glitch.me" rel="noopener noreferrer" target="_blank">this link</a> and check both the code from this article and a preview.
+
+### Updates
+
+**03 APR 2021** &mdash; After some people mentioned in social media the ommission to `prefers-color-scheme` approach, I added a note about it.
