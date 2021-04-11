@@ -37,7 +37,7 @@ Inside the class declaration we define which properties will be used, indicating
 
 Don't freak out if this syntax looks a bit confusing, the reason is you're not looking at a **.js** file, but a **.ts** one actually.
 
-Angular 2 documentation encourages you to use [TypeScript](https://www.typescriptlang.org) and not JavaScript in your project, and when I say _encourages you_ I mean _forces you_ since its whole guide lacks of JavaScript documentation and only contains TypeScript examples.
+Angular 2 documentation encourages you to use [TypeScript](//www.typescriptlang.org) and not JavaScript in your project, and when I say _encourages you_ I mean _forces you_ since its whole guide lacks of JavaScript documentation and only contains TypeScript examples.
 
 > First strong decision: TypeScript
 
@@ -49,7 +49,7 @@ Inside of that decorator we indicate the files where the styles and template for
 @Component({
   selector: 'sample-component',
   styles: [ '.link { font-weight: 700; }' ],
-  template: '<a href="https://github.com/jeremenichelli">GitHub</a>'
+  template: '<a href="//github.com/jeremenichelli">GitHub</a>'
 })
 ```
 
@@ -76,14 +76,14 @@ In our sample component this would make content between the tags visible.
   selector: 'sample-component',
   styles: [ '.link { font-weight: 700; }' ],
   template: `
-      <a href="https://github.com/jeremenichelli">
+      <a href="//github.com/jeremenichelli">
         <ng-content></ng-content>
       </a>
     `
 })
 ```
 
-If you wanna go deeper into transclution I recommend [this article](https://toddmotto.com/transclusion-in-angular-2-with-ng-content) by Todd Motto.
+If you wanna go deeper into transclution I recommend [this article](//toddmotto.com/transclusion-in-angular-2-with-ng-content) by Todd Motto.
 
 ### Directives
 
@@ -98,7 +98,7 @@ Present in previous versions of Angular, directives are _hints_ that will modify
 </ul>
 ```
 
-{% codeExampleLink 'http://embed.plnkr.co/eyMDXCRRIXPUo4YpxDHi/' %}
+{% codeExampleLink '//embed.plnkr.co/eyMDXCRRIXPUo4YpxDHi/' %}
 
 `*ngIf` will not render the element when its condition is false, useful to improve view times and prevent undefined errors when data is not available.
 
@@ -131,7 +131,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'github-link',
   template: `
-    <a href="https://github.com/{% raw %}{{ user }}{% endraw %}">
+    <a href="//github.com/{% raw %}{{ user }}{% endraw %}">
       {% raw %}{{ user }}{% endraw %} on GitHub
     </a>
   `
@@ -295,15 +295,15 @@ I hope the drawbacks I pointed out in the last part of this article become tiny 
 
 All these thoughts came from building a [simple web app][angular-app] available on GitHub.
 
-[angular]: https://angular.io/
-[decorators]: https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841#.g7bu9fyyx
-[communication]: https://angular.io/docs/ts/latest/cookbook/component-communication.html
-[systemjs]: https://github.com/systemjs/systemjs
+[angular]: //angular.io/
+[decorators]: //medium.com/google-developers/exploring-es7-decorators-76ecb65fb841#.g7bu9fyyx
+[communication]: //angular.io/docs/ts/latest/cookbook/component-communication.html
+[systemjs]: //github.com/systemjs/systemjs
 
-[router]: [https://angular.io/docs/ts/latest/guide/router.html][angular-cli]: https://github.com/angular/angular-cli
-[angular-seed]: https://github.com/angular/angular2-seed
-[state-js-survey]: https://medium.com/@sachagreif/the-state-of-javascript-front-end-frameworks-1a2d8a61510
-[angular-app]: https://github.com/jeremenichelli/movies/tree/master/results/angular
+[router]: [//angular.io/docs/ts/latest/guide/router.html][angular-cli]: //github.com/angular/angular-cli
+[angular-seed]: //github.com/angular/angular2-seed
+[state-js-survey]: //medium.com/@sachagreif/the-state-of-javascript-front-end-frameworks-1a2d8a61510
+[angular-app]: //github.com/jeremenichelli/movies/tree/master/results/angular
 
 [vue-article]: /2016/06/building-component-based-app-vue/
 [react-article]: /2016/07/building-a-component-based-app-react/

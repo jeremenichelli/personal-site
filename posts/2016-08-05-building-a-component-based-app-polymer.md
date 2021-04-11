@@ -43,7 +43,7 @@ class GitHubLink extends HTMLElement {
   attachedCallback() {
     let a = document.createElement('a');
     a.innerHTML = 'GitHub profile';
-    a.href = 'https://github.com/jeremenichelli';
+    a.href = '//github.com/jeremenichelli';
 
     this.root.appendChild(a);
   }
@@ -55,7 +55,7 @@ class GitHubLink extends HTMLElement {
 document.registerElement('github-link', GitHubLink);
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/8Lrm8dzh/' %}
+{% codeExampleLink '//jsfiddle.net/8Lrm8dzh/' %}
 
 When extending native elements prototype, some life cycle functions become available like the `createdCallback` and `attachedCallback` to run some code at specific moments.
 
@@ -63,7 +63,7 @@ This way we generate a root using **Shadow DOM** which can be filled by appendin
 
 Later, we need to register the element in order to be able to place it in a page or another custom web element.
 
-To know more about all the technologies mentioned previously I suggest going through documentation and articles present in the [official web components site](http://webcomponents.org/).
+To know more about all the technologies mentioned previously I suggest going through documentation and articles present in the [official web components site](//webcomponents.org/).
 
 Of course these new features are not present in all browsers and they don't cover all the necessities of a modern web app. The mission of Polymer is to take advantage of all this native stuff while providing encapsulation, properties and easier data handling.
 
@@ -85,7 +85,7 @@ The one you're going to use more is the `<dom-module>` tag, inside of which we p
       }
     </style>
 
-    <a href="https://github.com/jeremenichelli">
+    <a href="//github.com/jeremenichelli">
       <content></content>
     </a>
   </template>
@@ -98,7 +98,7 @@ The one you're going to use more is the `<dom-module>` tag, inside of which we p
 </dom-module>
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/nvd4t92h/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/nvd4t92h/' %}
 
 The element's name must match in the `<dom-module>` tag and the Polymer function call for the `is` attribute and property respectively.
 
@@ -124,14 +124,14 @@ Another useful feature available is the `dom-repeat` extension that allows you t
     Polymer({
       is: 'link-list',
       ready: function () {
-        this.links = ['https://google.com', 'https://facebook.com'];
+        this.links = ['//google.com', '//facebook.com'];
       }
     });
   </script>
 </dom-module>
 ```
 
-In the example above I'm using `ready`, one of the lifecycle callbacks provided by the library. They are well documented if you want to [know them more deeply](https://www.polymer-project.org/1.0/docs/devguide/registering-elements#lifecycle-callbacks).
+In the example above I'm using `ready`, one of the lifecycle callbacks provided by the library. They are well documented if you want to [know them more deeply](//www.polymer-project.org/1.0/docs/devguide/registering-elements#lifecycle-callbacks).
 
 ### Properties
 
@@ -144,7 +144,7 @@ When we create a new element with Polymer, properties are declared in its object
 
 <dom-module is="github-link">
   <template>
-    <a href="https://github.com/[[ user ]]">
+    <a href="//github.com/[[ user ]]">
       [[ user ]] on GitHub
     </a>
   </template>
@@ -163,7 +163,7 @@ When we create a new element with Polymer, properties are declared in its object
 </dom-module>
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/fdg4mwez/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/fdg4mwez/' %}
 
 Properties are accessible in the view by enclosing them with square brackets.
 
@@ -180,7 +180,7 @@ Here we are placing a `hidden` attribute to the link when no user is provided.
 
 <dom-module is="github-link">
   <template>
-    <a href="https://github.com/[[ user ]]" hidden$="[[ !user ]]">
+    <a href="//github.com/[[ user ]]" hidden$="[[ !user ]]">
       [[ user ]] on GitHub
     </a>
   </template>
@@ -212,7 +212,7 @@ In Polymer when using `[[ ]]`, single operators can be used and object propertie
 
 <dom-module is="github-link">
   <template>
-    <a href="https://github.com/[[ user ]]" hidden$="[[ !user ]]">
+    <a href="//github.com/[[ user ]]" hidden$="[[ !user ]]">
       [[ fullName ]] on GitHub
     </a>
   </template>
@@ -240,11 +240,11 @@ In Polymer when using `[[ ]]`, single operators can be used and object propertie
 </dom-module>
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/kfz4pbqn/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/kfz4pbqn/' %}
 
 To define a computed property, add it with a _computed_ key referencing a method and including the properties that will trigger a value change in the arguments.
 
-Polymer also provides [observers](https://www.polymer-project.org/1.0/docs/devguide/properties#change-callbacks) which also work as a solution for this cases.
+Polymer also provides [observers](//www.polymer-project.org/1.0/docs/devguide/properties#change-callbacks) which also work as a solution for this cases.
 
 #### Two way data binding
 
@@ -332,7 +332,7 @@ Also, instead of `on-click` is recommended to use `on-tap`, a helper event which
 
 ### Styles
 
-Not only Polymer encourages you to use plain CSS and its latest features like [variables](https://www.polymer-project.org/1.0/docs/devguide/styling#custom-css-properties), it will also force you since there's absolute not documentation about integrating preprocessors or other tools to its work flow.
+Not only Polymer encourages you to use plain CSS and its latest features like [variables](//www.polymer-project.org/1.0/docs/devguide/styling#custom-css-properties), it will also force you since there's absolute not documentation about integrating preprocessors or other tools to its work flow.
 
 To me this is definitely a caveat for two reasons.
 
@@ -346,7 +346,7 @@ On the other hand, encapsulation works great since it uses Shadow DOM and specia
 
 ### Routing
 
-Following the _there's an element for that_ slogan, routing is resolved with [a component](https://github.com/PolymerElements/app-route) developed by the Polymer team.
+Following the _there's an element for that_ slogan, routing is resolved with [a component](//github.com/PolymerElements/app-route) developed by the Polymer team.
 
 You simply place special elements in you main component which will expose properties you can use to toggle views.
 
@@ -376,7 +376,7 @@ Not only this is a little bit confusing, but it is also buggy. In addition to th
 
 ## Ecosystem
 
-In the 2016 Google I/O, the [Polymer Toolbox](https://www.polymer-project.org/1.0/toolbox/) was announced which is basically a CLI to quickly start a Polymer based project that could be a component or an entire application.
+In the 2016 Google I/O, the [Polymer Toolbox](//www.polymer-project.org/1.0/toolbox/) was announced which is basically a CLI to quickly start a Polymer based project that could be a component or an entire application.
 
 It comes with testing, serving and even different types of builds, one that creates a single bundle and other which takes more advantage of the HTTP/2 standard.
 
@@ -390,7 +390,7 @@ In a Polymer based application, everything is an **.html** file.
 
 Not having a way to require external scripts was a pain for me, but you can get used to it. The thing is that I don't find confortable developing a helper script or library inside an script tag to later import it as an **.html** file.
 
-There's an approach that didn't became popular called [IMD](https://github.com/PolymerLabs/IMD) which it is not bad but it's hard to sell when there are dozens of recipes most developers know and understand relying on bundlers and npm modules.
+There's an approach that didn't became popular called [IMD](//github.com/PolymerLabs/IMD) which it is not bad but it's hard to sell when there are dozens of recipes most developers know and understand relying on bundlers and npm modules.
 
 ## Wrap-up
 
@@ -404,7 +404,7 @@ I hope Polymer team keeps working hard and improves this since it is the closest
 
 ### Updates
 
-**8 AUG 2016** &mdash; Specs have been updated, `document.registerElement` was deprecated in favor of `customElements.define` and easier extending syntax was added. I suggest this [article by Eric Bidelman](https://developers.google.com/web/fundamentals/primers/customelement) explaining these two changes.
+**8 AUG 2016** &mdash; Specs have been updated, `document.registerElement` was deprecated in favor of `customElements.define` and easier extending syntax was added. I suggest this [article by Eric Bidelman](//developers.google.com/web/fundamentals/primers/customelement) explaining these two changes.
 
 [polymer]: //www.polymer-project.org
 [vue-article]: /2016/06/building-component-based-app-vue/

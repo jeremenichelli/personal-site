@@ -5,7 +5,7 @@ excerpt: Composing components with more granular and simpler ones already presen
 
 Imagine for example a _button_ component that you can use anywhere, but also a _modal_ component that consumes it as part of its basic interface.
 
-You might already have seen lots of different approaches and techniques for composition in React, like [render props](https://reactjs.org/docs/render-props.html) or [child functions](https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9). In this case, I'm going to show you _props as component slots_ or _children prop_.
+You might already have seen lots of different approaches and techniques for composition in React, like [render props](//reactjs.org/docs/render-props.html) or [child functions](//medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9). In this case, I'm going to show you _props as component slots_ or _children prop_.
 
 _And if you have a better name for this please reach out._
 
@@ -165,4 +165,4 @@ const DeleteModal = (props) => (
 
 If the _action_ doesn't depend on a higher prop to define its configuration, then turning it into a static element piece will avoid reconciliation around it.
 
-For further reading, I recommend the _Composition vs. Inheritance_ section of the official React docs where [this approach receives a short mention](https://reactjs.org/docs/composition-vs-inheritance.html) at the beginning.
+For further reading, I recommend the _Composition vs. Inheritance_ section of the official React docs where [this approach receives a short mention](//reactjs.org/docs/composition-vs-inheritance.html) at the beginning.

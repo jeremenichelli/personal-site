@@ -40,7 +40,7 @@ After working a lot in the site and modularizing some parts of the site the main
 @import '_ads.less';
 ```
 
-You can understand what most of the style sheets contain. In the general file I placed some variables like colors, spacing and mixins. In layout, the new grid system. I also deleted most of the browsers vendors and rely more on <a target="_blank" href="https://www.npmjs.com/package/gulp-autoprefixer">gulp-autoprefixer</a> and the mixins in the _\_general.less_ file.
+You can understand what most of the style sheets contain. In the general file I placed some variables like colors, spacing and mixins. In layout, the new grid system. I also deleted most of the browsers vendors and rely more on [gulp-autoprefixer](//www.npmjs.com/package/gulp-autoprefixer) and the mixins in the _\_general.less_ file.
 
 The final step would be to delete completely the _\_oldStyles.less_ file, thing I wasn't able to do because my time ended. The good thing was that by doing this and deleting a lot of useless styles I reduced page loading time in a fifty percent.
 
@@ -48,9 +48,9 @@ The thing is that, of course, no matter how much you like LESS the site needs a 
 
 ### Gulp to the rescue
 
-In case you've never heard of it, <a href="http://www.gulpjs.com" target="_blank">GulpJS</a> is a build system that allows you to custimze and automate tasks. I started using it to process and test scripts but it became a great tool to handle any file inside a project.
+In case you've never heard of it, [Gulp](//gulpjs.com) is a build system that allows you to custimze and automate tasks. I started using it to process and test scripts but it became a great tool to handle any file inside a project.
 
-One of the reasons why I prefer it from <a href="http://www.gruntjs.com" target="_blank">GruntJS</a> is that is faster to set and easier to read, if this is the first time you ever read a **gulpfile** you will notice that you will be able to guess what's happening in most of the lines.
+One of the reasons why I prefer it from [Grunt](//www.gruntjs.com) is that is faster to set and easier to read, if this is the first time you ever read a **gulpfile** you will notice that you will be able to guess what's happening in most of the lines.
 
 ```js
 var gulp = require('gulp');

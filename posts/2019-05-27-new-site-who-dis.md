@@ -63,7 +63,7 @@ In the previous version of this site I was using transitions and transition dela
 
 ## Static generator
 
-Originally this site was using [Jekyll](//jekyllrb.com) and [GitHub Pages](https://pages.github.com/), a really convenient setup to quickly launch something without much overhead and a solution I would still recommend to anyone.
+Originally this site was using [Jekyll](//jekyllrb.com) and [GitHub Pages](//pages.github.com/), a really convenient setup to quickly launch something without much overhead and a solution I would still recommend to anyone.
 
 Sadly as the content grew, Jekyll builds became super slow, making my writing experience a bit frustrating, so I decided to give [Eleventy](//11ty.io) a try.
 
@@ -75,7 +75,7 @@ The move was smooth in a lot of corners, and not as smooth as I would have liked
 
 But now _liquid_ and _markdown_ parsers are JavaScript implementations which have differences with their Ruby counterparts so some snippets weren't _just working_ out the box.
 
-Most of these differences are not bugs though, since there aren't real standards around but is good to keep [these](https://github.com/11ty/eleventy/issues/68#issuecomment-383386627) [gotchas](https://github.com/11ty/eleventy/issues/533) in mind if you are going to move a Jekyll site to Eleventy.
+Most of these differences are not bugs though, since there aren't real standards around but is good to keep [these](//github.com/11ty/eleventy/issues/68#issuecomment-383386627) [gotchas](//github.com/11ty/eleventy/issues/533) in mind if you are going to move a Jekyll site to Eleventy.
 
 In addition, Jekyll extends _liquid_ with some useful filters that aren't present, the good thing is that Eleventy is super configurable around this so you can create these missing parts in seconds.
 

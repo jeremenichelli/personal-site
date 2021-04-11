@@ -15,4 +15,4 @@ const htmlmin = (content, outputPath) => {
   return content;
 };
 
-module.exports.htmlmin = htmlmin;
+module.exports = { htmlmin };

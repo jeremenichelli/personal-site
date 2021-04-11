@@ -98,7 +98,7 @@ import { css } from 'store-css';
 
 // import fonts stylesheet
 css({
-  url: 'https://fonts.googleapis.com/css?family=Lato|Roboto:700',
+  url: '//fonts.googleapis.com/css?family=Lato|Roboto:700',
   crossOrigin: 'anonymous'
 });
 
@@ -149,7 +149,7 @@ For [store-css][5] is as easy as adding a `storage` option.
 import { css } from 'store-css';
 
 css({
-  url: 'https://fonts.googleapis.com/css?family=Lato|Roboto:700',
+  url: '//fonts.googleapis.com/css?family=Lato|Roboto:700',
   storage: 'session',
   crossOrigin: 'anonymous'
 });
@@ -179,14 +179,14 @@ No excuses folks! Let's take advantage of the tools we have, and already using p
 _Thanks to [Even Stensberg][12] for reviewing this article._
 
 [1]: /2016/05/font-loading-strategy-static-generated-sites/
-[2]: https://developers.google.com/web/updates/2017/11/dynamic-import
-[3]: https://webpack.js.org/guides/code-splitting/#dynamic-imports
-[4]: https://www.npmjs.com/package/fontfaceobserver
-[5]: https://www.npmjs.com/package/store-css
-[6]: https://github.com/webpack-contrib/css-loader
+[2]: //developers.google.com/web/updates/2017/11/dynamic-import
+[3]: //webpack.js.org/guides/code-splitting/#dynamic-imports
+[4]: //www.npmjs.com/package/fontfaceobserver
+[5]: //www.npmjs.com/package/store-css
+[6]: //github.com/webpack-contrib/css-loader
 [7]: /2016/05/font-loading-strategy-static-generated-sites/#putting-some-dynamic-on-static
-[8]: https://github.com/jeremenichelli/font-strategy-single-page-app
-[9]: https://github.com/jeremenichelli/movies/tree/master/results/react
-[10]: https://meowni.ca/posts/web-fonts/
-[11]: https://www.zachleat.com/web/fonts/
-[12]: https://twitter.com/ev1stensberg
+[8]: //github.com/jeremenichelli/font-strategy-single-page-app
+[9]: //github.com/jeremenichelli/movies/tree/master/results/react
+[10]: //meowni.ca/posts/web-fonts/
+[11]: //www.zachleat.com/web/fonts/
+[12]: //twitter.com/ev1stensberg

@@ -2,8 +2,8 @@
 title: Writing asynchronous tasks in modern JavaScript
 excerpt: In this article, we are going to explore the evolution of JavaScript around asynchronous execution in the past era and how it changed the way we write and read code. We will start with the beginnings of web development, and go all the way to modern asynchronous pattern examples.
 host: Smashing Magazine
-host_url: https://www.smashingmagazine.com
-external_url: https://www.smashingmagazine.com/2019/10/asynchronous-tasks-modern-javascript/
+host_url: //www.smashingmagazine.com
+external_url: //www.smashingmagazine.com/2019/10/asynchronous-tasks-modern-javascript/
 ---
 
 JavaScript has two main characteristics as a programming language, both important to understand how our code will work. First is its **synchronous** nature, which means the code will run line after line, _almost_ as you read it, and secondly that it is **single-threaded**, only one command is being executed at any time.
@@ -47,7 +47,7 @@ request.send();
 
 When the server comes back, a task for the method assigned to `onreadystatechange` is queued (code execution continues in the main thread).
 
-_Explaining how JavaScript engines queue tasks and handle execution threads is a complex topic to cover and probably deserves an article of its own. Still, I recommend watching [What The Heck Is The Event Loop Anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) by Phillip Roberts to help you get a better understanding._
+_Explaining how JavaScript engines queue tasks and handle execution threads is a complex topic to cover and probably deserves an article of its own. Still, I recommend watching [What The Heck Is The Event Loop Anyway?](//www.youtube.com/watch?v=8aGhZQkoFbQ) by Phillip Roberts to help you get a better understanding._
 
 In each case mentioned, we are responding to an external event. A certain interval of time reached, a user action or a server response. We weren’t able to create an asynchronous task per se, we always _observed_ occurrences happening outside of our reach.
 
@@ -142,7 +142,7 @@ When a method returns a `Promise` object we can follow its successful resolution
 
 If an error was thrown during the method the `catch` function will be called, if present.
 
-_If you need to understand more in-depth how Promises work, I recommend Jake Archibald’s [JavaScript Promises: An Introduction](https://developers.google.com/web/fundamentals/primers/promises) article which he wrote on Google’s web development blog._
+_If you need to understand more in-depth how Promises work, I recommend Jake Archibald’s [JavaScript Promises: An Introduction](//developers.google.com/web/fundamentals/primers/promises) article which he wrote on Google’s web development blog._
 
 Now we can use these new methods and avoid callback chains.
 
@@ -256,7 +256,7 @@ Having consequent actions that returned value doesn’t need to be stored in var
 
 It’s safe to say Promises were a fundamental artifact introduced in the language, necessary to enable async/await notation in JavaScript, which you can use on both modern browsers and latest versions of Node.js.
 
-_Recently in JSConf, Ryan Dahl, creator and first contributor of Node, [regretted not sticking to Promises](https://www.youtube.com/watch?v=M3BM9TB-8yA) on its early development mostly because the goal of Node was to create event-driven servers and file management which the Observer pattern served better for._
+_Recently in JSConf, Ryan Dahl, creator and first contributor of Node, [regretted not sticking to Promises](//www.youtube.com/watch?v=M3BM9TB-8yA) on its early development mostly because the goal of Node was to create event-driven servers and file management which the Observer pattern served better for._
 
 ## Conclusion
 
@@ -264,7 +264,7 @@ The introduction of Promises into the web development world came to change the w
 
 But moving away from chains of callback is harder to solve, I think that having to pass a method to `then` didn’t help us to move away from the train of thought after years of being accustomed to the Observer Pattern and approaches adopted by major vendors in the community like Node.js.
 
-As Nolan Lawson says in his [excellent article about wrong uses in Promise concatenations](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html), _old callback habits die hard!_ He later explains how to escape some of these pitfalls.
+As Nolan Lawson says in his [excellent article about wrong uses in Promise concatenations](//pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html), _old callback habits die hard!_ He later explains how to escape some of these pitfalls.
 
 I believe Promises were needed as a middle step to allow a natural way to generate asynchronous tasks but didn’t help us much to move forward on better code patterns, sometimes you actually need a more adaptable and improved language syntax.
 
@@ -276,6 +276,6 @@ It’s hard to say now what _exactly_ we will need from the language for some of
 
 ### Further Reading
 
-- [JavaScript Promises: An Introduction](https://developers.google.com/web/fundamentals/primers/promises) article by Jake Archibald
-- [Promise Anti-Patterns](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) at Bluebird library documentation
-- [We Have A Problem With Promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html) article by Nolan Lawson
+- [JavaScript Promises: An Introduction](//developers.google.com/web/fundamentals/primers/promises) article by Jake Archibald
+- [Promise Anti-Patterns](//github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns#the-deferred-anti-pattern) at Bluebird library documentation
+- [We Have A Problem With Promises](//pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html) article by Nolan Lawson

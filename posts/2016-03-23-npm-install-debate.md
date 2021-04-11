@@ -3,7 +3,7 @@ title: npm install debate
 excerpt: About a few hours ago, eleven lines of code dissapear and thousands of projects broke. As every time something not so good happens in the industry, we have to talk about it.
 ---
 
-In case you haven't heard, a developer took a really drastic decision and unpublished all of his modules from **npm** &mdash; I suggest reading <a href="https://medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c#.os2dtmfji" target="_blank">his post to understand better why he did it</a>.
+In case you haven't heard, a developer took a really drastic decision and unpublished all of his modules from **npm** &mdash; I suggest reading [his post](//medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c#.os2dtmfji) to understand better why he did it.
 
 This could have been a minor thing, but popular libraries and tools such as **Babel** depended on one of his modules and builds started to break everywhere.
 
@@ -24,11 +24,11 @@ As Azer, I wouldn't be **that** happy if someone else took posession of one of m
 
 _What could Azer have done better?_ Knowing that thousands of projects might be affected, inform developers that a package won't be available through **npm** in a week or a month.
 
-Some people had a horrible time trying to find out why their projects were breaking. When the reason was revealed some of them understood his reasons, but <a href="https://github.com/azer/left-pad/issues/4#issuecomment-200066563" target="_blank">didn't agree with him</a> and probably both are right.
+Some people had a horrible time trying to find out why their projects were breaking. When the reason was revealed some of them understood his reasons, but [didn't agree with him](//github.com/azer/left-pad/issues/4#issuecomment-200066563) and probably both are right.
 
 _What could we have done better?_ We are relying **a lot** in **npm modules**, or at least we need a back up plan. I'm sure that having this discussion will take us somewhere better.
 
-Rich Harris published <a href="https://medium.com/@Rich_Harris/how-to-not-break-the-internet-with-this-one-weird-trick-e3e2d57fee28#.51bhkzdaj" target="_blank">his solution for this</a>.
+Rich Harris published [his solution](//medium.com/@Rich_Harris/how-to-not-break-the-internet-with-this-one-weird-trick-e3e2d57fee28#.51bhkzdaj) for this.
 
 _What could npm have done better?_ Probably ask lawyers for more time to explain the situation to the community, be more open about what was happening. I don't quite agree with what they did, but maybe this whole lawyer thing got them scared, I don't know.
 

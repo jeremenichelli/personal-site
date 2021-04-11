@@ -145,5 +145,5 @@ I've used **Gulp** and **Jekyll** in this article but it could be easily adapted
 
 **18 JUL 2020** &mdash; Though forcing the re-fetching of a new resource through a query in the URL might work, ideally the timestamp should be part of the file name to completely beat browser cache and force users to new versions of the project.
 
-[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
-[2]: https://www.npmjs.com/package/gulp-file
+[1]: //developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now
+[2]: //www.npmjs.com/package/gulp-file

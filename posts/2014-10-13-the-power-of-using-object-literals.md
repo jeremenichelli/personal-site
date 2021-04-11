@@ -57,7 +57,7 @@ function setOptions(options) {
 
 Using the _for in_ iterator you loop on every key of an object and I've sent _dflt_, but in this case I'm searching for its keys inside the custom one. If the custom options object contains that key I save its value in a new object, in case it's not present I go for the default one. This approach is great because if you accidentally send an object with unnecessary option keys not contained on the default one they will be ignored.
 
-This technic is used in <a href="https://github.com/jeremenichelli/vanish" target="_blank">vanish</a>, one of my repositories to handle carousels, in case you want to see how it works.
+This technic is used in [vanish](//github.com/jeremenichelli/vanish/), one of my repositories to handle carousels, in case you want to see how it works.
 
 ### Linking states to specific methods
 
@@ -112,7 +112,7 @@ if (state === 'active') {
 
 Not only the code is ugly, but is not future proof. If at some point another state needs to be supported you will have to nest another _if_ statement. Using object literals you would only need to add a new function to the **method** object making the code clearer and easier to maintain.
 
-I use a similar structure in <a href="https://www.github.com/jeremenichelli/steer" target="_blank">steer</a>.
+I use a similar structure in [steer](//www.github.com/jeremenichelli/steer/).
 
 ### Data binding
 
@@ -141,7 +141,7 @@ Using again the _for in_ iterator, we look for HTML elements with a data attribu
 
 It's a pretty simple case but a good way to show how powerful is to have access to the keys of an object as a string so they can be manipulated and extend funcitonality in your code.
 
-This approach is used in this weather widget I did call <a href="https://github.com/jeremenichelli/condense" target="_blank">condense</a>.
+This approach is used in this weather widget I did call [condense](//github.com/jeremenichelli/condense).
 
 ### Generating dynamic callbacks
 
@@ -178,4 +178,4 @@ var _getData = function (baseUrl, callback) {
 };
 ```
 
-These lines belong to a simple script I developed to make JSONP calls that, for some unknown reason I named <a href="https://www.github.com/jeremenichelli/jabiru" target="_blank">jabiru</a>. I wrote <a href="/2014/09/south-american-bird-cross-domain-calls/" target="_blank">a post about it</a> if you're interested on cross domain requests.
+These lines belong to a simple script I developed to make JSONP calls that, for some unknown reason I named [jabiru](//www.github.com/jeremenichelli/jabiru). I wrote a [post](/2014/09/south-american-bird-cross-domain-calls/) about it if you're interested on cross domain requests.

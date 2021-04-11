@@ -2,17 +2,17 @@
 title: Animating Between Views in React
 excerpt: You know how some sites and web apps have that neat native feel when transitioning between two pages or views? These animations are the type of features that can turn a good user experience into a great one.
 host: CSS-Tricks
-host_url: https://css-tricks.com
-external_url: https://css-tricks.com/animating-between-views-in-react/
+host_url: //css-tricks.com
+external_url: //css-tricks.com/animating-between-views-in-react/
 ---
 
-Sarah Drasner has shown some [good examples](https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/) and even a [Vue library](https://github.com/sdras/page-transitions-travelapp) to boot. But to achieve this in a React stack, it is necessary to couple crucial parts in your application: the routing logic and the animation tooling.
+Sarah Drasner has shown some [good examples](//css-tricks.com/native-like-animations-for-page-transitions-on-the-web/) and even a [Vue library](//github.com/sdras/page-transitions-travelapp) to boot. But to achieve this in a React stack, it is necessary to couple crucial parts in your application: the routing logic and the animation tooling.
 
-Let’s start with animations. We’ll be building with React, and there are great options out there for us to leverage. Notably, the [react-transition-group](https://reactcommunity.org/react-transition-group/) is the official package that handles elements entering and leaving the DOM. Let’s explore some relatively straightforward patterns we can apply, even to existing components.
+Let’s start with animations. We’ll be building with React, and there are great options out there for us to leverage. Notably, the [react-transition-group](//reactcommunity.org/react-transition-group/) is the official package that handles elements entering and leaving the DOM. Let’s explore some relatively straightforward patterns we can apply, even to existing components.
 
 ## Transitions using react-transition-group
 
-First, let’s get familiar with the [react-transition-group](https://reactcommunity.org/react-transition-group/) library to examine how we can use it for elements entering and leaving the DOM.
+First, let’s get familiar with the [react-transition-group](//reactcommunity.org/react-transition-group/) library to examine how we can use it for elements entering and leaving the DOM.
 
 ### Single components transitions
 

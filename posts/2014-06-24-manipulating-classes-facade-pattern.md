@@ -9,7 +9,7 @@ Why do we ussually add a library to do this? Does not the browser already provid
 
 ## classList
 
-Modern browsers include an API that allows us to do all we need regarding classes, its name is [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element.classList).
+Modern browsers include an API that allows us to do all we need regarding classes, its name is [classList](//developer.mozilla.org/en-US/docs/Web/API/Element.classList).
 
 If you don't know it yet, it provides us with `add`, `remove`, `contains` and `toggle` methods, and it has a great performance.
 
@@ -31,7 +31,7 @@ nav.classList.toggle('hidden');
 
 The only problem in the last paragraph I wrote is one word: modern.
 
-Before you even think of it, let's just say it, the problem is Internet Explorer and its old versions that some users still use. In fact, [classList](http://caniuse.com/classlist) has a nice support, but if your code must work properly in version 8 and 9 of Internet Explorer then you won't be able to use it. _Well, maybe you will._
+Before you even think of it, let's just say it, the problem is Internet Explorer and its old versions that some users still use. In fact, [classList](//caniuse.com/classlist) has a nice support, but if your code must work properly in version 8 and 9 of Internet Explorer then you won't be able to use it. _Well, maybe you will._
 
 ## The Facade pattern
 
@@ -116,4 +116,4 @@ nav.addClass('hidden');
 
 ## Wrap up
 
-The result of this exploration was [classing](https://github.com/jeremenichelli/classing). It checks only once if **classList** exists and it has fallback for adding, removing, toggling and a `hasClass` method to check if the class is contained. It has a lot of place for improvement so feel free to check it out and suggest changes.
+The result of this exploration was [classing](//github.com/jeremenichelli/classing). It checks only once if **classList** exists and it has fallback for adding, removing, toggling and a `hasClass` method to check if the class is contained. It has a lot of place for improvement so feel free to check it out and suggest changes.

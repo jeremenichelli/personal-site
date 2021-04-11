@@ -33,7 +33,7 @@ Extending current web APIs is hard, steps need to be firm and clear since going 
 
 But if we want native methods to help us, we need additions that frameworks, or us directly, can rely on to make substantial changes in our applications.
 
-Recently Yehuda Katz, part of Ember's core collaborators team, proposed a set of methods called `DOMChangeList` and `DOMTreeConstruction` _([see the proposal](https://github.com/whatwg/dom/issues/270))_ to schedule DOM mutations with better performance, something super useful for frameworks which currently apply their own implementation.
+Recently Yehuda Katz, part of Ember's core collaborators team, proposed a set of methods called `DOMChangeList` and `DOMTreeConstruction` _([see the proposal](//github.com/whatwg/dom/issues/270))_ to schedule DOM mutations with better performance, something super useful for frameworks which currently apply their own implementation.
 
 But this would still be a sequential change API not solving the developer experience problem which I believe is the real missing piece in the platform.
 
@@ -41,4 +41,4 @@ But this would still be a sequential change API not solving the developer experi
 
 I think that until we don't get a way to _diff_ and _patch_ the DOM in a declarative way similar to what `React.createElement` and `ReactDOM.render` do, developers will still leave this work to frameworks and libraries which are doing almost the same work, creating interesting solutions but fragmentating implementations.
 
-Maybe solutions like [Irakli Gozalishvili's dominion](https://github.com/gozala/dominion) library with a pragma abstracted layer is what we are looking for. Time will tell.
+Maybe solutions like [Irakli Gozalishvili's dominion](//github.com/gozala/dominion) library with a pragma abstracted layer is what we are looking for. Time will tell.

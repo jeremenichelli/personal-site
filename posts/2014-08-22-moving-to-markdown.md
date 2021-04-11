@@ -47,4 +47,4 @@ After doing this I just had to build my site using the `--drafts` flag, opened t
 
 If you have the chance try it. If your blogging engine is Jekyll you have some good parsers for your choice and it will speed up your writing, and it's nice to feel that **I'm actually writing** a post instead of working.
 
-There's a [nice article in Wikipedia](http://en.wikipedia.org/wiki/Markdown) about Markdown and its syntax, which is pretty straight forward and easy to learn. If you're using SublimeText as your IDE there are lots of packages to improve the highlighting for this extension.
+There's a [nice article in Wikipedia](//en.wikipedia.org/wiki/Markdown) about Markdown and its syntax, which is pretty straight forward and easy to learn. If you're using SublimeText as your IDE there are lots of packages to improve the highlighting for this extension.

@@ -55,7 +55,7 @@ There you go, that's a post in Jekyll. Simple, right?
 
 ### Permalinks
 
-The url that your post will have can be changed in the _\_config.yml_ file and Jekyll already has <a href="http://jekyllrb.com/docs/permalinks/" target="_blank">pre-built date filters</a> for you.
+The url that your post will have can be changed in the _\_config.yml_ file and Jekyll already has [pre-built date filters](//jekyllrb.com/docs/permalinks/) for you.
 
 ## Listing your posts
 
@@ -70,8 +70,7 @@ It's time to brag about your writing skills, **posts** is an array accessible in
     </a>
   </li>
   {% endfor %}
-</ul>
-{% endraw %}
+</ul>{% endraw %}
 ```
 
 Not so hard, but what if you're launching your site and didn't wrote anything yet?

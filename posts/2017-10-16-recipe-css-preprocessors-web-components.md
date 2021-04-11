@@ -192,4 +192,4 @@ The last piece of improvement is adding source maps on development, this is supe
 
 We could go further and enable the _minimize_ option in the `css-loader` to make our template strings shorter in production or add the `postcss-loader` to autoprefix or optimize deeper the styles.
 
-_This approach speeded up the migration from an application built in a framework to web components, you can check it working in [this repository](https://github.com/jeremenichelli/movies-web-components)._
+_This approach speeded up the migration from an application built in a framework to web components, you can check it working in [this repository](//github.com/jeremenichelli/movies-web-components)._

@@ -167,4 +167,4 @@ Here's another place where I usually need this...
 
 Small patterns usually behave in a more flexible way, they can bend and adapt to different situations.
 
-If you are interested in more LESS awesomeness you can go to the <a href="http://lesscss.org/features/" target="_blank">official language features reference</a>.
+If you are interested in more LESS awesomeness you can go to the[official language features](//lesscss.org/features/) reference.

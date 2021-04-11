@@ -19,14 +19,14 @@ Instead of creating and appending elements as usual, you represent them with an 
 let Link = React.createElement(
   'a',
   {
-    href: 'https://github.com/jeremenichelli',
+    href: '//github.com/jeremenichelli',
     className: 'github-link'
   },
   'GitHub'
 );
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/kqLmfcq4' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/kqLmfcq4' %}
 
 In this example we are creating an anchor, passing the `href` and `class` properties and a text node as its only children.
 
@@ -38,7 +38,7 @@ Not mandatory, but an optional way to describe render trees is **JSX** which bas
 
 ```js
 const GitHubLink = (
-  <a className="github-link" href="https://github.com/jeremenichelli">
+  <a className="github-link" href="//github.com/jeremenichelli">
     GitHub
   </a>
 );
@@ -61,7 +61,7 @@ import { render } from 'react-dom';
 class GitHubLink extends Component {
   render() {
     return (
-      <a href="https://github.com/jeremenichelli" className="github-link">
+      <a href="//github.com/jeremenichelli" className="github-link">
         {this.props.user} on github
       </a>
     );
@@ -86,7 +86,7 @@ To customize our components, data values can be passed to them as _props_.
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-const baseUrl = 'https://github.com/';
+const baseUrl = '//github.com/';
 
 class GitHubLink extends Component {
   constructor(props) {
@@ -115,7 +115,7 @@ As you see in the **href** value, JavaScript expressions can be used inside JSX 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-const baseUrl = 'https://github.com/';
+const baseUrl = '//github.com/';
 
 class GitHubLink extends Component {
   constructor(props) {
@@ -147,7 +147,7 @@ class GitHubUsers extends Component {
 render(<GitHubUsers />, document.querySelector('#example'));
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
 
 The render function in React components always has to return a single root element, that's why the two GitHub links are placed inside a **div** tag.
 
@@ -174,7 +174,7 @@ class GitHubUsers extends Component {
 }
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
 
 This is a better pattern since now the logic inside `render` doesn't need to be updated when the data changes, improving the maintainability of the code.
 
@@ -190,7 +190,7 @@ GitHubLink.propTypes = {
 
 After passing the type we can go further and use `isRequired` so the presence of it becomes mandatory for rendering the component.
 
-_propTypes have been moved to [a standalone package](https://reactjs.org/docs/typechecking-with-proptypes.html)._
+_propTypes have been moved to [a standalone package](//reactjs.org/docs/typechecking-with-proptypes.html)._
 
 ### State
 
@@ -251,7 +251,7 @@ class AccordionElement extends Component {
 }
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
 
 When the `toggleState` function gets called the context will be the rendered node, with `bind` we change it back to the component.
 
@@ -462,7 +462,7 @@ Most of these thoughts came while building a [simple web app][react-app] using t
 
 [react]: //facebook.github.io/react
 [props]: //facebook.github.io/react/docs/reusable-components.html#single-child
-[css-modules]: http://andrewhfarmer.com/what-are-css-modules/
+[css-modules]: //andrewhfarmer.com/what-are-css-modules/
 [css-modules-webpack]: //css-modules.github.io/webpack-demo/
 [react-router]: //github.com/reactjs/react-router
 [react-app]: //github.com/jeremenichelli/movies/tree/master/results/react

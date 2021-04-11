@@ -175,7 +175,7 @@ header {
 }
 ```
 
-See it working in this [demostration page](https://jeremenichelli.github.io/sticky).
+See it working in this [demostration page](//jeremenichelli.github.io/sticky).
 
 ### The weight
 
@@ -183,7 +183,7 @@ See it working in this [demostration page](https://jeremenichelli.github.io/stic
 
 ## Solution for the lazy ones
 
-But you know, maybe you just want some library to help you do the trick and keep moving. Then you can include [steer](https://jeremenichelli.github.io/steer) in your project and use its API to toggle the **header** class.
+But you know, maybe you just want some library to help you do the trick and keep moving. Then you can include [steer](//jeremenichelli.github.io/steer) in your project and use its API to toggle the **header** class.
 
 ```js
 var header = document.getElementsByTagName('header')[0];
@@ -198,7 +198,7 @@ steer.set({
 });
 ```
 
-This script will add some legacy browser support under the hood for this approach, though you will still need a polyfill for [classList](https://github.com/eligrey/classList.js) which doesn't work in older versions of Internet Explorer.
+This script will add some legacy browser support under the hood for this approach, though you will still need a polyfill for [classList](//github.com/eligrey/classList.js) which doesn't work in older versions of Internet Explorer.
 
 ## Wrap-up
 

@@ -158,4 +158,4 @@ While it's great to have nice and popular libraries, they add an abstraction lay
 
 This is great when people are doing their first steps in web programming, but it's good to later explore the features JavaScript brings out of the box to extend that knowledge.
 
-[1]: http://vuejs.org/guide/computed.html
+[1]: //vuejs.org/guide/computed.html

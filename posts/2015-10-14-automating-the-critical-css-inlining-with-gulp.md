@@ -11,7 +11,7 @@ Including styles and scripts on top of your site can give a very bad experience 
 
 A good solution is to inline the critical styles in the **&lt;head&gt;** tag and load the rest of them asynchronically. This way we deliver to the user a consumable site, partially loaded but avoiding a blocking experience.
 
-If you're more interested in this particular topic I recommend reading <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css" target="_blank">Render Blocking CSS article by Ilya Grigorik</a> in Web Fundamentals and <a href="https://www.filamentgroup.com/lab/performance-rwd.html" target="_blank">Filament Group's insight about performance</a> in their blog.
+If you're more interested in this particular topic I recommend reading [Render Blocking CSS article](//developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css) by Ilya Grigorik in Web Fundamentals and [Filament Group's insight about performance](//www.filamentgroup.com/lab/performance-rwd.html) in their blog.
 
 ## Divide and conquer
 
@@ -30,7 +30,7 @@ You can also create an `assets` folder where the _noncritical stylesheet_ will b
 
 ## Keeping it simple
 
-Gulp is all about simplicity. Just come with what your task need to do, then find the correct packages and pipe them. If you're still not familiar with how Gulp works you can check <a href="http://jeremenichelli.github.io/2015/05/using-gulp/" target="_blank">this article</a> I wrote and then come back to this one.
+Gulp is all about simplicity. Just come with what your task need to do, then find the correct packages and pipe them. If you're still not familiar with how Gulp works you can check [this article](//jeremenichelli.github.io/2015/05/using-gulp/) I wrote and then come back to this one.
 
 So, for this solution you will need to install these dependencies.
 

@@ -24,7 +24,7 @@ Browsers will take high or low priority actions when it detects these hints, in 
 For example, **dns-prefetch** will resolve the domain to get the resulting ip address, while **preconnect** does this plus the handshake and TLS negotiation.
 
 ```html
-<link rel="preconnect" href="https://some-cloud-cdn.net/" crossorigin />
+<link rel="preconnect" href="//some-cloud-cdn.net/" crossorigin />
 ```
 
 Both will save you some time when accessing to external services and CDNs.
@@ -32,10 +32,10 @@ Both will save you some time when accessing to external services and CDNs.
 When instead of a domain we have a particular resource or route that could be needed in future navigations the **prefetch** value is used, as **preload** is for resources needed in the current page.
 
 ```html
-<link rel="prefetch" href="https://your-site.com/next-route.html" />
+<link rel="prefetch" href="//your-site.com/next-route.html" />
 ```
 
-_If you would like to read more about resource hints or see more examples this [oldie but goodie article](https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d) by Luis Vieira is highly recommended._
+_If you would like to read more about resource hints or see more examples this [oldie but goodie article](//medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d) by Luis Vieira is highly recommended._
 
 Since we want to improve the inner navigation in a static site, we can combine **prefetch** with a little of JavaScript to load possible upcoming routes in advanced.
 
@@ -46,7 +46,7 @@ To move forward with this idea we would need to append a `link` element everytim
 The element to append should look like this:
 
 ```html
-<link rel="prefetch" href="https://your-project.com/the-future-route" />
+<link rel="prefetch" href="//your-project.com/the-future-route" />
 ```
 
 First thing, let's collect all the anchors from the current page and turn them into an array to loop over them easier.
@@ -120,7 +120,7 @@ I've personally bailed on doing it because there's a chance the device is not co
 
 #### And single page applications?
 
-If you are code splitting your application and using a bundler that allows named chunks [like webpack does](https://webpack.js.org/guides/code-splitting/#dynamic-imports), you can prefetch that file to fasten dynamic routes.
+If you are code splitting your application and using a bundler that allows named chunks [like webpack does](//webpack.js.org/guides/code-splitting/#dynamic-imports), you can prefetch that file to fasten dynamic routes.
 
 ## Wrap-up
 
@@ -128,4 +128,4 @@ Even when you're in control of your server environment, using resource hints it'
 
 This little trick is currently speeding up the experience in this site on desktop, so you can inspect the `head` element or check the network tab on developer tools while passing your pointer over internal links to see it in action.
 
-_Kudos to Rich Harris from whom I stole this approach he used in [Sapper](https://sapper.svelte.technology/guide#prefetch-href-)._
+_Kudos to Rich Harris from whom I stole this approach he used in [Sapper](//sapper.svelte.technology/guide#prefetch-href-)._

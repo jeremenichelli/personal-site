@@ -104,9 +104,9 @@ It's important to have a _strategy_ when using web fonts to prevent invisible te
 
 For static generated sites this can be done loading a script which observes when the font is ready, toggling a class on the document and set a flag using _sessionStorage_ for future visits.
 
-[1]: https://www.filamentgroup.com/lab/font-events.html
-[2]: https://github.com/bramstein/fontfaceobserver
-[3]: https://developer.mozilla.org/es/docs/Web/API/Window/sessionStorage
-[4]: https://github.com/filamentgroup/loadJS
-[5]: http://jeremenichelli.github.io/font-strategy-static/
-[6]: http://github.com/jeremenichelli/font-strategy-static/
+[1]: //www.filamentgroup.com/lab/font-events.html
+[2]: //github.com/bramstein/fontfaceobserver
+[3]: //developer.mozilla.org/es/docs/Web/API/Window/sessionStorage
+[4]: //github.com/filamentgroup/loadJS
+[5]: //jeremenichelli.github.io/font-strategy-static/
+[6]: //github.com/jeremenichelli/font-strategy-static/

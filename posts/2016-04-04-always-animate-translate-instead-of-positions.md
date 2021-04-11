@@ -86,6 +86,6 @@ When animating elements think a way to accomplish the desired effect using tranf
 
 **7 APR 2014** &mdash; After reporting this to the WebKit team about this, they quickly fixed and shipped the new improved transitions to their site.
 
-[1]: http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
-[2]: https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count?hl=en
-[3]: http://ux.stackexchange.com/questions/66604/optimal-duration-for-animating-transitions
+[1]: //www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
+[2]: //developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count?hl=en
+[3]: //ux.stackexchange.com/questions/66604/optimal-duration-for-animating-transitions

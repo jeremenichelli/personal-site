@@ -5,7 +5,7 @@ excerpt: After a redesign on my site to improve loading and rendering times, I s
 
 Then I saw the Network tab on the developer tools and found it. _What if I save the stylesheets content in the local storage and use it on future visits?_
 
-Of course, this is similar to what <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching" target="_blank">browser caching</a> does, temporarily storing used resources. My inital goal was to improve that using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API" target="_blank">Web Storage API</a> and JavaScript, but first I needed to dive into the **link** element and how it works.
+Of course, this is similar to what [browser caching](//developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching) does, temporarily storing used resources. My inital goal was to improve that using the [Web Storage API](//developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) and JavaScript, but first I needed to dive into the **link** element and how it works.
 
 ## About the link element
 
@@ -120,7 +120,7 @@ if (stored) {
 }
 ```
 
-Does this actually work? You can check it out [in this sample page](https://jeremenichelli.github.io/store-css/test).
+Does this actually work? You can check it out [in this sample page](//jeremenichelli.github.io/store-css/test).
 
 ## Testing the approach against caching
 
@@ -130,8 +130,8 @@ Long answer, both profiles got really similar metrics. The one using this small 
 
 One of the main reasons why **cache** is faster &mdash; its request is done in parallel while the script needed to recover the CSS rules blocks rendering while it executes.
 
-- Benchmark using [local storage](http://www.webpagetest.org/result/160315_DA_1AM8/).
-- Benchmark using [browser cache](http://www.webpagetest.org/result/160315_00_1AN4/).
+- Benchmark using [local storage](//www.webpagetest.org/result/160315_DA_1AM8/).
+- Benchmark using [browser cache](//www.webpagetest.org/result/160315_00_1AN4/).
 
 Those are links to each result in case you want to see all the numbers and graphics around them.
 
@@ -139,6 +139,6 @@ Those are links to each result in case you want to see all the numbers and graph
 
 Even when you are not sure if what you are doing will work, or there's another techonology or library that solves the same riddle, experimenting will get you through a learning path that is awesome to walk. Do it!
 
-This approach lives in its own [repository](https://github.com/jeremenichelli/store-css) in case you want to check its final version, covering a lot of edge cases and variants.
+This approach lives in its own [repository](//github.com/jeremenichelli/store-css) in case you want to check its final version, covering a lot of edge cases and variants.
 
-The veredict is that _caching beats web storage_, but loading our stylesheets asynchornously is a proven benefit so I encourage you to use [loadCSS by Filament Group](https://github.com/filamentgroup/loadCSS) that takes care of that.
+The veredict is that _caching beats web storage_, but loading our stylesheets asynchornously is a proven benefit so I encourage you to use [loadCSS by Filament Group](//github.com/filamentgroup/loadCSS) that takes care of that.

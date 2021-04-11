@@ -22,7 +22,7 @@ function wrapper(responseData) {
 }
 
 var script = document.createElement('script');
-script.src = 'http://api.some.com/find?id=ebf4g4&q=5&callback=wrapper';
+script.src = '//api.some.com/find?id=ebf4g4&q=5&callback=wrapper';
 document.head.appendChild(script);
 ```
 
@@ -42,4 +42,4 @@ I always put weird names to my repositories, just for fun, and after looking for
 
 ## Wrap-up
 
-Hope this post helped you understand quickly what's JSON with padding, what problem solves and how you can use it in your web. If you are a bit curious like me [here's some information about this beautiful bird](http://en.wikipedia.org/wiki/Jabiru) and if you're planning to work with this type of calls [here's the link of the repository](https://github.com/jeremenichelli/jabiru).
+Hope this post helped you understand quickly what's JSON with padding, what problem solves and how you can use it in your web. If you are a bit curious like me [here's some information about this beautiful bird](//en.wikipedia.org/wiki/Jabiru) and if you're planning to work with this type of calls [here's the link of the repository](//github.com/jeremenichelli/jabiru).

@@ -48,15 +48,15 @@ Now let's go back to those two posts I mentioned in the first paragraph.
 
 ### Is it Safari the new IE?
 
-If you don't give me much time to think about it I will quickly answer _no_, calling <a href="http://nolanlawson.com/2015/06/30/safari-is-the-new-ie/" target="_blank">Apple's beloved browser the new IE</a> is an exageration in my humble opinion. Why? Well, how often do you have to include a facade like the one I showed you above for Safari in your projects? Exactly.
+If you don't give me much time to think about it I will quickly answer _no_, calling [Apple's beloved browser the new IE](//nolanlawson.com/2015/06/30/safari-is-the-new-ie/) is an exageration in my humble opinion. Why? Well, how often do you have to include a facade like the one I showed you above for Safari in your projects? Exactly.
 
-To be fair, Nolan himself cool it down in a <a href="http://nolanlawson.com/2015/07/05/safari-is-the-new-ie-2-revenge-of-the-linkbait/" target="_blank">second post</a> while still maintaining some of the points he made previously.
+To be fair, Nolan himself cool it down in a [second post](//nolanlawson.com/2015/07/05/safari-is-the-new-ie-2-revenge-of-the-linkbait/) while still maintaining some of the points he made previously.
 
 Truth is that five years ago most of our complains about Internet Explorer were related to DOM manipulation features, basic JavaScript methods and CSS properties.
 
 Now the scenario has changed a lot, browsers are capable of running complex applications, or _web apps_, and mobile usage is increasing so **HTML5** specification came alive giving vendors the chance to keep up with the trend and add new and well specified features to their navigators, but the arrival of those new features to the common spec of a modern browser also increases the possibility of fragmentation in multiple areas.
 
-Nolan has a really good point, his project really needs <a href="http://caniuse.com/#feat=indexeddb" target="_blank">IndexedDB</a> and to be fair that API has been present in Chrome since version 23 and in Firefox since version 16 both unprefixed, but the fruit company hasn't even tried to add it to Safari.
+Nolan has a really good point, his project really needs [IndexedDB](//caniuse.com/#feat=indexeddb) and to be fair that API has been present in Chrome since version 23 and in Firefox since version 16 both unprefixed, but the fruit company hasn't even tried to add it to Safari.
 
 Come on Apple, is it that hard?
 
@@ -64,7 +64,7 @@ Come on Apple, is it that hard?
 
 There could be some stuff that other browsers do better than it but how many times did you need a special fix or a polyfill for Google's navigator only? Probably never.
 
-Some of the things the author claims is that <a href="https://medium.com/@bdc/chrome-is-the-new-ie-1a21c1efc133" target="_blank">Chrome doesn't support scroll snap points or backdrop filters</a>. Those features are not even supported by Safari and Firefox today, so it would be crazy that someone would consider using them in production. Even if that was a good point, Chrome update iterations are every six weeks while Safari is updated only once a year because it's tied to the corresponding mayor releases of its operative system.
+Some of the things the author claims is that [Chrome doesn't support scroll snap points](//medium.com/@bdc/chrome-is-the-new-ie-1a21c1efc133) or backdrop filters. Those features are not even supported by Safari and Firefox today, so it would be crazy that someone would consider using them in production. Even if that was a good point, Chrome update iterations are every six weeks while Safari is updated only once a year because it's tied to the corresponding mayor releases of its operative system.
 
 We already know that Safari 9 is not going to give us IndexedDB this year while we can have scroll snap points or backdrop filters in Chrome and Firefox this same year.
 

@@ -2,8 +2,8 @@
 title: Brief introduction to scope hoisting in Webpack
 excerpt: On its third major release, Webpack introduced a new feature, scope hoisting. Many developers are already exposing data showing great positive impacts on the initial execution time of their bundles.
 host: webpack publication
-host_url: https://medium.com/webpack
-external_url: https://medium.com/webpack/brief-introduction-to-scope-hoisting-in-webpack-8435084c171f
+host_url: //medium.com/webpack
+external_url: //medium.com/webpack/brief-introduction-to-scope-hoisting-in-webpack-8435084c171f
 ---
 
 But what is it, and how it works? To answer this questions we first need to understand what happens with our code when we bundle it.
@@ -83,7 +83,7 @@ Imagine a situation where a module imports a method, which needs to import anoth
 
 In our bundle, each import translates into an extra function call and a property access to the modules array as Webpack gets to the end of this import chain.
 
-These constraints have been meassured in the past, like Sam Saccone detecting [400ms were spent only in Browserify module require in Tumblr](https://docs.google.com/document/d/1E2w0UQ4RhId5cMYsDcdcNwsgL0gP_S6SDv27yi1mCEY) or Nolan Lawson [exposing brenchmarks on different bundlers](https://nolanlawson.com/2016/08/15/the-cost-of-small-modules).
+These constraints have been meassured in the past, like Sam Saccone detecting [400ms were spent only in Browserify module require in Tumblr](//docs.google.com/document/d/1E2w0UQ4RhId5cMYsDcdcNwsgL0gP_S6SDv27yi1mCEY) or Nolan Lawson [exposing brenchmarks on different bundlers](//nolanlawson.com/2016/08/15/the-cost-of-small-modules).
 
 But we still need modules. On big projects **performance** is a price we pay in exchange for better codebase scalability and encapsulation.
 
