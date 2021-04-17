@@ -31,7 +31,7 @@ class Home extends Component {
 }
 ```
 
-Instead of [gsap](https://www.npmjs.com/package/gsap) module, I will use [gsap-promise](https://www.npmjs.com/package/gsap-promise) which wraps the original one and returns a Promise when animations are done.
+Instead of [gsap](//www.npmjs.com/package/gsap) module, I will use [gsap-promise](//www.npmjs.com/package/gsap-promise) which wraps the original one and returns a Promise when animations are done.
 
 For this to work, the parent component that will render `Home` and the rest of the views needs to wrap them with `TransitionGroup` components.
 
@@ -267,7 +267,7 @@ The main challenge will be to keep the code straight-forward and reusable.
 
 If you want to know more about `will-change` there are two excellent articles, one from [Paul Lewis][paul-will-change] and another one from [Sara Soueidan][sara-will-change], both explaining the nature of this property.
 
-_Thanks to [Matt DesLauriers](https://twitter.com/mattdesl) for reviewing this article._
+_Thanks to [Matt DesLauriers](//twitter.com/mattdesl) for reviewing this article._
 
-[paul-will-change]: https://aerotwist.com/blog/bye-bye-layer-hacks/
-[sara-will-change]: https://dev.opera.com/articles/css-will-change-property/
+[paul-will-change]: //aerotwist.com/blog/bye-bye-layer-hacks/
+[sara-will-change]: //dev.opera.com/articles/css-will-change-property/

@@ -11,27 +11,27 @@ The last couple of years we saw the rise of task runners. **Why?** If you work o
 
 You learn it fast, it is familiar to you and when you're setting it up or making a modification you feel that you're still doing front end work. That's definitely cool.
 
-<a href="https://gruntjs.com" target="_blank">Grunt</a> gained popularity fast and packages started emerging quickly, behind them a big community giving support, and that's a healthy sign when choosing a tool for your project. The problem with Grunt was the steep learning curve to understand the task configuration, myself included.
+[Grunt](//gruntjs.com) gained popularity fast and packages started emerging quickly, behind them a big community giving support, and that's a healthy sign when choosing a tool for your project. The problem with Grunt was the steep learning curve to understand the task configuration, myself included.
 
-That was the main reason why developers dwell to <a href="https://gulpjs.com" target="_blank">Gulp</a>. The stream/pipe pattern was really semantic and easy to work with. It's currently the choice of big companies like Google in their projects which boosted its development and improved its visibility around developers.
+That was the main reason why developers dwell to [Gulp](//gulpjs.com). The stream/pipe pattern was really semantic and easy to work with. It's currently the choice of big companies like Google in their projects which boosted its development and improved its visibility around developers.
 
 ### The packages deviation
 
 To actually do stuff with them the way they are intended you need specific modules, which are in most cases wrappers of already existing npm packages. That's a problem, because you get inside an update cycle which might never occur, for example when a fix is applied to a package, but you're using its Gulp or Grunt flavour you need to wait to the owner or contributors to apply the improvement in that wrapper.
 
-And you know, someday you might wake up and find out that actually <a href="https://www.npmjs.com/package/gulp-browserify" target="_blank">browserify wrapper for Gulp is no longer being maintained</a>. Beautiful. Yes, it was sarcasm.
+And you know, someday you might wake up and find out that actually [browserify wrapper for Gulp](//www.npmjs.com/package/gulp-browserify) is no longer being maintained. Beautiful. Yes, it was sarcasm.
 
-That's when a whole bunch of recipes appear to deal with this, and you need to download one or a couple more dependencies like <a href="https://www.npmjs.com/package/vinyl-source-stream" target="_blank">vinyl source stream</a> to do just what browserify does on its own.
+That's when a whole bunch of recipes appear to deal with this, and you need to download one or a couple more dependencies like [vinyl source stream](//www.npmjs.com/package/vinyl-source-stream) to do just what browserify does on its own.
 
 ## Using npm scripts
 
 Instead of using a wrapped package we could just use the package itself, most of them provide a command line interface and documentation which is what you just need.
 
-You also need to know a little bit of bash and how commands in the terminal work. In case you don't, I've created a <a href="https://gist.github.com/jeremenichelli/489973c73a00437a188c" target="_blank">bash reference gist</a> you can check and then come back to this post.
+You also need to know a little bit of bash and how commands in the terminal work. In case you don't, I've created a [bash reference gist](//gist.github.com/jeremenichelli/489973c73a00437a188c) you can check and then come back to this post.
 
 So now that we don't want middle men, if you need browserify, just install browserify.
 
-```
+```bash
 npm install --save-dev browserify
 ```
 
@@ -116,13 +116,13 @@ You can also specify a task that needs to finish successfully before a script ca
 }
 ```
 
-Of course, you will need to install <a href="https://eslint.org/" target="_blank">eslint</a> or the linting utility you prefer. You might also have noticed that a **lint** script was created and I'm calling it in development and production build pre scripts, so if I make some change on the **eslint** command both are affected.
+Of course, you will need to install [eslint](//eslint.org/) or the linting utility you prefer. You might also have noticed that a **lint** script was created and I'm calling it in development and production build pre scripts, so if I make some change on the **eslint** command both are affected.
 
 You can do the same with the **post** prefix and add task that should run after a specific script.
 
 ### Watch
 
-To avoid running the same script over and over again we can install a <a href="https://www.npmjs.com/package/onchange" target="_blank">package</a> to watch our files.
+To avoid running the same script over and over again we can use the [onchange package](//www.npmjs.com/package/onchange) to watch our files.
 
 ```json
 "scripts": {
@@ -142,7 +142,7 @@ To avoid running the same script over and over again we can install a <a href="h
 
 Easy to understand, you first write the **onchange** command, then pass the path you want to watch in a string and finally the command you want to run.
 
-You can see all this configuration working on <a href="https://github.com/jeremenichelli/npm-scripts-sample" target="_blank">this repository</a>.
+You can see all this configuration working on [this sample repository](//github.com/jeremenichelli/npm-scripts-sample).
 
 ## Benefits and drawbacks
 

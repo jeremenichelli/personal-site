@@ -1,5 +1,6 @@
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+const { markdownItExternalLinks } = require('./plugins');
 
 const markdownItOptions = {
   html: true,
@@ -15,9 +16,11 @@ const markdownItAnchorOptions = {
   level: [2, 3, 4]
 };
 
-const markdownLib = markdownIt(markdownItOptions).use(
+const md = markdownIt(markdownItOptions).use(
   markdownItAnchor,
   markdownItAnchorOptions
 );
 
-module.exports.md = markdownLib;
+md.use(markdownItExternalLinks);
+
+module.exports = { md };

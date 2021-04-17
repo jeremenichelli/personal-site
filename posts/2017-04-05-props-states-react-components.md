@@ -115,4 +115,4 @@ Defering to _stateless_ components over _stateful_ ones will make your project m
 
 Even when they won't make it to the code base, write `shouldComponentUpdate` functions to unveil situations where a separation of concerns is needed.
 
-_Thanks to [Brendan Neufeld](https://twitter.com/BrendanNeufeld) for reviewing this article._
+_Thanks to [Brendan Neufeld](//twitter.com/BrendanNeufeld) for reviewing this article._

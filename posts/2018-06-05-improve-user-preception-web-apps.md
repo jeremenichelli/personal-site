@@ -86,7 +86,7 @@ const placeholderString = () =>
   </div>`;
 ```
 
-{% codeExampleLink 'https://codepen.io/jeremenichelli/pen/LrGNZm/' %}
+{% codeExampleLink '//codepen.io/jeremenichelli/pen/LrGNZm/' %}
 
 _Play with different combinations of sizes to better match your case._
 
@@ -143,13 +143,13 @@ p {
 }
 ```
 
-{% codeExampleLink 'https://codepen.io/jeremenichelli/pen/mKVPMg' %}
+{% codeExampleLink '//codepen.io/jeremenichelli/pen/mKVPMg' %}
 
 ### The final result
 
 As you can see in the link above, the footprint of the styles added is not big at all and the animation runs smooth as the placeholder content is present.
 
-If you want to see how it looks in real life [take a look at this pull request](https://github.com/webpack/webpack.js.org/pull/2121) where the behavior was added to our `rebuild` branch.
+If you want to see how it looks in real life [take a look at this pull request](//github.com/webpack/webpack.js.org/pull/2121) where the behavior was added to our `rebuild` branch.
 
 The pull request contains two GIF sequences which expose how the user experience gets improved while waiting for dynamic content to reach the application.
 

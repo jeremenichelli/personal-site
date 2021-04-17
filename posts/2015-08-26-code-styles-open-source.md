@@ -23,23 +23,23 @@ The code style of your project is the result of the combination of a lot of rule
 
 ### Linting tools
 
-The first popular tool of this kind to appear was <a href="http://www.jslint.com/" target="_blank">jslint</a> and though is not being used by developers today it was an inspiration for the ones that currently are.
+The first popular tool of this kind to appear was [jslint](//www.jslint.com/) and though is not being used by developers today it was an inspiration for the ones that currently are.
 
-Our second tool in the list is <a href="http://jshint.com/" target="_blank">jshint</a>, which isn't a linting tool itself but one that tries to prevent potential problems in the script. The thing is that it contains some configurable options about code style too, so the lines are blurry here. To customize it you create a `.jshintrc` file in the root folder of your project, the configurable options can be found in the Documentation section of their page.
+Our second tool in the list is [jshint](//www.jshint.com/), which isn't a linting tool itself but one that tries to prevent potential problems in the script. The thing is that it contains some configurable options about code style too, so the lines are blurry here. To customize it you create a `.jshintrc` file in the root folder of your project, the configurable options can be found in the Documentation section of their page.
 
-The next one is <a href="http://jscs.info/" target="_blank">jscs</a> which is usually used in combination with **jshint**, but this one it is indeed a code style checker and nothing else. Popular because is used by well-known organizations like Google, Adobe and jQuery because it's fast, well documented and has presets that you can load. If you want to use the code styles that Google uses, in the `.jscsrc` file you can just configure one option:
+The next one is [jscs](//jscs.info/) which is usually used in combination with **jshint**, but this one it is indeed a code style checker and nothing else. Popular because is used by well-known organizations like Google, Adobe and jQuery because it's fast, well documented and has presets that you can load. If you want to use the code styles that Google uses, in the `.jscsrc` file you can just configure one option:
 
-```js
+```json
 {
-  "preset: "google"
+  "preset": "google"
 }
 ```
 
-And that's it, though I recommend you to check out <a href="https://github.com/jscs-dev/node-jscs/tree/master/presets" target="_blank">the presets folder in their GitHub repository</a> and see if there isn't any rule which you disagree with. In that case you can create your own preset.
+And that's it, though I recommend you to check out the presets folder in their GitHub repository and see if there isn't any rule which you disagree with. In that case you can create your own preset.
 
-The last one that I will mention is <a href="http://eslint.org/" target="_blank">eslint</a>. This one is the youngest one and covers both possible code issues and code styles. It has a really nice documentation and though is not as fast as **jscs** it gets the job done very well.
+The last one that I will mention is [eslint](//eslint.org/). This one is the youngest one and covers both possible code issues and code styles. It has a really nice documentation and though is not as fast as **jscs** it gets the job done very well.
 
-My choice lately has been the combination of both **jshint** and **jscs**, but I've also used **eslint**. While there's not a clear advantage thought I did notice something in particular. I was collaborating with Dustan Kasten in his really good <a href="https://github.com/iamdustan/smoothscroll">smooth scroll polyfill</a> and **eslint** was really accurate at detecting unused variables. Apparently **jshint** isn't that smart about them, if you're assigning something to a variable but then doing nothing with it **eslint** will notice it while **jshint** won't. At least that was my experience.
+My choice lately has been the combination of both **jshint** and **jscs**, but I've also used **eslint**. While there's not a clear advantage thought I did notice something in particular. I was collaborating with Dustan Kasten in his really good [smooth scroll polyfill](//github.com/iamdustan/smoothscroll) and **eslint** was really accurate at detecting unused variables. Apparently **jshint** isn't that smart about them, if you're assigning something to a variable but then doing nothing with it **eslint** will notice it while **jshint** won't. At least that was my experience.
 
 Also, in **eslint** instead of setting an option to be `true` or `false` you can configure it to be a warning. If we don't want a syntax error to affect the exit code, but we do want that to be reported in the terminal to caught the developer's attention we can set the rule in an array form with a code number and the rule value.
 
@@ -112,4 +112,4 @@ Today there are a lot of awesome tools with nice documentation we can use to pro
 
 Maybe the painful part is to set the configuration file which contains a lot of options. I usually turn all possible warnings or errors to true, run the command and start modifying or turning off the ones I don't consider harmful.
 
-In case you need a place to start I've created <a href="https://gist.github.com/jeremenichelli/a4dff3e4034d3c324380" target="_blank">a gist with an example for each of the tools</a> that were mentioned here.
+In case you need a place to start I've created [a gist with an example for each of the tools](//gist.github.com/jeremenichelli/a4dff3e4034d3c324380) that were mentioned here.

@@ -17,7 +17,7 @@ The best thing of this approach is that every iteration is independent from the 
 
 We need to do this so we don't actually modify the original one. There's an array method called _slice_ that takes two parameters, a start position and a number of elements you want to take from that position.
 
-It returns a new array containing only those elements, if you need a better understanding of it check [its MDN reference page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
+It returns a new array containing only those elements, if you need a better understanding of it check [its MDN reference page](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
 
 Interesting for us in this case scenario, if you don't pass any arguments to slice it returns a new array with the exact same elements, which is exactly what we need to prevent side effects inside our method.
 
@@ -31,11 +31,11 @@ Remember that in JavaScript an object as a paramenet is passed as reference, so 
 
 ### Get a random position
 
-To start, we are going to rely on the good ol' [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random), which returns a number between `0` and `0.99` always.
+To start, we are going to rely on the good ol' [Math.random](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random), which returns a number between `0` and `0.99` always.
 
 Let's say we have an array with three elements, if we call this method and then multiply the result with the length of the array we can get a value between _zero_ and _almost three_.
 
-With [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) we remove the floating part of any of the possible result, and now we can get _zero_, _one_ or _two_, the three available indexes in our three elements array.
+With [Math.floor](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) we remove the floating part of any of the possible result, and now we can get _zero_, _one_ or _two_, the three available indexes in our three elements array.
 
 ```js
 function shuffle(array) {
@@ -85,7 +85,7 @@ function shuffle(array) {
 
 And that's it! In terms of space this is creating two new arrays of the same length, which might not be optimal but in my case arrays longer than 20 items was weird so it wasn't a concern.
 
-About its complexity in time, it would be `O(n)` in [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation), more than acceptable for non-critical conditions.
+About its complexity in time, it would be `O(n)` in [Big O notation](//en.wikipedia.org/wiki/Big_O_notation), more than acceptable for non-critical conditions.
 
 We can even return early when an array is empty or only contains one element, which it happened a lot inside the business logic this code was placed.
 
@@ -109,7 +109,7 @@ function shuffle(array) {
 }
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/sbLjxweu/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/sbLjxweu/' %}
 
 I've created a fiddle _(link above)_ where you can see this working. It also contains an iteration that gets executed a one hundred thousand times and its results showing the frequencies distribution in the console.
 
@@ -117,7 +117,7 @@ After running those tests and making sure it worked well I started searching for
 
 ## Using sort, just don't
 
-Don't get me wrong, I think [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) is great, but when used for its original purposes, to establish a new known order in an array.
+Don't get me wrong, I think [sort](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) is great, but when used for its original purposes, to establish a new known order in an array.
 
 For that you need a criteria and a compare function that responds to it. Random isn't a known order and has no criteria, but well, here's the little monster I found out there.
 
@@ -137,9 +137,9 @@ That's pretty useful when you are actually sorting elements but since we want to
 
 I imagined this problem wasn't new and that probably smarter people than me already had a solution for a well distributed and performant algorithm.
 
-Luckily that was true. The solution is very old and it's called [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle), named after Ronald Fisher and Frank Yates and it assures that any possible permutation is equally possible.
+Luckily that was true. The solution is very old and it's called [Fisher-Yates shuffle](//en.wikipedia.org/wiki/Fisher–Yates_shuffle), named after Ronald Fisher and Frank Yates and it assures that any possible permutation is equally possible.
 
-This algorithm is the one applied by [lodash](https://github.com/lodash/lodash/blob/master/shuffle.js) in their `_.shuffle` method.
+This algorithm is the one applied by [lodash](//github.com/lodash/lodash/blob/master/shuffle.js) in their `_.shuffle` method.
 
 ## Wrap-up
 

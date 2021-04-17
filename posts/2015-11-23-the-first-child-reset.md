@@ -33,7 +33,7 @@ It just doesn't feel good.
 
 ## An old workaround
 
-There are a lot of selectors that we don't use on a daily basis because they are weird, we're not familiar with them or we just don't need them. Let's bring back one of those, <a href="https://developer.mozilla.org/en/docs/Web/CSS/Adjacent_sibling_selectors" target="_blank">the plus selector</a>, which adds styles to adjacent elements.
+There are a lot of selectors that we don't use on a daily basis because they are weird, we're not familiar with them or we just don't need them. Let's bring back one of those, [the plus selector](//developer.mozilla.org/en/docs/Web/CSS/Adjacent_sibling_selectors), which adds styles to adjacent elements.
 
 So, instead of applying a style and immediately reseting it we could just do this:
 

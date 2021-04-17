@@ -34,7 +34,7 @@ In the decipher process the opposite happens to get the original phrase.
 P[i] = H[i] - K[i] MODULE 26
 ```
 
-If you want to know more about it you can go to <a href="https://en.wikipedia.org/wiki/Vigenère_cipher" target="_blank">the Wikipedia article about Vigenère</a> where you're going to find that actually the person who thought about this first was Giovan Battista Bellaso in 1553. Shame on you Vigenère!
+If you want to know more about it you can go to the [Wikipedia article about Vigenère](//en.wikipedia.org/wiki/Vigenère_cipher) where you're going to find that actually the person who thought about this first was Giovan Battista Bellaso in 1553. Shame on you Vigenère!
 
 ## Alphabetic encryption in C
 
@@ -42,7 +42,7 @@ Each language has some cool stuff and caveats. **C** is not a new language so it
 
 Sometimes those small quirks end up being the reason why solving a problem in a specific language is the right choice. If you are not familiar with it, in **C** there isn't such a thing as a type `string`, but there is a type `char` for character. Strings are actually arrays of characters.
 
-Also, `char` variables can work both as characters and integers taking their numeric value from the <a href="http://www.asciitable.com/" target="_blank">ASCII table</a>.
+Also, `char` variables can work both as characters and integers taking their numeric value from the [ASCII table](//www.asciitable.com/).
 
 ```c
 char letter = "A";
@@ -159,4 +159,4 @@ You can also create two reference strings one for lowercase and other for upperc
 
 It's great to see how small parts of a language structure can change drastically the solution you build of the same problem.
 
-If you're more curious about this, I've put a Vigenère solution that works with both uppercase and lowercase and ignores special characters in a <a href="https://github.com/jeremenichelli/vigenere" target="_blank">GitHub repository</a> so you can check it out and play with it.
+If you're more curious about this, I've put a Vigenère solution that works with both uppercase and lowercase and ignores special characters in a [GitHub repository](//github.com/jeremenichelli/vigenere) so you can check it out and play with it.

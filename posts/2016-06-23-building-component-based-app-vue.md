@@ -69,7 +69,7 @@ new Vue({
 });
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/k9vatv0m/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/k9vatv0m/' %}
 
 The library is really well documented, one of the things I like the most about it. Give the [guide][guide] a quick read which details methods, features available and also explains how it works under the hood.
 
@@ -99,7 +99,7 @@ Vue.component('search-box', {
   },
   methods: {
     onSearch() {
-      const BASE_URL = 'https://www.omdbapi.com/?r=json';
+      const BASE_URL = '//www.omdbapi.com/?r=json';
 
       this.searching = true;
 
@@ -136,7 +136,7 @@ new Vue({
 });
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/k4xqwto9/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/k4xqwto9/' %}
 
 ### Props
 
@@ -168,15 +168,15 @@ Vue.component('results-list', {
       results: [
         {
           title: 'Batman Begins',
-          url: 'https://www.imdb.com/title/tt0372784'
+          url: '//www.imdb.com/title/tt0372784'
         },
         {
           title: 'The Dark Knight',
-          url: 'https://www.imdb.com/title/tt0468569'
+          url: '//www.imdb.com/title/tt0468569'
         },
         {
           title: 'The Dark Knight Rises',
-          url: 'https://www.imdb.com/title/tt1345836'
+          url: '//www.imdb.com/title/tt1345836'
         }
       ]
     };
@@ -184,7 +184,7 @@ Vue.component('results-list', {
 });
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/eoa5qhsf/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/eoa5qhsf/' %}
 
 Props are prefixed with a _colon_ because we are passing a data reference, but it should be removed when passing the value itself.
 
@@ -370,7 +370,7 @@ As any other framework, its ecosystem kind of forces you to do things you might 
 [vue-router]: //github.com/vuejs/vue-router
 [scoped-css]: //github.com/webpack/css-loader#local-scope
 [jsx]: //facebook.github.io/react/docs/jsx-in-depth.html
-[css-modules]: http://andrewhfarmer.com/what-are-css-modules/
+[css-modules]: //andrewhfarmer.com/what-are-css-modules/
 [vue-loader]: //github.com/vuejs/vue-loader
 [vueify]: //github.com/vuejs/vueify
 [vue-cli]: //github.com/vuejs/vue-cli

@@ -5,7 +5,7 @@ excerpt: There's a discussion taking place in the front end development industry
 
 ## Are you sure you need that framework?
 
-I remember having a strong opinion about <a href="/2014/05/stop-the-jquery-abuse/" target="_blank">not using jQuery</a>, not because I was against the library itself but because most of the developers that included it in their projects only used a small part of it like the selector engine or the class manipulation API.
+I remember having a strong opinion about [not using jQuery](/2014/05/stop-the-jquery-abuse/), not because I was against the library itself but because most of the developers that included it in their projects only used a small part of it like the selector engine or the class manipulation API.
 
 Lots of bytes to load and not the best performance can cause an undesired negative effect over the user experience when you can solve most of the stuff you do with native APIs.
 
@@ -17,7 +17,7 @@ Cross browsing support is a good argument, but modern ones are still the most us
 
 Just like DOM selection for jQuery, data binding is one of the reason why developers tend to use an MVC framework, but again it comes with other stuff that might be useful but you might not need. There are a lot of small data binding alternatives that will perform equally or better than these libraries.
 
-Last year I <a href="https://github.com/jeremenichelli/mnster" target="_blank">wrote a small data binding library</a>, nothing complicated it just covers the basic needs when inserting data dinamically with JavaScript and a super easy API to add new bindings in seconds.
+Last year I wrote [a small data binding library](//github.com/jeremenichelli/mnster), nothing complicated it just covers the basic needs when inserting data dinamically with JavaScript and a super easy API to add new bindings in seconds.
 
 ### Using mnster
 
@@ -161,9 +161,9 @@ If this is more convenient than adding a whole framework or not will depend on w
 
 ### Live example
 
-You can see this approach working in a simple web app to visualize GitHub user profiles I wrote recently using another library of mine called <a href="https://github.com/jeremenichelli/jabiru" target="_blank">jabiru</a> to manage **jsonp** requests and <a href="https://github.com/jeremenichelli/mnster" target="_blank">mnster</a> for **data binding** with the template logic that was explored in this post.
+You can see this approach working in a simple web app to visualize GitHub user profiles I wrote recently using another library of mine called [jabiru](//github.com/jeremenichelli/jabiru) to manage **jsonp** requests and [mnster](//github.com/jeremenichelli/mnster) for **data binding** with the template logic that was explored in this post.
 
-You can check it out in its <a href="https://github.com/jeremenichelli/octosearch" target="_blank">repository</a> or <a href="https://jeremenichelli.github.io/octosearch" target="_blank">see it in action</a>.
+You can check it out in its [repository](//github.com/jeremenichelli/octosearch).
 
 ## Wrap-up
 

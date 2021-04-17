@@ -37,12 +37,12 @@ If you need your client to post and edit content then probably a dynamic site wi
 
 Are you doing a simple blog? Then probably a static site generator is a better option, they are usually quicker to set up and you will have more awareness of the code that composes it.
 
-While it's undeniable that Wordpress rules a big part of the web proving that dynamic site generators are not going anywhere, static site generators are part of big projects too like <a href="http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/" target="_blank">Obama's fundraising campaing</a>.
+While it's undeniable that Wordpress rules a big part of the web proving that dynamic site generators are not going anywhere, static site generators are part of big projects too like [Obama's fundraising campaing](//kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/).
 
 ## Wrap-up
 
 Dynamic site generators are a great option for end users to keep the content changing in their sites, but static ones offer similar features and they allow faster responses from the server if you can deal with their limitations.
 
-Here's a list of all the static generator around in the community: <a href="https://staticsitegenerators.net/" target="_blank">https://staticsitegenerators.net/</a> in case you want to investigate what your options are inside this category or you can watch <a href="https://www.youtube.com/watch?v=vT7DhK5zbv0" target="_blank">Brian Rinaldi comparing the eight more popular static site generators in JekyllConf</a>.
+There's a list of all the static generator around at [staticsitegenerators.net](//staticsitegenerators.net/) in case you want to investigate what your options are inside this category or you can watch [Brian Rinaldi comparing the eight more popular static site generators](//www.youtube.com/watch?v=vT7DhK5zbv0) at JekyllConf</a>.
 
-This site is built in <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, which is the most popular choice in the static field these days. If you have more questions about this feel free to send me an email or write me on twitter.
+This site is built in [Jekyll](//jekyllrb.com/), which is the most popular choice in the static field these days. If you have more questions about this feel free to send me an email or write me on twitter.

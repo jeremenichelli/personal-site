@@ -163,7 +163,7 @@ Want an example? **Yes**.
 If your app requires the **Google Maps JavaScript API** to work, you will need to load its script and provide the **API key** assigned for you.
 
 ```html
-<script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=mapsResolve"></script>
+<script src="//maps.googleapis.com/maps/api/js?key=API_KEY&callback=mapsResolve"></script>
 ```
 
 Of course this verification causes a delayed ready state for its use, so we are also provided with a callback query parameter to pass a function name that will be executed when the API is available.
@@ -215,5 +215,5 @@ It is important to mention that **load** and **error** events aren't supported b
 
 I recommend checking Ryan Grove's table for [browser support on link and script events][2] and the Filament Group's approach on asynchronous loading in case you consider implementing a similar strategy in a production environment.
 
-[1]: http://www.html5rocks.com/en/tutorials/es6/promises/
-[2]: https://pie.gd/test/script-link-events/
+[1]: //www.html5rocks.com/en/tutorials/es6/promises/
+[2]: //pie.gd/test/script-link-events/

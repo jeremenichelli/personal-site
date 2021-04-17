@@ -97,7 +97,7 @@ For it to work you also need to inline some JavaScript in the page to check the 
 
 ```js
 if (localStorage.getItem('mode') === 'dark') {
-  document.documentElement.classList.toggle('darkMode', true);
+  document.documentElement.classList.toggle(DARK_MODE_CLASSNAME, true);
 }
 ```
 
@@ -154,7 +154,7 @@ And that's it! Now, go and fix the dark mode of your site, or let the developer 
 
 ### Some gotchas
 
-If you are using <a href="//browsersync.io/" rel="noopener noreferrer" target="_blank">Browsersync</a> as part of your development environment you might not see this issue while working locally on your project.
+If you are using [Browsersync](//browsersync.io/) as part of your development environment you might not see this issue while working locally on your project.
 
 That's because _Browsersync is doing it for you_, but of course, it won't work once you deploy your site.
 
@@ -164,20 +164,20 @@ In your configuration, set `ghostMode` to `false` while working on this.
 
 Something I didn't mention in this piece is the `prefers-color-scheme` option.
 
-Instead of a custom toggle, you can consume whatever preference the user has set on their device, [I wrote an article about how to do that](/2019/05/a-css-variables-implementation-of-dark-mode/) you can go and check it out.
+Instead of a custom toggle, you can consume whatever preference the user has set on their device, I wrote [an article about how to do that](/2019/05/a-css-variables-implementation-of-dark-mode/) already.
 
-The reasons I didn't cover this here are:
+The reasons I didn't cover this approach here are:
 
-- If you went with that approach _only_, then your site is already _reactive_ to those setting changes.
-- Even when `prefers-color-scheme` is in <a href="//caniuse.com/prefers-color-scheme" rel="noopener noreferrer" target="_blank">a decent compatibility situation</a> in modern browsers, they depend on the device the user is in to have a color scheme setting, which is not always the case.
+- If you support _only_ that option, then your site is already _reactive_ to those setting changes.
+- Even when `prefers-color-scheme` is in [a decent compatibility situation](//caniuse.com/prefers-color-scheme) in modern browsers, they depend on the device the user is in to have a color scheme setting, which is not always the case.
 - The dark mode toggles I am talking about usually don't have this option, even if they do have a **three states toggle** and you repeat the user flow form above and choose the system option, the other previously opened tabs won't react to this configuration change.
 - As a user, I don't change constantly the color scheme setting in my device depending on the site or time of the day. I am always on dark or light scheme and switch the specific site settings depending on the conditions I am in at the moment.
 
 ## Wrap up
 
-Shout out to <a href="//twitter.com/jaffathecake" rel="noopener noreferrer" target="_blank">Jake Archibald</a> who started a research on web storage usage, which I participated in. Reading his <a href="//docs.google.com/document/d/1cCTBZR6nWsVC2TlQ8PBse7eBb4ro0rtPJxX0zCou1lw/" rel="noopener noreferrer" target="_blank">findings</a> led me to check all this.
+Shout out to [Jake Archibald](//twitter.com/jaffathecake) who started a research on web storage usage, which I participated in. Reading his [findings](//docs.google.com/document/d/1cCTBZR6nWsVC2TlQ8PBse7eBb4ro0rtPJxX0zCou1lw/) led me to check all this.
 
-Do you want to see a working solution to this? Go to <a href="//jeremenichelli-mode-but-right.glitch.me" rel="noopener noreferrer" target="_blank">this link</a> and check both the code from this article and a preview.
+Do you want to see a working solution to this? Go to [this link](//jeremenichelli-mode-but-right.glitch.me/) and check both the code from this article and a preview.
 
 ### Updates
 

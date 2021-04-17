@@ -49,9 +49,9 @@ Yes, it's recommended to add a meta tag for Internet Explorer to indicate we wan
 
 ### The world wide web is getting mobile
 
-This one is pretty new, the **viewport** tag indicates how a mobile device will render your site. Modern devices have a lot of pixels. To show visible and sharp content they take more pixels to form only one pixel from your page. Confusing? I suggest you <a href="https://developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag" target="_blank">read the article the folks from Mozilla Developer Network wrote</a> that contains a pretty good explanation on how this works.
+This one is pretty new, the `viewport` tag indicates how a mobile device will render your site. Modern devices have a lot of pixels. To show visible and sharp content they take more pixels to form only one pixel from your page. Confusing? I suggest you read [the article the folks in Mozilla Developer Network](//developer.mozilla.org/en/docs/Mozilla/Mobile/Viewport_meta_tag) which contains a pretty good explanation on how this works.
 
-The standard is to indicate the width of the viewport, the height, and the initial scale of the rendering. It's not an impossible scenario but it's weird to set the height of the viewport because usually web sites content grow vertically. The most usual configuration is to set the width as the device width and an initial scale of **1**. You can also indicate a maximum scale though the user will not be able to pinch and zoom which can compromise accessibility.
+The standard is to indicate the width of the viewport, the height, and the initial scale of the rendering. It's not an impossible scenario but it's weird to set the height of the viewport because usually web sites content grow vertically. The most usual configuration is to set the width as the device width and an initial scale of `1`. You can also indicate a maximum scale though the user will not be able to pinch and zoom which can compromise accessibility.
 
 Now, let's update our head tag.
 
@@ -80,7 +80,7 @@ This link tag is used to specify which url the page is refering in case you have
   <title>Page Title | Section | Website Title</title>
 
   <!-- if your mobile URL is different from the desktop URL, add a canonical link to the desktop page -->
-  <link rel="canonical" href="http://www.example.com/path/to/page" />
+  <link rel="canonical" href="//www.example.com/path/to/page" />
 </head>
 ```
 
@@ -88,7 +88,7 @@ This link tag is used to specify which url the page is refering in case you have
 
 If you've never heard of them, a **favicon** is that little icon you see in your browsers tab or location bar. They usually have a small size and are a really nice touh to personalize your project.
 
-The problem here is fragmentation. Each browser expects a different size and not all of them support any image type. If you look at <a href="https://github.com/google/web-starter-kit/blob/master/app/index.html" target="_blank">the header inside the Web Starter Kit</a> you're going to notice a set of icons for Chrome, another one for Safari and a final one to support Windows 8 touch icons. But if you really want to cover all the edge cases then you'll have to go to <a href="http://realfavicongenerator.net/" target="_blank">Real Favicon Generator</a> site which will nicely let you update an image and generate the whole set. You will immediately notice that providing a favicon for every browser around is not that simple.
+The problem here is fragmentation. Each browser expects a different size and not all of them support any image type. If you look at [the header inside the Web Starter Kit](//github.com/google/web-starter-kit/blob/master/app/index.html) you're going to notice a set of icons for Chrome, another one for Safari and a final one to support Windows 8 touch icons. But if you really want to cover all the edge cases then you'll have to go to [Real Favicon Generator](//realfavicongenerator.net/) site which will nicely let you update an image and generate the whole set. You will immediately notice that providing a favicon for every browser around is not that simple.
 
 ```html
 <!-- Cover all apple devices -->
@@ -194,7 +194,7 @@ Yes, you need all of those icons. You can create them by yourself or let the too
 
 ## Scripts
 
-No. Don't put scripts here since they are going to block rendering. In cases where you need **HTML5** tags to work in legacy browsers you will need <a href="https://github.com/afarkas/html5shiv" target="_blank">html5shiv</a> in the head tag.
+No. Don't put scripts here since they are going to block rendering. In cases where you need **HTML5** tags to work in legacy browsers you will need [html5shiv](//github.com/afarkas/html5shiv) in the head tag.
 
 ```html
 <!--[if lt IE 9]>
@@ -210,7 +210,7 @@ The correct form is to include the content of the script minified inside a scrip
 
 Last year there was a move impulsed mostly by Google devs and their web standars to provide to the user the web site with a **content** first approach. This means that while adding a link tag with a stylesheet in the past was not wrong, it's now seen as a bad practice because your blocking content renderization.
 
-To solve this, put the most critical CSS rules in a style tag, also called **above the fold** styles, and load the rest of the rules by adding the stylesheet using Javascript. The incredible guys from Filament Group have a small script to achieve this called <a href="https://github.com/filamentgroup/loadCSS" target="_blank">loadCSS</a> which I suggest you dig in.
+To solve this, put the most critical CSS rules in a style tag, also called **above the fold** styles, and load the rest of the rules by adding the stylesheet using Javascript. The incredible guys from Filament Group have a small script to achieve this called [loadCSS](//github.com/filamentgroup/loadCSS) which I suggest you dig in.
 
 ### Other content
 
@@ -230,7 +230,7 @@ Let's take a deep breath and see what a complete **head** tag looks like.
   <title>Page Title | Section | Website Title</title>
 
   <!-- if your mobile URL is different from the desktop URL, add a canonical link to the desktop page -->
-  <link rel="canonical" href="http://www.example.com/path/to/page" />
+  <link rel="canonical" href="//www.example.com/path/to/page" />
 
   <!-- Cover all apple devices -->
   <link

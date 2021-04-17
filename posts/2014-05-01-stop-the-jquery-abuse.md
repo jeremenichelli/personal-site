@@ -22,9 +22,9 @@ Every architech, tech lead and freelance developers have to make themselves this
 
 Class manipulation is one of the most used features in jQuery, but don't browsers already know how to lead with classes in HTML Elements?
 
-**The answer is yes**. Of course one of the problems is that [classList is not supported in some browsers](http://caniuse.com/classlist), but does your project support these browsers?
+**The answer is yes**. Of course one of the problems is that [classList is not supported in some browsers](//caniuse.com/classlist), but does your project support these browsers?
 
-If your answer is no then you can use classList. If the answer is yes then, why not build a specific shim to cover this instead of adding a library that does a lot of things that you're not going to use? Doing this will decrease the page load time and if the browser can use classList you'll see that [performance also improves](http://jsperf.com/classlistvsjquery).
+If your answer is no then you can use classList. If the answer is yes then, why not build a specific shim to cover this instead of adding a library that does a lot of things that you're not going to use? Doing this will decrease the page load time and if the browser can use classList you'll see that [performance also improves](//jsperf.com/classlistvsjquery).
 
 Going back to StateFarm project we had to cover Web ARIA features and that involves modifing attributes a lot, so using `attr()` jQuery function was very common. The thing is that **browsers already know how to handle this** with this two functions:
 

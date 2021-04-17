@@ -22,7 +22,7 @@ markdown: redcarpet
 permalink: pretty
 ```
 
-Some of the values here are default like the **port**, but the default **markdown** engine is karmdown. My choice is <a href="https://github.com/vmg/redcarpet" target="_blank" rel="noopener noreferrer">redcarpet</a>.
+Some of the values here are default like the **port**, but the default **markdown** engine is karmdown. My choice is [redcarpet](//github.com/vmg/redcarpet).
 
 Except for the build settings, the rest of the properties you declare here are going to be available in your layouts under the `site` namespace.
 
@@ -34,7 +34,7 @@ The most common parts are the head tag, the header and the footer of your site, 
 
 > Includes make maintainance much easier, something similar to what you have in php based generators
 
-Doing this will make maintainance much easier, something similar to what you have in php based generators like Wordpress. This time, they are just **.html** files and the only thing you're required to do is to include this parts inside the **\_includes** folder and nothing more.
+Doing this will make maintainance much easier, something similar to what you have in php based generators like Wordpress. This time, they are just `.html` files and the only thing you're required to do is to include this parts inside the **\_includes** folder and nothing more.
 
 You can still play a little with Liquid here. For example inside the head tag you can check if the page has a title, and if not you can default you the site title.
 
@@ -67,14 +67,14 @@ This is the name of your folder where your layouts, pretty obvious, are going to
   %}{% endraw %}
 
   <body>
-    <section class="page-wrapper">{% raw %}{{content}}{% endraw %}</section>
+    <section class="page-wrapper">{% raw %}{{ content }}{% endraw %}</section>
   </body>
 
   {% raw %}{% include footer.html %}{% endraw %}
 </html>
 ```
 
-Pretty easy to understand. We're going to call this layout **default.html**, but if we want more special layouts for pages or posts we can add as many as we want. For example let's create a post layout structure. This time the `{% raw %}{{ content }}{% endraw %}` placeholder will hold the text inside the article and not the whole page.
+Pretty easy to understand. We're going to call this layout `default.html`, but if we want more special layouts for pages or posts we can add as many as we want. For example let's create a post layout structure. This time the `{% raw %}{{ content }}{% endraw %}` placeholder will hold the text inside the article and not the whole page.
 
 ```html
 <!DOCTYPE html>
@@ -87,7 +87,7 @@ Pretty easy to understand. We're going to call this layout **default.html**, but
       <p class="post-date">{% raw %}{{ page.date }}{% endraw %}</p>
     </section>
     <h1 class="post-title">{{ page.title}}</h1>
-    <article class="post-content">{% raw %}{{content}}{% endraw %}</article>
+    <article class="post-content">{% raw %}{{ content }}{% endraw %}</article>
   </body>
 
   {% raw %}{% include footer.html %}{% endraw %}
@@ -112,10 +112,10 @@ This is the **index** page. This site is built with Jekyll.
 
 After you've saved this file in the root folder, you can run the `serve` command and see the results.
 
-You might have noticed that before starting with the content we specify the **layout** that Jekyll needs to use to render this page as a configuration property. You can also put other variables like a **title** or **excerpt** and they can be access through the `page` namespace as we did in our **head.html** file above.
+You might have noticed that before starting with the content we specify the `layout` that Jekyll needs to use to render this page as a configuration property. You can also put other variables like a `title` or `excerpt` and they can be access through the `page` namespace as we did in our `head.html` file above.
 
 ## Wrap-up
 
 Placing html files in some specific folders and with some basic Liquid blocks we're able to build inifinte template flavours. This is why Jekyll is so powerful, it relies on simple languages and technologies.
 
-I hope you found this article useful, if not you can always go to [Jekyll's official documentation](http://jekyllrb.com/docs/frontmatter/).
+I hope you found this article useful, if not you can always go to [Jekyll's official documentation](//jekyllrb.com/docs/frontmatter/).

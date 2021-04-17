@@ -11,11 +11,11 @@ It's a static site generator written in Ruby, the programming language that will
 
 It does use some other languages and tools that gives us the power to build custom and more complex stuff, the good part is that these techonologies are not hard to learn and they are well documented.
 
-For configuration and data files <a href="https://en.wikipedia.org/?title=YAML" target="_blank">YAML</a> is used, though you're not going to manipulate this type of files very often, probably just at the beginning and when setting data files.
+For configuration and data files [YAML](wikipedia.org/wiki/YAML) is used, though you're not going to manipulate this type of files very often, probably just at the beginning and when setting data files.
 
-For templating, **Liquid**. Never heard of it? I recommend <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers" target="_blank">Shopify reference sheet for designers</a>. If you're familiar with other template engines it won't be hard at all to get used to it. The knowledge you will need on this will depend on how complex the layouts you want to build are.
+For templating, **Liquid**. Never heard of it? I recommend [Shopify reference sheet for designers](//github.com/Shopify/liquid/wiki/Liquid-for-Designers/). If you're familiar with other template engines it won't be hard at all to get used to it. The knowledge you will need on this will depend on how complex the layouts you want to build are.
 
-For your pages and posts you can just use HTML, but if you like them <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a> and <a href="https://gist.github.com/LeRoove/1536449" target="_blank">Textile</a> are supported. Though they're not perfect and complete tools, they are great if you need highlighting code syntax inside your posts like me.
+For your pages and posts you can just use HTML, but if you like them [Markdown](//guides.github.com/features/mastering-markdown/) and [Textile](//gist.github.com/LeRoove/1536449) are supported. Though they're not perfect and complete tools, they are great if you need highlighting code syntax inside your posts like me.
 
 To sum up very quickly these last paragraphs, Jekyll is a static site generator written in Ruby that uses YAML files for configuration, Liquid for templating and gives you the option of Markdown and Textile to build pages.
 
@@ -23,15 +23,9 @@ To sum up very quickly these last paragraphs, Jekyll is a static site generator 
 
 So, you want to build a site or just know what all the fuss is about, then this is what you have to install.
 
-**Jekyll** runs on **Ruby**, so this is the first basic requirement, here you can download the correct installation package depending on your operative system:
+**Jekyll** runs on **Ruby**, so this is the first basic requirement, here you can download the correct installation package depending on your operative system: [ruby-lang.org/en/downloads/](//www.ruby-lang.org/en/downloads/)
 
-<a href="https://www.ruby-lang.org/en/downloads/" target="_blank">https://www.ruby-lang.org/en/downloads/</a>
-
-You're also going to need **RubyGems** which is a package manager framework for Ruby which you can download here:
-
-<a href="https://rubygems.org/pages/download" target="_blank">https://rubygems.org/pages/download</a>
-
-<a href="https://www.nodejs.org" target="_blank">NodeJS</a> is required only if you want CoffeScript support out of the box.
+You're also going to need **RubyGems** which is a package manager framework for Ruby which you can download here: rubygems.org/pages/download](//rubygems.org/pages/download)
 
 Now we are ready to install this **gem** by simple running this in the terminal.
 
@@ -39,7 +33,7 @@ Now we are ready to install this **gem** by simple running this in the terminal.
 gem install jekyll
 ```
 
-You might need admin permission to complete this, in that case run it again with `sudo` before. If you're having some other issue regarding installation check the <a href="http://jekyllrb.com/docs/installation/" target="_blank">official documentation</a> about this particular stage.
+You might need admin permission to complete this, in that case run it again with `sudo` before. If you're having some other issue regarding installation check the [official documentation](//jekyllrb.com/docs/installation/) about this particular stage.
 
 ## Folder structure
 
@@ -72,13 +66,13 @@ jekyll build --w
 
 It will detect modifications and trigger a build process automatically. Magic.
 
-To browse your site, use the **serve** command.
+To browse your site, use the `serve` command.
 
 ```bash
 jekyll serve
 ```
 
-You can now test your work locally by typing **localhost:4000** in your browser. If you use the `--w` flag here you won't need another tab running the build process. If you want to see your drafts listed in your site posts add `--drafts`.
+You can now test your work locally by typing `localhost:4000` in your browser. If you use the `--w` flag here you won't need another tab running the build process. If you want to see your drafts listed in your site posts add `--drafts`.
 
 ```bash
 jekyll serve --w --drafts
@@ -88,4 +82,4 @@ jekyll serve --w --drafts
 
 I hope this information was clear enough for you to have a quick and painless start using this great tool.
 
-I swear to you that the learning curve is not steep, and in case you find difficulties in the process there's <a href="https://talk.jekyllrb.com" target="_blank">a brand new forum</a> where you can ask for help and of course you can reach me via email or twitter if you have a quick question.
+I swear to you that the learning curve is not steep, and in case you find difficulties in the process there's [a brand new forum](//talk.jekyllrb.com/) where you can ask for help and of course you can reach me via email or twitter if you have a quick question.

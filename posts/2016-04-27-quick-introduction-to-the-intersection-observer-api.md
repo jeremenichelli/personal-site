@@ -101,7 +101,7 @@ function onChange(changes) {
 }
 ```
 
-_Check in caniuse.com [which browsers](https://caniuse.com/#feat=intersectionobserver) don't support this._
+_Check in caniuse.com [which browsers](//caniuse.com/#feat=intersectionobserver) don't support this._
 
 You might wonder why intersection ratios are important, the fact is that the usual example for this new interface are around lazy loading images, like I just did so it doesn't count as shaming, but let's say you want to trigger an animation on a visible element.
 
@@ -132,7 +132,7 @@ As I mentioned before, the second argument the observer constructor receives all
 - `rootMargin` accepts a collection of values as string similar to CSS margins and allows you to shrink the area of the root element that's going to take in count when calculating intersection ratios.
 - `threshold` can be a number or an array of numbers to inform the observer to only fire when a certain portion of the element is visible, recommended for more complex ratio situations like when you want the whole element to be visible you can pass `1.0`, then the callback will act.
 
-It's possible though not immediately probable you will need to alter these values. If you do, I recommend checking out [the MDN page](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) for intersection observers use.
+It's possible though not immediately probable you will need to alter these values. If you do, I recommend checking out [the MDN page](//developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) for intersection observers use.
 
 ## Wrap-up
 
@@ -140,7 +140,7 @@ It's interesting to see vendors filling up the gaps between what we do on our pr
 
 If you find yourself observing the DOM as you scroll to observe elements you should definitely consider intersection observers as a more performant solution as it immediately frees the main thread for its execution.
 
-You can always add a [polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill) for legacy browsers that don't support or for partial implementations.
+You can always add a [polyfill](//github.com/w3c/IntersectionObserver/tree/master/polyfill) for legacy browsers that don't support or for partial implementations.
 
 ### Updates
 

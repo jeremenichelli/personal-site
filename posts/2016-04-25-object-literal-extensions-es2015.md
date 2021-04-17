@@ -127,6 +127,6 @@ The new version of JavaScript is coming to modern browsers faster as we probably
 
 That in addition to the fallen of legacy browsers and how mature the language is getting with this much needed update makes 2016 a good time to start getting familiar with these new features.
 
-[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-[2]: https://kangax.github.io/compat-table/es6/
-[3]: https://babeljs.io/
+[1]: //developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+[2]: //kangax.github.io/compat-table/es6/
+[3]: //babeljs.io/

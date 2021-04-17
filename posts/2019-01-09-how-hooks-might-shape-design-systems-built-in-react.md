@@ -5,7 +5,7 @@ excerpt: If you use it regularly or play around with React to build stuff for th
 
 OK, maybe you are already tired of hearing about them. But the hype is justified, hooks though not in their final form yet are already proving to be a nice pattern to extend capabilities for functional components.
 
-_This article doesn't serve the purposes of an introduction to hooks, if you don't know about them I suggest [watching Dan Abramov presenting them](https://www.youtube.com/watch?v=dpw9EHDh2bM) or [read the documentation available](https://reactjs.org/docs/hooks-overview.html) for it and come back later._
+_This article doesn't serve the purposes of an introduction to hooks, if you don't know about them I suggest [watching Dan Abramov presenting them](//www.youtube.com/watch?v=dpw9EHDh2bM) or [read the documentation available](//reactjs.org/docs/hooks-overview.html) for it and come back later._
 
 As someone who has been working in design systems over the past year and using React for it, I can already detect a lot of golden opportunities to simplify and unify the logic these codebases need to handle.
 
@@ -128,7 +128,7 @@ Finally, as a second argument, we are passing an array with `isOpen` indicating 
 
 This way we avoid a whole rewrite of the component to a class.
 
-_Read about the useEffect hook [here](https://reactjs.org/docs/hooks-effect)._
+_Read about the useEffect hook [here](//reactjs.org/docs/hooks-effect)._
 
 ## Distribution of simple behaviors
 
@@ -173,13 +173,13 @@ const Dialog = ({ isOpen, title, content }) => {
 };
 ```
 
-{% codeExampleLink 'https://codesandbox.io/s/pl8ollk70' %}
+{% codeExampleLink '//codesandbox.io/s/pl8ollk70' %}
 
 Now, the behavior can be shared across the components of the system. This also has an impact in other parts of the repositories like the unit tests suite.
 
 I need to make sure all components with lifecycles altering the body styles work properly, which means writing the same unit tests over and over again. With this pattern, we would only need to test the behavior once at the hook's level.
 
-_Read about building custom hooks [here](https://reactjs.org/docs/hooks-custom)._
+_Read about building custom hooks [here](//reactjs.org/docs/hooks-custom)._
 
 ## Goodbye dumb states
 
@@ -246,7 +246,7 @@ const Menu = ({ options }) => {
 
 The value we pass to `useState` becomes the initial state, later each `setOpen` call will modify it, without the need of a class at all.
 
-_Read about the useState hook [here](https://reactjs.org/docs/hooks-state)._
+_Read about the useState hook [here](//reactjs.org/docs/hooks-state)._
 
 ## Wrap up
 
@@ -258,4 +258,4 @@ Building our own hooks and distributing them across the project will help us con
 
 Remember that **hooks are not production ready**, and there could be serious performance regressions and behavior changes in the future so keep their use as experimental.
 
-_Thanks [Sara Vieira](https://iamsaravieira.com/) for proofreading this piece._
+_Thanks [Sara Vieira](//iamsaravieira.com/) for proofreading this piece._

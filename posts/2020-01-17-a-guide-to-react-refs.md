@@ -2,8 +2,8 @@
 title: 'A guide to React refs: useRef and createRef'
 excerpt: In this article, we're going to investigate why React, a framework meant to abstract your code away from DOM manipulation, leaves the door open for developers to access it.
 host: LogRocket
-host_url: https://blog.logrocket.com
-external_url: https://blog.logrocket.com/a-guide-to-react-refs/
+host_url: //blog.logrocket.com
+external_url: //blog.logrocket.com/a-guide-to-react-refs/
 ---
 
 As is the case with many other UI libraries, React offers a way to rethink a view as the result of a state of a component.
@@ -250,7 +250,7 @@ class InputModal extends React.Component {
 export default InputModal;
 ```
 
-{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-gvrpo' %}
+{% codeExampleLink '//codesandbox.io/s/input-modal-example-gvrpo' %}
 
 Remember that you need to access the element through the `current` property.
 
@@ -327,7 +327,7 @@ class InputModal extends React.Component {
 export default InputModal;
 ```
 
-{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-1to08' %}
+{% codeExampleLink '//codesandbox.io/s/input-modal-example-1to08' %}
 
 Here, we are checking if the element click is out of the modal limits.
 
@@ -435,7 +435,7 @@ class InputModal extends React.Component {
 export default InputModal;
 ```
 
-{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-z63vr' %}
+{% codeExampleLink '//codesandbox.io/s/input-modal-example-z63vr' %}
 
 At the constructor level, we are setting up the initial animation values, which will modify the styles of our DOM references. The timeline only plays when the component mounts.
 
@@ -552,7 +552,7 @@ const LabelledInput = (props, ref) => {
 export default React.forwardRef(InputCombo);
 ```
 
-{% codeExampleLink 'https://codesandbox.io/s/input-modal-example-l2wst' %}
+{% codeExampleLink '//codesandbox.io/s/input-modal-example-l2wst' %}
 
 To achieve this, we'll pass a second argument to our function and place it in the desired element.
 
@@ -572,4 +572,4 @@ Remember to use refs only when there is an implicit function call React can't ha
 
 Also, make sure it doesn't alter the internal state of the components.
 
-For more information, [read the official React documentation](https://reactjs.org/docs/react-api.html#reactcreateref) about refs.
+For more information, [read the official React documentation](//reactjs.org/docs/react-api.html#reactcreateref) about refs.

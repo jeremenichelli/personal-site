@@ -81,7 +81,7 @@ Instead of comparing the whole object, check for a key or a combination of them 
 
 ### Pure components
 
-Another solution is to extend from [PureComponent](https://facebook.github.io/react/docs/react-api.html#react.purecomponent) class. This will run shallow compares on all props and states to know when a given component should update.
+Another solution is to extend from [PureComponent](//facebook.github.io/react/docs/react-api.html#react.purecomponent) class. This will run shallow compares on all props and states to know when a given component should update.
 
 I suggest only using this class when all the props are primitives, running shallow compares on objects and arrays might have a higher cost than the render function call itself.
 
@@ -199,7 +199,7 @@ class Movies extends Component {
 }
 ```
 
-{% codeExampleLink 'https://jsfiddle.net/jeremenichelli/rt9tnk45/' %}
+{% codeExampleLink '//jsfiddle.net/jeremenichelli/rt9tnk45/' %}
 
 These optimizations are similar to the ones shown before, the final take is to place outside the render function everything that will remain constant.
 

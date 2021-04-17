@@ -120,7 +120,7 @@ The only issue with this approach is that right now, not everybody will be able 
 
 Currently, the `prefers-color-scheme` media query has been released in latest desktop Safari, and it's scheduled for Firefox and Chrome upcoming versions.
 
-_Here's the [caniuse.com table](https://caniuse.com/#feat=prefers-color-scheme) of the feature._
+_Here's the [caniuse.com table](//caniuse.com/#feat=prefers-color-scheme) of the feature._
 
 The other limitation, it needs the OS to support a color scheme switch, right now only present in macOS Mojave. You can see how it looks in the [pull request](//github.com/jeremenichelli/personal-site/pull/13) I created for this site.
 

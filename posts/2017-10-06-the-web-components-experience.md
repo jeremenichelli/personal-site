@@ -301,7 +301,7 @@ template.innerHTML = `
 
 But `<slot>` tags are not just content placeholders, they can be named to get a better control of the place where the children nodes will be.
 
-If you want to know more about this I recommend checking [Eric Bidelman's explanation about named slots](https://developers.google.com/web/fundamentals/web-components/shadowdom#slots) in shadow DOM.
+If you want to know more about this I recommend checking [Eric Bidelman's explanation about named slots](//developers.google.com/web/fundamentals/web-components/shadowdom#slots) in shadow DOM.
 
 ## From props to attributes, from reactive data to getters and setters
 
@@ -401,7 +401,7 @@ This could scalate to tons of event listeners and property mutations that will b
 
 Web components do solve part of the current component situation in web development. Having a native way to achieve encapsulation and templating operating at a low level in the browser will be hard to beat on performance.
 
-As libraries get better at [working with custom elements](https://custom-elements-everywhere.com/), the interoperatibility will be a big win for the platform, a company could build one component that teams using Angular or Vue could make use of.
+As libraries get better at [working with custom elements](//custom-elements-everywhere.com/), the interoperatibility will be a big win for the platform, a company could build one component that teams using Angular or Vue could make use of.
 
 > JavaScript frameworks as we know them are never going to deliver interop.
 > <cite>Alex Russell</cite>
@@ -410,12 +410,12 @@ In the same way I've built a _patch_ to use refs in custom elements, other devel
 
 I'm really excited about what things web components will allow in the platform.
 
-_These thoughs came from building an entire React app in web components, which is open sourced and you can check out here: [https://github.com/jeremenichelli/movies-web-components](https://github.com/jeremenichelli/movies-web-components)_
+_These thoughs came from building an entire React app in web components, which is open sourced and you can check out here: [//github.com/jeremenichelli/movies-web-components](//github.com/jeremenichelli/movies-web-components)_
 
 ### Other resources
 
-- [Web components: the long game](https://infrequently.org/2017/10/web-components-the-long-game/) by Alex Russell
-- Some of the techniques I showed here are also covered in Rob Dodson video on [how to build a toggle button](https://www.youtube.com/watch?v=16gvkPfPIx4&t=416s)
-- Great advices from Monica Dinculescu, [practical lessons from a year of building web components](https://www.youtube.com/watch?v=zfQoleQEa4w&t=1519s)
+- [Web components: the long game](//infrequently.org/2017/10/web-components-the-long-game/) by Alex Russell
+- Some of the techniques I showed here are also covered in Rob Dodson video on [how to build a toggle button](//www.youtube.com/watch?v=16gvkPfPIx4&t=416s)
+- Great advices from Monica Dinculescu, [practical lessons from a year of building web components](//www.youtube.com/watch?v=zfQoleQEa4w&t=1519s)
 
-_Thanks to [Tim van der Lippe‏](https://twitter.com/TimvdLippe) for useful feedback on reactive data section._
+_Thanks to [Tim van der Lippe‏](//twitter.com/TimvdLippe) for useful feedback on reactive data section._

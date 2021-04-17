@@ -2,8 +2,8 @@
 title: A peek at new methods coming to Promises
 excerpt: Promises are one of the most celebrated features introduced to JavaScript. Having a native asynchronous artifact baked right into the language has opened up a new era, changing not only how we write code but also setting up the base for other freat APIs — like fetch! Let's step back a moment to recap the features we gained when they were initially released and what new bells and whistles we’re getting next.
 host: CSS-Tricks
-host_url: https://css-tricks.com
-external_url: https://css-tricks.com/a-peek-at-new-methods-coming-to-promises/
+host_url: //css-tricks.com
+external_url: //css-tricks.com/a-peek-at-new-methods-coming-to-promises/
 ---
 
 Promises are one of the most celebrated features introduced to JavaScript. Having a native asynchronous artifact baked right into the language has opened up a new era, changing not only how we write code but also setting up the base for other freat APIs — like _fetch_!
@@ -49,7 +49,7 @@ Promise.all([
 
 In this case, `Promise.all` will short-circuit and go to `catch` as soon as one of the members of the collections throws an error, or settle when all promises are `fulfilled`.
 
-_Check out this [short writing](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) about promises states by Domenic Denicola for a more detailed explanation about the wording and concepts about them._
+_Check out this [short writing](//github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) about promises states by Domenic Denicola for a more detailed explanation about the wording and concepts about them._
 
 We also have `Promise.race`, which immediately resolves to the first promise it gets back, whether it was fulfilled or rejected. After the first promise gets resolved, the remaining ones are ignored.
 
@@ -103,7 +103,7 @@ This is sort of like `Promise.race` except that `Promise.race` short-circuits on
 
 ## Demo
 
-Some of these are much easier to understand with a visual, so I put together a [little playground](https://promise-combinators.netlify.com/) that shows the differences between the new and existing methods.
+Some of these are much easier to understand with a visual, so I put together a [little playground](//promise-combinators.netlify.com/) that shows the differences between the new and existing methods.
 
 ## Wrap-up
 
@@ -111,4 +111,4 @@ Though they are still in proposal stage, there are community scripts that emulat
 
 They also show how the community is already using these kind of asynchronous patterns, but having them built-in will open the possibilities for new patterns in data fetching and asynchronous resolution for web applications.
 
-If you want to know more about the upcoming `Promise` combinators, [the V8 blog just published a short explanation](https://v8.dev/features/promise-combinators) with links to the official spec and proposals.
+If you want to know more about the upcoming `Promise` combinators, [the V8 blog just published a short explanation](//v8.dev/features/promise-combinators) with links to the official spec and proposals.

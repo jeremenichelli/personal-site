@@ -2,13 +2,13 @@
 title: Building a Progress Ring, Quickly
 excerpt: On some particularly heavy sites, the user needs to see a visual cue temporarily to indicate that resources and assets are still loading before they taking in a finished site. There are different kinds of approaches to solving for this kind of UX, from spinners to skeleton screens.
 host: CSS-Tricks
-host_url: https://css-tricks.com
-external_url: https://css-tricks.com/building-progress-ring-quickly/
+host_url: //css-tricks.com
+external_url: //css-tricks.com/building-progress-ring-quickly/
 ---
 
 On some particularly heavy sites, the user needs to see a visual cue temporarily to indicate that resources and assets are still loading before they taking in a finished site. There are different kinds of approaches to solving for this kind of UX, from spinners to skeleton screens.
 
-If we are using an out-of-the-box solution that provides us the current progress, like [preloader package by Jam3](https://www.npmjs.com/package/preloader) does, building a loading indicator becomes easier.
+If we are using an out-of-the-box solution that provides us the current progress, like [preloader package by Jam3](//www.npmjs.com/package/preloader) does, building a loading indicator becomes easier.
 
 For this, we will make a ring/circle, style it, animate given a progress, and then wrap it in a component for development use.
 
@@ -77,7 +77,7 @@ This will cause no change initially, but if we also set to the `stroke-dashoffse
 
 Decreasing `stroke-dasharray` would start to reveal our shape.
 
-A few years ago, Jake Archibald explained this technique [in this article](https://jakearchibald.com/2013/animated-line-drawing-svg/), which also has a live example that will help you understand it better. You should go read his tutorial.
+A few years ago, Jake Archibald explained this technique [in this article](//jakearchibald.com/2013/animated-line-drawing-svg/), which also has a live example that will help you understand it better. You should go read his tutorial.
 
 ### The circumference
 
