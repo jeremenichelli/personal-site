@@ -1,5 +1,3 @@
-const MarkdownIt = require('markdown-it');
-
 const externalHrefRegex = /^https?:\/\/|^\/\//gm;
 
 const markdownItExternalLinks = (md) => {
