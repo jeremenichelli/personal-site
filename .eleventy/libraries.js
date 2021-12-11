@@ -9,11 +9,13 @@ const markdownItOptions = {
 };
 
 const markdownItAnchorOptions = {
-  permalink: true,
-  permalinkSymbol: '#',
-  permalinkBefore: true,
-  permalinkClass: 'heading__anchor',
-  level: [2, 3, 4]
+  level: [2, 3, 4],
+  permalink: markdownItAnchor.permalink.linkInsideHeader({
+    symbol: '',
+    placement: 'before',
+    ariaHidden: true,
+    renderAttrs: () => ({ tabindex: '-1' })
+  })
 };
 
 const md = markdownIt(markdownItOptions).use(

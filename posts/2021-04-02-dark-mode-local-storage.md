@@ -170,7 +170,7 @@ The reasons I didn't cover this approach here are:
 
 - If you support _only_ that option, then your site is already _reactive_ to those setting changes.
 - Even when `prefers-color-scheme` is in [a decent compatibility situation](//caniuse.com/prefers-color-scheme) in modern browsers, they depend on the device the user is in to have a color scheme setting, which is not always the case.
-- The dark mode toggles I am talking about usually don't have this option, even if they do have a **three states toggle** and you repeat the user flow form above and choose the system option, the other previously opened tabs won't react to this configuration change.
+- The dark mode toggles I am talking about usually don't have this option, even if they do have a **three states toggle** and you repeat the user flow from above and choose the system option, the other previously opened tabs won't react to this configuration change.
 - As a user, I don't change constantly the color scheme setting in my device depending on the site or time of the day. I am always on dark or light scheme and switch the specific site settings depending on the conditions I am in at the moment.
 
 ## Wrap up
