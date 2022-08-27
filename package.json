@@ -17,7 +17,7 @@
     "start": "npm run serve",
     "build": "eleventy",
     "assets": "npm run bundle && npm run less && npm run favicons && npm run fonts:copy && npm run images",
-    "validate:feed": "feed-validator _site/feed.xml --no-showfeed",
+    "validate:feed": "node .scripts/feed-validator.js",
     "prerelease": "npm run clean",
     "release": "npm run assets && npm run build",
     "postrelease": "npm run validate:feed",
@@ -47,7 +47,6 @@
     "eleventy-nbsp-filter": "^0.1.0",
     "eleventy-xml-plugin": "^0.1.0",
     "favicons": "^6.2.0",
-    "feed-validator": "^1.1.1",
     "glob": "^7.1.4",
     "html-minifier": "^4.0.0",
     "husky": "^4.3.6",
@@ -62,7 +61,8 @@
     "prettier": "^2.2.1",
     "rimraf": "^2.6.3",
     "rollup": "^2.35.1",
-    "rollup-plugin-terser": "^5.3.1"
+    "rollup-plugin-terser": "^5.3.1",
+    "xml2js": "^0.4.23"
   },
   "husky": {
     "hooks": {
@@ -83,6 +83,5 @@
     "iOS 10",
     "Safari 10",
     "Opera 36"
-  ],
-  "dependencies": {}
+  ]
 }
