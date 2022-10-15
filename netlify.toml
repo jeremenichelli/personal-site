@@ -12,6 +12,6 @@
 
 # Set headers for scripts
 [[headers]]
-  for = '/assets/fonts/*'
+  for = '/assets/js/*'
   [headers.values]
     cache-control = 'public, max-age=604800' # One week
