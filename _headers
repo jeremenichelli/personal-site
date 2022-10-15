@@ -1,0 +1,7 @@
+# Set headers for font files
+/assets/fonts/*
+  cache-control: public, max-age=18144000 # One month
+
+# Set headers for scripts
+/assets/js/*
+  cache-control: public, max-age=604800 # One week
