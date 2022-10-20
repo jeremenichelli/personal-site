@@ -1,11 +1,17 @@
+# Node modules
 node_modules
+
+# Output directory
 _site
 
-# ignore includes generated at build time
+# Ignore includes generated at build time
 _includes/generated
 
-# ignore assets generated at build time
+# Ignore assets generated at build time
 assets
 
-# ignore error logs
+# Ignore error logs
 *.log
+
+# MACS
+.DS_Store
