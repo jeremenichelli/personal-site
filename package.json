@@ -76,12 +76,15 @@
     ]
   },
   "browserslist": [
-    "Chrome 49",
-    "ChromeAndroid 49",
-    "Firefox 36",
-    "Edge 12",
-    "iOS 10",
-    "Safari 10",
-    "Opera 36"
+    "> 0.5%",
+    "not dead",
+    "Chrome >= 90",
+    "ChromeAndroid >= 90",
+    "Firefox >= 90",
+    "Edge >= 79",
+    "Safari >= 12",
+    "iOS >= 12",
+    "Samsung >= 17",
+    "Opera >= 89"
   ]
 }
