@@ -9,7 +9,20 @@ main {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  100% {
+    opacity: 100;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .home__title {
+  opacity: 0;
+  animation: fadeIn forwards ease-out 0.35s 0.15s;
   font-size: 2.625rem; // mobile 42px
   font-weight: 800;
   line-height: 1;
@@ -22,6 +35,8 @@ main {
 }
 
 .home__subtitle {
+  opacity: 0;
+  animation: fadeIn forwards ease-out 0.35s 0.35s;
   color: var(--secondary);
   font-size: 0.9375rem; // mobile 15px
   font-weight: normal;
@@ -35,11 +50,15 @@ main {
 }
 
 .home__bio {
+  opacity: 0;
+  animation: fadeIn forwards ease-out 0.35s 0.55s;
   margin: 2rem 0;
   max-width: 32rem;
 }
 
 .home__nav--line {
+  opacity: 0;
+  animation: fadeIn forwards ease-out 0.35s 0.75s;
   color: var(--secondary);
   line-height: 1;
   margin: 1rem 0 0;
