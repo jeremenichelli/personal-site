@@ -38,8 +38,6 @@ module.exports = function (eleventyConfig) {
   /* COPY */
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addPassthroughCopy('robots.txt');
-  eleventyConfig.addPassthroughCopy('_headers');
-  eleventyConfig.addPassthroughCopy('_redirects');
 
   /* HTML */
   eleventyConfig.addTransform('htmlmin', htmlmin);
