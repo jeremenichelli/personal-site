@@ -1,0 +1,17 @@
+# Redirect /feed to feed.xml RSS file
+[[redirects]]
+  from = "/feed"
+  to = "/feed.xml"
+  force = true
+
+# Set headers for font files
+[[headers]]
+  for = '/assets/fonts/*'
+  [headers.values]
+    cache-control = 'public, max-age=18144000' # One month
+
+# Set headers for scripts
+[[headers]]
+  for = '/assets/js/*'
+  [headers.values]
+    cache-control = 'public, max-age=604800' # One week
