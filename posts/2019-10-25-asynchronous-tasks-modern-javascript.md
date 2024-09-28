@@ -25,9 +25,9 @@ button.addEventListener('click', function (e) {
 
 If we add an event listener, for example the click of an element and the user triggers this interaction, the JavaScript engine will queue a task for the event listener callback but will continue executing what is present in its current stack. After it’s done with the calls present there, it will now run the listener’s callback.
 
-This behavior is similar to what happens with network requests and timers, which were the first artifacts to access to asynchronous execution for web developers.
+This behavior is similar to what happens with network requests and timers, which were the first artifacts to access asynchronous execution for web developers.
 
-Though these were exceptions of common synchronous execution in JavaScript, it’s crucial to understand that the language is still single-threaded and though it can queue taks, run them asynchronously and then go back to the main thread, it can only execute one piece of code at a time.
+Though these were exceptions of common synchronous execution in JavaScript, it’s crucial to understand that the language is still single-threaded and though it can queue tasks, run them asynchronously and then go back to the main thread, it can only execute one piece of code at a time.
 
 For example, let’s check out a network request.
 
@@ -55,7 +55,7 @@ This is why code shaped this way is called the **Observer Pattern**, which is be
 
 ### Node.js And Event Emitters
 
-A good example is Node.js which page describes itself as “an asynchronous event-driven JavaScript runtime”, so event emitters and callback were first-class citizens. It even had an `EventEmitter` constructor already implemented.
+A good example is Node.js which page describes itself as “an asynchronous event-driven JavaScript runtime”, so event emitters and callbacks were first-class citizens. It even had an `EventEmitter` constructor already implemented.
 
 ```js
 const EventEmitter = require('events');
@@ -88,7 +88,7 @@ You might notice that callbacks receive an `error` as a first argument, if a res
 
 ## Promises And The Endless Callback Chain
 
-As web development faced more complex problems to solve, the need for better asynchronous artifacts appeared. If we look at the last code snippet, we can see a repeated callback chaining which doesn’t scale well as the number tasks increase.
+As web development faced more complex problems to solve, the need for better asynchronous artifacts appeared. If we look at the last code snippet, we can see a repeated callback chain which doesn’t scale well as the number of tasks increases.
 
 For example, let’s add only two more steps, file reading and styles preprocessing.
 
@@ -136,7 +136,7 @@ const asyncReadFile = (path, options) => {
 };
 ```
 
-Here we obscure the callback by executing inside a Promise constructor, calling `resolve` when the method result is successful, and `reject` when the error object is defined.
+Here we obscure the callback by executing inside a `Promise` constructor, calling `resolve` when the method result is successful, and `reject` when the error object is defined.
 
 When a method returns a `Promise` object we can follow its successful resolution by passing a function to `then`, its argument is the value which the promise was resolved, in this case, `data`.
 
@@ -180,7 +180,7 @@ readFile('./main.less', 'utf-8')
 
 There is a clear reduction of redundancy in the code, especially around the error handling as we now rely on `catch`, but Promises somehow failed to deliver a clear code indentation that directly relates to the concatenation of actions.
 
-This is actually achieved on the first `then` statement after `readFile` is called. What happens after these lines is the need to create a new scope where we can first make the directory, to later write the result in a file. This causes a _break_ into the indentation rhythm, not making it easy to determinate the instructions sequence at first glance.
+This is actually achieved on the first `then` statement after `readFile` is called. What happens after these lines is the need to create a new scope where we can first make the directory, to later write the result in a file. This causes a _break_ into the indentation rhythm, not making it easy to determine the instructions sequence at first glance.
 
 A way to solve this is to pre-baked a custom method that handles this and allows the correct concatenation of the method, but we would be introducing one more depth of complexity to a code that already seems to have what it needs to achieve the task we want.
 
@@ -208,7 +208,7 @@ readFile('./main.less', 'utf-8')
 
 Inside an async method, we can use the `await` reserved word to determinate the resolution of a `Promise` before continuing its execution.
 
-Let’s revisit or code snippet using this syntax.
+Let’s revisit our code snippet using this syntax.
 
 ```js
 const { mkdir, writeFile, readFile } = require('fs').promises;
@@ -252,7 +252,7 @@ processLess();
 
 We rest assured any error thrown in the process will be handled by the code inside the `catch` statement. We have a centric place that takes care of error handling, but now we have a code that is easier to read and follow.
 
-Having consequent actions that returned value doesn’t need to be stored in variables like `mkdir` that don’t break the code rhythm; there’s also no need to create a new scope to access the value of `result` in a later step.
+Having consequent actions that return value doesn’t need to be stored in variables like `mkdir` that don’t break the code rhythm; there’s also no need to create a new scope to access the value of `result` in a later step.
 
 It’s safe to say Promises were a fundamental artifact introduced in the language, necessary to enable async/await notation in JavaScript, which you can use on both modern browsers and latest versions of Node.js.
 
