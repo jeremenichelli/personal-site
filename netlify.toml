@@ -1,6 +1,6 @@
 # Redirect to new site
 [[redirects]]
-  from = "/*"
+  from = "https://jeremenichelli.io/*"
   to = "https://jeremias.codes/:splat"
   status = 301
   force = true
